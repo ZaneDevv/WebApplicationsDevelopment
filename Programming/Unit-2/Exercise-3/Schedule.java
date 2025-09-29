@@ -1,17 +1,18 @@
-/*
-	This class writes on terminal the schedule my classmates and I have in our computer science class once the main method is executed.
-	This schedule is written following the next structure:
-	
-		   Monday | Tuesday | Wednessday | Thursday | Friday
-	time |   S1   |   S1    |     S1     |    S1    |   S1
-	time |   S2   |   S2    |     S2     |    S2    |   S2
-	time |   S3   |   S3    |     S3     |    S3    |   S3
-	     ----------------------------------------------------
-	time |   S4   |   S4    |     S4     |    S4    |   S4
-	time |   S5   |   S5    |     S5     |    S5    |   S5
-	time |   S6   |   S6    |     S6     |    S6    |   S6
-	
-	Coded by Álvaro Fernández Barrero, in 2025/09/26.
+/**
+*	This class writes on terminal the schedule my classmates and I have in our computer science class once the main method is executed.
+*	This schedule is written following the next structure:
+*	
+*		   Monday | Tuesday | Wednessday | Thursday | Friday
+*	time |   S1   |   S1    |     S1     |    S1    |   S1
+*	time |   S2   |   S2    |     S2     |    S2    |   S2
+*	time |   S3   |   S3    |     S3     |    S3    |   S3
+*	     ----------------------------------------------------
+*	time |   S4   |   S4    |     S4     |    S4    |   S4
+*	time |   S5   |   S5    |     S5     |    S5    |   S5
+*	time |   S6   |   S6    |     S6     |    S6    |   S6
+*	
+*	@date 2025/09/26
+*	@author Álvaro Fernández Barrero
 */
 
 public class Schedule
