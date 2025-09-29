@@ -1,0 +1,67 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{physics}
+\usepackage{color}
+
+\geometry{margin=1in}
+
+\title{Changing numerical system}
+\author{Álvaro Fernández Barrero}
+\date{2025/09/29}
+
+
+\begin{document}
+\maketitle
+
+We have several numeral systems used in different areas of engineering and computer science — not only the one we are most familiar with (decimal), but also binary, octal, and even hexadecimal.\\
+
+As humans, we are used to the decimal system since childhood, so it's a bit difficult to think in other numeral systems.\\
+
+Fortunately, we have methods to convert a number from one numeral system to another. This means that whenever we encounter a number in an unfamiliar system, we can convert it to its decimal equivalent to work with it — and vice versa.\\
+
+First, let's recall that any number can be expressed as the sum of its digits multiplied by powers of ten, based on the position of each digit. Mathematically, we can express this as:
+
+\[
+    \psi_{(10} = \sum_{\lambda = -n}^{m} \sigma_{\lambda} 10^{\lambda}, \quad \forall \psi \in \mathbb{R}, \; \forall n,m \in \mathbb{N}
+\]
+
+This formula is valid for any number written in the decimal system — that's why 10 appears as the base. This number is known as the "base" of the numeral system.\\
+
+Hence, we can apply this same logic for any base \beta.
+
+\[
+	\psi_{(\beta} = \sum_{\lambda = -n}^{m} \sigma_{\lambda} \beta^{\lambda}, \quad  \forall \psi \in \mathbb{R}, \; \forall n,m \in \mathbb{N}
+\]
+
+This is called the \textbf{Fundamental Theorem of Numeration}, and although the formula I presented is for real numbers, we can extend this concept to all \( z \in \mathbb{C} \), \( q \in \mathbb{H} \), or any other type of number we can think of. We can even set the base to \( \pi \), \( e \), or \( \phi \).\\
+
+Since, in this formula, \(\beta \) will be set to a number in our decimal system (which corresponds to the amount of symbols for numbers we have in the given system), the result will be equal to the number in that system but in decimal system, making it easier to read and work with.\\
+
+\pagebreak
+
+Binary \to decimal
+
+\[
+	\sigma_{(2} = 110001110_{(2} = \sum_{\lambda = 0}^{8} \sigma_{\lambda} 2^{\lambda} = 2 + 2^{2} + 2^{3} + 2^{7} + 2^{8} = 398_{(10}
+\]
+
+\[
+	\sigma_{(2} = 100011100_{(2} = \sum_{\lambda = 0}^{8} \sigma_{\lambda} 2^{\lambda} = 2^{2} + 2^{3} + 2^{4} + 2^{8} = 284_{(10}
+\]
+
+\[
+	\sigma_{(2} = 1011110_{(2} = \sum_{\lambda = 0}^{6} \sigma_{\lambda} 2^{\lambda} = 2 + 2^{2} + 2^{3} + 2^{4} + 2^{6} = 94_{(10}
+\]
+
+\[
+	\sigma_{(2} = 11100011_{(2} = \sum_{\lambda = 0}^{6} \sigma_{\lambda} 2^{\lambda} = 1 + 2 + 2^{5} + 2^{6} + 2^{7} = 227_{(10}
+\]
+
+Decimal \to binary
+
+\end{document}
+
