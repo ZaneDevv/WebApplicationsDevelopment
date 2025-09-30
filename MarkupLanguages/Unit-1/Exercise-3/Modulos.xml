@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<ciclos>
+  <ciclo>
+    <nombre>SMR</nombre>
+  
+    <primero>
+    
+      <modulo>
+        <nombre>Montaje y mantenimiento de equipo</nombre>
+        <profesor>Francisco de las Heras</profesor>
+        <horas>8</horas>
+      </modulo>
+      
+      <modulo>
+        <nombre>Ofimática</nombre>
+        <profesor>Francisco de las Heras</profesor>
+        <horas>8</horas>
+      </modulo>
+      
+      <modulo>
+        <nombre>Sistemas operativos monopuesto</nombre>
+        <profesor>David Rojas</profesor>
+        <horas>8</horas>
+      </modulo>
+      
+      <modulo>
+        <nombre>Redes locales</nombre>
+        <profesor>Adela Cabrera</profesor>
+        <horas>8</horas>
+      </modulo>
+      
+    </primero>
+    <segundo>
+    
+    <modulo>
+        <nombre>Sistemas operativos en red</nombre>
+        <profesor>Francisca Molina</profesor>
+        <horas>8</horas>
+      </modulo>
+      
+      <modulo>
+        <nombre>Seguridad informática</nombre>
+        <profesor>Manuel Díaz</profesor>
+        <horas>8</horas>
+      </modulo>
+    
+      <modulo>
+        <nombre>Servicios en red</nombre>
+        <profesor>José Carlos Martín</profesor>
+        <horas>8</horas>
+      </modulo>
+      
+      <modulo>
+        <nombre>Aplicaciones web</nombre>
+        <profesor>Paco</profesor>
+        <horas>4</horas>
+      </modulo>
+    
+    </segundo>
+ 
+  </ciclo>
+
+  <ciclo>
+    <nombre>DAW</nombre>
+
+    <primero>
+    
+     <modulo>
+        <nombre>Programación</nombre>
+        <profesor>Manuel Díaz</profesor>
+        <horas>8</horas>
+      </modulo>
+      
+       <modulo>
+        <nombre>Base de datos</nombre>
+        <profesor>Francisco Martínez</profesor>
+        <horas>6</horas>
+      </modulo>
+      
+      <modulo>
+        <nombre>Sistemas informáticos</nombre>
+        <profesor> Mª Belén Callejón</profesor>
+        <horas>5</horas>
+      </modulo>
+      
+       <modulo>
+        <nombre>Entorno de desarrollo</nombre>
+        <profesor>Álvaro</profesor>
+        <horas>3</horas>
+      </modulo>
+      
+      <modulo>
+        <nombre>Lenguaje de marcas</nombre>
+        <profesor> Mª Belén Callejón</profesor>
+        <horas>3</horas>
+      </modulo>
+      
+      <modulo>
+        <nombre>Digitalización</nombre>
+        <profesor>Manuel Díaz</profesor>
+        <horas>1</horas>
+      </modulo> 
+      
+      <modulo>
+        <nombre>Sostenibilidad</nombre>
+        <profesor>Manuel Díaz</profesor>
+        <horas>1</horas>
+      </modulo> 
+    
+    </primero>
+    
+    
+    
+    
+    <segundo>
+    
+      <modulo>
+        <nombre>Desarrollo web en entornos cliente</nombre>
+        <profesor>Jose Antonio Piñero</profesor>
+        <horas></horas>
+      </modulo>
+      
+      <modulo>
+        <nombre>Desarrollo web en entornos servidor</nombre>
+        <profesor>María Belén Callejón</profesor>
+        <horas></horas>
+      </modulo>
+      
+      <modulo>
+        <nombre>Despliegue de aplicaciones web</nombre>
+        <profesor></profesor>
+        <horas></horas>
+      </modulo>
+      
+      <modulo>
+        <nombre>Diseño de interfaces web</nombre>
+        <profesor>Francisca Molina</profesor>
+        <horas></horas>
+      </modulo>
+      
+    </segundo>
+    
+  
+  </ciclo>
+</ciclos>

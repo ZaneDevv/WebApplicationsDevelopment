@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<programming_language>
+  <name>java</name>
+  <code>
+    <![CDATA[
+      public class XMLTest
+      {
+        public static void main(String[] args)
+        {
+          String textToPrint = "Basic java code to test CDATA.!";
+          System.out.print(textToPrint);
+        }
+      }
+    ]]>
+  </code>
+</programming_language>

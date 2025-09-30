@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<equipo_futbol>
+
+    <equipo>
+        <nombre>Real madrid</nombre>
+        <ciudad>Madrid</ciudad>
+        <entrenador>Xabi Alonso</entrenador>
+        
+        <jugadores>
+            <jugador>Jude Bellingham</jugador>
+            <jugador>Vinícius Júnior</jugador>
+        </jugadores>
+    </equipo>
+    
+    <equipo>
+        <nombre>Barça</nombre>
+        <ciudad>Barcelona</ciudad>
+        <entrenador>Hansi Flick</entrenador>
+        
+        <jugadores>
+            <jugador>Lamine Yamal</jugador>
+            <jugador>Robert Lewandowski</jugador>
+        </jugadores>
+    </equipo>
+
+</equipo_futbol>
