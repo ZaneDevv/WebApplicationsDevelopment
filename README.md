@@ -1,14 +1,14 @@
-# Web Applications Development (bilingual)
+# 🌐 Web Applications Development (Bilingual)
 
-This repository contains all the projects and exercise I have made along my web development course.<br>
+This repository contains all the projects and exercises I have completed during my **Web Applications Development** course.
 
-First course:
-<ul>
-	<li>[`Programming`](./Programming).</li>
-	<li>[`DataBases`](./DataBases).</`li>
-	<li>Development enviroments.<li>
-	<li>Markup languages.<li>
-	<li>[`Computer systems`](./IT).<li>
-	<li>Sustainability.</li>
-	<li>Digitalization.</li>
-</ul>
+## 📚 First Course Subjects
+
+- [`Programming`](./Programming)
+- [`Databases`](./DataBases)
+- Development Environments
+- Markup Languages
+- [`Computer Systems`](./IT)
+- Sustainability
+- Digitalization
+
