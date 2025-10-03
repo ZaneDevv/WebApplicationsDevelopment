@@ -6,9 +6,9 @@ This repository contains all the projects and exercises I have completed during 
 
 - [`Programming`](./Programming)
 - [`Databases`](./DataBases)
-- Development Environments
-- Markup Languages
+- [`Markup Languages`](./MarkupLanguages)
 - [`Computer Systems`](./IT)
+- Development Environments
 - Sustainability
 - Digitalization
 
