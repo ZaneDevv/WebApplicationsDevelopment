@@ -21,7 +21,7 @@ public class Arithmetic
 		y = input.nextDouble();
 		
 		
-		// Computing basing arithmetic operations
+		// Computing basic arithmetic operations
 		
 		System.out.printf("%.3f + %.3f = %.3f\n", x, y, x + y);
 		System.out.printf("%.3f - %.3f = %.3f\n", x, y, x - y);
