@@ -1,0 +1,42 @@
+<!-- Specifing that we are using HTML5 -->
+<!DOCTYPE html>
+
+<!-- Creating a new HTML web-page in English -->
+<html lang="en">
+    <!-- Saving the nn-logical "abstract" part of the page -->
+    <head>
+        <!-- Sets the encoding system for text to UTF-8 so no-english characters can be recognised -->
+        <meta charset="UTF-8">
+
+        <!-- Sets a title to the page (this title will show up in the actual browser page) -->
+        <title>Global attributes</title>
+    </head>
+
+    <!-- Saves the actual structure of my page -->
+    <body>
+        <!-- Create a important big text as title in the page that says "Global attributes examples" -->
+        <h1>Global attributes examples</h1>
+
+        <!-- Creates a subtitle saying "Heading" with a "heading" identificator and a "red" class -->
+        <h2 id="heading" class="red">Heading</h2>
+
+        <!-- Creates a visible text with the same "red" class and a aquamarine background -->
+        <p class="red" style="background-color: aquamarine;">
+            This paragraph will be visible o the browser.
+        </p>
+
+        <!-- Creates a bad-written editable text -->
+        <p contenteditable spellcheck="true" tabindex="2">
+            This paragraph have bad ortography and is editable
+        </p>
+
+        <!-- Creates an untranslatable german text -->
+        <p lang="de" translate="no">
+            Dieser Paragraph ist auf Deutsch.
+        </p>
+
+        <!-- Creates two interactable texts -->
+        <input type="text" tabindex="1" />
+        <input type="text" tabindex="3" />
+    </body>
+</html>
