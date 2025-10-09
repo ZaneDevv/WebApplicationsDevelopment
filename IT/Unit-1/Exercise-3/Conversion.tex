@@ -1,0 +1,109 @@
+\documentclass[12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{physics}
+\usepackage{color}
+
+\geometry{margin=1in}
+
+\title{Relational algebra for databases}
+\author{Álvaro Fernández Barrero}
+\date{2025/09/29}
+
+\begin{document}
+\maketitle
+
+\section{Decimal \(\to\) binary}
+
+\[
+	100_{(10} = 1100100_{(2}
+\]
+\[
+	30_{(10} = 11110_{(2}
+\]
+\[
+	500_{(10} = 111110100_{(2}
+\]
+\[
+	251_{(10} = 11111011_{(2}
+\]
+
+\section{Decimal \(\to\) hexadecimal}
+
+\[
+	100_{(10} = 64_{(16}
+\]
+\[
+	30_{10} = 1E_{(16}
+\]
+\[
+	500_{10} = 1F4_{(16}
+\]
+\[
+	251_{10} = FB_{(16}
+\]
+
+\section{Decimal \(\to\) octal}
+
+\[
+	100_{(10} = 144_{(8}
+\]
+\[
+	30_{10} = 24_{(8}
+\]
+\[
+	500_{10} = 764_{(8}
+\]
+\[
+	251_{10} = 373_{(8}
+\]
+
+\section{Binary \(\to\) decimal}
+
+\[
+	\sigma_{(2} = 1100100_{(2} = \sum_{\lambda=0}^{6}\sigma_{\lambda}10^{\lambda} = 2^2 + 2^5 + 2^6 = 100_{(10}
+\]
+\[
+	\sigma_{(2} = 11110_{(2} = \sum_{\lambda=0}^{4}\sigma_{\lambda}10^{\lambda} = 2 + 2^2 + 2^3 + 2^4 = 30_{(10}
+\]
+\[
+	\sigma_{(2} = 111110100_{(2} = \sum_{\lambda=0}^{8}\sigma_{\lambda}10^{\lambda} = 2^2 + 2^4 + 2^5 + 2^6 + 2^7 + 2^8 = 500_{(10}
+\]
+\[
+	\sigma_{(2} = 11111011_{(2} = \sum_{\lambda=0}^{7}\sigma_{\lambda}10^{\lambda} = 1 + 2 + 2^4 + 2^4 + 2^5 + 2^6 + 2^7 = 259_{(10}
+\]
+
+\section{Binary \(\to\) hexadecimal}
+
+\section{Binary \(\to\) octal}
+
+\section{Hexadecimal \(\to\) decimal}
+
+\section{Hexadecimal \(\to\) binary}
+
+\section{Octal \(\to\) decimal}
+
+\section{Octal \(\to\) binary}
+
+\section{Text \(\to\) ASCII}
+
+\[
+    Alvaro = 65\;108\;118\;97\;114\;111
+\]
+\[
+    Fernandez = 70\;101\;114\;110\;97\;110\;100\;101\;122
+\]
+\[
+    Barrero = 66\;97\;114\;144\;101\;114\;111
+\]
+
+\section{ASCII \(\to\) text}
+
+\[
+    53\;69\;73\;74\;65\;6D\;61\;73 = Sistemas
+\]
+
+\end{document}
