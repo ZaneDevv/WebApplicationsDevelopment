@@ -2,6 +2,8 @@ import java.util.Scanner;
 
 public class InitialName
 {
+	private static final int CHARACTERS_IN_INITIALS = 2;
+
 	public static void main(String[] args)
 	{
 		// Defining variables
@@ -28,9 +30,9 @@ public class InitialName
 		
 		// Getting initials
 		
-		initials += name.substring(0, 1);
-		initials += lastName1.substring(0, 1);
-		initials += lastName2.substring(0, 1);
+		initials += name.substring(0, CHARACTERS_IN_INITIALS);
+		initials += lastName1.substring(0, CHARACTERS_IN_INITIALS);
+		initials += lastName2.substring(0, CHARACTERS_IN_INITIALS);
 		
 		System.out.printf("\nYour initials are %s.", initials);
 	}
