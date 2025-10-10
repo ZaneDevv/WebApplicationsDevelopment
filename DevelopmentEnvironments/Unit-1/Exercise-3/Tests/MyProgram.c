@@ -13,7 +13,7 @@ int main (void)
 	printf("Write another one:\n");
 	scanf("%d", &num2);
 	
-	resultado = resta(num1,num2);
+	resultado = subtract(num1, num2);
 	printf("The result is %d \n", result);
 	
 	return 0;
