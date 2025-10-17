@@ -1,0 +1,17 @@
+               LOD 20
+               ADD 22
+               STO 30
+               ADD 24
+               STO 32
+               HLT
+               NOP
+               NOP
+               NOP
+               NOP
+               18
+               -4
+               27
+               NOP
+               NOP
+               14
+               41
