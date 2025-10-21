@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>Colspans</title>
+    </head>
+    <body>
+        <table>
+            <caption>Solds information - First Semester</caption>
+
+            <!-- Colgroups -->
+            <colgroup>
+                <col style="background-color: #fffbe6;"> <!-- First column -->
+                <col style="background-color: #e6f7ff;"> <!-- Seocond column -->
+                <col style="background-color: #f9f9f9;"> <!-- Third column -->
+            </colgroup>
+
+            <thead>
+                <tr>
+                    <th colspan="3">Sells per Month and Product</th>
+                </tr>
+                <tr>
+                    <th>Month</th>
+                    <th>Product</th>
+                    <th>Sells (€)</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>January</td>
+                    <td>Shoes</td>
+                    <td>1500</td>
+                </tr>
+
+                <tr>
+                    <td>February</td>
+                    <td>Shirts</td>
+                    <td>1200</td>
+                </tr>
+
+                <tr>
+                    <td>March</td>
+                    <td>Pants</td>
+                    <td>1800</td>
+                </tr>
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="2">Total</td>
+                    <td>4500</td>
+                </tr>
+            </tfoot>
+        </table>
+    </body>
+</html>
