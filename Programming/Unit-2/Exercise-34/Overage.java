@@ -22,7 +22,7 @@ public class Overage
 		boolean isOverage = false;
 		
 		
-		// Setting radius
+		// Setting age
 		
 		System.out.println("How old are you?");
 		age = input.nextByte();
