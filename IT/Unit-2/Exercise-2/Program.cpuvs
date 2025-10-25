@@ -1,0 +1,8 @@
+               LOD 10
+               SUB 12
+               STO 14
+               HLT
+               NOP
+               22
+               6
+               16
