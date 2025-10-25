@@ -39,16 +39,22 @@ public class NumberGuesser
 		
 		do
 		{
+			// Setting default values
+			
 			targetNumber = (byte)(MINIMUM_LIMIT + Math.random() * (MAXIMUM_LIMIT + 1 - MINIMUM_LIMIT));
+			tries = 0;
 			hasWon = false;
 			
 			
-			while (tries <= MAXIMUM_TRIES)
+			while (tries < MAXIMUM_TRIES)
 			{
 				tries++;
 			
 				System.out.printf("What is your" + (tries == 1 ? "" : " next") + " guess? [%d, %d]\n", MINIMUM_LIMIT, MAXIMUM_LIMIT);
 				guessedNumber = input.nextByte();
+				
+				
+				// Checking if the set number is bigger, smaller or equal to the number to guess
 				
 				if (guessedNumber < targetNumber)
 				{
@@ -65,6 +71,8 @@ public class NumberGuesser
 				}
 			}
 			
+			// Game just finished
+			
 			if (hasWon)
 			{
 				System.out.printf(ANSI_GREEN + "You nailed it! The number was %d!" + ANSI_RESET + "\nYou guessed it with %d tries.\n", targetNumber, tries);
@@ -73,6 +81,8 @@ public class NumberGuesser
 			{
 				System.out.printf(ANSI_RED + "I\'m sorry, the number was %d..." + ANSI_RESET + "\nYou tried %d times, at least you are persevering...\n", targetNumber, tries);
 			}
+			
+			// Checking if the user wants to play again
 			
 			input.nextLine();
 		
