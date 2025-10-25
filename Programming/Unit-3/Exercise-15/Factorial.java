@@ -20,13 +20,16 @@ public class Factorial
 		
 		// Computing factorial
 		
-		for (byte i = 2; i <= n; i++)
+		if (n > 1)
 		{
-			factorial *= i;
+			for (byte i = 2; i <= n; i++)
+			{
+				factorial *= i;
+			}
 		}
 		
 		
-		// Printing result:
+		// Printing result
 		
 		System.out.printf("%d! = %d", n, factorial);
 		
