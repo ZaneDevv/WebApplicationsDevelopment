@@ -1,5 +1,10 @@
 import java.util.Scanner;
 
+/**
+ * @date 25/10/25
+ * @author Álvaro Fernández Barrero
+ */
+ 
 public class NumberGuesser
 {
 	// Defining colors
