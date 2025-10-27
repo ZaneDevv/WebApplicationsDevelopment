@@ -29,7 +29,7 @@ public class Division
 		
 		// Dividing x / y if and only if y is not 0
 		
-		if (y > 0)
+		if (y != 0)
 		{
 			System.out.printf("The result of %.2f / %.2f = %.2f", x, y, x / y);
 		}
