@@ -1,0 +1,18 @@
+Soil(ID#, Fill_Factor, Swell_Factor, Density, Type, Description)
+
+Project(Project_ID#, Description, Owner, Location, Duration, Budget, Start_Date, ID#)
+
+Travel(Segment_ID#, Project_ID#)
+Road(Segment_ID#, Type, Distance, GR, RR)
+Return(Segment_ID#, ID#)
+Dump_Area(ID#, Capacity, Owner, Location)
+
+Activity(Activity_ID#, Description, Quantity, Duration, Budget, Start_Dare, %_Complete, #Project_ID)
+
+Work(Activity_ID#, Equipment_ID#)
+
+GPS(GPS_ID#, Dale, Heading, Time, Speed, Information, Latitude, Longitude)
+
+Truck(Model#, Empty_Weight, Max_Weight, Heaped_Capacity, GPS_ID#)
+Load(Model#, Model#)
+Excavator(Model#, Backet_Capacity, Max_Dumping_Height, Max_Digging_Depth)

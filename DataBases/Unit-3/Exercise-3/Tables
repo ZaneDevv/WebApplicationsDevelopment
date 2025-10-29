@@ -1,0 +1,27 @@
+Direccion(ID_Direccion#, No.Calle, Colonia, No.Casa)
+
+
+Persona(No.Identidad#, Nombre, telefonos)
+
+Alumno(No.Identidad#, Nombre, telefonos, ID.PersonaResponsable, ID_Direccion#)
+
+Empleado(No.Identidad#, Nombre, telefonos, SueldoBase, HorasTrabajo)
+
+EAdministrative(No.Identidad#, ID_EAdmin, Nombre, telefonos, SueldoBase, HorasTrabajo, Cargo, Departamento)
+
+Maestro(No.Identidad#, Nombre, telefonos, SueldoBase, HorasTrabajo, AreaDocensia)
+
+
+Matricula(No.Identidad#, ID_CCradas#, Nota)
+
+
+ClassesCreadas(ID_CCreadas, Aula, Año, No.Identidad#)
+
+
+Seccion(Id.Seccion#, Cod.Seccion, #IdClase)
+
+
+Clase(IdClase, Nombre, Descripcion, HorasPorSemana, #IdCarrera)
+
+
+Carrera(IdCarrera, Nombre)

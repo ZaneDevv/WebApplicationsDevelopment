@@ -1,0 +1,11 @@
+Diseño(Id_diseño#, DNI# Formato, Tamaño_diseño)
+
+Cliente(DNI, Tipo_cliente, Teléfonos, Apellidos, Number_cliente, Email, CP, Localidad, Dirección_cl)
+
+Factura(Número_factura, Pago, Importe, Envío, DNI, Nombre_producto)
+
+Producto(Numbre_producto, Descripción, Tamaño_producto, Tipo_Papel, Impresión, Acabado, Número_factura.)
+
+Empleado(DNI, Nombre, Apellidos, Email, Teléfonos, Dirección_emp, Salario, Comisión, Nombre_departamento)
+
+Departamento(Nombre_departamento, Email)

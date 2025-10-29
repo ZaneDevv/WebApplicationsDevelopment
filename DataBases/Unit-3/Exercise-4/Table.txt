@@ -1,0 +1,6 @@
+AUTOR(Código#, Nombre)
+Escribe(Código#, Código#)
+LIBRO(Código#, Título, ISBN, Editorial, Páginas)
+EJEMPLAR(Código#, Localización, Código#)
+Saca(Código#, Código#, FechaDev, FechaPres)
+USUARIO(Código#, Nombre, Telefono, Direccion)
