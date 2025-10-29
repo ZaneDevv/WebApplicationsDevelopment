@@ -5,7 +5,7 @@ MEDICAMENTOS(Id_Medicamento#)
 INDICACIONES(Código#, Dirección, Id_Medicamento#)
 LABORATORIOS(Código#, Dirección, Id_Medicamento#)
 
-Tiene_Slock(Id_Medicamento#, Id_Presentación#, Cantidad)
+Tiene_Stock(Id_Medicamento#, Id_Presentación#, Código# Cantidad)
 
 PRESENTACIÓN(Id_Presentación#, Nombre)
 
