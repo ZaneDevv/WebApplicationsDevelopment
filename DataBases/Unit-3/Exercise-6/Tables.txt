@@ -1,0 +1,20 @@
+COMPONENTES(Id#, Nombre)
+Contiene(Id#, Id#)
+
+MEDICAMENTOS(Id_Medicamento#)
+INDICACIONES(Código#, Dirección, Id_Medicamento#)
+LABORATORIOS(Código#, Dirección, Id_Medicamento#)
+
+Tiene_Slock(Id_Medicamento#, Id_Presentación#, Cantidad)
+
+PRESENTACIÓN(Id_Presentación#, Nombre)
+
+FARMACIAS(Código#, Dirección, Código_Ciudad#)
+
+Tiene(Código#, DNI#)
+
+PERSONAL(DNI#, Nombre)
+AUXILIARES(DNI#, Nombre, fecha, Código_Ciudad#)
+FARMACEUTICOS(DNI#, Nombre, nº_Cotización)
+
+CIUDADES(Código_Ciudad#, Nombre)
