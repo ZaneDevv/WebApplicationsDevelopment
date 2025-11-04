@@ -12,3 +12,15 @@ This repository contains all the projects and exercises I have completed during 
 - Sustainability
 - Digitalization
 
+---
+
+### 🔨 Tools used
+
+- C
+- Java
+- HTML5
+- XML
+- LaTeX
+
+- Visual Studio Code
+
