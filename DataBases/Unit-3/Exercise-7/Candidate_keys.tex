@@ -1,0 +1,45 @@
+\documentclass[12pt]{exam}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{mathtools}
+\usepackage{geometry}
+\usepackage{physics}
+\usepackage{color}
+
+\geometry{margin=1in}
+
+\title{Candidate keys}
+\author{Álvaro Fernández Barrero}
+\date{November 2025}
+
+\begin{document}
+\maketitle
+
+\begin{questions}
+\question
+Given the table $R(X, Y, Z, W, T)$ and the following functionals relations $D_F=\{X \to W, Y \to T, XY \to Z\}$. Write the candidate keys.
+
+Since $X$ determinates $W$, $Y$ determinates $T$ and the mix of $XY$ determinates $Z$, only by using $X$ and $Y$ we can determinate every single one. Thus, $XY$ must be a the \emph{candidate key}.
+
+\;
+
+\question
+Now, given the table $R(A, B, C, D, E, F)$ and the functionals $D_F=\{AB \to C, D \to E, C \to F, F \to DBA \}$. Write the candidate keys.
+
+The candidate keys here are $C$, $AB$ and $F$.
+
+\;
+
+\question
+Make up your own functional relations on the previous table $R(A, B, C, D, E, F)$ in such a way that there are exactly three candidate keys.
+
+\[
+    D_F = \{ A \to B, C \to E, D \to F \}
+\]
+
+Hence, the \emph{candidative keys} are $A$, $AB$ and $ACD$.
+
+
+\end{questions}
+\end{document}
