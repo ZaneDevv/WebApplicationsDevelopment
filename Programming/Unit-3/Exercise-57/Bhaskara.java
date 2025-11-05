@@ -76,11 +76,9 @@ public class Bhaskara
 	 */
 	private static double[] bhaskaraFormula(double a, double b, double c) throws Exception
 	{
-		double doubleA = 2 * a;
 		double bb = b * b;
 		double ac4 = 4 * a * c;
 		
-		double root = Math.sqrt(bb - ac4);
 		
 		if (bb < ac4)
 		{
@@ -89,6 +87,9 @@ public class Bhaskara
 		
 		
 		double[] results = new double[2];
+
+		double doubleA = 2 * a;
+		double root = Math.sqrt(bb - ac4);
 
 		results[0] = (-b + root) / doubleA;
 		results[1] = (-b - root) / doubleA;
