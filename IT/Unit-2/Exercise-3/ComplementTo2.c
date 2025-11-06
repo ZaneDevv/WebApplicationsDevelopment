@@ -8,7 +8,7 @@
 
 
 /**
- * @brief Cmputes the negative version of the given number (-x)
+ * @brief Computes the negative version of the given number (-x)
  * @param The number to turn negative
  * @return The number's negative version
  * @version 1.0
