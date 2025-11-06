@@ -1,0 +1,48 @@
+R(A, B, C, D)
+F = {A->D, C->BD, D->ABC}
+
+CK: A, C, D
+1FN: true
+2FN: true
+3FN: true
+
+
+------------------------------------------------
+
+
+R(A, B, C, D, E)
+F = {A->BC, C->D, B->E}
+
+CK: A
+1FN: true
+2FN: true
+3FN: R11(A, B, C), R12(C, D), R13(B, E)
+BCFN: true
+
+
+------------------------------------------------
+
+
+R(A, B, C, D, E)
+F = {A->B, A->C, C->D, B->E}
+
+CK: A
+1FN: true
+2FN: true
+3FN: R11(A, B, C), R12(B, E), R13(C, D)
+
+
+------------------------------------------------
+
+
+R(A, B, C, D)
+F = {A->C, B->D, C->B}
+
+CK: A
+1FN: true
+2FN: true
+3FN: R11(A, C), R12(C, B), R13(B, D)
+BCFN: true
+
+
+
