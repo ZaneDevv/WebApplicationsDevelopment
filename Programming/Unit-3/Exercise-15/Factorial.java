@@ -25,12 +25,9 @@ public class Factorial
 		
 		// Computing factorial
 		
-		if (n > 1)
+		for (byte i = 2; i <= n; i++)
 		{
-			for (byte i = 2; i <= n; i++)
-			{
-				factorial *= i;
-			}
+			factorial *= i;
 		}
 		
 		
