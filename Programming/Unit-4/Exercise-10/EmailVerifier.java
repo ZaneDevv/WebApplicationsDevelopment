@@ -19,7 +19,7 @@ public class EmailVerifier
 	
 	// Defining pattern
 	
-	private static final Pattern EMAIL_PATTERN = Pattern.compile("[a-zA-Z0-9_-][a-zA-Z0-9_.-]+[a-zA-Z0-9_-]@([a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9].)+[a-z-A-Z]{2,}");
+	private static final Pattern EMAIL_PATTERN = Pattern.compile("^[a-zA-Z0-9_-](?:[a-zA-Z0-0\\._-]*[a-zA-Z0-9_-])?@([a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\\.)+[a-zA-Z]{2,}$");
 	
 	
 	public static void main(String[] args)
