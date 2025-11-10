@@ -46,7 +46,7 @@ public class AvarageTemperature
 			
 			// Obtaining greatest absolute value from the array
 			
-			greatestAbsolute = ontainGreatestAbsoluteNumber(avarageTemperatures);
+			greatestAbsolute = obtainGreatestAbsoluteNumber(avarageTemperatures);
 			
 			
 			// Printing graph
@@ -92,7 +92,7 @@ public class AvarageTemperature
 	 * @date 2025/11/10
 	 * @author Álvaro Fernández Barrero
 	 */
-	private static float ontainGreatestAbsoluteNumber(float[] numbers)
+	private static float obtainGreatestAbsoluteNumber(float[] numbers)
 	{
 		float greatestNumber = Float.MIN_VALUE;
 		
@@ -115,7 +115,7 @@ public class AvarageTemperature
 	 * @brief Obtains a string with the name of the month which corresponds to the given number
 	 * @param x The number to obtain the month's name from
 	 * @return The name of the month which corresponds to the given number
-	 * @throws Unknown month, the give number is not valid
+	 * @throws Unknown month, the given number is not valid
 	 * @since 1.0
 	 * @version 1.0
 	 * @date 2025/11/10
