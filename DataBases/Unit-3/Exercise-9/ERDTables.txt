@@ -1,0 +1,89 @@
+ARTISTA(nombre#, lugar_de_nacimiento, fecha_nacimiento, estilo)
+
+OBRAS_DE_ARTE(título#, nombre#, año, estulo, tipo, precio)
+
+CORRIENTE_ARTE(nombre#)
+
+Pertenece(título#, nombre#)
+
+Gusta(código_de_cliente#, nombre#)
+
+CLIENTE(código_de_cliente#, nombre, dinero_gastado, dirección)
+
+Gusta(código_de_cliente#, nombre_artista#)
+
+
+
+
+----------------------------------------------------------------------------------
+
+
+
+
+PROCESO(id_proceso#, color#, nombre, grado_complejidad)
+
+PLANTA(color#, superficie)
+
+MÁQUINA(número#, marca, modelo, color#)
+
+Reemplaza(número#, número#)
+
+Opera(turno, fecha_inicio, fina_fin)
+
+TÉCNICO(dni#, myAp, fecNac, teléfono)
+
+
+
+
+----------------------------------------------------------------------------------
+
+
+
+
+PROVEEDOR(cuit#, nombre, web, teléfono, ciudad, comuna, número, calle, id_producto#)
+
+CATEGORÍA(id_categoría#, nombre, descripción)
+
+PRODUCTO(id_producto#, nombre, stock, precio, id_categoría#)
+
+Participa(id_producto#, nro_factura#, monto_total_producto, cantidad_vta_precio, precio_unidad)
+
+VENTA(nro_factura#, descuento, fecha, monto_final, cuit#)
+
+CLIENTE(cuit#, nombre, ciudad, comuna, número, calle)
+
+TELÉFONO(cuit#, teléfono#)
+
+
+
+
+----------------------------------------------------------------------------------
+
+
+
+
+
+TARJETA(número#, nombre, código, fechaVenc, código#)
+
+CLIENTE(código#, nombre, ciudad, dni, fechaNac, #número, descuento)
+
+Compra(código#, número#, descuento)
+
+SUCURSAL(número#, domicilio, ciudad)
+
+Vende(número#, código#, precioVenta)
+
+PRODUCTO(código#, descripción, color, costo, cuit#, cuit#)
+
+FÁBRICA(cuit#, nombre, pais, gerente, cantEmp)
+
+Trabaja(número#, legajo#, día, horario)
+
+EMPLEADO(legajo#, dni, nombre, calle, número, ciudad)
+
+TELÉFONOS(legajo#, número#)
+
+
+
+
+

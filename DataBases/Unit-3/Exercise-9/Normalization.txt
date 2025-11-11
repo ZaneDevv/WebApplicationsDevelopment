@@ -1,0 +1,17 @@
+R(t, u, w, x, y, z)
+Df = {x->y, zt->w, zt->u}
+
+CK = xzt
+NF -> 1NF
+3NF -> R1(z, t, w, u), R2(x, y)
+
+
+----------------------------------------------------
+
+
+R(t, u, w, x, y, z)
+Df = {x->y, zt->w, zt->u, y->z, y->t}
+
+CK = x
+NF -> 2FN
+3NF -> R1(x, y), R2(y, z, t), R3(z, t, w, u)
