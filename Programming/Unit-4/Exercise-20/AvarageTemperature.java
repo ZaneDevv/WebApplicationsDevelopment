@@ -18,7 +18,7 @@ public class AvarageTemperature
 	
 	// Graph constants
 	
-	private static final char CHARACTER_TO_REPRESENt = '*';
+	private static final char CHARACTER_TO_REPRESENT = '*';
 	private static final int GRAPH_MULTIPLIER = 10;
 	
 	
@@ -57,7 +57,7 @@ public class AvarageTemperature
 				for (int j = 0; j < avarageTemperatures.length; j++)
 				{
 					System.out.print(ANSI_CYAN);
-					System.out.printf(" %c ", Math.ceil(avarageTemperatures[j] / greatestAbsolute * (GRAPH_MULTIPLIER - 1)) >= i ? CHARACTER_TO_REPRESENt : ' ');
+					System.out.printf(" %c ", Math.ceil(avarageTemperatures[j] / greatestAbsolute * (GRAPH_MULTIPLIER - 1)) >= i ? CHARACTER_TO_REPRESENT : ' ');
 					System.out.print(ANSI_RESET);
 					System.out.print("|");
 				}
@@ -115,7 +115,7 @@ public class AvarageTemperature
 	 * @brief Obtains a string with the name of the month which corresponds to the given number
 	 * @param x The number to obtain the month's name from
 	 * @return The name of the month which corresponds to the given number
-	 * @throws Unknown month, the given number is not valid
+	 * @throws Exception Unknown month, the given number is not valid
 	 * @since 1.0
 	 * @version 1.0
 	 * @date 2025/11/10
