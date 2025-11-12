@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <title>Document</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Testing kinds of input in HTML5 for formularies</h1>
+        </header>
+
+        <main>
+            <form action="process.php" method="POST" >
+                <label for="user-name">Name: </label>
+                <input required name="user-name" id="user-name" type="text" placeholder="Type your name..." />
+    
+                <br/>
+                <br/>
+    
+                <label for="user-email">E-Mail: </label>
+                <input required name="user-email" id="user-email" type="email" placeholder="name@domain.com" />
+    
+                <br/>
+                <br/>
+    
+                <label for="user-phone">Phone: </label>
+                <input required name="user-phone" id="user-phone" type="tel" placeholder="+34 123 45 67 89" />
+    
+                <br/>
+                <br/>
+    
+                <label for="user-web">Web page: </label>
+                <input required name="user-web" id="user-web" type="url" placeholder="https://www.domain.com" />
+    
+                <br/>
+                <br/>
+
+                <label for="searching">Search: </label>
+                <input required name="searching" id="searching" type="search" placeholder="Looking for something..." />
+
+                <br/>
+                <br/>
+
+                <label for="limited-number">Number from 1 to 10: </label>
+                <input required name="limited-number" id="limited-number" type="number" max="10" min="1" placeholder="5" />
+
+                <br/>
+                <br/>
+
+                <label for="range">Number from 1 to 10: </label>
+                <input required name="range" id="range" type="range" max="10" min="1" />
+
+                <br/>
+                <br/>
+
+                <label for="color">Color: </label>
+                <input required name="color" id="color" type="color" />
+
+                <h2>Date inputs</h2>
+
+                <label for="day">Day: </label>
+                <input required name="day" id="day" type="date" />
+
+                <br/>
+                <br/>
+
+                <label for="month">Month: </label>
+                <input required name="month" id="month" type="month" />
+
+                <br/>
+                <br/>
+
+                <label for="week">Week: </label>
+                <input required name="week" id="week" type="date" />
+
+                <br/>
+                <br/>
+
+                <label for="time">Time: </label>
+                <input required name="time" id="time" type="time" />
+
+                <br/>
+                <br/>
+
+                <label for="local-date">Local date:</label>
+                <input required name="local-date" id="local-date" type="datetime-local" />
+
+                <br/>
+                <br/>
+
+                <button>Send</button>
+            </form>
+        </main>
+    </body>
+</html>
