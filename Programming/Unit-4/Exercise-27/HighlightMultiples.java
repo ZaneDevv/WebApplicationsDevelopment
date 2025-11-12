@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * @version 1.0
  * @date 2025/11/12
- * @auhot Álvaro Fernández Barrero
+ * @author Álvaro Fernández Barrero
  */
 
 public class HighlightMultiples
