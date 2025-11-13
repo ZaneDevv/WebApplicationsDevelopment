@@ -18,7 +18,7 @@ public class AvarageTemperature
 	
 	// Graph constants
 	
-	private static final char CHARACTER_TO_REPRESENT = '*';
+	private static final char CHARACTER_TO_REPRESENt = '*';
 	private static final int GRAPH_MULTIPLIER = 10;
 	
 	
@@ -57,7 +57,7 @@ public class AvarageTemperature
 				for (int j = 0; j < avarageTemperatures.length; j++)
 				{
 					System.out.print(ANSI_CYAN);
-					System.out.printf(" %c ", Math.ceil(avarageTemperatures[j] / greatestAbsolute * (GRAPH_MULTIPLIER - 1)) >= i ? CHARACTER_TO_REPRESENT : ' ');
+					System.out.printf(" %c ", Math.ceil(avarageTemperatures[j] / greatestAbsolute * (GRAPH_MULTIPLIER - 1)) >= i ? CHARACTER_TO_REPRESENt : ' ');
 					System.out.print(ANSI_RESET);
 					System.out.print("|");
 				}
@@ -115,7 +115,7 @@ public class AvarageTemperature
 	 * @brief Obtains a string with the name of the month which corresponds to the given number
 	 * @param x The number to obtain the month's name from
 	 * @return The name of the month which corresponds to the given number
-	 * @throws Exception Unknown month, the given number is not valid
+	 * @throws Unknown month, the given number is not valid
 	 * @since 1.0
 	 * @version 1.0
 	 * @date 2025/11/10
@@ -123,45 +123,22 @@ public class AvarageTemperature
 	 */
 	private static String obtainMonthByNumber(byte x) throws Exception
 	{
-		switch (x)
+		return switch (x)
 		{
-			case 1 -> {
-				return "January";
-			}
-			case 2 -> {
-				return "February";
-			}
-			case 3 -> {
-				return "March";
-			}
-			case 4 -> {
-				return "April";
-			}
-			case 5 -> {
-				return "May";
-			}
-			case 6 -> {
-				return "June";
-			}
-			case 7 -> {
-				return "July";
-			}
-			case 8 -> {
-				return "August";
-			}
-			case 9 -> {
-				return "September";
-			}
-			case 10 -> {
-				return "October";
-			}
-			case 11 -> {
-				return "November";
-			}
-			case 12 -> {
-				return "December";
-			}
-			default -> throw new Exception("Unknown month! Known months are [1, 12]");
-		}
+			case 1: yield "January";
+			case 2: yield "February";
+			case 3: yield "March";
+			case 4: yield "April";
+			case 5: yield "May";
+			case 6: yield "June";
+			case 7: yield "July";
+			case 8: yield "August";
+			case 9: yield "September";
+			case 10: yield "October";
+			case 11: yield "November";
+			case 12: yield "December";
+
+			default: throw new Exception("Unknown month! Known months are [1, 12]");
+		};
 	}
 }
