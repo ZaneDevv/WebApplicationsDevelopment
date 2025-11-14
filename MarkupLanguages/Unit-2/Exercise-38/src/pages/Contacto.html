@@ -5,6 +5,13 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <link rel="icon" type="img/png" href="../../favicon-32x32.png" sizes="32x32">
+        <link rel="icon" type="img/png" href="../../favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="img/xml+svg" href="../../favicon.ico">
+        <link rel="apple-touch-icon-precomposed" type="img/png" href="../../apple-touch-icon.png">
+        <link rel="android-chrome" type="img/png" href="../../android-chrome-192x192.png" size="192x192">
+        <link rel="android-chrome" type="img/png" href="../../android-chrome-512x512.png" size="512x512">
+
         <title>Contacto</title>
     </head>
 
@@ -28,21 +35,21 @@
         </header>
 
         <main>
-            <form>
+            <form action="process.php" method="POST">
                 <label for="user-name">Nombre:</label>
-                <input name="user-name" type="text" />
+                <input required name="user-name" id="user-name" type="text" placeholder="Escriba aqu&iacute; su nombre..." />
 
                 <br/>
                 <br/>
 
                 <label for="mail-address">Correo electr&oacute;nico:</label>
-                <input name="mail-address" type="text" placeholder="usuario@dominio" />
+                <input required name="mail-address" id="mail-address" type="email" placeholder="usuario@dominio" />
                 
                 <br/>
                 <br/>
 
                 <label for="message">Mensaje:</label>
-                <input name="message" type="text" placeholder="Escribe tu mensaje aqu&iacute;..." />
+                <input required name="message" id="message" type="text" placeholder="Escribe tu mensaje aqu&iacute;..." />
                 
                 <br/>
                 <br/>
