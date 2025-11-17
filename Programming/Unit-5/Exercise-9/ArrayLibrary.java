@@ -22,7 +22,7 @@ public class ArrayLibrary
 		
 		for (int i = 0; i < n; i++)
 		{
-			array[i] = min + Math.random() * (max - 1 - min);
+			array[i] = (int)(min + Math.random() * (max - 1 - min));
 		}
 		
 		return array;
@@ -38,7 +38,7 @@ public class ArrayLibrary
 	 * @date 2025/11/17
 	 * @author Álvaro Fernández Barrero
 	 */
-	public static int lowestNumber(int[] array)
+	public static int getLowestNumber(int[] array)
 	{
 		int lowest = Integer.MAX_VALUE;
 		
@@ -65,7 +65,7 @@ public class ArrayLibrary
 	 * @date 2025/11/17
 	 * @author Álvaro Fernández Barrero
 	 */
-	public static int greatestNumber(int[] array)
+	public static int getGreatestNumber(int[] array)
 	{
 		int greatest = Integer.MIN_VALUE;
 		
@@ -92,7 +92,7 @@ public class ArrayLibrary
 	 * @date 2025/11/17
 	 * @author Álvaro Fernández Barrero
 	 */
-	public static int arrayNumbersAvagare(int[] array)
+	public static int computeArrayNumbersAvagare(int[] array)
 	{
 		if (array.length == 0)
 		{
@@ -107,7 +107,7 @@ public class ArrayLibrary
 			sum += array[i];
 		}
 		
-		return num / array.length;
+		return sum / array.length;
 	}
 	
 	
@@ -149,7 +149,7 @@ public class ArrayLibrary
 	{
 		int index = -1;
 		
-		for (int i = 0; i < array.length && index > -1; i++)
+		for (int i = 0; i < array.length && index < 0; i++)
 		{
 			if (array[i] == x)
 			{
@@ -174,9 +174,9 @@ public class ArrayLibrary
 	{
 		int[] result = new int[array.length];
 		
-		for (int i = 0; result.length; i++)
+		for (int i = 0; i < result.length; i++)
 		{
-			result[i] = array[array.length - 1];
+			result[i] = array[array.length - 1 - i];
 		}
 		
 		return result;
@@ -201,9 +201,9 @@ public class ArrayLibrary
 		
 		int[] result = new int[array.length];
 		
-		for (int i = 0; result.length; i++)
+		for (int i = 0; i < result.length; i++)
 		{
-			result[i] = array[(i + steps) % array.length];
+			result[(i + steps) % array.length] = array[i];
 		}
 		
 		return result;
@@ -229,9 +229,9 @@ public class ArrayLibrary
 	
 		int[] result = new int[array.length];
 		
-		for (int i = 0; result.length; i++)
+		for (int i = 0; i < result.length; i++)
 		{
-			result[(i + steps) % array.length] = array[i];
+			result[i] = array[(i + steps) % array.length];
 		}
 		
 		return result;
@@ -248,9 +248,18 @@ public class ArrayLibrary
 	 */
 	public static void printArray(int[] array)
 	{
+		System.out.print("|");
+		
 		for (int i = 0; i < array.length; i++)
 		{
-			System.out.printf("%d: %d\n", i, array[i]);
+			System.out.printf("  %2d  |", i);
+		}
+		
+		System.out.print("\n-----------------------------------------------------------------------\n|");
+		
+		for (int i = 0; i < array.length; i++)
+		{
+			System.out.printf("  %2d  |", array[i]);
 		}
 	}
 }
