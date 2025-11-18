@@ -18,7 +18,7 @@ import java.util.Scanner;
 
 public class ScannerSolver
 {
-	private static final Scanner input = new Scanner(System.in);
+	private static final Scanner INPUT = new Scanner(System.in);
 	
 	
 	
@@ -30,7 +30,7 @@ public class ScannerSolver
 	 */
 	private static void cleanBuffer()
 	{
-		input.nextLine();
+		INPUT.nextLine();
 	}
 	
 	
@@ -44,7 +44,7 @@ public class ScannerSolver
 	 */
 	public static byte nextByte()
 	{
-		byte number = input.nextByte();
+		byte number = INPUT.nextByte();
 		cleanBuffer();
 		
 		return number;
@@ -61,7 +61,7 @@ public class ScannerSolver
 	 */
 	public static short nextShort()
 	{
-		short number = input.nextShort();
+		short number = INPUT.nextShort();
 		cleanBuffer();
 		
 		return number;
@@ -78,7 +78,7 @@ public class ScannerSolver
 	 */
 	public static int nextInt()
 	{
-		int number = input.nextInt();
+		int number = INPUT.nextInt();
 		cleanBuffer();
 		
 		return number;
@@ -95,7 +95,7 @@ public class ScannerSolver
 	 */
 	public static long nextLong()
 	{
-		long number = input.nextLong();
+		long number = INPUT.nextLong();
 		cleanBuffer();
 		
 		return number;
@@ -112,7 +112,7 @@ public class ScannerSolver
 	 */
 	public static float nextFloat()
 	{
-		float number = input.nextFloat();
+		float number = INPUT.nextFloat();
 		cleanBuffer();
 		
 		return number;
@@ -129,7 +129,7 @@ public class ScannerSolver
 	 */
 	public static double nextDouble()
 	{
-		double number = input.nextDouble();
+		double number = INPUT.nextDouble();
 		cleanBuffer();
 		
 		return number;
@@ -146,7 +146,7 @@ public class ScannerSolver
 	 */
 	public static boolean nextBoolean()
 	{
-		boolean bool = input.nextBoolean();
+		boolean bool = INPUT.nextBoolean();
 		cleanBuffer();
 		
 		return bool;
@@ -163,7 +163,7 @@ public class ScannerSolver
 	 */
 	public static char nextChar()
 	{
-		String text = input.nextLine();
+		String text = INPUT.nextLine();
 		
 		if (text.length() == 0)
 		{
@@ -184,6 +184,6 @@ public class ScannerSolver
 	 */
 	public static String nextLine()
 	{
-		return input.nextLine();
+		return INPUT.nextLine();
 	}
 }
