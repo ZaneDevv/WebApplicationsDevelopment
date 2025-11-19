@@ -18,6 +18,7 @@ This repository contains all the projects and exercises I have completed during 
 
 - C
 - Java
+- MySQL
 - HTML5
 - XML
 - LaTeX
