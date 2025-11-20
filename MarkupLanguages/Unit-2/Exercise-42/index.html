@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<title>Logging in</title>
+	</head>
+
+	<body>
+		<header>
+			<h1>Log in</h1>
+		</header>
+
+		<main>
+			<form action="process.php" method="POST">
+				<label for="mail">E-mail: </label>
+				<input required name="mail" id="mail" type="email" />
+
+				<br/>
+				<br/>
+
+				<label for="username">Username: </label>
+				<input required name="username" id="username" type="text" pattern="^[a-zA-Z0-9]{5, 10}$" />
+
+				<br/>
+				<br/>
+
+				<label for="password">Password: </label>
+				<input required name="password" id="password" type="password" pattern="^([a-z]|[A-Z]|[0-9]){8,}$" />
+
+				<input type="submit" content="Submit" />
+			</form>
+		</main>
+	</body>
+</html>

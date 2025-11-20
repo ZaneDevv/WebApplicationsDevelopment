@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Sign in</title>
+    </head>
+
+    <body>
+        <header>
+            <h1>Singing in</h1>
+        </header>
+
+
+        <main>
+            <form action="action.php" method="POST">
+                <fieldset>
+                    <legend>Personal data:</legend>
+
+                    <label for="name">Name*: </label>
+                    <input required name="name" id="name" type="text" />
+
+                    <br/>
+                    <br/>
+
+                    <label for="last-names">Last names*: </label>
+                    <input required name="last-names" id="last-names" type="text" />
+
+                    <br/>
+                    <br/>
+
+                    <label for="genre">Genre*: </label>
+                    <input required name="genre" id="genre" list="genre-list" />
+                    <datalist id="genre-list">
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>No binary</option>
+                        <option>Something else</option>
+                        <option>I would rather do not say it</option>
+                    </datalist>
+
+                    <br/>
+                    <br/>
+
+                    <label for="nif">NIF/Passport*: </label>
+                    <input required name="nif" id="nif" type="text" pattern="^[a-zA-Z0-9]\d{7}[a-zA-Z]$"/>
+
+                    <br/>
+                    <br/>
+
+                    <label for="birthdate">Birth date*: </label>
+                    <input required name="birthdate" id="birthdate" type="date" />
+
+                    <br/>
+                    <br/>
+
+                    <label for="shirt-size">Shirt size*: </label>
+                    <input required name="shirt-size" id="shirt-size" list="shirt-size-list"/>
+                    <datalist id="shirt-size-list">
+                        <option>XS</option>
+                        <option>S</option>
+                        <option>M</option>
+                        <option>L</option>
+                        <option>XL</option>
+                        <option>XXL</option>
+                    </datalist>
+
+                    <br/>
+                    <br/>
+
+                    <label for="locality">Locality*: </label>
+                    <input required name="locality" id="locality" type="text"/>
+
+                    <br/>
+                    <br/>
+
+                    <label for="province">Province*: </label>
+                    <input required name="province" id="province" type="text"/>
+
+                    <br/>
+                    <br/>
+
+                    <label for="postal-code">Postal code*: </label>
+                    <input required name="postal-code" id="postal-code" type="text" pattern="^\d{5}$"/>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Contact data:</legend>
+
+                    <label for="mail">E-mail*: </label>
+                    <input required name="mail" id="mail" type="email"/>
+
+                    <br/>
+                    <br/>
+
+                    <label for="phone-number">Phone number*: </label>
+                    <input required name="phone-number" id="phone-number" type="tel" pattern="(\+\d{1, 3})?\d{9}"/>
+                </fieldset>
+
+
+                <input type="submit" content="Submit"/>
+            </form>
+        </main>
+    </body>
+</html>
