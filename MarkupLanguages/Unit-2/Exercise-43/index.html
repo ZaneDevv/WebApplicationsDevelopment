@@ -10,7 +10,7 @@
 
     <body>
         <header>
-            <h1>Singing in</h1>
+            <h1>Signing in</h1>
         </header>
 
 
@@ -90,13 +90,26 @@
                     <legend>Contact data:</legend>
 
                     <label for="mail">E-mail*: </label>
-                    <input required name="mail" id="mail" type="email"/>
+                    <input required name="mail" id="mail" type="email" placeholder="name&commat;domain"/>
 
                     <br/>
                     <br/>
 
                     <label for="phone-number">Phone number*: </label>
                     <input required name="phone-number" id="phone-number" type="tel" pattern="(\+\d{1, 3})?\d{9}"/>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Sport data</legend>
+
+                    <label for="club">Club: </label>
+                    <input required name="club" id="club" type="text" placeholder="Set here your club's name..."/>
+
+                    <br/>
+                    <br/>
+
+                    <label for="dorsal-name">Dorsal name: </label>
+                    <input required name="dorsal-name" id="dorsal-name" type="text" placeholder="Set here your dorsal..." />
                 </fieldset>
 
 
