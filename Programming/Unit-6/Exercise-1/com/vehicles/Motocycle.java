@@ -13,7 +13,7 @@ public class Motocycle
 {
 	// Constants
 
-	private static final Pattern REGISTRATION_PATTERN = Pattern.compile("^(\\d{4}[A-Z]{3})|(\\d{4}\\s[A-Z]{3})$");
+	private static final Pattern REGISTRATION_PATTERN = Pattern.compile("^\\d{4}\\s?[A-Z]{3}$");
 
 
 
