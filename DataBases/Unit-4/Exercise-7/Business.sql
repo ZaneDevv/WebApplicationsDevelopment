@@ -22,9 +22,9 @@ CREATE TABLE IF NOT EXISTS Employee(
 );
 DESCRIBE Employee;
 
-INSERT INTO Employees(name, document, genre, dwelling, salary) VALUES ("Juan Perez", "22345678", "m", "Sarmiento 123", 300),
-                                                                      ("Ana Acosta", "24345678", "f", "Colon 134", 500),
-                                                                      ("Marcos Torres", "27345678", "m", "Urquiza 479", 800);
+INSERT INTO Employees(dni, name, document, genre, dwelling, salary) VALUES ("12345678A", "Juan Perez", "22345678", "m", "Sarmiento 123", 300),
+                                                                           ("12345678B", "Ana Acosta", "24345678", "f", "Colon 134", 500),
+                                                                           ("12345678C", "Marcos Torres", "27345678", "m", "Urquiza 479", 800);
 SELECT * FROM Employees;
 SELECT name, document FROM Employees;
 SELECT name, document, salary FROM Employees;
