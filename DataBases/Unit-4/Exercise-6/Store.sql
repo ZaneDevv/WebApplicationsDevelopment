@@ -21,7 +21,7 @@ DESCRIBE Articles;
 
 INSERT INTO Articles(code, name, description, price) VALUES (1, "Printer", "Epson Stylus C45", 400.80),
                                                             (2, "Printer", "Epson Stylus C85", 500),
-                                                            (3, "Monitor", "samsung 14, 800);
+                                                            (3, "Monitor", "samsung", 14, 800);
 
 SELECT * FROM Articles;
 SELECT name, description, prince FROM Articles;

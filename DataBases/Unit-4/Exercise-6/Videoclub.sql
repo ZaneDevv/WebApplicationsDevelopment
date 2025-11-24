@@ -26,4 +26,4 @@ INSERT INTO Movies(title, actor, duration, copies_amount) VALUES ("Impossible mi
 
 SELECT title, actor FROM Movies;
 SELECT title, duration FROM Movies;
-SELET title, copies_amount FROM Movies;
+SELECT title, copies_amount FROM Movies;
