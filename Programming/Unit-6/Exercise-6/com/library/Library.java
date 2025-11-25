@@ -130,7 +130,7 @@ public class Library
 	 * @date 2025/11/25
 	 * @author Álvaro Fernández Barrero
 	 */
-	public int lookForBuck(String name)
+	public int lookForBook(String name)
 	{
 		int index = -2;
 

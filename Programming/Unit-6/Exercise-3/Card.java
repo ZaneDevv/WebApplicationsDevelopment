@@ -133,7 +133,7 @@ public class Card
  	 */
 	public void setNumber(int number) throws Exception
 	{
-		if (number < 1 && number > 13)
+		if (number < 1 || number > 13)
 		{
 			throw new Exception("Invalid number! It must be between 1 and 13");
 		}

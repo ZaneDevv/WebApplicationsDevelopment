@@ -24,7 +24,7 @@ public class Main
 
 		System.out.printf("#Books: %d\n", library.getBooksAmount());
 
-		System.out.printf("Book \"b\" in position %d\n", library.lookForBuck("b"));
+		System.out.printf("Book \"b\" in position %d\n", library.lookForBook("b"));
 
 		library.takeBook(1);
 		System.out.printf("#Books: %d\n", library.getBooksAmount());
