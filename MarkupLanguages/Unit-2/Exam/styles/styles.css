@@ -1,0 +1,306 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+}
+/************ HEADER ************/
+header {
+    width: 100%;
+    /* Usamos Grid para maquetar sin divs adicionales */
+    display: grid;
+    /* Definimos columnas:
+       Col 1: Auto (tamaño del logo)
+       Col 2: 1fr (resto del espacio para textos)
+    */
+    grid-template-columns: auto 1fr;
+    /* Definimos 3 filas automáticas para: Título, Eslogan, Menú */
+    grid-template-rows: auto auto auto;
+    
+    /* Fondo gradiente morado/azul similar a la imagen */
+    background: linear-gradient(135deg, #312e81 0%, #6b21a8 100%);
+    padding: 1.5rem 2rem;
+    align-items: center; /* Centrado vertical general */
+    gap: 0 1.5rem; /* Gap horizontal entre logo y textos */
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* 1. EL LOGO (Imagen) */
+/* Seleccionamos el primer enlace (que contiene la img) */
+header > a:first-child {
+    /* Hacemos que el logo ocupe las 3 filas de alto (Título, eslogan y menú)
+       para que se mantenga a la izquierda de todo el bloque de texto */
+    grid-column: 1;
+    grid-row: 1 / span 3;
+    align-self: start; /* Alineado arriba o center según prefieras */
+    padding-top: 5px; /* Pequeño ajuste óptico */
+}
+header img {
+    width: 50px;
+    height: auto;
+    display: block;
+    filter: brightness(0) saturate(100%) invert(73%) sepia(57%) saturate(5437%) hue-rotate(162deg) brightness(96%) contrast(94%);
+}
+
+/* 2. EL TÍTULO (H1 dentro de enlace) */
+header > a:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+    text-decoration: none;
+    align-self: end; /* Pegado a la parte baja de su línea */
+}
+
+header h1 {
+    color: white;
+    font-size: 2.2rem; /* Tamaño grande */
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+}
+
+/* 3. (Párrafo) */
+header p {
+    grid-column: 2;
+    grid-row: 2;
+    color: #22d3ee; /* Color Cyan brillante */
+    font-size: 1rem;
+    margin: 0.25rem 0 1rem 0; /* Margen inferior para separar del menú */
+    font-weight: 400;
+}
+
+/* 4. LA NAVEGACIÓN (Nav) */
+header nav {
+    grid-column: 2;
+    grid-row: 3;
+    width: 100%;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start; /* Alineado a la izquierda, no al centro */
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600; /* Letra más gruesa */
+    font-size: 1.1rem;
+    transition: color .3s;
+}
+
+nav a:hover {
+    color: #22d3ee; /* Hover Cyan */
+}
+
+/* AJUSTE RESPONSIVE */
+@media (max-width: 768px) {
+    header {
+        /* En móviles cambiamos a una sola columna centrada */
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        text-align: center;
+        justify-items: center;
+        gap: 1rem;
+    }
+
+    header > a:first-child {
+        grid-column: 1;
+        grid-row: 1; /* El logo pasa arriba */
+        margin-bottom: 0.5rem;
+    }
+
+    header > a:nth-child(2) { grid-column: 1; grid-row: 2; }
+    header p { grid-column: 1; grid-row: 3; }
+    header nav { grid-column: 1; grid-row: 4; }
+    
+    nav ul {
+        justify-content: center; /* Menú centrado en móvil */
+    }
+}
+
+/************ LAYOUT ************/
+main {
+    flex: 1;
+    padding: 2rem;
+    background: white;
+    margin-left: 250px;
+}
+
+aside {
+    width: 250px;
+    padding: 2rem 1.5rem;
+    background-color: #f3f4f6;
+    border-right: 1px solid #d1d5db;
+    float: left;
+}
+
+
+aside h3 {
+    margin-bottom: 1.5rem;
+    color: #1f2937;
+    text-align: center;
+}
+
+aside img {
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid #d1d5db;
+    transition: opacity .3s;
+}
+
+aside img:hover {
+    opacity: .8;
+}
+
+/************ CONTENT ************/
+main h1 {
+    color: #1e3a8a;
+    margin-bottom: 1rem;
+}
+
+main h2 {
+    color: #7c3aed;
+    margin-bottom: 1rem;
+}
+
+main section p {
+    margin-bottom: 2rem;
+    color: #4b5563;
+}
+
+/************ TABLE ************/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+thead tr {
+    background: linear-gradient(to right, #1e3a8a, #6b21a8);
+    color: white;
+}
+
+th, td {
+    border: 1px solid #d1d5db;
+    padding: 1rem;
+    text-align: left;
+}
+
+tbody tr:hover {
+    background-color: #f9fafb;
+}
+
+/************ FOOTER ************/
+footer {
+    width: 100%;
+    background-color: #111827; /* Fondo oscuro como en la imagen */
+    color: #e5e7eb;
+    padding: 1.5rem 3rem;
+    margin-top: 3rem;
+    font-size: 0.95rem;
+
+    /* Magia con Grid para posicionar elementos sin cambiar HTML */
+    display: grid;
+    /* Columnas: 
+       1fr (Izquierda espacio) 
+       auto (Centro copyright) 
+       1fr (Espaciador para empujar íconos) 
+       auto auto auto (Los 3 íconos pegados a la derecha) 
+    */
+    grid-template-columns: 1fr auto 1fr auto auto auto;
+    grid-template-rows: auto auto; /* Dos filas para apilar Teléfono y Email */
+    align-items: center; /* Centrado vertical */
+    gap: 0.25rem 1rem; /* Espacio entre filas y columnas */
+}
+
+/* 1. IZQUIERDA: Teléfono (Fila 1) */
+footer p:nth-of-type(1) {
+    grid-column: 1;
+    grid-row: 1;
+    text-align: left;
+    margin: 0;
+}
+
+/* 1. IZQUIERDA: Email (Fila 2) */
+footer p:nth-of-type(2) {
+    grid-column: 1;
+    grid-row: 2;
+    text-align: left;
+    margin: 0;
+}
+
+/* Estilo del enlace de correo (Cyan) */
+footer p:nth-of-type(2) a {
+    color: #22d3ee; /* Cyan brillante */
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer p:nth-of-type(2) a:hover {
+    text-decoration: underline;
+}
+
+/* 2. CENTRO: Copyright */
+/* Ocupa las 2 filas para centrarse verticalmente respecto al bloque izquierdo */
+footer p:nth-of-type(3) {
+    grid-column: 2;
+    grid-row: 1 / span 2; 
+    text-align: center;
+    margin: 0;
+    white-space: nowrap; /* Evita que se rompa en líneas */
+}
+
+/* 3. DERECHA: Íconos Sociales */
+/* Posicionamos cada <a> (que son los íconos) en las últimas columnas */
+footer a:nth-of-type(1) { grid-column: 4; grid-row: 1 / span 2; } /* Twitter */
+footer a:nth-of-type(2) { grid-column: 5; grid-row: 1 / span 2; } /* LinkedIn */
+footer a:nth-of-type(3) { grid-column: 6; grid-row: 1 / span 2; } /* Instagram */
+
+/* Estilo de las imágenes de los íconos */
+footer > a img {
+    width: 24px;
+    height: 24px;
+    display: block;
+    filter: invert(100%); /* Vuelve los íconos blancos */
+    transition: opacity 0.3s;
+}
+
+footer > a:hover img {
+    opacity: 0.8;
+}
+
+/* Ajuste Responsive para móviles (apilar todo verticalmente) */
+@media (max-width: 900px) {
+    footer {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    /* Restaurar alineación centrada en móvil */
+    footer p:nth-of-type(1),
+    footer p:nth-of-type(2) {
+        text-align: center;
+    }
+
+    /* Agrupar visualmente los íconos en móvil */
+    footer > a {
+        margin: 0 0.5rem;
+    }
+}

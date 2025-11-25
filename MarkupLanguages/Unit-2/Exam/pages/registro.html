@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<!--
+    Álvaro Fernández Barrero
+    1º DAW Bilingüe
+    25/11/2025
+-->
+
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="icon" href="../microchip.ico">
+        <link rel="stylesheet" href="../styles/styles.css">
+
+        <title>Formulario para la Inscripcion del proyecto</title>
+    </head>
+
+    <body>
+        <header>
+            <img src="../images/logo.svg" alt="Logo">
+            <h1>Future Tech Summit 2026</h1>
+            <p>¡El futuro es hoy!</p>
+
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="./registro.html">Registro</a></li>
+                    <li><a href="./contacto.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <h2>Formulario para la Inscripci&oacute;n del proyecto</h2>
+
+            <section>
+                <h3>Agenda del evento</h3>
+
+                <h4>D&iacute;as del evento</h4>
+                <ol>
+                    <li>D&iacute;a 1: IA y Blockchain</li>
+                    <li>D&iacute;a 2: IoT y Rob&oacute;tica</li>
+                    <li>D&iacute;a 3: Ciberseguridad</li>
+                </ol>
+
+                <h4>Temas principales</h4>
+                <ul>
+                    <li>Inteligencia artificial y Machine Learning</li>
+                    <li>Internet de las Cosas (IoT)</li>
+                    <li>Computaci&oacute;n cu&aacute;ntica</li>
+                    <li>Blockchain y Criptomonedas</li>
+                    <li>Ciberseguridad y protecci&oacute;n de los datos</li>
+                    <li>Rob&oacute;tica y Automatizaci&oacute;n</li>
+                </ul>
+            </section>
+
+            <form action="action.php" method="POST">
+                <fieldset>
+                    <legend>Tipo de Pase</legend>
+
+                    <input name="tipo_usuario" id="tipo_usuario" type="radio" />
+                    <label>Estudiante</label>
+                    <input name="tipo_usuario" id="tipo_usuario" type="radio" />
+                    <label>Gerente</label>
+                    <input name="tipo_usuario" id="tipo_usuario" type="radio" />
+                    <label>VIP</label>
+                </fieldset>
+
+                <label for="nombre">Nombre completo*</label>
+                <input required name="nombre" id="nomber" type="text" placeholder="Ej: Juan P&eacute;rez Garc&iacute;a" />
+
+                <label for="movil">Tel&eacute;fono*</label>
+                <input required name="movil" id="movil" type="text" placeholder="Ej: +34 987 65 43 21" pattern="^\+[0-9_-]$" />
+
+                <label for="puesto">Puesto*:</label>
+                <input required name="puesto" id="puesto" list="puestos-lista" placeholder="Otro" />
+                <datalist id="puestos-lista">
+                    <option>Estudiante</option>
+                    <option>Desarrollador</option>
+                    <option>Gerente</option>
+                    <option>Otro</option>
+                </datalist>
+
+                <label for="edad">Edad*</label>
+                <input required name="edad" id="edad" type="number" min="18" max="99" />
+
+                <fieldset>
+                    <legend>Planeo asistir a los siguientes d&iacute;as:</legend>
+
+                    <input id="dia1-asistir" name="dia1-asistir" type="checkbox" />
+                    <label>D&iacute;a 1: IA y Blockchain</label>
+
+                    <input id="dia2-asistir" name="dia2-asistir" type="checkbox" />
+                    <label>D&iacute;a 2: IoT y Rob&oacute;tica</label>
+
+                    <input id="dia3-asistir" name="dia3-asistir" type="checkbox" />
+                    <label>D&iacute;a 3: Ciberseguridad</label>
+                </fieldset>
+
+                <p>Preguntas o comentarios</p>
+                <textarea id="comentarios" name="comentarios" placeholder="Escribe aqu&iacute; tus preguntas o comentarios sobre el evento..." rows="15" cols="60"></textarea>
+
+                <label for="correo">Correo Electr&oacute;nico*</label>
+                <input required name="correo" id="correo" type="email" placeholder="ejemplo&commat;correo.com"/>
+
+                <label for="clave">Contrase&ntilde;a*</label>
+                <input required id="clave" name="clave" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[&¿?!¡#\.\*]).{12,}$" placeholder="M&iacute;nimo 12 caracteres" />
+                
+                <p>Debe contener al menos 12 caracteres, una may&uacute;scula, una min&uacute;scula y uno de estos: &amp;¿#.*?!¡</p>
+
+                <input type="submit" />
+            </form>
+        </main>
+
+        <footer>
+            <p>Tel: +34 987 65 43 21</p>
+            <p>contacto&commat;futuretech.com</p>
+            <p>2026 Tech Events S.L.</p>
+
+            <img src="../images/instagram.svg" alt="instagram">
+            <img src="../images/twitter.svg" alt="Twitter">
+            <img src="../images/linkdin.svg" alt="LinkedIn">
+        </footer>
+    </body>
+</html>
