@@ -36,51 +36,126 @@ INSERT INTO Employees(name, salary, income_date, age, department, active) VALUES
                                                                                  ('Carla Gómez', 3200, '2020-08-29', 32, 'Marketing', 1),
                                                                                  ('Miguel Sánchez', 2800, '2017-09-15', 45, 'Soporte', 1);
 
--- Checking the maximum salary
+-- 1. Checking the maximum salary
 
 SELECT MAX(salary) AS greatest_salary FROM Employees;
 
 
--- Checking the minimum salary
+-- 2. Checking the minimum salary
 
-SELECT MIN(salary) as lowest_salary FROM Employees;
-
-
--- Checking the avarage salary
-
-SELECT AVG(salary) as avarage_salary FROM Employees;
+SELECT MIN(salary) AS lowest_salary FROM Employees;
 
 
--- Counting active employees
+-- 3. Checking the avarage salary
+
+SELECT ROUND(AVG(salary), 2) AS avarage_salary FROM Employees;
+
+
+-- 4. Counting active employees
 
 SELECT COUNT(*) AS active_employees_amount FROM Employees WHERE active = 1;
 
 
--- Counting employees in each department
+-- 5. Counting employees in each department
 
 SELECT department, COUNT(*) employees_number FROM Employees GROUP BY department;
 
 
--- Checking the avarage age of the active employees
+-- 6. Checking the avarage age of the active employees
 
 SELECT AVG(age) AS avarage_age FROM Employees WHERE active = 1; 
 
 
--- Checking the avarage salary of he employees in marketing
+-- 7. Checking the avarage salary of he employees in marketing
 
 SELECT AVG(salary) AS avarage_salary FROM Employees WHERE department = 'Marketing';
 
 
--- Checking greatets and lowest salary of employees in "Soporte"
+-- 8. Checking greatets and lowest salary of employees in "Soporte"
 
 SELECT MAX(salary) AS greatest_salary, MIN(salary) AS lowest_salary FROM Employees WHERE department = 'Soporte';
 
 
--- Checking amount of employees older than 30
+-- 9. Checking amount of employees older than 30
 
 SELECT COUNT(*) AS employees_older_than_30 FROM Employees WHERE age > 30;
 
 
--- Checking avarage age of no-active employees
+-- 10. Checking avarage age of no-active employees
 
 SELECT AVG(age) AS avarage_age FROM Employees WHERE active = 0;
+
+
+-- 11. Obtain the name of the best payed employee
+
+SELECT name, salary FROM Employees WHERE salary = (SELECT MAX(salary) FROM Employees);
+
+
+-- 12. Obtain the name of the employees whose age is between 30 and 43
+
+SELECT name FROM Employees WHERE age BETWEEN 30 AND 43;
+
+
+-- 13. Obtain the most veteran employee
+
+SELECT name, income_date FROM Employees WHERE income_date = (SELECT MIN(income_date) FROM Employees); 
+
+
+-- 14. Obtain the name of the employees who is close the most to retire
+
+SELECT name FROM Employees WHERE age = (SELECT MAX(age) FROM Employees);
+
+
+-- 15. Obtain the department's name which has the most employees
+
+SELECT department, COUNT(*) AS employees_number
+FROM Employees
+GROUP BY department
+HAVING employees_number = (
+	SELECT COUNT(*)
+	FROM Employees
+	GROUP BY department
+	LIMIT 1
+);
+
+
+-- 16. Obtain the department's name which has the most unactive employees
+
+SELECT department, COUNT(*) AS employees_number
+FROM Employees
+GROUP BY department
+HAVING employees_number = (
+	SELECT COUNT(*)
+	FROM Employees
+	WHERE active = 0
+	GROUP BY department
+	LIMIT 1
+);
+
+
+-- 17. Who is the youngest employee with the highest salary
+
+SELECT *
+FROM Employees
+HAVING age = (
+	SELECT age
+	FROM Employees
+	ORDER BY age ASC
+	LIMIT 1
+) AND salary = (
+	SELECT salary, age
+	FROM Employees
+	HAVING age = (
+		SELECT age
+		FROM Employees
+		ORDER BY age ASC
+		LIMIT 1
+	)
+	ORDER BY salary DESC
+	LIMIT 1
+);
+
+
+-- 18. Obtain the department's name with the best payed employee
+
+SELECT department FROM Employees WHERE salary = (SELECT MAX(salary) FROM Employees);
