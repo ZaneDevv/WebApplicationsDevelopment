@@ -50,7 +50,14 @@ public class Main
 	}
 
 
-
+	/**
+	 * @brief Obtains a car from the given array by its model
+	 * @param cars Cars array to obtain the car from
+	 * @param model Car model to obtain the car
+	 * @version 1.0
+	 * @date 2025/11/25
+	 * @author Álvaro Fernández Barrero
+	 */
 	private static Car[] obtainCarsWithModel(Car[] cars, String model)
 	{
 		Car[] result = new Car[0];
