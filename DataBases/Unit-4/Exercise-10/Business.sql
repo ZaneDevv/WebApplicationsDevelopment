@@ -133,29 +133,6 @@ HAVING employees_number = (
 );
 
 
--- 17. Who is the youngest employee with the highest salary
-
-SELECT *
-FROM Employees
-HAVING age = (
-	SELECT age
-	FROM Employees
-	ORDER BY age ASC
-	LIMIT 1
-) AND salary = (
-	SELECT salary, age
-	FROM Employees
-	HAVING age = (
-		SELECT age
-		FROM Employees
-		ORDER BY age ASC
-		LIMIT 1
-	)
-	ORDER BY salary DESC
-	LIMIT 1
-);
-
-
 -- 18. Obtain the department's name with the best payed employee
 
 SELECT department FROM Employees WHERE salary = (SELECT MAX(salary) FROM Employees);
