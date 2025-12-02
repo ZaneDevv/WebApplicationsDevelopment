@@ -5,7 +5,7 @@
 
 -- Creating database
 
-CREATE TABLE IF NOT EXISTS Business
+CREATE DATABASE IF NOT EXISTS Business;
 USE Business;
 
 
@@ -25,9 +25,9 @@ CREATE TABLE IF NOT EXISTS Employees(
 	id VARCHAR(8),
 	name VARCHAR(100),
 	last_name VARCHAR(255),
-	department INT
+	department INT,
 	PRIMARY KEY (id),
-	FOREIGN KEY(department) REFERENCES Department(code)
+	FOREIGN KEY(department) REFERENCES Departments(code)
 );
 
 
@@ -51,9 +51,73 @@ INSERT INTO Employees VALUES (111, 'Francisco', 'Medina', 14),
                              (117, 'Jaime', 'Pérez', 21),
                              (118, 'Marcos', 'García', 21);
                              
-                             
 
 -- Queries
 
-SELECT last_name
-FROM Employees;
+SELECT last_name FROM Employees;
+
+SELECT last_name FROM Employees GROUP BY last_name;
+
+SELECT * FROM Employees WHERE last_name = 'López';
+
+SELECT * FROM Employees WHERE last_name IN ('López', 'Pérez');
+
+SELECT * FROM Employees WHERE department = 14;
+
+SELECT * FROM Employees WHERE department IN (37, 77);
+
+SELECT * FROM Employees WHERE last_name LIKE 'P%';
+
+SELECT budget FROM Departments;
+
+SELECT COUNT(*) AS employees_amount FROM Employees GROUP BY department;
+
+SELECT * FROM Employees emp, Departments dep WHERE emp.department = dep.code;
+
+SELECT emp.name, emp.last_name, dep.name AS department_name, dep.budget AS deparment_budget
+FROM Employees emp, Departments dep
+WHERE emp.department = dep.code;
+
+SELECT emp.name, emp.last_name
+FROM Employees emp, Departments dep
+WHERE emp.department = dep.code AND dep.budget > 60000;
+
+SELECT *
+FROM Departments
+WHERE budget > (
+	SELECT AVG(budget) AS avarage_budget
+	FROM Departments
+);
+
+SELECT dep.name
+FROM Employees emp, Departments dep
+WHERE emp.department = dep.code
+GROUP BY dep.name
+HAVING 2 < (
+	SELECT COUNT(department)
+	FROM Employees
+	WHERE dep.code = Employees.department
+	GROUP BY department
+);
+
+INSERT INTO Departments VALUES (11, 'Calidad', 40000);
+INSERT INTO Employees VALUES (89267109, 'Esther', 'Vázquez', 11);
+
+UPDATE Departments
+SET budget = budget - budget * 0.1; 
+
+UPDATE Employees
+SET department = 14
+WHERE department = 77;
+
+DELETE FROM Employees
+WHERE department = 14;
+
+DELETE FROM Employees
+WHERE 60000 > (
+	SELECT budget
+	FROM Departments
+	WHERE Employees.department = Departments.code
+);
+
+DELETE FROM Employees;
