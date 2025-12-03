@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS Employees(
 	last_name VARCHAR(255),
 	department INT,
 	PRIMARY KEY(id),
-	FOREIGN KEY(department) REFERENCES Departments(code)
+	FOREIGN KEY(department) REFERENCES Departments(code) ON DELETE SET NULL ON UPDATE SET NULL
 );
 
 
@@ -56,7 +56,7 @@ INSERT INTO Employees VALUES (111, 'Francisco', 'Medina', 14),
 
 SELECT last_name FROM Employees;
 
-SELECT last_name FROM Employees GROUP BY last_name;
+SELECT DISTINCT last_name FROM Employees;
 
 SELECT * FROM Employees WHERE last_name = 'López';
 
@@ -69,6 +69,9 @@ SELECT * FROM Employees WHERE department IN (37, 77);
 SELECT * FROM Employees WHERE last_name LIKE 'P%';
 
 SELECT budget FROM Departments;
+
+SELECT SUM(budget)
+FROM Departments;
 
 SELECT COUNT(*) AS employees_amount
 FROM Employees
@@ -89,7 +92,7 @@ WHERE emp.department = dep.code AND dep.budget > 60000;
 SELECT *
 FROM Departments
 WHERE budget > (
-	SELECT AVG(budget) AS avarage_budget
+	SELECT ROUND(AVG(budget), 2) AS avarage_budget
 	FROM Departments
 );
 
