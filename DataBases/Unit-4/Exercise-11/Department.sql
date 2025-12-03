@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS Employees(
 	name VARCHAR(100),
 	last_name VARCHAR(255),
 	department INT,
-	PRIMARY KEY (id),
+	PRIMARY KEY(id),
 	FOREIGN KEY(department) REFERENCES Departments(code)
 );
 
