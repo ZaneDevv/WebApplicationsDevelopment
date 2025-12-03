@@ -93,12 +93,7 @@ SELECT dep.name
 FROM Employees emp, Departments dep
 WHERE emp.department = dep.code
 GROUP BY dep.name
-HAVING 2 < (
-	SELECT COUNT(department)
-	FROM Employees
-	WHERE dep.code = Employees.department
-	GROUP BY department
-);
+HAVING COUNT(*) >= 2;
 
 INSERT INTO Departments VALUES (11, 'Calidad', 40000);
 INSERT INTO Employees VALUES (89267109, 'Esther', 'Vázquez', 11);
