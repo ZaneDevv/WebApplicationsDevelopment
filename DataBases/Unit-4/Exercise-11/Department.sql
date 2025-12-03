@@ -70,9 +70,13 @@ SELECT * FROM Employees WHERE last_name LIKE 'P%';
 
 SELECT budget FROM Departments;
 
-SELECT COUNT(*) AS employees_amount FROM Employees GROUP BY department;
+SELECT COUNT(*) AS employees_amount
+FROM Employees
+GROUP BY department;
 
-SELECT * FROM Employees emp, Departments dep WHERE emp.department = dep.code;
+SELECT *
+FROM Employees emp, Departments dep
+WHERE emp.department = dep.code;
 
 SELECT emp.name, emp.last_name, dep.name AS department_name, dep.budget AS deparment_budget
 FROM Employees emp, Departments dep
@@ -109,7 +113,7 @@ DELETE FROM Employees
 WHERE department = 14;
 
 DELETE FROM Employees
-WHERE 60000 > (
+WHERE 60000 < (
 	SELECT budget
 	FROM Departments
 	WHERE Employees.department = Departments.code
