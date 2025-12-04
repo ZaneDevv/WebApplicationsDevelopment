@@ -113,7 +113,11 @@ SET department = 14
 WHERE department = 77;
 
 DELETE FROM Employees
-WHERE department = 14;
+WHERE department = (
+	SELECT code
+	FROM Departments
+	WHERE name = 'Informática'
+);
 
 DELETE FROM Employees
 WHERE 60000 < (
