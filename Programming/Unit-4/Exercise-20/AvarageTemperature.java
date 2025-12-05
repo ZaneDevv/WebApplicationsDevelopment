@@ -18,7 +18,7 @@ public class AvarageTemperature
 	
 	// Graph constants
 	
-	private static final char CHARACTER_TO_REPRESENt = '*';
+	private static final char CHARACTER_TO_REPRESENT = '*';
 	private static final int GRAPH_MULTIPLIER = 10;
 	
 	
@@ -57,7 +57,7 @@ public class AvarageTemperature
 				for (int j = 0; j < avarageTemperatures.length; j++)
 				{
 					System.out.print(ANSI_CYAN);
-					System.out.printf(" %c ", Math.ceil(avarageTemperatures[j] / greatestAbsolute * (GRAPH_MULTIPLIER - 1)) >= i ? CHARACTER_TO_REPRESENt : ' ');
+					System.out.printf(" %c ", Math.ceil(avarageTemperatures[j] / greatestAbsolute * (GRAPH_MULTIPLIER - 1)) >= i ? CHARACTER_TO_REPRESENT : ' ');
 					System.out.print(ANSI_RESET);
 					System.out.print("|");
 				}
