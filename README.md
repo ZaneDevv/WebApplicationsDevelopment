@@ -24,4 +24,5 @@ This repository contains all the projects and exercises I have completed during 
 - LaTeX
 
 - Visual Studio Code
-
+- Sublime Text
+- NetBeans
