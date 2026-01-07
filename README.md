@@ -21,6 +21,7 @@ This repository contains all the projects and exercises I have completed during 
 - MySQL
 - HTML5
 - XML
+- Markdown
 - LaTeX
 
 - Visual Studio Code
