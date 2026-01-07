@@ -1,6 +1,6 @@
 -- 2026/01/07
 -- Álvaro Fernández Barrero
--- COmputer firm
+-- Computer firm
 
 -- --------------------------------
 -- CREATING DATABASE
@@ -15,7 +15,7 @@ USE ComputerFirm;
 
 DROP TABLE IF EXISTS Product;
 CREATE TABLE IF NOT EXISTS Product(
-	marker VARCHAR(10) NOT NULL,
+	maker VARCHAR(10) NOT NULL,
 	model VARCHAR(50) NOT NULL,
 	type VARCHAR(50) NOT NULL,
 
@@ -57,7 +57,7 @@ DROP TABLE IF EXISTS Printer;
 CREATE TABLE IF NOT EXISTS Printer(
 	code INT NOT NULL,
 	model VARCHAR(50) NOT NULL,
-	color VARCHAR(1) NOT NULL,
+	color CHAR(1) NOT NULL,
 	type VARCHAR(10) NOT NULL,
 	price FLOAT,
 
@@ -80,7 +80,7 @@ DESCRIBE Printer;
 -- INSERTING VALUES
 -- --------------------------------
 
-insert into Product values
+INSERT INTO Product VALUES
 ('A','1232','PC'),
 ('A','1233','PC'),
 ('A','1276','Printer'),
@@ -99,7 +99,7 @@ insert into Product values
 ('E','2113','PC')
 ;
 
-insert into Printer values
+INSERT INTO Printer VALUES
 (1,'1276','n','laser',400),
 (2,'1433','y','jet',270),
 (3,'1434','y','jet',290),
@@ -108,7 +108,7 @@ insert into Printer values
 (6,'1288','n','laser',400)
 ;
 
-insert into Pc values
+INSERT INTO Pc VALUES
 ('1','1232',500,64,5.0,'12x',600),
 ('10','1260',500,32,10.0,'12x',350),
 ('11','1233',900,128,40.0,'40x',980),
@@ -123,7 +123,7 @@ insert into Pc values
 ('9','1232',450,32,10.0,'24x',350)
 ;
 
-insert into Laptop values
+INSERT INTO Laptop VALUES
 (1,'1298',350,32,4.0,700,11),
 (2,'1321',500,64,8.0,970,12),
 (3,'1750',750,128,12.0,1200,14),
@@ -153,10 +153,9 @@ WHERE price < 500;
 
 -- 2. Find printer makers. Result set: maker.
 
-SELECT Product.marker
-FROM Printer
-INNER JOIN Product
-ON Printer.model = Product.model;
+SELECT Product.maker
+FROM Product
+WHERE type = 'printer';
 
 -- 3. Find the model number, RAM and screen size of the laptops with prices over $1000.
 
@@ -172,7 +171,7 @@ WHERE (cd = '12x' OR cd = '24x') AND price < 600;
 
 -- 5. Point out the maker and speed of the laptops having hard drive capacity more or equal to 10 Gb.
 
-SELECT Product.marker, Laptop.hd
+SELECT Product.maker, Laptop.hd
 FROM Laptop
 INNER JOIN Product
 ON Laptop.model = Product.model
@@ -180,11 +179,16 @@ WHERE Laptop.hd >= 10;
 
 -- TODO: 6. Find out the models and prices for all the products (of any type) produced by maker B.
 
--- TODO: 7. Find out the makers that sale PCs but not laptops.
 
-SELECT *
+-- 7. Find out the makers that sale PCs but not laptops.
+
+SELECT maker
 FROM Product
-WHERE type = 'PC';
+WHERE type = 'pc' AND maker NOT IN (
+	SELECT maker
+	FROM Product
+	WHERE type = 'laptop'
+);
 
 -- 8. Find the printers having the highest price. Result set: model, price.
 
@@ -202,7 +206,7 @@ FROM Pc;
 
 -- 10. Find all the makers who have all their models of PC type in the PC table
 
-SELECT Product.marker
+SELECT Product.maker
 FROM Product
 INNER JOIN Pc
 ON Pc.model = Product.model
@@ -214,9 +218,9 @@ SELECT AVG(Pc.speed) AS pc_speed_avarage
 FROM Pc
 INNER JOIN Product
 ON Product.model = Pc.model
-WHERE Product.marker = 'A';
+WHERE Product.maker = 'A';
 
--- 12. TODO: Find the hard drive sizes that are equal among two or more PCs. Result set: hd.
+-- 12. TODO: Find the hard drive sizes that are equal among two or more PCs. Result set: hd.aptop.price AS laptop_price,
 
 -- 13. TODO: Find the pairs of PC models having similar speeds and RAM. As a result, each resulting pair is shown only once, i.e. (i, j) but not (j, i). Result set: model with high number, model with low number, speed, and RAM.
 
@@ -233,7 +237,7 @@ WHERE l.speed < (
 
 -- 15. Find the makers of the cheapest color printers. Result set: maker, price
 
-SELECT Product.marker, Printer.price
+SELECT Product.maker, Printer.price
 FROM Printer
 INNER JOIN Product
 ON Product.model = Printer.model
