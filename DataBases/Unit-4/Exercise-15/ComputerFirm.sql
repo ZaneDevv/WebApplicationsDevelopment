@@ -6,7 +6,8 @@
 -- CREATING DATABASE
 -- --------------------------------
 
-CREATE DATABASE ComputerFirm;
+DROP DATABASE IS EXISTS ComputerFirm;
+CREATE DATABASE IF NOT EXISTS ComputerFirm;
 USE ComputerFirm;
 
 -- --------------------------------
@@ -177,8 +178,25 @@ INNER JOIN Product
 ON Laptop.model = Product.model
 WHERE Laptop.hd >= 10;
 
--- TODO: 6. Find out the models and prices for all the products (of any type) produced by maker B.
+-- 6. Find out the models and prices for all the products (of any type) produced by maker B.
 
+SELECT machine.price
+FROM Product
+INNER JOIN Printer machine
+ON machine.model = Product.model
+WHERE Product.maker = 'B'
+UNION
+SELECT machine.price
+FROM Product
+INNER JOIN Laptop machine
+ON machine.model = Product.model
+WHERE Product.maker = 'B'
+UNION
+SELECT machine.price
+FROM Product
+INNER JOIN Pc machine
+ON machine.model = Product.model
+WHERE Product.maker = 'B';
 
 -- 7. Find out the makers that sale PCs but not laptops.
 
@@ -206,21 +224,22 @@ FROM Pc;
 
 -- 10. Find all the makers who have all their models of PC type in the PC table
 
-SELECT Product.maker
+SELECT DISTINCT maker
 FROM Product
-INNER JOIN Pc
-ON Pc.model = Product.model
-GROUP BY Product.model;
+WHERE model IN (
+	SELECT model
+	FROM Pc
+);
 
 -- 11. Find out the average speed of the PCs produced by maker A.
 
-SELECT AVG(Pc.speed) AS pc_speed_avarage
+SELECT ROUND(AVG(Pc.speed), 2) AS pc_speed_avarage
 FROM Pc
 INNER JOIN Product
 ON Product.model = Pc.model
 WHERE Product.maker = 'A';
 
--- 12. TODO: Find the hard drive sizes that are equal among two or more PCs. Result set: hd.aptop.price AS laptop_price,
+-- 12. TODO: Find the hard drive sizes that are equal among two or more PCs. Result set: hd.laptop.price AS laptop_price
 
 -- 13. TODO: Find the pairs of PC models having similar speeds and RAM. As a result, each resulting pair is shown only once, i.e. (i, j) but not (j, i). Result set: model with high number, model with low number, speed, and RAM.
 
@@ -247,14 +266,67 @@ WHERE Printer.color = 'y' AND Printer.price <= (
 	WHERE p.color = 'y'
 );
 
--- 16. TODO: Find the makers producing at least three distinct models of PCs. Result set: maker, number of models.
+-- 16. Find the makers producing at least three distinct models of PCs. Result set: maker, number of models.
 
--- 17. TODO: Find the makers producing at least both a pc having speed not less than 750 MHz and a laptop having speed not less than 750 MHz. Result set: Maker
+SELECT Product.maker, COUNT(Product.type) AS pc_amount
+FROM Product
+WHERE Product.type = 'PC'
+GROUP BY Product.maker
+HAVING pc_amount >= 3;
 
--- 18. TODO: Find the model number of the product (PC, laptop, or printer) with the highest price.Result set: model
+-- 17. Find the makers producing at least both a pc having speed not less than 750 MHz and a laptop having speed not less than 750 MHz. Result set: Maker
+
+SELECT Product.maker
+FROM Product
+INNER JOIN Pc
+ON Pc.model = Product.model
+WHERE Pc.speed >= 750
+UNION
+SELECT Product.maker
+FROM Product
+INNER JOIN Laptop
+ON Laptop.model = Product.model
+WHERE Laptop.speed >= 750;
+
+-- 18. TODO: Find the model number of the product (PC, laptop, or printer) with the highest price. Result set: model
+
+SELECT MAX()
+FROM 
+
+SELECT MAX(Laptop.price) AS most_expensive
+FROM Laptop
+UNION
+SELECT MAX(Pc.price) AS most_expensive
+FROM Pc
+UNION
+SELECT MAX(Printer.price) AS most_expensive
+FROM Printer
 
 -- 19. TODO: Find the printer makers which also produce PCs with the lowest RAM and the highest-speed processor among PCs with the lowest RAM. Result set: maker.
 
 -- 20. TODO: Define the average price of the PCs and laptops produced by maker A. Result set: single total price.
 
+SELECT AVG(Pc.price)
+FROM Product
+INNER JOIN Pc
+ON Pc.model = Product.model
+WHERE Product.maker = 'A'
+UNION
+SELECT *
+FROM Product
+INNER JOIN Laptop
+ON Laptop.model = Product.model
+WHERE Product.maker = 'A';
+
 -- 21. TODO: Define the average size of the PC hard drive for each maker that also produces printers. Result set: maker, average capacity of HD.
+
+SELECT AVG(Pc.hd)
+FROM Pc
+INNER JOIN Product p0
+ON p0.model = Pc.model
+WHERE p0 IN (
+	SELECT *
+	FROM Product p1
+	WHERE p1.type = 'Printer'
+	GROUP BY p1.model
+);
