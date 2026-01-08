@@ -6,6 +6,8 @@
 # VARIABLES
 #####################################
 
+SHELL=/bin/bash
+
 neededFiles := Program.java
 defaultCode := 'public class Program \n{\n\tpublic static void main(String[] args) \n\t{ \n\t\tSystem.out.println("Hello, World!"); \n\t} \n}'
 
