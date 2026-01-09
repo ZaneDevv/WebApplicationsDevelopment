@@ -60,10 +60,10 @@ DESCRIBE Asignado;
 -- --------------------------------
 
 INSERT INTO Cientifico(nombre, apellido, fecha_nacimiento) VALUES ('María', 'Guzmán', '1974-02-12'),
-																 ('María', 'Jiménez', '1954-02-11'),
-																 ('Rafael', 'Girado', '1964-01-22'),
-																 ('Alonso', 'Gómez', '1990-12-12'),
-																 ('Clara', 'Atúnez', '1973-11-12');
+																  ('María', 'Jiménez', '1954-02-11'),
+																  ('Rafael', 'Girado', '1964-01-22'),
+																  ('Alonso', 'Gómez', '1990-12-12'),
+																  ('Clara', 'Atúnez', '1973-11-12');
 
 INSERT INTO Proyecto VALUES ('A', 'Bioquímica', 410),
 							('B', 'Electrónica', 1200),
@@ -102,7 +102,7 @@ INNER JOIN Cientifico
 ON Cientifico.dni = Asignado.dni
 GROUP BY Cientifico.dni;
 
--- 3.- TODO: Obtener el número de científicos asignados a cada proyecto (mostrar el identificador del proyecto y el nombre del proyecto).
+-- 3.- Obtener el número de científicos asignados a cada proyecto (mostrar el identificador del proyecto y el nombre del proyecto).
 
 SELECT Proyecto.codigo, Proyecto.nombre
 FROM Asignado
@@ -115,4 +115,13 @@ ON Proyecto.codigo = Asignado.codigo;
 
 -- 6.- TODO: Nombre del científico que trabaja en todos los proyectos.
 
--- 7.- TODO: Nombre del científico que no trabaja en ningún proyecto.
+-- 7.- Nombre del científico que no trabaja en ningún proyecto.
+
+SELECT Cientifico.nombre
+FROM Cientifico
+WHERE Cientifico NOT IN (
+	SELECT DISTINCT Cientifico.dni
+	FROM Cientifico
+	INNER JOIN Asignado
+	ON Asignado.dni = Cientifico.dni
+);
