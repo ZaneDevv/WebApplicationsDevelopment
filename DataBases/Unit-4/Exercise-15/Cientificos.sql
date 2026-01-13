@@ -1,12 +1,14 @@
 -- 2026/01/08
 -- Álvaro Fernández Barrero
--- Computer firm
+-- Facultad
+
+SET AUTO_COMMIT = FALSE;
 
 -- --------------------------------
 -- CREATING DATABASE
 -- --------------------------------
 
-DROP DATABASE IS EXISTS Facultad;
+DROP DATABASE IF EXISTS Facultad;
 CREATE DATABASE IF NOT EXISTS Facultad;
 USE Facultad;
 
@@ -84,6 +86,8 @@ SELECT * FROM Cientifico;
 SELECT * FROM Proyecto;
 SELECT * FROM Asignado;
 
+COMMIT;
+
 -- --------------------------------
 -- EXERCISES
 -- --------------------------------
@@ -91,37 +95,66 @@ SELECT * FROM Asignado;
 -- 1.- Relación completa de los científicos asignados a cada proyecto. Mostrar DNI, Nombre del científico, Identificador del proyecto y nombre del proyecto.
 
 SELECT Cientifico.dni, Cientifico.nombre, Proyecto.codigo, Proyecto.nombre
-FROM Asignado, Cientifico, Proyecto
-WHERE Asignado.codigo = Proyecto.codigo AND Asignado.dni = Cientifico.dni;
+FROM Cientifico
+INNER JOIN Asignado ON Cientifico.dni = Asignado.dni
+INNER JOIN Proyecto ON Proyecto.codigo = Asignado.codigo;
 
 -- 2.- Obtener el número de proyectos al que está asignado cada científico (mostrar el DNI y el nombre).
 
-SELECT Cientifico.dni, Cientifico.nombre, COUNT(*) cantidad_proyectos
-FROM Asignado
-INNER JOIN Cientifico
-ON Cientifico.dni = Asignado.dni
-GROUP BY Cientifico.dni;
+SELECT Cientifico.dni, Cientifico.nombre, COUNT(Asignado.codigo) AS proyectos_asignados
+FROM Cientifico
+INNER JOIN Asignado ON Cientifico.dni = Asignado.dni
+GROUP BY Cientifico.dni, Cientifico.nombre;
 
 -- 3.- Obtener el número de científicos asignados a cada proyecto (mostrar el identificador del proyecto y el nombre del proyecto).
 
-SELECT Proyecto.codigo, Proyecto.nombre
-FROM Asignado
-INNER JOIN Proyecto
-ON Proyecto.codigo = Asignado.codigo;
+SELECT Proyecto.codigo, Proyecto.nombre, COUNT(Asignado.dni) AS cientificos_asignados
+FROM Proyecto
+INNER JOIN Asignado ON Asignado.codigo = Proyecto.codigo
+GROUP BY Proyecto.codigo, Proyecto.nombre;
 
--- 4.- TODO: Obtener el número de dedicación de cada científico.
+-- 4.- Obtener el número de dedicación de cada científico.
 
--- 5.- TODO: Obtener el DNI y el nombre de los científicos que se dedican a más de un proyecto y cuya dedicación media a cada proyecto sea superior a las 80 horas.
+SELECT Cientifico.dni, SUM(Proyecto.horas) AS horas_dedicacion
+FROM Cientifico
+INNER JOIN Asignado ON Asignado.dni = Cientifico.dni
+INNER JOIN Proyecto ON Proyecto.codigo = Asignado.codigo
+GROUP BY Cientifico.dni;
 
--- 6.- TODO: Nombre del científico que trabaja en todos los proyectos.
+-- 5.- Obtener el DNI y el nombre de los científicos que se dedican a más de un proyecto y cuya dedicación media a cada proyecto sea superior a las 80 horas.
+
+SELECT c0.dni, c0.nombre
+FROM Cientifico c0
+INNER JOIN Asignado ON Asignado.dni = c0.dni
+GROUP BY c0.dni, c0.nombre
+HAVING COUNT(*) > 1 AND 80 < (
+	SELECT ROUND(AVG(Proyecto.horas), 2)
+	FROM Cientifico c
+	INNER JOIN Asignado ON Asignado.dni = c.dni
+	INNER JOIN Proyecto ON Asignado.codigo = Proyecto.codigo
+	WHERE c.dni = c0.dni
+	GROUP BY c.dni
+);
+
+-- 6.- Nombre del científico que trabaja en todos los proyectos.
+
+SELECT Cientifico.nombre
+FROM Cientifico
+INNER JOIN Asignado ON Asignado.dni = Cientifico.dni
+GROUP BY Cientifico.dni
+HAVING COUNT(*) = (
+	SELECT COUNT(*)
+	FROM Proyecto
+);
+
 
 -- 7.- Nombre del científico que no trabaja en ningún proyecto.
 
 SELECT Cientifico.nombre
 FROM Cientifico
-WHERE Cientifico NOT IN (
-	SELECT DISTINCT Cientifico.dni
+WHERE Cientifico.dni NOT IN (
+	SELECT Cientifico.dni
 	FROM Cientifico
-	INNER JOIN Asignado
-	ON Asignado.dni = Cientifico.dni
+	INNER JOIN Asignado ON Asignado.dni = Cientifico.dni
+	GROUP BY Cientifico.dni
 );
