@@ -141,14 +141,90 @@ HAVING COUNT(*) = (
 	FROM Proyecto
 );
 
-
 -- 7.- Nombre del científico que no trabaja en ningún proyecto.
 
 SELECT Cientifico.nombre
 FROM Cientifico
+INNER JOIN Asignado ON Asignado.dni = Cientifico.dni
 WHERE Cientifico.dni NOT IN (
 	SELECT Cientifico.dni
 	FROM Cientifico
-	INNER JOIN Asignado ON Asignado.dni = Cientifico.dni
 	GROUP BY Cientifico.dni
+);
+
+-- 8. La media de horas de los proyectos excluyendo el valor máximo y el mínimo
+
+SELECT ROUND(AVG(Proyecto.horas), 2) AS media_horas
+FROM Proyecto
+WHERE
+	Proyecto.horas < (
+		SELECT MAX(Proyecto.horas)
+		FROM Proyecto
+	)
+	AND Proyecto.horas > (
+		SELECT MIN(Proyecto.horas)
+		FROM Proyecto
+	);
+
+-- 9. TODO: Calcular la moda del número de horas (el valor que más se repite)
+
+INSERT INTO Proyecto VALUES ('F', 'Biomedicina', 300);
+COMMIT;
+
+SELECT Proyecto.horas AS moda
+FROM Proyecto
+GROUP BY Proyecto.horas
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+
+-- 10. Obtener los científicos que trabajan en proyectos con más de 400 horas
+
+SELECT DISTINCT Cientifico.*
+FROM Cientifico
+LEFT JOIN Asignado ON Asignado.dni = Cientifico.dni
+INNER JOIN Proyecto ON Proyecto.codigo = Asignado.codigo
+WHERE Proyecto.horas > 400;
+
+-- 11. TODO: Mostrar los científicos que solo trabajan en proyectos de más de 100 horas
+
+SELECT DISTINCT Cientifico.*
+FROM Cientifico
+LEFT JOIN Asignado ON Asignado.dni = Cientifico.dni
+INNER JOIN Proyecto ON Asignado.codigo  = Proyecto.codigo
+WHERE Proyecto.horas > 100;
+
+-- 12. Listar los  proyectos en los que trabaja al menos un científico llamado "María"
+
+SELECT DISTINCT Proyecto.*
+FROM Proyecto
+RIGHT JOIN Asignado ON Asignado.codigo = Proyecto.codigo
+INNER JOIN Cientifico ON Cientifico.dni = Asignado.dni
+WHERE Cientifico.nombre = 'Maria';
+
+-- 13. Obtener el total de horas asignadas a cada científico
+
+SELECT Cientifico.dni, Cientifico.nombre, Cientifico.apellido, SUM(Proyecto.horas) as horas_asignadas
+FROM Cientifico
+INNER JOIN Asignado ON Asignado.dni = Cientifico.dni
+INNER JOIN Proyecto ON Proyecto.codigo = Asignado.codigo
+GROUP BY Cientifico.dni;
+
+-- 14. Mostrar los científicos que trabajan en proyectos cuyo nombre empieza por 'B'
+
+SELECT DISTINCT Cientifico.*
+FROM Cientifico
+INNER JOIN Asignado ON Asignado.dni = Cientifico.dni
+INNER JOIN Proyecto ON Proyecto.codigo = Asignado.codigo
+WHERE Proyecto.nombre LIKE 'B%';
+
+-- 15. Obtener el proyecto con mayor número de científicos asignados
+
+SELECT Proyecto.*
+FROM Proyecto
+INNER JOIN Asignado ON Asignado.codigo = Proyecto.codigo
+GROUP BY Proyecto.codigo
+HAVING COUNT(Asignado.codigo) = (
+	SELECT MAX(Asignado.dni)
+	FROM Proyecto
+	INNER JOIN Asignado ON Asignado.codigo = Proyecto.codigo
 );
