@@ -123,18 +123,12 @@ GROUP BY Cientifico.dni;
 
 -- 5.- Obtener el DNI y el nombre de los científicos que se dedican a más de un proyecto y cuya dedicación media a cada proyecto sea superior a las 80 horas.
 
-SELECT c0.dni, c0.nombre
-FROM Cientifico c0
-INNER JOIN Asignado ON Asignado.dni = c0.dni
-GROUP BY c0.dni, c0.nombre
-HAVING COUNT(*) > 1 AND 80 < (
-	SELECT ROUND(AVG(Proyecto.horas), 2)
-	FROM Cientifico c
-	INNER JOIN Asignado ON Asignado.dni = c.dni
-	INNER JOIN Proyecto ON Asignado.codigo = Proyecto.codigo
-	WHERE c.dni = c0.dni
-	GROUP BY c.dni
-);
+SELECT Cientifico.dni, Cientifico.nombre
+FROM Cientifico
+INNER JOIN Asignado ON Asignado.dni = Cientifico.dni
+INNER JOIN Proyecto ON Proyecto.codigo = Asignado.codigo
+GROUP BY Cientifico.dni, Cientifico.nombre
+HAVING COUNT(*) > 1 AND AVG(Proyecto.horas) > 80;
 
 -- 6.- Nombre del científico que trabaja en todos los proyectos.
 
