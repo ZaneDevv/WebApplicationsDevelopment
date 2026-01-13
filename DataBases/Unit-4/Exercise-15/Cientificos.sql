@@ -2,7 +2,7 @@
 -- Álvaro Fernández Barrero
 -- Facultad
 
-SET AUTO_COMMIT = FALSE;
+SET AUTOCOMMIT = FALSE;
 
 -- --------------------------------
 -- CREATING DATABASE
