@@ -166,7 +166,7 @@ WHERE
 		FROM Proyecto
 	);
 
--- 9. TODO: Calcular la moda del número de horas (el valor que más se repite)
+-- 9. Calcular la moda del número de horas (el valor que más se repite)
 
 INSERT INTO Proyecto VALUES ('F', 'Biomedicina', 300);
 COMMIT;
@@ -185,13 +185,19 @@ LEFT JOIN Asignado ON Asignado.dni = Cientifico.dni
 INNER JOIN Proyecto ON Proyecto.codigo = Asignado.codigo
 WHERE Proyecto.horas > 400;
 
--- 11. TODO: Mostrar los científicos que solo trabajan en proyectos de más de 100 horas
+-- 11. Mostrar los científicos que solo trabajan en proyectos de más de 100 horas
 
 SELECT DISTINCT Cientifico.*
 FROM Cientifico
 LEFT JOIN Asignado ON Asignado.dni = Cientifico.dni
 INNER JOIN Proyecto ON Asignado.codigo  = Proyecto.codigo
-WHERE Proyecto.horas > 100;
+WHERE Proyecto.horas > 100 AND Cientifico.dni NOT IN (
+	SELECT DISTINCT Cientifico.dni
+	FROM Cientifico
+	LEFT JOIN Asignado ON Asignado.dni = Cientifico.dni
+	INNER JOIN Proyecto ON Proyecto.codigo = Asignado.codigo
+	WHERE Proyecto.horas < 100
+);
 
 -- 12. Listar los  proyectos en los que trabaja al menos un científico llamado "María"
 
@@ -203,7 +209,7 @@ WHERE Cientifico.nombre = 'Maria';
 
 -- 13. Obtener el total de horas asignadas a cada científico
 
-SELECT Cientifico.dni, Cientifico.nombre, Cientifico.apellido, SUM(Proyecto.horas) as horas_asignadas
+SELECT Cientifico.dni, Cientifico.nombre, Cientifico.apellido, SUM(Proyecto.horas) AS horas_asignadas
 FROM Cientifico
 INNER JOIN Asignado ON Asignado.dni = Cientifico.dni
 INNER JOIN Proyecto ON Proyecto.codigo = Asignado.codigo
