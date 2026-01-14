@@ -234,3 +234,55 @@ HAVING COUNT(Asignado.codigo) = (
 	FROM Proyecto
 	INNER JOIN Asignado ON Asignado.codigo = Proyecto.codigo
 );
+
+-- 16. TODO: Mostrar los científicos que trabajan en más proyectos que la media
+
+
+-- 17. Obtener los proyectos que no tienen ningún científico asignado
+
+SELECT Proyecto.*
+FROM Asignado
+RIGHT JOIN Proyecto ON Proyecto.codigo = Asignado.codigo
+WHERE Asignado.dni IS NULL;
+
+-- 18. Listar los científicos nacidos antes de 1970 que trabajen en proyectos de más de 300 horas
+
+SELECT Cientifico.*
+FROM Cientifico
+INNER JOIN Asignado ON Asignado.dni = Cientifico.dni
+INNER JOIN Proyecto ON Asignado.codigo = Proyecto.codigo
+WHERE Cientifico.fecha_nacimiento < '1970-01-01' AND Proyecto.horas > 300;
+
+-- 19. Obtener el proyecto con menos horas que tenga científicos asignados
+
+SELECT Proyecto.*
+FROM Proyecto
+GROUP BY Proyecto.codigo
+HAVING Proyecto.horas = (
+	SELECT MIN(Proyecto.horas)
+	FROM Proyecto
+	RIGHT JOIN Asignado ON Proyecto.codigo = Asignado.codigo
+	WHERE Asignado.codigo IS NOT NULL
+);
+
+-- 20. Haz dos queries para que el resultado te de la siguiente tabla:
+-- 
+-- +--------+------------+
+-- | codigo | nombre     |
+-- +--------+------------+
+-- | D      | Tectónica  |
+-- | E      | Histograma |
+-- +--------+------------+
+-- 
+-- Una de ellas debe tener having
+
+
+SELECT DISTINCT Proyecto.codigo, Proyecto.nombre
+FROM Proyecto
+INNER JOIN Asignado ON Asignado.codigo = Proyecto.codigo
+GROUP BY Proyecto.codigo, Proyecto.nombre
+HAVING COUNT(Asignado.dni) = 1;
+
+SELECT Proyecto.codigo, Proyecto.nombre
+FROM Proyecto
+WHERE Proyecto.codigo IN ('D', 'E');
