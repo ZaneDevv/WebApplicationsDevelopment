@@ -235,7 +235,21 @@ HAVING COUNT(Asignado.codigo) = (
 	INNER JOIN Asignado ON Asignado.codigo = Proyecto.codigo
 );
 
--- 16. TODO: Mostrar los científicos que trabajan en más proyectos que la media
+-- 16. Mostrar los científicos que trabajan en más proyectos que la media
+
+SELECT Cientifico.*
+FROM Cientifico
+INNER JOIN Asignado ON Asignado.dni = Cientifico.dni
+GROUP BY Cientifico.dni
+HAVING COUNT(Asignado.codigo) > (
+	SELECT AVG(total_count)
+	FROM (
+		SELECT COUNT(Asignado.dni) as total_count
+		FROM Asignado
+		GROUP BY Asignado.codigo
+	) count
+);
+
 
 
 -- 17. Obtener los proyectos que no tienen ningún científico asignado
@@ -277,6 +291,8 @@ HAVING Proyecto.horas = (
 -- Una de ellas debe tener having
 
 
+SELECT DISTINCT Proyecto.codigo, Proyecto.nombre
+FROM Proyecto
 SELECT DISTINCT Proyecto.codigo, Proyecto.nombre
 FROM Proyecto
 INNER JOIN Asignado ON Asignado.codigo = Proyecto.codigo
