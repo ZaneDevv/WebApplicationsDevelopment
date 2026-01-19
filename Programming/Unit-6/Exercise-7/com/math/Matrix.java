@@ -400,7 +400,6 @@ public class Matrix
 
         if (diagonalSummation0 != diagonalSummation1)
         {
-            System.out.println("FLASEEEEEE 0");
             return false;
         }
 
