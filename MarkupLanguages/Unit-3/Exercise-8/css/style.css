@@ -1,0 +1,39 @@
+#wrapper {
+    color: red;
+}
+
+
+.menu {
+    color: blue;
+}
+
+
+main {
+    color: black;
+}
+
+
+img {
+    border: 2px solid black;
+}
+
+
+h1 {
+    color: green
+}
+
+
+.color {
+    color: purple;
+}
+
+
+footer {
+    color: yellow;
+}
+
+
+.link {
+    color: grey;
+    text-decoration: none;
+}

@@ -1,0 +1,30 @@
+a {
+    color: red;
+    text-decoration: underline;
+}
+
+
+b {
+    color: red
+}
+
+
+.prueba {
+    text-decoration: underline overline;
+}
+
+#prueba2 {
+    font-size: 3rem;
+    font-weight: bolder;
+}
+
+
+h3 {
+    color: blue;
+    font-weight: bold;
+}
+
+
+h3 b {
+    text-decoration: underline;
+}

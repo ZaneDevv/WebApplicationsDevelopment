@@ -1,0 +1,26 @@
+main {
+    color: gainsboro;
+    margin: 0 auto;
+    max-width: 1000px;
+    min-width: 100vh;
+}
+
+header {
+    background-color: blueviolet;
+}
+
+nav {
+    background-color: cornflowerblue;
+}
+
+aside {
+    background-color: darkmagenta;
+}
+
+section {
+    background-color: indigo;
+}
+
+footer {
+    background-color: darkorchid;
+}

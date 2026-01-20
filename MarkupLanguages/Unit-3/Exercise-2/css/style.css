@@ -1,0 +1,62 @@
+/* --- CONFIGURACIÓN RAÍZ --- */
+html {
+    font-size: 20px; /* Base para el cálculo de rem */
+}
+
+.main-container {
+    /* Usa dvh para que ocupe toda la pantalla real en móviles */
+    min-height: 100dvh; 
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+/* --- EJERCICIO 1: UNIDADES --- */
+
+.card-fixed {
+    /* COMPLETAR: Define un ancho de 300px y fuente de 18px */
+    width: 300px;
+    font-size: 18px;
+    background: #f0f0f0;
+    padding: 20px;
+}
+
+.card-responsive {
+    /* COMPLETAR: Define un ancho del 80% y fuente de 1.2rem */
+    width: 80%;
+    font-size: 1.2rem;
+    background: #e0f7fa;
+    padding: 2rem;
+}
+
+.btn-em {
+    /* COMPLETAR: Usa em para el padding y rem para el font-size */
+    /* Así, si cambias la fuente del botón, el espacio interno escala proporcionalmente */
+    padding: 0.5em 2.5em;
+    font-size: 0.8rem;
+    background-color: lightblue;
+    border: none;
+}
+
+/* --- EJERCICIO 2: COLORES --- */
+
+.card-color {
+    /* COMPLETAR: Usa un color hexadecimal para el texto */
+    /* COMPLETAR: Usa currentColor para definir un borde sólido del mismo color */
+    color: #b48fc7;
+    border: 2px solid currentColor;
+    padding: 1.5rem;
+    margin-top: 1rem;
+}
+
+.mezcla-hd {
+    /* COMPLETAR: Usa color-mix() para mezclar azul y blanco al 20% */
+    /* COMPLETAR: Usa oklch() para un color de texto vibrante en HD */
+    
+    background: color-mix(in srgb, blue, white 60%);
+    color: oklch(55% 0.2 200);
+    
+    margin-top: 1rem;
+    padding: 1rem;
+}

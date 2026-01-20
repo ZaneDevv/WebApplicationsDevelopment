@@ -1,0 +1,21 @@
+/* Definición de orden de capas */
+@layer base, componentes, utilidades;
+
+/* Capa de menor prioridad */
+@layer base {
+    #protagonista {
+        color: gray; /* Un ID muy específico, pero en capa baja */
+    }
+}
+
+/* Capa de mayor prioridad */
+@layer utilidades {
+    p {
+        color: brown; /* Una etiqueta poco específica, pero en capa alta */
+    }
+}
+
+/* Regla fuera de capas (ganará a todas las capas) */
+.texto-base {
+    color: black;
+}
