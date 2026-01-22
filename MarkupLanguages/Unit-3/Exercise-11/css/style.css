@@ -1,0 +1,85 @@
+/*-----------------------------
+    GENERAL
+-----------------------------*/
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Georgia, Cambria, serif;
+    color: #222;
+    background-color: rgb(245, 245, 245);
+    margin: 0;
+}
+
+main {
+    width: 80%;
+    margin: auto;
+}
+
+/*-----------------------------
+    TITLES
+-----------------------------*/
+
+h1 {
+    color: #6b1010;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+/*-----------------------------
+    SECTIONS
+-----------------------------*/
+
+.intro {
+    font-size: 2rem;
+    background-color: rgb(163, 190, 245);
+    color: #00f;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+/*-----------------------------
+    TEXTS
+-----------------------------*/
+
+.highlight {
+    background-color: black;
+    color: White;
+    font-style: italic;
+    padding: 0.2rem 0.4rem;
+}
+
+blockquote {
+    color: green;
+}
+
+blockquote, p {
+    font-size: 1rem;
+}
+
+/*-----------------------------
+    LISTS
+-----------------------------*/
+
+.data-list {
+    list-style: none;
+}
+
+.label {
+    color: #060;
+    font-weight: bold;
+}
+
+/*-----------------------------
+    FOOTER
+-----------------------------*/
+
+footer > p {
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+}

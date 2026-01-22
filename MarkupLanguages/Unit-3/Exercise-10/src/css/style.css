@@ -1,0 +1,79 @@
+/*-----------------------------
+    GENERAL
+-----------------------------*/
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: Georgia, Cambria, serif;
+    font-size: 1.6rem;
+    line-height: 2;
+    margin: 0;
+}
+
+/*-----------------------------
+    HEADERS
+-----------------------------*/
+
+h1, h2 {
+    font-family: Verdana, sans-serif;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 4.8rem;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 2.4rem;
+}
+
+/*-----------------------------
+    WEB
+-----------------------------*/
+
+.container {
+    max-width: 1000px;
+    min-height: 100vh;
+    margin: 0 auto;
+}
+
+/*-----------------------------
+    MEDIA
+-----------------------------*/
+
+img {
+    border: 2px solid black;
+    max-width: 100%;
+    height: auto;
+}
+
+/*-----------------------------
+    Text
+-----------------------------*/
+
+p {  /* (0, 0, 0, 1) */
+    color: red
+}
+
+.quote__text { /* (0, 0, 1, 0) */
+    color: green;
+}
+
+#quote-1 p { /* (0, 1, 0, 0) */
+    color: blue;
+}
+
+.acronym {
+    background-color: black;
+    color: white;
+    font-style: italic;
+    padding: 0.2rem 0.4rem;
+}
