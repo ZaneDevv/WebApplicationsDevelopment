@@ -88,6 +88,7 @@ ALTER TABLE Courses ADD FOREIGN KEY (documentoprofesor) REFERENCES Teachers(docu
 -- View
 -- ---------------------------------
 
+
 DROP VIEW IF EXISTS view_club;
 
 
