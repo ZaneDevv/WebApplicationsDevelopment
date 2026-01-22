@@ -77,20 +77,58 @@ INSERT INTO Enrollments VALUES ('31111111', 4, 's');
 INSERT INTO Enrollments VALUES ('32222222', 8, 's');
 
 -- ---------------------------------
+-- Altering tables
+-- ---------------------------------
+
+ALTER TABLE Enrollments ADD FOREIGN KEY (numero) REFERENCES Courses(numero);
+ALTER TABLE Enrollments ADD FOREIGN KEY (documentosocio) REFERENCES Members(documento);
+ALTER TABLE Courses ADD FOREIGN KEY (documentoprofesor) REFERENCES Teachers(documento);
+
+-- ---------------------------------
 -- View
 -- ---------------------------------
 
 DROP VIEW IF EXISTS view_club;
+
+
 CREATE OR REPLACE VIEW view_club
-AS
-SELECT Members.nombre AS member_name,
-       Members.documento AS member_document,
-       Teachers.nombre AS teacher_name,
-       Courses.dia AS course_day,
-       Courses.deporte AS course_sport
+AS SELECT Members.nombre AS member_name,
+          Members.documento AS member_document,
+          Teachers.nombre AS teacher_name,
+          Courses.dia AS course_day,
+          Courses.deporte AS course_sport
 FROM Members, Teachers, Courses, Enrollments
 WHERE Members.documento = Enrollments.documentosocio
-  AND Courses.documentoprofesor = Teachers.documento
-  AND Enrollments.numero = Courses.numero;
+      AND Courses.documentoprofesor = Teachers.documento
+      AND Enrollments.numero = Courses.numero;
+
 
 SELECT * FROM view_club;
+
+
+SELECT course_sport, COUNT(teacher_name) AS teachers_amount
+FROM view_club
+GROUP BY course_sport
+ORDER BY COUNT(teacher_name) DESC;
+
+
+SELECT teacher_name, course_day
+FROM view_club;
+
+
+SELECT DISTINCT member_name
+FROM view_club
+WHERE course_day = 'monday' AND course_sport = 'tennis';
+
+
+DROP VIEW IF EXISTS view_enrollments;
+
+CREATE OR REPLACE VIEW view_enrollments
+AS SELECT Courses.numero AS course_number, Courses.deporte AS course_name, COUNT(Members.documento) AS member_amount
+FROM Members, Teachers, Courses, Enrollments
+WHERE Members.documento = Enrollments.documentosocio
+      AND Courses.documentoprofesor = Teachers.documento
+      AND Enrollments.numero = Courses.numero
+GROUP BY Courses.numero;
+
+SELECT * FROM view_enrollments;
