@@ -3,7 +3,7 @@
 -----------------------------*/
 
 html {
-    font-size: 62.5%;
+    font-size: 16px;
 }
 
 body {
@@ -22,10 +22,15 @@ main {
     TITLES
 -----------------------------*/
 
-h1 {
+#main-title {
     color: #6b1010;
     text-align: center;
     font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+h2 {
+    font-size: 1.5rem;
 }
 
 /*-----------------------------
@@ -36,10 +41,7 @@ h1 {
     font-size: 2rem;
     background-color: rgb(163, 190, 245);
     color: #00f;
-}
-
-h2 {
-    font-size: 1.5rem;
+    padding: 1rem;
 }
 
 /*-----------------------------
@@ -50,7 +52,7 @@ h2 {
     background-color: black;
     color: White;
     font-style: italic;
-    padding: 0.2rem 0.4rem;
+    padding: 0.2rem;
 }
 
 blockquote {
@@ -72,6 +74,13 @@ blockquote, p {
 .label {
     color: #060;
     font-weight: bold;
+}
+
+#data-list-2 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-style: italic;
+    font-size: 0.85rem;
+    color: #888;
 }
 
 /*-----------------------------
