@@ -1,0 +1,19 @@
+@font-face {
+    font-family: Fancy;
+    src: url(../fonts/Neonderthaw-Regular.ttf);
+}
+
+
+#huertos {
+    padding: 1em;
+    color: whitesmoke;
+    font-weight: bolder;
+    background-image: url(../images/huerta.jfif);
+}
+
+
+#noticia {
+    padding: 1em;
+    background: linear-gradient(to bottom, #fff, #fba);
+    font-family: Fancy;
+}

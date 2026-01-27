@@ -1,0 +1,35 @@
+* {
+    margin: 0;
+}
+
+p {
+    color: blue
+}
+
+.destacado {
+    background-color: yellow;
+}
+
+#peque {
+    font-size: 8px;
+}
+
+input[type="text"] {
+    border: 2px solid #D667C2;
+}
+
+.card:has(img) {
+    border: 2px solid green;
+
+    img {
+        width: 200px
+    }
+}
+
+:is(header, main, footer) {
+    color: purple;
+}
+
+button:not(.disabled) {
+    background-color: lightblue;
+}
