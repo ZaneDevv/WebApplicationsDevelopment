@@ -220,3 +220,110 @@ where Monitor.dni = 22;
 select Monitor.nombre
 from Monitor
 where Monitor.titulacion = 'INEF';
+
+
+-- 12.
+select distinct Aparatos.descripcion
+from Aparatos
+inner join Tienen on Aparatos.codigo = Tienen.codigo
+inner join Salas on Salas.numero = Tienen.numero
+where Salas.ubicacion = 'Planta 1';
+
+
+-- 13.
+select Clases.*, Socio.dni
+from Clases
+inner join Asisten ON Asisten.codigo = Clases.codigo
+inner join Socio ON Socio.dni = Asisten.dni;
+
+
+-- 14.
+select Monitor.nombre, Clases.descripcion, Clases.dia
+from Monitor
+inner join Son_Impartidas ON Monitor.dni = Son_Impartidas.dni
+inner join Clases ON Son_Impartidas.codigo = Clases.codigo;
+
+
+-- 15.
+select distinct Clases.descripcion
+from Clases
+inner join Se_Imparten on Clases.codigo = Se_Imparten.codigo
+inner join Salas on Salas.numero = Se_Imparten.numero
+where Salas.superficie > 22;
+
+
+-- 16.
+select Salas.numero, Aparatos.descripcion
+from Salas
+left join Tienen on Tienen.numero = Salas.numero
+left join Aparatos on Aparatos.codigo = Tienen.codigo;
+
+
+-- 17.
+select Clases.descripcion, count(Asisten.dni) as socios_total
+from Clases
+inner join Asisten on Clases.codigo = Asisten.codigo
+group by Clases.codigo, Clases.descripcion
+order by socios_total desc;
+
+
+-- 18.
+select tipo, sum(superficie) as superficie_total
+from Salas
+group by tipo;
+
+
+-- 19.
+select Monitor.nombre
+from Monitor
+left join Son_Impartidas on Monitor.dni = Son_Impartidas.dni
+where Son_Impartidas.dni is null;
+
+
+-- 20.
+select Salas.*
+from Salas
+where superficie > (
+	select avg(superficie)
+	from Salas
+);
+
+
+-- 21.
+select Socio.nombre, Clases.descripcion
+from Socio
+inner join Asisten on Socio.dni = Asisten.dni
+inner join Clases on Asisten.codigo = Clases.codigo
+inner join Se_Imparten on Clases.codigo = Se_Imparten.codigo
+inner join Salas on Se_Imparten.numero = Salas.numero
+where Salas.ubicacion = 'Planta 1';
+
+
+-- 22.
+select Clases.descripcion, count(Asisten.dni) as socios_total
+from Clases
+inner join Asisten on Clases.codigo = Asisten.codigo
+group by Clases.codigo, Clases.descripcion
+having socios_total > 2;
+
+
+-- 23.
+select Aparatos.descripcion, Tienen.numero
+from Aparatos
+inner join Tienen on Aparatos.codigo = Tienen.codigo
+where estado = 'Malo';
+
+
+-- 24.
+select distinct Socio.nombre, Monitor.nombre, Monitor.titulacion
+from Socio
+inner join Asisten on Asisten.dni = Socio.dni
+inner join Clases on Asisten.codigo = Clases.codigo
+inner join Son_Impartidas on Son_Impartidas.codigo = Clases.codigo
+inner join Monitor on Son_Impartidas.dni = Monitor.dni
+where titulacion = 'INEF';
+
+
+-- 25.
+select avg(superficie) as superficie_promedio
+from Salas;
