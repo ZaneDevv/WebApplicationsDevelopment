@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="css/style.css">
+
+        <title>Summary</title>
+    </head>
+
+    <body>
+        <h1>YEARLY SUMMARY</h1>
+        
+        <form action="imprimir.php">
+            <input type="text" placeholder="Department">
+            <input type="number" placeholder="Sales limit">
+            <input type="submit" value="Print">
+        </form>
+
+        <p id="introduction">During the season the results have been satisfactory.</p>
+
+        <table>
+            <tr>
+                <th>Incomes</th>
+                <th>Bills</th>
+                <th>Difference</th>
+            </tr>
+
+            <tr>
+                <td>100</td>
+                <td>50</td>
+                <td class="positive">50</td>
+            </tr>
+
+            <tr>
+                <td>200</td>
+                <td>190</td>
+                <td class="position">10</td>
+            </tr>
+
+            <tr>
+                <td>80</td>
+                <td>180</td>
+                <td class="negative">50</td>
+            </tr>
+        </table>
+    </body>
+</html>

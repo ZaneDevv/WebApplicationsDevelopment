@@ -1,0 +1,87 @@
+/* ------------------------------------------------------------
+   GENERAL
+------------------------------------------------------------ */
+
+body {
+    font-size: 16px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+/* ------------------------------------------------------------
+   TEXT RELATED
+------------------------------------------------------------ */
+
+h1 {
+    font-size: 1.5em;
+}
+
+ul {
+    list-style: square;
+}
+
+/* ------------------------------------------------------------
+   HYPERLINKS
+------------------------------------------------------------ */
+
+a {
+    color: green
+}
+
+a:visited {
+    color: red;
+}
+
+a:hover {
+    font-weight: bolder;
+}
+
+/* ------------------------------------------------------------
+   MULTIMEDIA
+------------------------------------------------------------ */
+
+img {
+    margin: 0 auto;
+}
+
+img:hover {
+    box-shadow: 2px 2px 5px 0px black;
+    border-radius: 3px;
+}
+
+/* ------------------------------------------------------------
+   INPUTS
+------------------------------------------------------------ */
+
+form {
+    border-radius: 5px;
+    border: 1px solid black;
+    padding: 1em;
+}
+
+input {
+    margin-bottom: 15px;
+    border: 1px solid black;
+    border-radius: 10px; 
+}
+
+input[type="number"] {
+    background-color: #ddd;
+}
+
+input[type^="submit"] {
+    width: 90%;
+    max-width: 300px;
+}
+
+input[type="submit"] {
+    background: linear-gradient(to bottom, #006018, #044c16);
+    color: white;
+    font-weight: bolder;
+    padding: 1em;
+    max-width: 150px;
+    width: 30%;
+}
+
+input[type="submit"]:hover {
+    background: linear-gradient(to bottom, #007a1e, #07681f);
+}
