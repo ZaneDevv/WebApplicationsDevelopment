@@ -1,0 +1,13 @@
+div h2 {
+    color: blue;
+    font-size: 32pt;
+    text-transform: uppercase;
+}
+
+div p {
+    color: rgb(37, 202, 64);
+    font-family: Cantarell, "Helvetica Neue", sans-serif;
+    font-size: 30px;
+    line-height: 1.4em;
+    min-width: 600px;
+}

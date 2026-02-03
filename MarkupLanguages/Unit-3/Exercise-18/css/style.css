@@ -1,0 +1,28 @@
+article > p { /* Obtains all the elements p directly inside articles: not all descendents are allowed */
+    text-align: center;
+}
+
+article ~ p { /* Obtains all the elements p that are inside the same element as any article */
+    text-align: center;
+}
+
+article p { /* Obtains any element p inside any element article */
+    text-align: center;
+}
+
+
+h2 ~ p, article p {
+    font-weight: bolder;
+}
+
+h2 ~ p {
+    background-color: chocolate;
+}
+
+div > h2 {
+    text-align: center;
+}
+
+article p {
+    color: blue
+}
