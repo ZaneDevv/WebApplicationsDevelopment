@@ -132,7 +132,15 @@ where articulos.ART = 'A1';
 
 
 -- 5.
-
+select departamento.Nombre
+from departamento
+inner join pertenece on departamento.DPTO = pertenece.DPTO
+group by departamento.DPTO, pertenece.DPTO
+having count(*) <= (
+    select count(*)
+    from departamento
+    inner join pertenece on departamento.DPTO = pertenece.DPTO
+);
 
 
 -- 6.
