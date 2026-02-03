@@ -152,5 +152,11 @@ ORDER BY product.price DESC, product.name ASC;
 -- 13.
 SELECT DISTINCT manufacturer.id, manufacturer.name
 FROM manufacturer
+INNER JOIN product ON product.manufacturer_id = manufacturer.id;
+
+
+-- 14.
+SELECT DISTINCT manufacturer.id, manufacturer.name
+FROM manufacturer
 LEFT JOIN product ON product.manufacturer_id = manufacturer.id
 WHERE product.id IS NOT NULL;
