@@ -160,3 +160,19 @@ SELECT DISTINCT manufacturer.id, manufacturer.name
 FROM manufacturer
 LEFT JOIN product ON product.manufacturer_id = manufacturer.id
 WHERE product.id IS NOT NULL;
+
+
+-- 15.
+SELECT manufacturer.name
+FROM manufacturer
+INNER JOIN product ON product.manufacturer_id = manufacturer.id
+GROUP BY manufacturer.id, product.manufacturer_id
+HAVING COUNT(*) >= (
+	SELECT MAX(products_per_manufacturer.products_amount)
+	FROM (
+		SELECT COUNT(*) AS products_amount
+		FROM manufacturer
+		INNER JOIN product ON product.manufacturer_id = manufacturer.id
+		GROUP BY manufacturer.id, product.manufacturer_id
+	) products_per_manufacturer
+);
