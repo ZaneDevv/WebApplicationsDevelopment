@@ -1,0 +1,83 @@
+/* -------------------------------------
+     IMPORTING FONTS
+------------------------------------- */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Playwrite+NZ+Basic:wght@100..400&display=swap');
+
+@font-face {
+    font-family: dancing-script;
+    src: url(../fonts/DancingScript-VariableFont_wght.ttf);
+}
+
+/* -------------------------------------
+     GENERAL
+------------------------------------- */
+
+html {
+    margin: 0;
+    font-family: "Pacifico";
+    font-size: 16px;
+}
+
+/* -------------------------------------
+     CONTAINERS
+------------------------------------- */
+
+.tarjeta-producto {
+    border: 2px solid #0d6200;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #cdffb9;
+    box-shadow: 10px 10px 20px #00000022;
+}
+
+.cabecera-producto, .info-extra {
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+}
+
+.cabecera-producto {
+    text-align: center;
+}
+
+#descripcion-imagen {
+    background-image: url(../images/nature.jpg);
+    text-shadow: 2px 2px 4px #1c7c19;
+    padding: 1em;
+}
+
+.info-extra {
+    background: linear-gradient(to right, #d2ffec00, rgb(168, 252, 145));
+    text-shadow: 1px 1px 0 #ffffff, 3px 3px 5px rgba(0, 0, 0, 0.3);
+    padding-bottom: 0.5em;
+}
+
+.pie-producto {
+    background: linear-gradient(to bottom, #63b645, #498733);
+    padding: 0.2em;
+}
+
+/* -------------------------------------
+     TITLES & TEXTS
+------------------------------------- */
+
+h1, h2, ul {
+    margin: 0;
+}
+
+.precio {
+    color: white;
+    text-align: center;
+    text-shadow: 2px 2px 2px #000;
+}
+
+#descripcion-imagen p {
+    color: white;
+    font-size: 1.6rem;
+    font-family: dancing-script;
+    text-align: center;
+}
+
+.subtitulo-producto {
+    margin: 0 0 1em 0;
+}
