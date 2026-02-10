@@ -1,0 +1,25 @@
+td:last-child {
+    font-weight: bolder;
+}
+
+tbody > tr:nth-child(even) {
+    background-color: rgb(60, 60, 139);
+    color: white   
+}
+
+tbody > tr:nth-child(odd) {
+    background-color: rgb(205, 205, 241);
+}
+
+thead {
+    text-transform: uppercase;
+}
+
+thead > tr, tfoot > tr {
+    background-color: #a00;
+    color: white;
+}
+
+td, th {
+   text-align: center; 
+}

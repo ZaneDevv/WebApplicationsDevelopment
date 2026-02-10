@@ -1,0 +1,17 @@
+#interior {
+    background-color: rgb(255, 148, 25);
+    width: 100%;
+    height: 100%;
+}
+
+
+#exterior {
+    width: 50%;
+    height: 200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: brown;
+    background-color: rgb(250, 230, 120);
+}

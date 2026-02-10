@@ -1,0 +1,27 @@
+li {
+    font-weight: bolder;
+}
+
+ol:first-of-type {
+    li:first-child {
+        color: red;
+    }
+
+    li:nth-child(3) {
+        color: green;
+    }
+
+    li:last-child {
+        color: blue;
+    }
+}
+
+ol:last-of-type {
+    li:nth-child(even) {
+        color: blue;
+    }
+
+    li:nth-child(odd) {
+        color: red;
+    }
+}

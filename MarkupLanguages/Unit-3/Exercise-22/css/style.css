@@ -1,0 +1,54 @@
+:root {
+    --gray-color: #888
+}
+
+
+a:link {
+    color: red;
+    text-decoration: none;
+}
+
+a:visited {
+    color: blue;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: green;
+}
+
+
+li:first-of-type {
+    background-color: var(--gray-color);
+}
+
+ul:first-of-type :last-child {
+    color: white;
+    background-color: blue;
+}
+
+
+ul:last-of-type {
+    border: 1px solid #000;
+
+    :nth-child(2) {
+        color: #c8aa12
+    }
+}
+
+
+p::first-letter {
+    color: rgb(179, 0, 0);
+    font-size: 2em;
+}
+
+
+p::first-line {
+    color: rgb(53, 53, 181);
+}
+
+
+p::after {
+    content: "END";
+    border: 2px dotted green;
+}

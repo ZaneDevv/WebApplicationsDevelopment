@@ -1,0 +1,46 @@
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: blue;
+}
+
+a:hover {
+    color: red;
+}
+
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    border: 1px solid black;
+}
+
+thead th::first-letter {
+    font-size: 2em
+}
+
+tbody td:first-child {
+    background-color: green;
+}
+
+tbody th {
+    background-color: yellow;
+}
+
+td:last-child:hover, th:last-child:hover {
+    font-size: 2em;
+}
+
+form label::after {
+    content: "*";
+    color: red;
+}
+
+form p > input {
+    padding: 1.2rem;
+    border: 1px solid red;
+}

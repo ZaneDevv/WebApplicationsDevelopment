@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="de">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        
+        <title>Aufgabe</title>
+
+        <link href="./css/styles.css" type="text/css" rel="stylesheet" />
+    </head>
+
+    <body>
+        <table>
+            <caption><a href="https://iesayala.com/" target="_blank">SHULZEITEN KURSE 2021-2022</a></caption>
+            <thead>
+                <tr>
+                    <th>UHREN</th>
+                    <th>Montag</th>
+                    <th>Dienstag</th>
+                    <th>Mittwoch</th>
+                    <th>Donnerstag</th>
+                    <th>Fritag</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>8:00</td>
+                    <td rowspan="2">Mathematik</td>
+                    <td>Deutsch</td>
+                    <td>Englisch</td>
+                    <td colspan="2">Naturwissenschaft</td>
+                </tr>
+                <tr>
+                    <td>9:00</td>
+                    <td>Geschichte</td>
+                    <td>Naturwissenschaft</td>
+                    <td>Mathematik</td>
+                    <td>Deutsch</td>
+                </tr>
+                <tr>
+                    <td>10:00</td>
+                    <th colspan="5">Pause</th>
+                </tr>
+                <tr>
+                    <td>10:30</td>
+                    <td>Englisch</td>
+                    <td rowspan="2">Naturwissenschaft</td>
+                    <td>Mathematik</td>
+                    <td>Deutsch</td>
+                    <td>Geschichte</td>
+                </tr>
+                <tr>
+                    <td>11:30</td>
+                    <td>Geschichte</td>
+                    <td>Naturwissenschaft</td>
+                    <td>Mathematik</td>
+                    <td>Englisch</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <form>
+            <p>
+                <label for="mail">E-Mail</label>
+                <input type="email" name="mail" placeholder="E-Mail einfügen" required />
+            </p>
+            <input type="button" value="Schulzeiten senden" />
+        </form>
+    </body>
+</html>
