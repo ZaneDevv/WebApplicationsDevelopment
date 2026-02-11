@@ -1,0 +1,91 @@
+/*
+    Álvaro Fernández Barrero
+    1º DAW BIL
+    2026/02/11
+*/
+
+/* -------------------------------
+   GENERAL
+------------------------------- */
+
+table {
+    border-collapse: collapse;
+    border: 2px solid black;
+    margin: 5px;
+}
+
+td {
+    border: 1px solid black;
+}
+
+/* -------------------------------
+   TABLE #1
+------------------------------- */
+
+table:first-child {
+    tr:first-child {
+        color: teal;
+    }
+    
+    tr:nth-child(2) {
+        color: red;
+    }
+    
+    tr:nth-child(3) {
+        color: blue;
+    }
+    
+    tr:nth-child(4) {
+        color: orange;
+    }
+    
+    tr:nth-child(5) {
+        color: purple;
+    }
+    
+    tr:nth-child(6) {
+        color: olive;
+    }
+    
+    tr:nth-child(7) {
+        color: fuchsia;
+    }
+    
+    tr:last-child {
+        color: green;
+    }
+    
+    td:first-child {
+        background-color: white;
+    }
+    
+    td:nth-child(2) {
+        background-color: red;
+    }
+    
+    td:nth-child(3) {
+        background-color: green;
+    }
+    
+    td:last-child {
+        background-color: blue;
+    }
+}
+
+/* -------------------------------
+   TABLE #2
+------------------------------- */
+
+table:last-child {
+    font-family: Arial, Helvetica, sans-serif;
+      
+    tr:nth-child(even) {
+        color: white;
+        font-weight: bolder; 
+        background-color: rgb(84, 119, 226);
+    }
+
+    tr:nth-child(odd) {
+        background-color: rgb(214, 223, 248);
+    }
+}
