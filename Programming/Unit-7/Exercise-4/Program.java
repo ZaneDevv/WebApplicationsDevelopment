@@ -60,56 +60,56 @@ public class Program
     private static void actToOption(int chosenOption, Bike bike, Car car)
     {
         switch (chosenOption) // Für meinen Entwicklungsumgbugenlehrer ^^
-            {
-                case 1:
-                    bike.travel(10);
-                    break;
-                
-                case 2:
-                    bike.changePinions((int)(1 + Math.random() * 9));
-                    break;
+        {
+            case 1:
+                bike.travel(10);
+                break;
+            
+            case 2:
+                bike.changePinions((int)(1 + Math.random() * 9));
+                break;
 
-                case 3:
-                    System.out.printf("Total: %.2f\nPartial: %.2f\n", bike.getKilometersTraveled(), bike.getPartialKilometers());
-                    break;
+            case 3:
+                System.out.printf("Total: %.2f\nPartial: %.2f\n", bike.getKilometersTraveled(), bike.getPartialKilometers());
+                break;
 
-                case 4:
-                    System.out.println(bike);
-                    break;
-                
-                case 5:
-                    car.travel(1000);
-                    break;
-                
-                case 6:
-                    car.check();
-                    break;
-                
-                case 7:
-                    System.out.printf("Total: %.2f\nPartial: %.2f\n", car.getKilometersTraveled(), car.getPartialKilometers());
-                    break;
-                
-                case 8:
-                    break;
+            case 4:
+                System.out.println(bike);
+                break;
+            
+            case 5:
+                car.travel(1000);
+                break;
+            
+            case 6:
+                car.check();
+                break;
+            
+            case 7:
+                System.out.printf("Total: %.2f\nPartial: %.2f\n", car.getKilometersTraveled(), car.getPartialKilometers());
+                break;
+            
+            case 8:
+                break;
 
-                case 9:
-                    System.out.println(car);
-                    break;
-                
-                case 10:
-                    System.out.printf("#Vehicles: %d\n", Vehicle.getCreatedVehicles());
-                    break;
-                
-                case 11:
-                    System.out.printf("Total kilometers: %.2f\n", Vehicle.getTotalKilometers());
-                    break;
+            case 9:
+                System.out.println(car);
+                break;
+            
+            case 10:
+                System.out.printf("#Vehicles: %d\n", Vehicle.getCreatedVehicles());
+                break;
+            
+            case 11:
+                System.out.printf("Total kilometers: %.2f\n", Vehicle.getTotalKilometers());
+                break;
 
-                case 12:
-                    System.out.println(Printer.ANSI_CYAN + "Exit");
-                    break;
-                
-                default:
-                    Printer.error("Option does not exist!\n");
-            }
+            case 12:
+                System.out.println(Printer.ANSI_CYAN + "Exit");
+                break;
+            
+            default:
+                Printer.error("Option does not exist!\n");
+        }
     }
 }
