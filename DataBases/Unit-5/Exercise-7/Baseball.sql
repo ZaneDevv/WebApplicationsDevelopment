@@ -68,10 +68,11 @@ ORDER BY hr DESC;
 
 -- 4.- The names from the PLAYERS table and the year and HR count from the STATS table for the 50+ HR subset.
 
-SELECT p.firstName, s.year, s.hr
+SELECT p.firstName, s.year, COUNT(s.hr)
 FROM PLAYERS p
 JOIN STATS s ON s.playerId = p.playerId
-WHERE s.hr >= 50;
+WHERE s.hr >= 50
+GROUP BY s.playerId, s.year, p.firstName;
 
 -- 5.- Player's career home run total.
 
