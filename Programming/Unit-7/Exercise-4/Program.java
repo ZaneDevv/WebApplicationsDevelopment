@@ -59,7 +59,7 @@ public class Program
 
     private static void actToOption(int chosenOption, Bike bike, Car car)
     {
-        switch (chosenOption) // Für meinen Entwicklungsumgbugenlehrer ^^
+        switch (chosenOption) // Für meinen Entwicklungsumgbugenlehrer <3
         {
             case 1:
                 bike.travel(10);
