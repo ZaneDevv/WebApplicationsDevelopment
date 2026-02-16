@@ -49,19 +49,13 @@ public class Book extends Publication implements Lendable
     @Override
     public void lend()
     {
-        if (this.isLendable)
-        {
-            this.isLent = true;
-        }
+        this.isLent = this.isLendable;   
     }
 
     @Override
     public void returnProduct()
     {
-        if (this.isLent)
-        {
-            this.isLent = false;
-        }
+        this.isLent = false;
     }
 
     public String toString()
