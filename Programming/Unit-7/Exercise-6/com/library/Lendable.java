@@ -11,12 +11,12 @@ public interface Lendable
     // Attributes
     //----------------------------------------
     
-    public boolean isLent;
+    public boolean isLent = false;
 
     //----------------------------------------
     // Methods
     //----------------------------------------
 
     public void lend();
-    public void return();
+    public void returnProduct();
 }

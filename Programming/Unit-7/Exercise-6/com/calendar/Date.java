@@ -125,7 +125,7 @@ public class Date
         return this.year;
     }
 
-    public int setYear(int year)
+    public void setYear(int year)
     {
         this.year = year;
     }
@@ -138,7 +138,7 @@ public class Date
 
     public void setMonth(byte month)
     {
-        this.month = MathFunctions.clamp(month, 1, 12);
+        this.month = (byte)MathFunctions.clamp(month, 1, 12);
     }
 
     public void setMonth(int month)
@@ -154,7 +154,7 @@ public class Date
 
     public void setDay(byte day)
     {
-        this.day = MathFunctions.clamp(day, 1, this.computeDaysAmountInMonth());
+        this.day = (byte)MathFunctions.clamp(day, 1, this.computeDaysAmountInMonth());
     }
 
     public void setDay(int day)

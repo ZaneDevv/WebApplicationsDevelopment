@@ -1,5 +1,7 @@
 package com.library;
 
+import com.calendar.Date;
+
 
 /**
  * @version 1.0
@@ -12,6 +14,8 @@ public class Book extends Publication implements Lendable
     //----------------------------------------
     
     public boolean isLendable = false;
+
+    public boolean isLent = false;
 
     //----------------------------------------
     // Constructors
@@ -45,18 +49,24 @@ public class Book extends Publication implements Lendable
     @Override
     public void lend()
     {
-        System.out.println("Book lent!");
+        if (this.isLendable)
+        {
+            this.isLent = true;
+        }
     }
 
     @Override
-    public void return()
+    public void returnProduct()
     {
-        System.out.println("The book has been returned!");
+        if (this.isLent)
+        {
+            this.isLent = false;
+        }
     }
 
     public String toString()
     {
-        return String.format("%s\nIs lendable: %b", super, this.getIsLendable());
+        return String.format("%s\nIs lendable: %b\nIs lent: %b", super.toString(), this.getIsLendable(), this.isLent);
     }
 
     //----------------------------------------

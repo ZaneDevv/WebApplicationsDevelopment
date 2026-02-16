@@ -21,7 +21,7 @@ public class MathFunctions
      * @since 1.0
      * @author Álvaro Fernández Barrero
      */
-    public static <T extends Number> double clamp(T x, T min, T max)
+    public static int clamp(int x, int min, int max)
     {
         return x < min ? min : x > max ? max : x;
     }
