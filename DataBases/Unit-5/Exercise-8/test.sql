@@ -42,19 +42,19 @@ CREATE TABLE Prestamo(
 -- ADDING KEYS
 -- -----------------------------------------
 
-ALTER TABLE Libro ADD PRIMARY KEY(IdLibro);
+ALTER TABLE Libro ADD CONSTRAINT PK_Libro PRIMARY KEY(IdLibro);
 
-ALTER TABLE Autor ADD PRIMARY KEY(IdAutor);
+ALTER TABLE Autor ADD CONSTRAINT PK_Autor PRIMARY KEY(IdAutor);
 
-ALTER TABLE Estudiante ADD PRIMARY KEY(IdLector);
+ALTER TABLE Estudiante ADD CONSTRAINT PK_Estudiante PRIMARY KEY(IdLector);
 
-ALTER TABLE LibAut ADD PRIMARY KEY(IdAutor, IdLibro);
-ALTER TABLE LibAut ADD FOREIGN KEY(IdAutor) REFERENCES Autor(IdAutor);
-ALTER TABLE LibAut ADD FOREIGN KEY(IdLibro) REFERENCES Libro(IdLibro);
+ALTER TABLE LibAut ADD CONSTRAINT PK_LibAut PRIMARY KEY(IdAutor, IdLibro);
+ALTER TABLE LibAut ADD CONSTRAINT FK_LibAut1 FOREIGN KEY(IdAutor) REFERENCES Autor(IdAutor);
+ALTER TABLE LibAut ADD CONSTRAINT FK_LibAut2 FOREIGN KEY(IdLibro) REFERENCES Libro(IdLibro);
 
-ALTER TABLE Prestamo ADD PRIMARY KEY(IdLector, IdLibro, FechaPrestamo);
-ALTER TABLE Prestamo ADD FOREIGN KEY(IdLector) REFERENCES Estudiante(IdLector);
-ALTER TABLE Prestamo ADD FOREIGN KEY(IdLibro) REFERENCES Libro(IdLibro);
+ALTER TABLE Prestamo ADD CONSTRAINT PK_Prestamo PRIMARY KEY(IdLector, IdLibro, FechaPrestamo);
+ALTER TABLE Prestamo ADD CONSTRAINT FK_Prestamo1 FOREIGN KEY(IdLector) REFERENCES Estudiante(IdLector);
+ALTER TABLE Prestamo ADD CONSTRAINT FK_Prestamo2 FOREIGN KEY(IdLibro) REFERENCES Libro(IdLibro);
 
 -- -----------------------------------------
 -- CHECKING TABLES
