@@ -184,7 +184,7 @@ GROUP BY Estudiante.Nombre, Estudiante.IdLector
 HAVING COUNT(*) >= (
     SELECT AVG(Amount)
     FROM (
-        SELECT Estudiante.IdLector, COUNT(*) AS Amount
+        SELECT COUNT(*) AS Amount
         FROM Prestamo
         JOIN Estudiante ON Estudiante.IdLector = Prestamo.IdLector
         GROUP BY Estudiante.Nombre, Estudiante.IdLector
