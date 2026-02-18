@@ -152,7 +152,7 @@ GROUP BY Prestamo.idLector;
 
 -- 7. Add a new column to the table "Estudiante" that is an email of type VARCHAR2(100)
 
-ALTER TABLE Estudiante ADD COLUMN Email VARCHAR2(100);
+ALTER TABLE Estudiante ADD Email VARCHAR2(100);
 
 DESCRIBE Estudiante;
 
