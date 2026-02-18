@@ -137,9 +137,10 @@ WHERE Edad > (
 
 -- 5. Show authors whose books has been lent up to once
 
-SELECT Autor.Nombre
+SELECT Autor.Nombre, COUNT(*) AS TotalPrestamo
 FROM Autor
 JOIN LibAut ON LibAut.IdAutor = Autor.IdAutor
+JOIN Prestamo ON Prestamo.IdLibro = LibAut.IdLibro
 GROUP BY Autor.IdAutor, Autor.Nombre
 HAVING COUNT(*) > 1;
 
