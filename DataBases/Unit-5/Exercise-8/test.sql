@@ -42,32 +42,19 @@ CREATE TABLE Prestamo(
 -- ADDING KEYS
 -- -----------------------------------------
 
-ALTER TABLE Libro
-ADD PRIMARY KEY(IdLibro);
+ALTER TABLE Libro ADD PRIMARY KEY(IdLibro);
 
-ALTER TABLE Autor
-ADD PRIMARY KEY(IdAutor);
+ALTER TABLE Autor ADD PRIMARY KEY(IdAutor);
 
-ALTER TABLE Estudiante
-ADD PRIMARY KEY(IdLector);
+ALTER TABLE Estudiante ADD PRIMARY KEY(IdLector);
 
-ALTER TABLE LibAut
-ADD PRIMARY KEY(IdAutor, IdLibro);
+ALTER TABLE LibAut ADD PRIMARY KEY(IdAutor, IdLibro);
+ALTER TABLE LibAut ADD FOREIGN KEY(IdAutor) REFERENCES Autor(IdAutor);
+ALTER TABLE LibAut ADD FOREIGN KEY(IdLibro) REFERENCES Libro(IdLibro);
 
-ALTER TABLE LibAut
-ADD FOREIGN KEY(IdAutor) REFERENCES Autor(IdAutor);
-
-ALTER TABLE LibAut
-ADD FOREIGN KEY(IdLibro) REFERENCES Libro(IdLibro);
-
-ALTER TABLE Prestamo
-ADD PRIMARY KEY(IdLector, IdLibro, FechaPrestamo);
-
-ALTER TABLE Prestamo
-ADD FOREIGN KEY(IdLector) REFERENCES Estudiante(IdLector);
-
-ALTER TABLE Prestamo
-ADD FOREIGN KEY(IdLibro) REFERENCES Libro(IdLibro);
+ALTER TABLE Prestamo ADD PRIMARY KEY(IdLector, IdLibro, FechaPrestamo);
+ALTER TABLE Prestamo ADD FOREIGN KEY(IdLector) REFERENCES Estudiante(IdLector);
+ALTER TABLE Prestamo ADD FOREIGN KEY(IdLibro) REFERENCES Libro(IdLibro);
 
 -- -----------------------------------------
 -- CHECKING TABLES
@@ -129,3 +116,77 @@ WHERE Nacionalidad IN ('USA', 'Francia');
 
 SELECT ROUND(AVG(Edad), 2) AS EdadMedia
 FROM Estudiante;
+
+-- 3. Name a last name of the youngest student
+
+SELECT Nombre, Apellidos
+FROM Estudiante
+WHERE Edad <= (
+    SELECT MIN(Edad)
+    FROM Estudiante
+);
+
+-- 4. Name and last name of the students who are older that the avarage of the age of all the students
+
+SELECT Nombre, Apellidos
+FROM Estudiante
+WHERE Edad > (
+    SELECT AVG(Edad)
+    FROM Estudiante
+);
+
+-- 5. Show authors whose books has been lent up to once
+
+SELECT Autor.Nombre
+FROM Autor
+JOIN LibAut ON LibAut.IdAutor = Autor.IdAutor
+GROUP BY Autor.IdAutor, Autor.Nombre
+HAVING COUNT(*) > 1;
+
+
+-- 6. Show the amount of loan made per each student (show idLector and amount of loan)
+
+SELECT Prestamo.idLector, COUNT(*) AS AmountOfLoan
+FROM Prestamo
+GROUP BY Prestamo.idLector;
+
+-- 7. Add a new column to the table "Estudiante" that is an email of type VARCHAR2(100)
+
+ALTER TABLE Estudiante ADD COLUMN Email VARCHAR2(100);
+
+DESCRIBE Estudiante;
+
+-- 8. Remove all the loan made before 2010
+
+DELETE FROM Prestamo
+WHERE FechaPrestamo < TO_DATE('2010-01-01', 'YYYY-MM-DD');
+
+SELECT * FROM Prestamo;
+
+-- 9. Show the areas that have up to one book registered
+
+INSERT INTO Libro VALUES (4, 'MongoDB', 'Santillana', 'Base de datos');
+
+DELETE FROM Libro
+WHERE IdLibro = 4;
+
+SELECT Area
+FROM Libro
+GROUP BY Area
+HAVING COUNT(*) > 1;
+
+-- 10. Show the students whose amount of loan is greater or equal to the avarage of loan made made per student
+
+SELECT Estudiante.Nombre
+FROM Prestamo
+JOIN Estudiante ON Estudiante.IdLector = Prestamo.IdLector
+GROUP BY Estudiante.Nombre, Estudiante.IdLector
+HAVING COUNT(*) >= (
+    SELECT AVG(Amount)
+    FROM (
+        SELECT Estudiante.IdLector, COUNT(*) AS Amount
+        FROM Prestamo
+        JOIN Estudiante ON Estudiante.IdLector = Prestamo.IdLector
+        GROUP BY Estudiante.Nombre, Estudiante.IdLector
+    )
+);
