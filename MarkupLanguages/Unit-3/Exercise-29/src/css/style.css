@@ -1,0 +1,122 @@
+/*
+    Álvaro Fernández Barrero
+    1º DAW BIL
+    24/02/2026
+*/
+
+/*------------------------
+    GENERAL
+------------------------*/
+
+* {
+    margin: 0;
+}
+
+body {
+    background-color: #d7fdff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+main {
+    display: contents;
+    margin-left: 10px;
+}
+
+/*------------------------
+    COMMON HTML
+------------------------*/
+
+header, nav {
+    background-color: #335;
+    color: white;
+}
+
+header {
+    padding: 1em;
+}
+
+h1 {
+    font-size: 2.1rem;
+    margin: 5px;
+}
+
+/*------------------------
+    NAV
+------------------------*/
+
+nav {
+    position: fixed;
+    top: 100px;
+    left: 5px;
+
+    padding: 0.5em 1em;
+    
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 0 black;
+}
+
+/*------------------------
+    LINKS
+------------------------*/
+
+nav a:visited, a:link {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    color: rgb(198, 255, 249);
+}
+
+a:hover {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+a::before {
+    content: "> ";
+}
+
+/*------------------------
+    ARTICLES
+------------------------*/
+
+article {
+    width: 80%;
+    max-width: 750px;
+
+    margin: 0.5em auto;
+    
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 1px black;
+}
+
+article p {
+    margin: 0.5em 1em;
+    padding-bottom: 0.5em;
+}
+
+h2 {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    
+    padding-left: 1em;
+    
+    background-color: #0a0;
+    color: white;
+    border-bottom: 2px solid #080;
+}
+
+/*------------------------
+    HOME
+------------------------*/
+
+#home-nav {
+    padding: 1em;
+}
+
+#home-nav p:first-child {
+    font-weight: bolder;
+    margin-bottom: 10px;
+}

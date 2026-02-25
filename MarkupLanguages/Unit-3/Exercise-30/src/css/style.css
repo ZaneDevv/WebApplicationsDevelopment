@@ -1,0 +1,30 @@
+nav ul {
+    display: flex;
+    gap: 5px;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+nav a {
+    display: block;
+    padding: 2em;
+    background-color: #999898;
+    text-decoration: none;
+    color: #f3f5fa;
+}
+
+nav a:hover {
+    background-color: #242323;
+}
+
+nav ul li ul {
+    display: none;
+}
+
+nav ul li a:hover + ul, ul li ul:hover {
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
