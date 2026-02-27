@@ -16,17 +16,25 @@ This repository contains all the projects and exercises I have completed during 
 
 ### 🔨 Tools & technologies used
 
-- C
-- Java
-- MySQL
-- Bash
-- HTML5
-- CSS
-- XML
-- Markdown
-- Makefile
-- LaTeX
+<details>
+	<summary>Languages 🌐</summary>
+	
+	- C
+	- Java
+	- MySQL
+	- Bash
+	- HTML5
+	- CSS
+	- XML
+	- Markdown
+	- Makefile
+	- LaTeX
+</details>
 
-- Visual Studio Code
-- Sublime Text
-- NetBeans
+<details>
+	<summary>Tools 💻</summary>
+	
+	- Visual Studio Code
+	- Sublime Text
+	- NetBeans
+</details>
