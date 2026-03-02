@@ -1,0 +1,74 @@
+/* ---------------------------
+    GENERAL
+----------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* ---------------------------
+    CARDS
+----------------------------*/
+
+.cards-container {
+    padding: 1em;
+}
+
+.card {
+    width: 100%;
+    max-width: 300px;
+
+    margin: 0 auto;
+
+    border-radius: 5px;
+    border: 1px solid #000000;
+
+    box-shadow: 1px 1px 3px 1px #000a;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.card img {
+    width: 100%;
+
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+    margin-bottom: 10px;
+}
+
+.card h3, .card p {
+    text-align: center;
+}
+
+.card .button {
+    width: 75%;
+
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding: 0.5em;
+
+    border-radius: 100px;
+
+    text-align: center;
+
+    background-color: #d00;
+}
+
+.card .button:hover {
+    width: 80%;
+    background-color: red;
+}
+
+.card .button a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.card > :not(img) {
+    margin-left: 20px;
+    margin-right: 20px;
+}
