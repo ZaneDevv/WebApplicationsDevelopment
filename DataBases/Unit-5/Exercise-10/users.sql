@@ -2,17 +2,17 @@
 -- 1º DAW
 -- 2026/02/26
 
-SELECT * FROM dba_pro;
-SELECT * FROM dba_users;
-SELECT * FROM dba_role_privs;
-SELECT * FROM dba_tab_privs;
-SELECT * FROM dba_sys_privs;
+SELECT * FROM SYS.dba_procedures;
+SELECT * FROM SYS.dba_users;
+SELECT * FROM SYS.dba_role_privs;
+SELECT * FROM SYS.dba_tab_privs;
+SELECT * FROM SYS.dba_sys_privs;
 
-DESCRIBE dba_pro;
-DESCRIBE dba_users;
-DESCRIBE dba_role_privs;
-DESCRIBE dba_tab_privs;
-DESCRIBE dba_sys_privs;
+DESCRIBE SYS.dba_pro;
+DESCRIBE SYS.dba_users;
+DESCRIBE SYS.dba_role_privs;
+DESCRIBE SYS.dba_tab_privs;
+DESCRIBE SYS.dba_sys_privs;
 
 -- -----------------------------------------
 -- TABLESPACE
@@ -72,3 +72,13 @@ WHERE grantee = 'administrator';
 
 GRANT CREATE SESSION TO administrator;
 GRANT CREATE USER TO administrator;
+GRANT CONNECT TO administrator;
+
+SHOW USER;
+
+
+CREATE USER test00
+IDENTIFIED BY tester
+DEFAULT TABLESPACE USERS
+TEMPORARY TABLESPACE temp
+QUOTA 0K ON USERS;

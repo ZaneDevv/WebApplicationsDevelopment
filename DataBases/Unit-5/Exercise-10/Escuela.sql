@@ -65,3 +65,41 @@ INSERT INTO Cursos VALUES('Administración Linux', 2, 32432455, NULL, TO_DATE('0
 SELECT * FROM Alumnos;
 SELECT * FROM Profesores;
 SELECT * FROM Cursos;
+
+-- -------------------------
+-- EXERCISES
+-- -------------------------
+
+-- 1.
+
+ALTER TABLE Profesores ADD edad INT;
+
+-- 4.
+
+ALTER TABLE Profesores ADD CONSTRAINT chk_age CHECK (Profesores(edad) BETWEEN 18 AND 65);
+ALTER TABLE Cursos ADD CONSTRAINT chk_students_amount CHECK (Cursos(maxAlu) >= 10);
+ALTER TABLE Cursos ADD CONSTRAINT chk_hours_amount CHECK (Cursos(numHoras) > 100);
+
+-- 5.
+
+ALTER TABLE Alumnos DROP CONSTRAINT chk_genre;
+
+-- 10.
+
+ALTER TABLE Profesores ADD PRIMARY KEY(nombre, apellido1, apellido2);
+
+-- 11.
+
+INSERT INTO Profesores VALUES('Juan', 'Arco', 'López', 32432455, 'Puerta Negra, 4', 'Ing. Informática', NULL);
+INSERT INTO Alumnos VALUES('María', 'Jaén', 'Sevilla', 5, 'Martos 5', 'M', TO_DATE('10-03-1977', 'DD-MM-YYYY'), 3);
+
+-- 14.
+
+DELETE FROM Profesores
+WHERE UPPER(nombre) = 'LAURA' AND UPPER(apellido1) = 'LÓPEZ';
+
+-- 15.
+
+CREATE TABLE NombreDeAlumnos(
+    nombreCompleto VARCHAR2(50)
+);
