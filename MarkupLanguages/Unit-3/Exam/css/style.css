@@ -1,0 +1,187 @@
+/*
+    Álvaro Fernández Barrero
+    1º DAW BIL
+    03/03/2026
+*/
+
+/* -----------------------
+    GENERAL
+----------------------- */
+
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+body {
+    background: linear-gradient(135deg, #f5f0ff, #fff5f8);
+}
+
+/* -----------------------
+    TITULO
+----------------------- */
+
+header {
+    background: linear-gradient(to left, #7b2cbff0, #c77dfff0);
+    margin-bottom: 50px;
+}
+
+h1,
+section:first-child > h2,
+section:first-child > h3 {
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    padding: 1em;
+    text-shadow: 1px 1px #000;
+}
+
+h2, h3, h4 {
+    color: #4f23ff;
+    margin-bottom: 7px;
+    margin-top: 7px;
+}
+
+/* -----------------------
+    MENU DESPLEGABLE
+----------------------- */
+
+nav {
+    padding: 0.4em;
+    font-size: 0.7em;
+    font-weight: bold;
+    background: linear-gradient(to left, #7b2cbf, #c77dff);
+    width: 97%;
+    margin: 0 auto;
+    box-shadow: 1px 1px 1px 1px #00000030;
+}
+
+nav li {
+    padding: 0.5em;
+}
+
+nav ul ul {
+    width: 100%;
+    padding: 0;
+    background-color: #a474ce;
+}
+
+nav a {
+    text-transform: uppercase;
+    color: white;
+    text-decoration: none;
+}
+
+nav li:hover {
+    background-color: #1f003a;
+    transform: translateY(-2px)
+}
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    gap: 3em;
+    justify-content: center;
+}
+
+nav ul ul {
+    display: none;
+    position: absolute;
+
+    text-transform: uppercase;
+}
+
+nav ul > li:hover {
+    transform: translateY(2px);
+}
+
+nav ul > li:hover > ul,
+nav ul > li > ul:hover {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5px;
+    gap: 5px
+}
+
+/* -----------------------
+    BIOGRAFIAS
+----------------------- */
+
+.biografias {
+    display: flex;
+    gap: 1em;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.biografias article {
+    flex-basis: calc(33.333% - 2rem);
+    background-color: white;
+    border-radius: 12px;
+    box-shadow: 0 0 2px 2px #a474cea0;
+    padding: 1em;
+}
+
+.biografias article:hover {
+    box-shadow: 0 0 3px 3px #a474cea0;
+    transform: translateY(-8px);
+}
+
+.biografias article:hover img {
+    transform: scale(1.1);
+}
+
+.biografias article img {
+    object-fit: cover;
+    height: 250px;
+    border-radius: 10px;
+    margin: 15px;
+}
+
+.biografias article p 
+.biografias article li {
+    color: #000000a0
+}
+
+.grande {
+    flex-basis: calc(66.666% - 2rem);
+}
+
+.grande img {
+    height: 350px;
+}
+
+.grande .math {
+    list-style: none
+}
+
+.grande .math *::before {
+    content: "♀ ";
+    color: #7b2cbf;
+}
+
+/* -----------------------
+    PIE DE PÁGINA
+----------------------- */
+
+footer {
+    margin-top: 20px;
+    padding: 2em;
+    background: linear-gradient(to left, #7b2cbf, #c77dff); 
+    color: white;
+    text-shadow: 1px 1px #000;  
+}
+
+footer blockquote {
+    display: inline;
+    margin: 0 auto;
+    font-style: italic;
+}
+
+blockquote cite::after {
+    content: "-";
+}
