@@ -1,0 +1,54 @@
+body {
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+}
+
+#tester {
+    margin-top: 50px;
+
+    border: 1px solid black;
+
+    display: inline;
+    padding: 2px;
+}
+
+#tester > p {
+    width: 100%;
+}
+
+.flex-list {
+    display: flex;
+}
+
+.flex-list > div {
+    display: inline;
+
+    border: 1px dotted red;
+}
+
+.flex-list > div p:first-child {
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: underline;
+    color: white;
+
+    padding: 0.2em;
+}
+
+.flex-list div:first-child p:first-child {
+    background-color: grey;
+}
+
+.flex-list div:nth-child(2) p:first-child {
+    background-color: black;
+}
+
+.flex-list div:nth-child(3) p:first-child {
+    background-color: red;
+}
+
+.flex-list div:last-child p:first-child {
+    background-color: blue;
+}
