@@ -1,71 +1,111 @@
 <!DOCTYPE html>
+
+<!--
+    Álvaro Fernández Barrero
+    1º DAW BIL
+-->
+
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="./css/style.css">
-    
-    <title>Log in</title>
-</head>
-<body>
-    <main>
-        <h2>Log in</h2>
+        <link rel="stylesheet" href="./css/style.css">
+        
+        <title>Log in page</title>
+    </head>
 
-        <form>
-            <div>
-                <div class="input-field">
-                    <label for="name">Name</label>
-                    <input name="name" id="name" type="text" required>
+    <body>
+        <main>
+            <h2>Log in</h2>
+
+            <form>
+                <div>
+                    <div class="input-field">
+                        <label for="name">Name</label>
+                        <input name="name" id="name" type="text" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="last-name">Last name</label>
+                        <input name="last-name" id="last-name" type="text" required>
+                    </div>
+                </div>
+        
+                <div>
+                    <div class="input-field">
+                        <label for="address">Street, number, floor, door</label>
+                        <input name="address" id="address" type="text" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="postal">Postal code</label>
+                        <input name="postal" id="postal" type="text" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="municipality">Municipality</label>
+                        <input name="municipality" id="municipality" type="text" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="province">Province</label>
+                        <input name="province" id="province" type="text" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="country">Country</label>
+                        <input name="country" id="country" type="text" required>
+                    </div>
+                </div>
+        
+                <div>
+                    <div class="input-field">
+                        <label for="e-mail">E-mail</label>
+                        <input name="e-mail" id="e-mail" type="email" required>
+                    </div>
+
+                    <div class="input-field">
+                        <label for="phone">Phone number</label>
+                        <input name="phone" id="phone" type="tel" required>
+                    </div>
                 </div>
 
-                <div class="input-field">
-                    <label for="last-name">Last name</label>
-                    <input name="last-name" id="last-name" type="text" required>
-                </div>
-            </div>
-    
-            <div>
-                <div class="input-field">
-                    <label for="address">Street, number, floor, door</label>
-                    <input name="address" id="address" type="text" required>
+                <div>
+                    <fieldset class="input-field" id="genre">
+                        <legend>Genre</legend>
+
+                        <div>
+                            <input name="man" id="man" type="radio">
+                            <label for="man">Man</label>
+                        </div>
+
+                        <div>
+                            <input name="woman" id="woman" type="radio">
+                            <label for="woman">Woman</label>
+                        </div>
+
+                        <div>
+                            <input name="other-genre" id="other-genre" type="radio">
+                            <label for="other-genre">Other</label>
+                        </div>
+                    </fieldset>
                 </div>
 
-                <div class="input-field">
-                    <label for="postal">Postal code</label>
-                    <input name="postal" id="postal" type="text" required>
+                <div id="conditions">
+                    <input name="conditions-checkbox" id="conditions-checkbox" type="checkbox" required>
+                    <label for="conditions-checkbox">I accept the conditions</label>
                 </div>
 
-                <div class="input-field">
-                    <label for="municipality">Municipality</label>
-                    <input name="municipality" id="municipality" type="text" required>
-                </div>
+                <button type="submit">Log in</button>
+            </form>
+        </main>
 
-                <div class="input-field">
-                    <label for="province">Province</label>
-                    <input name="province" id="province" type="text" required>
-                </div>
-
-                <div class="input-field">
-                    <label for="country">Country</label>
-                    <input name="country" id="country" type="text" required>
-                </div>
-            </div>
-    
-            <div>
-                <div class="input-field">
-                    <label for="e-mail">E-mail</label>
-                    <input name="e-mail" id="e-mail" type="email" required>
-                </div>
-
-                <div class="input-field">
-                    <label for="phone">Phone number</label>
-                    <input name="phone" id="phone" type="tel" required>
-                </div>
-            </div>
-
-            <input type="submit">
-        </form>
-    </main>
-</body>
+        <footer>
+            <p>
+                &Aacute;lvaro Fern&aacute;ndez Barrero, 1º DAW BIL<br>
+                10/03/2026
+            </p>
+        </footer>
+    </body>
 </html>
