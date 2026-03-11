@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="./css/style.css">
+
+        <title>Form</title>
+    </head>
+
+    <body>
+        <main>
+            <h2>Log in</h2>
+
+            <form action="action.php" method="POST">
+                <div class="input-div">
+                    <label for="username">Name: </label>
+                    <input name="username" id="username" type="text" required>
+                </div>
+
+                <div class="input-div">
+                    <label for="email">E-mail: </label>
+                    <input name="email" id="email" type="email" required>
+                </div>
+
+                <div class="input-div">
+                    <label for="password">Password: </label>
+                    <input name="password" id="password" type="password" required>
+                </div>
+
+                <div class="input-div">
+                    <label for="confirm-password">Confirm password: </label>
+                    <input name="confirm-password" id="confirm-password" type="password" required>
+                </div>
+
+                <input type="submit">
+            </form>
+        </main>
+    </body>
+</html>

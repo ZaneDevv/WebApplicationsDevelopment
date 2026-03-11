@@ -1,0 +1,141 @@
+/*
+    Álvaro Fernández Barrero
+    1º DAW BIL
+*/
+
+/* ---------------------
+    Normalizaton
+--------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+/* ---------------------
+    Background
+--------------------- */
+
+h2 {
+    margin: 1em;
+}
+
+body {
+    background-color: #eee;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+main {
+    margin-top: 30px;
+
+    background-color: white;
+
+    max-width: 500px;
+    width: 80%;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 3px 3px #aaa;
+}
+
+/* ---------------------
+    Divisors
+--------------------- */
+
+form > div:focus-within {
+    background-color: #fffaa1;
+
+    border-top: 2px dotted rgb(219, 228, 118);
+    border-bottom: 2px dotted rgb(219, 228, 118);
+}
+
+form > div {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+
+    padding: 1em;
+}
+
+.input-field {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+
+    display: flex;
+    flex-direction: column;
+}
+
+form > div {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px 0;
+}
+
+/* ---------------------
+    First/third field
+--------------------- */
+
+form > div:first-child > .input-field,
+form > div:last-child > .input-field {
+    width: 50%;
+}
+
+/* ---------------------
+    Seconds field
+--------------------- */
+
+form > div:nth-child(2) .input-field:first-child,
+form > div:nth-child(2) .input-field:last-child {
+    width: 100%;
+}
+
+form > div:nth-child(2) .input-field:nth-child(2),
+form > div:nth-child(2) .input-field:nth-child(3),
+form > div:nth-child(2) .input-field:nth-child(4) {
+    width: 33.3333%;
+}
+
+/* ---------------------
+    Labels
+--------------------- */
+
+.input-field label {
+    color: #222;
+    font-weight: 700;
+}
+
+/* ---------------------
+    Inputs
+--------------------- */
+
+input {
+    height: 30px;
+}
+
+input[type="submit"] {
+    padding: 1em;
+
+    background-color: rgb(58, 163, 58);
+    color: white;
+
+    border: 0;
+
+    transition: background-color 0.2s;
+
+    margin: 1em;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+    background-color: rgb(41, 120, 41);
+}

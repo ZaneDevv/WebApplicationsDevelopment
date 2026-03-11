@@ -1,0 +1,113 @@
+/* ---------------------
+    Normalizaton
+--------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+/* ---------------------
+    Background
+--------------------- */
+
+body {
+    background-color: #eee;
+    font-family: Arial, Helvetica, sans-serif;
+
+    margin-top: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ---------------------
+    Form style
+--------------------- */
+
+h2 {
+    text-align: center;
+}
+
+main {
+    width: 80%;
+    max-width: 500px;
+    padding: 1.5em;
+
+    border-radius: 10px;
+    
+    background-color: white;
+
+    box-shadow: 0 0 3px 3px #b6b6b6;
+}
+
+form {
+    gap: 15px;
+}
+
+.input-div {
+    gap: 3px;
+}
+
+form, .input-div {
+    display: flex;
+    flex-direction: column;
+}
+
+/* ---------------------
+    Labels
+--------------------- */
+
+label {
+    display: block;
+    color: #333;
+    font-weight: 700;
+}
+
+.input-div > input[required] ~ label::before {
+    content: "*";
+    color: red
+}
+
+/* ---------------------
+    Inputs
+--------------------- */
+
+form input {
+    height: 40px;
+    width: 100%;
+   
+    border-radius: 8px;
+    border: 0;
+}
+
+.input-div > input {
+    border-color: #ddd;
+    border-width: 2px;
+    border-style: solid;
+
+    transition: border-color 0.2s ease-in;
+}
+
+.input-div > input:focus {
+    border-color: blueviolet;
+    outline: none;
+}
+
+input[type="submit"] {
+    background-color: blueviolet;
+    color: white;
+
+    transition: background-color 0.2s ease-in;
+
+    font-weight: 700;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(109, 36, 177);
+    cursor: pointer;
+}
