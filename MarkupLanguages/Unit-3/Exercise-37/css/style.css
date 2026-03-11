@@ -157,6 +157,15 @@ fieldset div {
 
 input {
     height: 30px;
+
+    outline: none;
+    border-radius: 10px;
+    border: 2px solid #999;
+    transition: border-color 0.25 ease-in;
+}
+
+input:focus {
+    border-color: blue;
 }
 
 button[type="submit"] {
