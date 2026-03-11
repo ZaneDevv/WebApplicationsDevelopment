@@ -11,6 +11,7 @@ BEGIN
 END;
 
 
+
 -- 2. Show the numbers from 1 to 100
 
 -- Normal loop
@@ -33,6 +34,7 @@ BEGIN
         i := i + 1;
     END LOOP;
 END;
+
 
 -- For loop
 BEGIN
@@ -57,6 +59,7 @@ BEGIN
     END LOOP;
 END;
 
+
 -- While loop
 DECLARE
     i INT := 100;
@@ -66,6 +69,7 @@ BEGIN
         i := i - 1;
     END LOOP;
 END;
+
 
 -- For loop
 BEGIN
@@ -145,7 +149,6 @@ BEGIN
 END;
 
 
-
 -- 6. Print the sum of all the numbers from 1 to 100
 
 -- Normal loop
@@ -185,7 +188,6 @@ BEGIN
     
     dbms_output.put_line(result);
 END;
-
 
 
 -- 7. Print the sum of all the even numbers from 1 to 100
@@ -231,7 +233,6 @@ BEGIN
 END;
 
 
-
 -- 8. Print the sum of all the odd numbers from 1 to 100
 
 DECLARE
@@ -272,7 +273,6 @@ BEGIN
     
     dbms_output.put_line(result);
 END;
-
 
 
 -- 9. Print the sum of all even numbers from 1 to 100 and how many there are.
@@ -369,4 +369,128 @@ BEGIN
     END LOOP;
     
     dbms_output.put_line('Numbers amount: ' || TO_CHAR(numbersAmount) || ', total sum: ' || TO_CHAR(totalSum));
+END;
+
+
+
+-- 11. Ask for two numbers and print all the numbers in between
+
+DECLARE
+    x INT := &first;
+    y INT := &second;
+    aux INT;
+
+BEGIN
+    IF x > y THEN
+        aux := y;
+        y := x;
+        x := aux;
+    END IF;
+    
+    FOR i IN x..y LOOP
+        dbms_output.put_line(i);
+    END LOOP;
+END;
+
+
+
+-- 12. Ask for two numbers and print all the even numbers in between
+
+DECLARE
+    x INT := &first;
+    y INT := &second;
+    aux INT;
+    
+BEGIN
+    IF x > y THEN
+        aux := y;
+        y := x;
+        x := aux;
+    END IF;
+    
+    FOR i IN x..y LOOP
+        IF i MOD 2 = 0 THEN
+            dbms_output.put_line(i);
+        END IF;
+    END LOOP;
+END;
+
+
+
+-- 13. Ask for two numbers and print all the odd numbers in between
+
+DECLARE
+    x INT := &first;
+    y INT := &second;
+    aux INT;
+    
+BEGIN
+    IF x > y THEN
+        aux := y;
+        y := x;
+        x := aux;
+    END IF;
+
+    FOR i IN x..y LOOP
+        IF i MOD 2 = 1 THEN
+            dbms_output.put_line(i);
+        END IF;
+    END LOOP;
+END;
+
+
+
+-- 15. Ask for a number and print the same amount of asterisks 
+
+DECLARE
+    x INT := &asterisks_amount;
+
+BEGIN
+    IF x < 0 THEN
+        x := -x;
+    END IF;
+    
+    FOR i IN 1..x LOOP
+        dbms_output.put_line('*');
+    END LOOP;
+END;
+
+
+
+-- 16. Compute the avarage of x numbers, which will stop being asked when a 0 is introduced
+
+DECLARE
+    x INT;
+    i INT := 0;
+    
+    avarage INT;
+    totalSum INT := 0;
+BEGIN
+    LOOP
+        x := &number;
+        totalSum := totalSum + x;
+        
+        IF x <> 0 THEN
+            i := i + 1;
+        END IF;
+    EXIT WHEN x = 0;
+    END LOOP;
+    
+    avarage := totalSum / i;
+    dbms_output.put_line(avarage);
+END;
+
+
+
+-- 17. Compute the sum of the squares of the 100 first numbers
+
+DECLARE
+    totalSum INT := 0;
+
+BEGIN
+    FOR i IN 1..100 LOOP
+        totalSum := totalSum + i ** 2;
+    END LOOP;
+    
+    dbms_output.put_line(totalSum);
 END;
