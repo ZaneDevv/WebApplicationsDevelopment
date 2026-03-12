@@ -5,7 +5,7 @@
 # 1. Create the structure PROJECT/{src, bin, doc, lib} with a single command mkdir
 
 cd ~
-mkdir -p PROJECT{src,bin,doc,lib} # The parameter -p allow us to create nested directories with a single command mkdir
+mkdir -p PROJECT/{src,bin,doc,lib} # The parameter -p allow us to create nested directories with a single command mkdir
 
 
 # 2. From home, make a file en PROJECT/src called main.c with an absolute path
