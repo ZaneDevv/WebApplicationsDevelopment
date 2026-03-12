@@ -444,6 +444,7 @@ END;
 
 DECLARE
     x INT := &asterisks_amount;
+    result VARCHAR(255);
 
 BEGIN
     IF x < 0 THEN
@@ -451,10 +452,11 @@ BEGIN
     END IF;
     
     FOR i IN 1..x LOOP
-        dbms_output.put_line('*');
+        result := result || '*';
     END LOOP;
+    
+    dbms_output.put_line(result);
 END;
-
 
 
 -- 16. Compute the avarage of x numbers, which will stop being asked when a 0 is introduced
