@@ -132,3 +132,112 @@ values(
     to_date('23-1-1982','dd-mm-yyyy'),
     1300, null, 10
 );
+
+
+-- Make a cursor that returns the amount of departmets in the business
+
+DECLARE
+    CURSOR cursorDepartments IS SELECT * FROM dept;
+    departmentrow dept%rowtype;
+    
+    departmentsAmount INT := 0;
+    
+BEGIN
+    OPEN cursorDepartments;
+    
+    LOOP
+        FETCH cursorDepartments INTO departmentrow;
+        EXIT WHEN cursorDepartments%NOTFOUND;
+        
+        departmentsAmount := departmentsAmount + 1;
+    END LOOP;
+    
+    dbms_output.put_line('The amount of departments in the business is ' || departmentsAmount || '.');
+    
+    CLOSE cursorDepartments;
+END;
+
+
+-- Make an explicit cursor (with the name 'cursor_accounting') that writes on screen the employees from the department 'accounting'.
+
+
+DECLARE
+    CURSOR cursor_accounting
+    IS SELECT DISTINCT *
+    FROM emp
+    WHERE emp.deptno = 10;
+    
+    employeeRow emp%rowtype;
+    
+BEGIN
+    OPEN cursor_accounting;
+    
+    LOOP
+        FETCH cursor_accounting INTO employeeRow;
+        EXIT WHEN cursor_accounting%NOTFOUND;
+        
+        dbms_output.put_line(employeeRow.ename);
+    END LOOP;
+    
+    CLOSE cursor_accounting;
+END;
+
+
+-- Make an explicit cursor to write on screen the name and salary of the employees sorted ascendently.
+
+DECLARE
+    CURSOR employees
+    IS SELECT DISTINCT *
+    FROM emp
+    ORDER BY sal ASC, ename ASC;
+    
+    employeeRow emp%rowtype;
+    
+BEGIN
+    OPEN employees;
+    
+    LOOP
+        FETCH employees INTO employeeRow;
+        EXIT WHEN employees%NOTFOUND;
+        
+        dbms_output.put_line('Name: ' || employeeRow.ename || ', salary: ' || employeeRow.sal || '$');
+    END LOOP;
+    
+    CLOSE employees;
+END;
+
+
+-- Make a cursor that increases the salary of the employees following the next rules:
+-- - If the employees belongs to the departments whose code is 10, it increases 5%
+-- - If the employees belongs to the departments whose code is 20, it increases 7.5%
+-- - If the employees belongs to the departments whose code is 30, it increases 10%
+
+DECLARE
+    CURSOR employees IS SELECT * FROM emp;
+    employeeRow emp%rowtype;
+    
+BEGIN
+    OPEN employees;
+    
+    LOOP
+        FETCH employees INTO employeeRow;
+        EXIT WHEN employees%NOTFOUND;
+        
+        dbms_output.put_line('Name: ' || employeeRow.ename || ', current salary: ' || employeeRow.sal || '$');
+        
+        IF (employeeRow.deptno = 10) THEN
+            employeeRow.sal := employeeRow.sal * 1.05;
+        
+        ELSIF (employeeRow.deptno = 20) THEN
+            employeeRow.sal := employeeRow.sal * 1.075;
+            
+        ELSIF (employeeRow.deptno = 30) THEN
+            employeeRow.sal := employeeRow.sal * 1.1;
+        END IF;
+        
+        dbms_output.put_line('New salary: ' || employeeRow.sal || '$');
+        dbms_output.put_line('--------------------------------');
+    END LOOP;
+    
+    CLOSE employees;
+END;
