@@ -158,6 +158,15 @@ BEGIN
 END;
 
 
+DECLARE    
+    departmentsAmount INT := 0;
+
+BEGIN
+    SELECT COUNT(*) INTO departmentsAmount FROM dept;
+    dbms_output.put_line('The amount of departments in the business is ' || departmentsAmount || '.');
+END;
+
+
 -- Make an explicit cursor (with the name 'cursor_accounting') that writes on screen the employees from the department 'accounting'.
 
 
