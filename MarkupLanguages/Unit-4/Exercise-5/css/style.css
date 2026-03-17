@@ -1,0 +1,39 @@
+* {
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+a {
+    color: #ddd;
+    text-decoration: none;
+}
+
+.menu {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+}
+
+.menu li {
+    background-color: #222;
+    padding: 1em;
+    text-align: center;
+}
+
+.menu li:hover {
+    background-color: #555;
+}
+
+.menu li > ul {
+    display: none;
+}
+
+.menu li:hover > ul {
+    display: flex;
+    flex-direction: column;
+}
