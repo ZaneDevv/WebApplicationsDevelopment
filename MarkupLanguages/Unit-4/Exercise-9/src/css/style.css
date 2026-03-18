@@ -1,0 +1,152 @@
+/*
+    Álvaro Fernández Barrero
+    1º DAW BIL
+*/
+
+/*-----------------------------
+    GENERAL
+-----------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #ddd;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*-----------------------------
+    HEADER
+-----------------------------*/
+
+#title {
+    background-color: rgb(255, 193, 152);
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 1em;
+}
+
+header nav {
+    background-color: rgb(245, 127, 48);
+}
+
+header ul {
+    list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+
+    padding: 0.5em;
+}
+
+header nav li {
+    padding: 0.5em;
+}
+
+header nav li:hover {
+    border-bottom: 3px solid white;
+}
+
+/*-----------------------------
+    MAIN
+-----------------------------*/
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+}
+
+#imagen-intro {
+    flex: 0 0 50%;
+}
+
+/*-----------------------------
+    PRODUCTOS
+-----------------------------*/
+
+#productos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    padding: 0.5em;
+}
+
+.producto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background-color: white;
+    width: 20%;
+    max-width: 225px;
+
+    box-shadow: 0 0 3px 2px #0005;
+
+    padding: 1.5em;
+
+    text-align: center;
+}
+
+.producto > img {
+    flex: 0 0 50%;
+}
+
+.producto a > img {
+    flex: 0 0 30%;
+}
+
+/*-----------------------------
+    REDES SOCIALES
+-----------------------------*/
+
+#redes-sociales {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+#redes-sociales img {
+    width: 40px;
+}
+
+/*-----------------------------
+    FOOTER
+-----------------------------*/
+
+footer {
+    margin-top: 30px;
+
+    background-color: #e9e2dc;
+    border-top: 5px solid #978b84;
+    color: #978b84;
+
+    padding: 3em;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+footer ul {
+    margin-top: 10px;
+    list-style: none;
+}

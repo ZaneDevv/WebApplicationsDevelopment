@@ -1,0 +1,142 @@
+/*
+    Álvaro Fernández Barrero
+    1º DAW BIL
+*/
+
+/*-----------------------------
+    GENERAL
+-----------------------------*/
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*-----------------------------
+    HEADER
+-----------------------------*/
+
+header {
+    background-color: rgb(143, 211, 98);
+}
+
+#title {
+    display: flex;
+    justify-content: center;
+
+    padding: 0.8em;
+}
+
+nav {
+    background-color: rgb(92, 136, 63);
+}
+
+nav ul {
+    list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+nav li {
+    padding: 0.5em;
+    display: inline;
+}
+
+nav li > a {
+    color: #ddd;
+}
+
+nav li:not(li:first-child)::before {
+    content: "| ";
+    color: #ddd;
+}
+
+/*-----------------------------
+    OFERTAS
+-----------------------------*/
+
+#ofertas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+#ofertas article {
+    padding: 1em;
+
+    width: 90%;
+    max-width: 1000px;
+
+    border-width: 5px;
+    border-style: solid;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+#ofertas article h2 {
+    text-transform: uppercase;
+}
+
+#ofertas strong {
+    font-size: 1.3em;
+}
+
+#casas-rurales {
+    background-color: #f7ffac;
+    border-color: #b39801;
+}
+
+#camping {
+    background-color: #acffb3;
+    border-color: #037734;
+}
+
+#hoteles {
+    background-color: #80c4e4;
+    border-color: #062c7e;
+}
+
+/*-----------------------------
+    OPINIONES
+-----------------------------*/
+
+#opiniones {
+    margin-top: 50px;
+
+    border-top: 10px solid #444;
+    border-bottom: 10px solid #444;
+
+    background-color: #ccc;
+
+    padding: 1em;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#opiniones h3 {
+    font-style: italic;
+    font-weight: normal;
+    text-transform: uppercase;
+}
+
+#opiniones h3,
+#opiniones p {
+    color: #333
+}

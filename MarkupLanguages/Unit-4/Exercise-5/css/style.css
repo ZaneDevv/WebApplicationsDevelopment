@@ -1,17 +1,30 @@
+/*
+    Álvaro Fernández Barrero
+    1º DAW BIL
+*/
+
+/*-----------------------------
+    GENERAL
+-----------------------------*/
+
 * {
     padding: 0;
-
     box-sizing: border-box;
 }
 
-a {
-    color: #ddd;
-    text-decoration: none;
-}
+/*-----------------------------
+    MENU
+-----------------------------*/
 
-.menu {
-    margin-left: 10px;
-    margin-top: 10px;
+.menu a {
+    color: white;
+    background-color: #5e5e5d;
+
+    padding: 1em;
+
+    text-decoration: none;
+
+    display: block;
 }
 
 .menu ul {
@@ -19,21 +32,15 @@ a {
     list-style: none;
 }
 
-.menu li {
-    background-color: #222;
-    padding: 1em;
-    text-align: center;
-}
-
-.menu li:hover {
-    background-color: #555;
-}
-
-.menu li > ul {
+.menu li ul {
     display: none;
 }
 
-.menu li:hover > ul {
-    display: flex;
-    flex-direction: column;
+.menu a:hover {
+    background-color: #0c0c0c;
+}
+
+.menu ul li:hover ul,
+.menu ul li ul:hover {
+    display: block
 }
