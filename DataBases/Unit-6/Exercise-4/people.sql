@@ -59,9 +59,14 @@ BEGIN
     FETCH c_personas INTO personasRow;
     IF c_personas%FOUND THEN
         dbms_output.put_line('Nombre: ' || personasRow.nombre || ', edad: ' || personasRow.edad);
+    ELSE
+        RAISE NO_DATA_FOUND;
     END IF;
     
     CLOSE c_personas;
+    
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN dbms_output.put_line('No data found!');
 END;
 
 -- Tabla para almacenar todos los alumnos de la BD
