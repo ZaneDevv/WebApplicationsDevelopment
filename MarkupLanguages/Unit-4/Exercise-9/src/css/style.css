@@ -95,8 +95,7 @@ main {
     gap: 10px;
 
     background-color: white;
-    width: 20%;
-    max-width: 225px;
+    width: 250px;
 
     box-shadow: 0 0 3px 2px #0005;
 
@@ -110,7 +109,7 @@ main {
 }
 
 .producto a > img {
-    flex: 0 0 30%;
+    width: 20%;
 }
 
 /*-----------------------------
@@ -127,6 +126,13 @@ main {
 
 #redes-sociales img {
     width: 40px;
+
+    transition: width 0.2s;
+}
+
+#redes-sociales img:hover {
+    cursor: pointer;
+    width: 45px;
 }
 
 /*-----------------------------
