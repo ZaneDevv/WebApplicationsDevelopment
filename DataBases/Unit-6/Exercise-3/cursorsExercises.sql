@@ -250,3 +250,34 @@ BEGIN
     
     CLOSE employees;
 END;
+
+
+-- 6. Make an explicit cursor (with the name of cursor_department) that writes on screen the employees from the
+-- departmant that the user introduces through the keyboard
+
+DECLARE
+    CURSOR cursor_department(c_dname dept.dname%type)
+    IS SELECT ename
+    FROM dept
+    JOIN emp ON emp.deptno = dept.deptno
+    WHERE dname = c_dname;
+    
+    v_dept_name dept.dname%type := '&Introduce_a_department';
+    v_name emp.ename%type;
+
+BEGIN
+    OPEN cursor_department(v_dept_name);
+    
+    LOOP
+        FETCH cursor_department INTO v_name;
+        EXIT WHEN cursor_department%NOTNULL;
+        
+        dbms_output.put_line(v_name);
+    END LOOP;
+    
+    CLOSE cursor_department;
+    
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN dbms_output.put_line('The department does not exist!');
+    WHEN OTHERS THEN dbms_output.put_line('Something did not go as expected...');
+END;
