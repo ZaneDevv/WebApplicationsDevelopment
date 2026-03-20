@@ -22,7 +22,7 @@ cd exercise2 # Locating at the directory exercise2
 echo "I'm the best and I deserve the best" > sentence.txt # Making a file with the name "sentence.txt" and the content "I'm the best and I deserve the best"
 ls /home/user > list.txt # Creates a new file with the name "list.txt" and whose content is the result of the command ls
 cat list.txt # Checking the content of list.txt
-uname -a > disks.txt # Makes a file "disks.txt" whose content is the system's information
+df -h > disks.txt # Makes a file "disks.txt" whose content is the system's information
 cat disks.txt # Shows the content of the file disks.txt
 tree /home > tree.txt # Makes a file "tree.txt" whose content is the result of the tree command
 cat tree.txt # Showing the content of tree.txt
@@ -47,4 +47,20 @@ tree /home # Showing the tree of the directory /home
 cd /home/user # Locating at /home/user
 mkdir exercise4 # Making the directory "exercise4"
 cd exercise4 # Locating at the directory "exercise4" that we just made
+cat > texto.txt # Making a file with the content that the user types next
+ls -l # Shows all the content in the directory
+
+# Usage of of wildcards
+
+# 6.
+
+cd /home/user # Locating at /home/user
+mkdir exercise7 # Making a new directory exercise7
+cd exercise7 # Locating at the directory exercise7
+touch text1.txt # Creating a new empty file text1.txt
+cp text1.txt text2.txt
+cp text1.txt text3.txt
+cp text1.txt text4.txt
+cp text1.txt text5.txt
+mkdir files1
 

@@ -23,7 +23,7 @@ INSERT INTO Empleados (id_empleado, nombre, salario, departamento_id) VALUES (10
 DECLARE
     CURSOR empleadoCursor
     IS SELECT *
-    INTO empleadoRow
+    FROM Empleados
     WHERE departamento_id = 10;
     
     empleadoRow Empleados%rowtype;
