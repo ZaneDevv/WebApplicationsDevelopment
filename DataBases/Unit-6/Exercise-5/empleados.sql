@@ -118,8 +118,7 @@ DECLARE
     CURSOR empleadosCursor
     IS SELECT *
     FROM Empleados;
-    
-        
+       
 BEGIN
     OPEN empleadosCursor;
     

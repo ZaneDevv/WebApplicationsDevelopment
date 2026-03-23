@@ -126,7 +126,7 @@ BEGIN
         FETCH empleadoCursor INTO name, salary;
         EXIT WHEN empleadoCursor%NOTFOUND OR empleadoCursor%ROWCOUNT > 5;
         
-        dbms_output.put_line('Nombre: ' || name || ', salario: ' || salary ||'€');
+        dbms_output.put_line('Nombre: ' || name || ', salario: ' || salary || '€');
     END LOOP;
     
     CLOSE empleadoCursor;
