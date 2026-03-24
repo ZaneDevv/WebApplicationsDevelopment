@@ -86,6 +86,21 @@ END computeAmountOfEmployees;
 
 
 
+CREATE OR REPLACE FUNCTION getDepartmentSalary(idDepartment Empleados.departamento_id%TYPE) RETURN INT IS
+    sum INT := 0;
+    
+    BEGIN
+    
+    SELECT SUM(salario)
+    INTO sum
+    FROM Empleados
+    WHERE departamento_id = idDepartment;
+    
+    RETURN sum;
+END getDepartmentSalary;
+
+
+
 -- Testing
 
 BEGIN
