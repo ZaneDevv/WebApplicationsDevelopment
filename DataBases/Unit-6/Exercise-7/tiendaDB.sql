@@ -107,10 +107,16 @@ DECLARE
 
 BEGIN
     saldo := obtenerSalarioPorIdCliente(idCliente);
-
+    
     dbms_output.put_line('----------------------------------');
     dbms_output.put_line('Ejercicio 1: Función saldo cliente:');
-    dbms_output.put_line('El saldo del cliente con id ' || idCliente || ' es de ' || saldo || '€');
+    
+    IF (saldo <> NULL) THEN
+        dbms_output.put_line('El saldo del cliente con id ' || idCliente || ' es de ' || saldo || '€');
+    ELSE
+        dbms_output.put_line('Cliente no encontrado');
+    END IF;
+    
     dbms_output.put_line('----------------------------------');
 END;
 
