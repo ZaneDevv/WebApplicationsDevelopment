@@ -5,6 +5,16 @@
 */
 
 /* --------------------------------------------------
+    ELIINACIÓN TABLAS
+-------------------------------------------------- */
+
+DROP TABLE CLIENTES;
+DROP TABLE PEDIDOS;
+DROP TABLE PRODUCTOS;
+DROP TABLE DETALLE_PEDIDO;
+DROP TABLE AUDITORIA;
+
+/* --------------------------------------------------
     CREACIÓN DE TABLAS
 -------------------------------------------------- */
 
@@ -44,6 +54,16 @@ CREATE TABLE AUDITORIA (
 );
 
 /* --------------------------------------------------
+    REVISIÓN DE TABLAS
+-------------------------------------------------- */
+
+DESCRIBE CLIENTES;
+DESCRIBE PEDIDOS;
+DESCRIBE PRODUCTOS;
+DESCRIBE DETALLE_PEDIDO;
+DESCRIBE AUDITORIA;
+
+/* --------------------------------------------------
     CARGA DE DATOS
 -------------------------------------------------- */
 
@@ -78,6 +98,16 @@ INSERT INTO AUDITORIA VALUES (4, SYSDATE, 400, 300);
 INSERT INTO AUDITORIA VALUES (5, SYSDATE, 700, 800);
 
 /* --------------------------------------------------
+    REVISIÓN DE DATOS
+-------------------------------------------------- */
+
+SELECT * FROM CLIENTES;
+SELECT * FROM PEDIDOS;
+SELECT * FROM PRODUCTOS;
+SELECT * FROM DETALLE_PEDIDO;
+SELECT * FROM AUDITORIA;
+
+/* --------------------------------------------------
     EJERCICIOS
 -------------------------------------------------- */
 
@@ -110,13 +140,7 @@ BEGIN
     
     dbms_output.put_line('----------------------------------');
     dbms_output.put_line('Ejercicio 1: Función saldo cliente:');
-    
-    IF (saldo <> NULL) THEN
-        dbms_output.put_line('El saldo del cliente con id ' || idCliente || ' es de ' || saldo || '€');
-    ELSE
-        dbms_output.put_line('Cliente no encontrado');
-    END IF;
-    
+    dbms_output.put_line('El saldo del cliente con id ' || idCliente || ' es de ' || saldo || '€');
     dbms_output.put_line('----------------------------------');
 END;
 
@@ -277,40 +301,39 @@ BEGIN
 END obtenerStockDeProducto;
 
 
-CREATE OR REPLACE PROCEDURE reducirStock(productoId PRODUCTOS.id_producto%TYPE) IS
+CREATE OR REPLACE PROCEDURE reducirStock(productoId PRODUCTOS.id_producto%TYPE, cantidad PRODUCTOS.stock%TYPE) IS
     stockProducto PRODUCTOS.stock%TYPE := obtenerStockDeProducto(productoId);
-    SIN_STOCK EXCEPTION;
     
 BEGIN
-    IF (stockProducto > 0) THEN
+    IF (stockProducto >= cantidad) THEN
         UPDATE PRODUCTOS
-        SET stock = stock - 1
+        SET stock = stock - cantidad
         WHERE id_producto = productoId;
     ELSE
-        RAISE SIN_STOCK;
+        RAISE_APPLICATION_ERROR(-20002, '¡No hay suficiente stock!');
     END IF;
 END reducirStock;
 
 
 DECLARE
     idProducto PRODUCTOS.id_producto%TYPE := '&PRODUCTO_ID';
+    cantidad PRODUCTOS.stock%TYPE := '&CANTIDAD';
+    
     stock PRODUCTOS.stock%TYPE := obtenerStockDeProducto(idProducto);
-    
-    SIN_STOCK EXCEPTION;
-    
+        
 BEGIN
     dbms_output.put_line('----------------------------------');
     dbms_output.put_line('Ejercicio 6: Actualizar stock:');
     dbms_output.put_line('Stock actual del producto con id ' || idProducto || ' es de ' || stock);
     
-    reducirStock(idProducto);
+    reducirStock(idProducto, cantidad);
     stock := obtenerStockDeProducto(idProducto);
     
     dbms_output.put_line('Nuevo stock del producto con id ' || idProducto || ' es de ' || stock);
     dbms_output.put_line('----------------------------------');
 
 EXCEPTION
-    WHEN SIN_STOCK THEN
+    WHEN OTHERS THEN
         dbms_output.put_line('¡Este producto no tiene suficiente stock!');
         dbms_output.put_line('----------------------------------');
 END;
@@ -561,7 +584,6 @@ EXCEPTION
         dbms_output.put_line('El cliente ' || idCliente || ' no tiene el saldo suficiente');
         dbms_output.put_line('----------------------------------');
 END;
-
 
 
 /* Ejercicio 12: Aplicar descuentos progresivos
