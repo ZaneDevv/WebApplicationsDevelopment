@@ -84,7 +84,7 @@ INSERT INTO Proyecto VALUES(3, 'Gamma', 15000);
 -- -----------------------------------------
 
 CREATE OR REPLACE PACKAGE pkg_empleados AS
-    PROCEDURE aumantar_salario(p_id_empleado IN NUMBER, p_porcentaje IN NUMBER);
+    PROCEDURE aumentar_salario(p_id_empleado IN NUMBER, p_porcentaje IN NUMBER);
     FUNCTION salario_anual(p_id_empleado IN NUMBER) RETURN NUMBER;
 END pkg_empleados;
 
@@ -93,7 +93,7 @@ END pkg_empleados;
 -- -----------------------------------------
 
 CREATE OR REPLACE PACKAGE BODY pkg_empleados AS
-    PROCEDURE aumantar_salario(p_id_empleado IN NUMBER, p_porcentaje IN NUMBER) IS
+    PROCEDURE aumentar_salario(p_id_empleado IN NUMBER, p_porcentaje IN NUMBER) IS
     BEGIN
         UPDATE Empleado
         SET sueldo = sueldo + (sueldo * p_porcentaje / 100)
