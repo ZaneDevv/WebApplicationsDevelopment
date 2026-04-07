@@ -1,0 +1,19 @@
+main {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 100px 100px 100px;
+    grid-template-rows: 100px 100px 100px;
+
+    padding: 1rem;
+
+    font-size: 1.5em;
+}
+
+section {
+    border: 1px solid white;
+    background-color: rgb(51, 153, 114);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-family: arial;
+}

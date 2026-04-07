@@ -1,0 +1,14 @@
+main {
+    display: grid;
+    grid-template-columns: 200px 2fr 1fr;
+}
+
+section {
+    border: 1px solid white;
+    background-color: rgb(51, 153, 114);
+    color: white;
+    padding: 1rem;
+    text-align: center;
+    font-family: arial;
+    height: 100px;
+}

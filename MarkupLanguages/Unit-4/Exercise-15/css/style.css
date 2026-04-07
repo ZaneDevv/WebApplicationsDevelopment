@@ -1,0 +1,36 @@
+body {
+    padding: 1rem;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 70px);
+}
+
+header, footer {
+    grid-column: 1 / 5
+}
+
+body > * {
+    padding: 1rem;
+}
+
+header {
+    background-color: blue;
+}
+
+nav {
+    background-color: red;
+}
+
+main {
+    background-color: yellow;
+    grid-column: 2 / 4;
+}
+
+aside {
+    background-color: lime;
+}
+
+footer {
+    background-color: green;
+}
