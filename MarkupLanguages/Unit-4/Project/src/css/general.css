@@ -1,0 +1,82 @@
+/*
+    Álvaro Fernández Barrero
+    1º DAW BIL
+*/
+
+/* -------------------------------------------
+    GLOBAL
+------------------------------------------- */
+
+body {
+    display: grid;
+    grid-template-areas: 
+        "header"
+        "main"
+        "footer";
+}
+
+header, main, footer {
+    padding: 1rem;
+}
+
+/* -------------------------------------------
+    HEADER
+------------------------------------------- */
+
+header {
+    grid-area: header;
+
+    box-shadow: 0 1px 3px 0 var(--medium-light-color);
+}
+
+h1 {
+    font-size: 1.75rem;
+    font-weight: 500;
+}
+
+/* -------------------------------------------
+    NAV
+------------------------------------------- */
+
+nav ul {
+    list-style: none;
+}
+
+nav ul, nav a:link, nav a:visited {
+    color: var(--lightest-color);
+}
+
+/* -------------------------------------------
+    MAIN
+------------------------------------------- */
+
+main {
+    grid-area: main;
+}
+
+/* -------------------------------------------
+    FOOTER
+------------------------------------------- */
+
+footer {
+    grid-area: footer;
+
+    font-size: 0.75rem;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+
+    justify-content: center;
+
+    box-shadow: 0 -1px 3px 0 var(--medium-light-color);
+}
+
+footer > p:not(footer > p:first-of-type) {
+    display: flex;
+    justify-content: center;
+}
+
+#credits {
+    font-style: italic;
+}

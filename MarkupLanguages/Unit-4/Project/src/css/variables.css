@@ -1,0 +1,25 @@
+/*
+    Álvaro Fernández Barrero
+    1º DAW BIL
+*/
+
+:root {
+    /* ------------------------
+        COLORS
+    ------------------------ */
+
+    --darkest-color: #181C14;
+    --medium-dark-color: #3C3D37;
+    --medium-light-color: #697565;
+    --lightest-color: #ECDFCC;
+
+    --unvisited-links-color: #b1e9f5;
+    --visited-links-color: #f5b1b1;
+    --hover-links-color: #c8f5b1;
+
+    /* ------------------------
+        TRANSITIONS
+    ------------------------ */
+
+    --transition-time: 0.25s;
+}
