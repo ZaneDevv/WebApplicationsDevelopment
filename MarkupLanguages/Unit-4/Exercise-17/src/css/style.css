@@ -17,7 +17,7 @@ body {
     HEADER
 --------------------------------------------------- */
 
-header > nav {
+header {
     background-color: black;
 
     display: flex;
@@ -29,8 +29,10 @@ header > nav {
     padding-left: 3em;
 }
 
-header ul {
+nav ul, nav a {
     list-style: none;
+
+    text-decoration: none;
 
     display: flex;
     flex-direction: row;
@@ -41,49 +43,59 @@ header ul {
     margin-right: 1em;
 }
 
-header li {
+nav a {
+    color: white;
+    text-decoration: none;
+
+    margin: 0;
+}
+
+nav li {
     padding: 0.5em;
-    padding-left: 1.5em;
-    padding-right: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
 
     border-right: 1px solid #AAA;
 
     transition: color 0.15s;
+
+    display: flex;
+    justify-content: center;
 }
 
-header li:hover {
+nav li:hover {
     cursor: pointer;
     color: #AAA;
 }
 
-header > nav input {
+header input {
     border: none;
     padding: 0.3em;
 }
 
 /* ---------------------------------------------------
-    SECTIONS
+    SECTIONS/ARTICLES
 --------------------------------------------------- */
 
-body > section {
+main > section {
     padding: 2rem;
 
     display: grid;
     grid-gap: 20px;
 }
 
-body > section h2,
-body > section p {
+main > section h2,
+main > #bbc p {
     text-transform: uppercase;
     color: #555;
 }
 
-body > section h2,
-body > section h3 {
+main > section h2,
+main > section h3 {
     font-weight: 600;
 }
 
-body > section > h3:not(body > section:first-of-type h3:last-child)::before {
+article::before {
     content: "";
 
     display: block;
@@ -100,7 +112,7 @@ body > section > h3:not(body > section:first-of-type h3:last-child)::before {
     1ST SECTION
 --------------------------------------------------- */
 
-body > section:first-of-type {
+main > #bbc {
     background-color: #e7e8e1;
 
     grid-template-columns: repeat(4, 1fr);
@@ -112,7 +124,7 @@ body > section:first-of-type {
         "respo respo bbc42 bbc52";
 }
 
-body > section:first-of-type p {
+main > #bbc p {
     margin-top: 20px;
     margin-bottom: 40px;
 
@@ -120,11 +132,11 @@ body > section:first-of-type p {
     padding-left: 0.3rem;
 }
 
-body > section:first-of-type h2 {
+main > #bbc h2 {
     grid-area: tibbc;
 }
 
-body > section:first-of-type > h3:last-of-type {
+main > #bbc > h3:last-of-type {
     background-color: #555;
     color: white;
 
@@ -135,70 +147,70 @@ body > section:first-of-type > h3:last-of-type {
     grid-area: respo;
 }
 
-body > section:first-of-type > h3:first-of-type {
+#mogadishu {
     grid-area: bbc11;
 }
 
-body > section:first-of-type > p:first-of-type {
+#mogadishu p {
     grid-area: bbc12;
 }
 
-body > section:first-of-type > h3:first-of-type::before {
+#mogadishu::before {
     background-image: url(../img/bbc-uno.jpg);
 }
 
-body > section:first-of-type > h3:nth-of-type(2) {
+#inter-milan {
     grid-area: bbc21;
 }
 
-body > section:first-of-type > p:nth-of-type(2) {
+#inter-milan p {
     grid-area: bbc22
 }
 
-body > section:first-of-type > h3:nth-of-type(2)::before {
+#inter-milan::before {
     background-image: url(../img/bbc-dos.jpg);
 }
 
-body > section:first-of-type > h3:nth-of-type(3) {
+#irrational-behaviour {
     grid-area: bbc31;
 }
 
-body > section:first-of-type > p:nth-of-type(3) {
+#irrational-behaviour p {
     grid-area: bbc32
 }
 
-body > section:first-of-type > h3:nth-of-type(3)::before {
+#irrational-behaviour::before {
     background-image: url(../img/bbc-tres.jpg);
 }
 
-body > section:first-of-type > h3:nth-of-type(4) {
+#indian-hollywood {
     grid-area: bbc41;
 }
 
-body > section:first-of-type > p:nth-of-type(4) {
+#indian-hollywood p {
     grid-area: bbc42
 }
 
-body > section:first-of-type > h3:nth-of-type(4)::before {
+#indian-hollywood::before {
     background-image: url(../img/bbc-cuatro.jpg);
 }
 
-body > section:first-of-type > h3:nth-of-type(5) {
+#healthy-meat {
     grid-area: bbc51;
 }
 
-body > section:first-of-type > p:nth-of-type(5) {
+#healthy-meat p{
     grid-area: bbc52
 }
 
-body > section:first-of-type > h3:nth-of-type(5)::before {
+#healthy-meat::before {
     background-image: url(../img/bbc-cinco.jpg);
 }
 /* ---------------------------------------------------
     2ND SECTION
 --------------------------------------------------- */
 
-body > section:last-of-type {
+main > #news {
     grid-template-columns: repeat(3, 1fr);
     grid-template-areas:
         "newsti newsti newsti"
@@ -206,43 +218,48 @@ body > section:last-of-type {
         "news12 news22 news32";
 }
 
-body > section:last-of-type h2 {
+main > #news h2 {
     grid-area: newsti;
 }
 
-body > section:last-of-type h3:first-of-type {
+main > #news article h3 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#death-toll h3 {
     grid-area: news11;
 }
 
-body > section:last-of-type p:first-of-type {
+#death-toll p {
     grid-area: news12;
 }
 
-body > section:last-of-type h3:first-of-type::before {
+#death-toll::before {
     background-image: url("../img/bbc-news-uno.jpg");
 }
 
-body > section:last-of-type h3:nth-of-type(2) {
+#australian-set h3 {
     grid-area: news21;
 }
 
-body > section:last-of-type p:nth-of-type(2) {
+#australian-set p {
     grid-area: news22;
 }
 
-body > section:last-of-type h3:nth-of-type(2)::before {
+#australian-set::before {
     background-image: url("../img/bbc-news-dos.jpg");
 }
 
-body > section:last-of-type h3:last-of-type {
+#uk-police h3 {
     grid-area: news31;
 }
 
-body > section:last-of-type p:last-of-type {
+#uk-police p {
     grid-area: news32;
 }
 
-body > section:last-of-type h3:last-of-type::before {
+#uk-police::before {
     background-image: url("../img/bbc-news-tres.jpg");
 }
 
@@ -251,7 +268,7 @@ body > section:last-of-type h3:last-of-type::before {
 --------------------------------------------------- */
 
 @media (max-width: 64.25em) {
-    body > section:first-of-type {
+    main > #bbc {
         grid-template-areas:
             "tibbc tibbc tibbc tibbc"
             "bbc11 bbc11 bbc21 bbc31"
@@ -261,7 +278,7 @@ body > section:last-of-type h3:last-of-type::before {
     }
     
 
-    body > section:first-of-type > h3:last-of-type {
+    main > #bbc > h3:last-of-type {
         display: none;
     }
 }

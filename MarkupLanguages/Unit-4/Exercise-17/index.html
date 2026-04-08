@@ -6,68 +6,85 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       
-      <link rel="stylesheet" href="css/style.css">
+      <link rel="stylesheet" href="./src/css/style.css">
       
       <title>BBC</title>
   </head>
 
   <body>
     <header>
+      <img src="./src/img/bbc-logo.png" alt="BBC">
+      
       <nav>
-        <img src="img/bbc-logo.png" alt="BBC">
-
         <ul>
-          <li>Home</li>
-          <li>News</li>
-          <li>Sport</li>
-          <li>Weather</li>
-          <li>Shop</li>
-          <li>Earth</li>
-          <li>Travel</li>
-          <li>Capital</li>
-          <li>More</li>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">Sport</a></li>
+          <li><a href="#">Weather</a></li>
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">Earth</a></li>
+          <li><a href="#">Travel</a></li>
+          <li><a href="#">Capital</a></li>
+          <li><a href="#">More</a></li>
         </ul>
-
-        <form action="#" method="post">
-          <label for="bbc-search">
-            <input id="bbc-search" type="text" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" name="q" placeholder="Search">
-          </label>
-        </form>
       </nav>
+
+      <form action="action.php" method="POST">
+        <label for="bbc-search"></label>
+        <input id="bbc-search" name="bbc-search" type="text" autocomplete="off" autocorrect="off" autocapitalize="none" spellcheck="false" name="q" placeholder="Search">
+      </form>
     </header>
 
-    <section>
-      <h2>Welcome to BBC.com - Sunday, 15 October</h2>
-
-      <h3>Hundreds dead in Mogadishu blast</h3>
-      <p>Africa</p>
-      
-      <h3 >Inter Milan v AC Milan - the 219th Derby di Milano</h3>
-      <p>European Football</p>
-
-      <h3>The importance of irrational behaviour</h3>
-      <p>Capital</p>
-
-      <h3>How India is shaping Hollywood</h3>
-      <p>Did you miss?</p>
-
-      <h3>Get ahead with healthy meal prep ideas</h3>
-      <p>Good Food</p>
-
-      <h3 >This element is hidden until 64.25em</h3>
-    </section>
-
-    <section>
-      <h2 >News</h2>
-
-      <h3>Somalia: 'The death toll is uncountable'</h3>
-      <p>Families are looking for missing loved ones amidst the ruins of one of the largest bombs ever to strike the Somali capital.</p>
-
-      <h3>Austria set to elect world's youngest leader</h3>
-      <p>People's Party leader Sebastian Kurz, 31, on course to win after campaign dominated by immigration.</p>
-
-      <h3>UK police investigate new Weinstein claims</h3>
-      <p>Hollywood film producer Harvey Weinstein is accused of three more sexual assaults in London, the BBC understands.</p>
-    </section>
+    <main>
+      <section id="bbc">
+        <h2>Welcome to BBC.com - Sunday, 15 October</h2>
+  
+        <article id="mogadishu">
+          <h3>Hundreds dead in Mogadishu blast</h3>
+          <p>Africa</p>
+        </article>
+        
+        <article id="inter-milan">
+          <h3>Inter Milan v AC Milan - the 219th Derby di Milano</h3>
+          <p>European Football</p>
+        </article>
+  
+        <article id="irrational-behaviour">
+          <h3>The importance of irrational behaviour</h3>
+          <p>Capital</p>
+        </article>
+  
+        <article id="indian-hollywood">
+          <h3>How India is shaping Hollywood</h3>
+          <p>Did you miss?</p>
+        </article>
+  
+        <article id="healthy-meat">
+          <h3>Get ahead with healthy meal prep ideas</h3>
+          <p>Good Food</p>
+        </article>
+  
+        <h3 >This element is hidden until 64.25em</h3>
+      </section>
+  
+      <section id="news">
+        <h2>News</h2>
+  
+        <article id="death-toll">
+          <h3>Somalia: 'The death toll is uncountable'</h3>
+          <p>Families are looking for missing loved ones amidst the ruins of one of the largest bombs ever to strike the Somali capital.</p>
+        </article>
+  
+        <article id="australian-set">
+          <h3>Austria set to elect world's youngest leader</h3>
+          <p>People's Party leader Sebastian Kurz, 31, on course to win after campaign dominated by immigration.</p>
+        </article>
+  
+        <article id="uk-police">
+          <h3>UK police investigate new Weinstein claims</h3>
+          <p>Hollywood film producer Harvey Weinstein is accused of three more sexual assaults in London, the BBC understands.</p>
+        </article>
+      </section>
+    </main>
   </body>
 </html>
