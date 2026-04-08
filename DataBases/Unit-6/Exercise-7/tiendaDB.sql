@@ -193,9 +193,21 @@ END;
 */
 
 CREATE OR REPLACE FUNCTION contarPedidos(clienteId CLIENTES.id_cliente%TYPE) RETURN INT IS
+    cliente INT := 0;
     pedidosTotal INT;
     
+    SIN_CLIENTE EXCEPTION;
+    
 BEGIN
+    SELECT COUNT(id_cliente)
+    INTO cliente
+    FROM PEDIDOS
+    WHERE id_cliente = clienteId;
+    
+    IF (cliente = 0) THEN
+        RAISE SIN_CLIENTE;
+    END IF;
+
     SELECT COUNT(*)
     INTO pedidosTotal
     FROM PEDIDOS
@@ -204,7 +216,7 @@ BEGIN
     RETURN pedidosTotal;
     
 EXCEPTION
-    WHEN NO_DATA_FOUND THEN RETURN NULL;
+    WHEN SIN_CLIENTE THEN RETURN -1;
 END contarPedidos;
 
 
@@ -228,12 +240,10 @@ CREATE OR REPLACE PROCEDURE agregarPedido(clienteId CLIENTES.id_cliente%TYPE) IS
     pedidoId PEDIDOS.id_pedido%TYPE := 0;
     
 BEGIN
-    SELECT MAX(id_pedido)
+    SELECT MAX(id_pedido) + 1
     INTO pedidoId
     FROM PEDIDOS;
-    
-    pedidoId := pedidoId + 1;
-    
+        
     
     INSERT INTO PEDIDOS VALUES (pedidoId, clienteId, SYSDATE, 0);
 END agregarPedido;
@@ -257,8 +267,8 @@ END;
     Crear una función que calcule el total gastado por un cliente sumando todos sus pedidos.
 */
 
-CREATE OR REPLACE FUNCTION calcularTotalGastado(idCliente CLIENTES.id_cliente%TYPE) RETURN INT IS
-    totalGastado INT := 0;
+CREATE OR REPLACE FUNCTION calcularTotalGastado(idCliente CLIENTES.id_cliente%TYPE) RETURN PRODUCTOS.precio%TYPE IS
+    totalGastado PRODUCTOS.precio%TYPE := 0;
     
 BEGIN
     SELECT SUM(PRODUCTOS.precio * DETALLE_PEDIDO.cantidad)
@@ -344,11 +354,11 @@ END;
     Crear una función que devuelva TRUE si hay suficiente stock de un producto.
 */
 
-CREATE OR REPLACE FUNCTION revisarStockSuficiente(productoId PRODUCTOS.id_producto%TYPE) RETURN BOOLEAN IS
+CREATE OR REPLACE FUNCTION revisarStockSuficiente(productoId PRODUCTOS.id_producto%TYPE, cantidad PRODUCTOS.stock%TYPE) RETURN BOOLEAN IS
     stockProducto PRODUCTOS.stock%TYPE := obtenerStockDeProducto(productoId);
     
 BEGIN
-    RETURN stockProducto > 0;
+    RETURN stockProducto >= cantidad;
 END revisarStockSuficiente;
 
 
@@ -380,12 +390,10 @@ CREATE OR REPLACE PROCEDURE agregarDetallePedido(idPedido PEDIDOS.id_pedido%TYPE
     idDetallePedido DETALLE_PEDIDO.id_detalle%TYPE := 0;
     
 BEGIN
-    SELECT MAX(id_detalle)
+    SELECT MAX(id_detalle) + 1
     INTO idDetallePedido
     FROM DETALLE_PEDIDO;
     
-    idDetallePedido := idDetallePedido + 1;
-
     INSERT INTO DETALLE_PEDIDO VALUES(idDetallePedido, idPedido, idProducto, 1);
     
     UPDATE PRODUCTOS
@@ -492,20 +500,16 @@ BEGIN
         
         
         -- Cálculo del siguiende ID para el pedido
-        SELECT MAX(id_pedido)
+        SELECT MAX(id_pedido) + 1
         INTO idPedido
         FROM PEDIDOS;
-        
-        idPedido := idPedido + 1;
-        
+                
         
         -- Cálculo del siguiente ID de los detalles de pedido
-        SELECT MAX(id_detalle)
+        SELECT MAX(id_detalle) + 1
         INTO idDetallePedido
         FROM DETALLE_PEDIDO;
-        
-        idDetallePedido := idDetallePedido + 1;
-        
+                
         
         -- Agregando un nuevo pedido con sus detalles en sus tablas correspondientes
         INSERT INTO PEDIDOS VALUES(idPedido, idCliente, SYSDATE, total);
