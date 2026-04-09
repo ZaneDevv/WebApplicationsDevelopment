@@ -14,12 +14,13 @@ body {
     animation: 250s background-stars-motion linear infinite;
 
     display: grid;
+    grid-template-columns: 100%;
     grid-template-areas: 
         "header"
         "main"
         "footer";
 }
-
+    
 header, main, footer {
     padding: 1rem;
 }
@@ -44,6 +45,8 @@ h1 {
 
 h2 {
     font-size: 1.4rem;
+    font-weight: 400;
+
     text-align: center;
 }
 
@@ -51,8 +54,12 @@ h2 {
     NAV
 ------------------------------------------- */
 
+aside {
+    grid-area: nav-aside
+}
+
 #menu-icon {
-    z-index: 2;
+    z-index: 999;
 }
 
 #menu-icon, nav {
@@ -95,15 +102,22 @@ nav li {
     border-radius: 5px;
     border-bottom: 2px solid var(--medium-light-color);
 
-    padding: 0.5rem;
-
     margin-top: 10px;
 
     transition: transform var(--transition-time);
 }
 
 nav li:hover {
-    transform: scale(1.1);
+    transform: scale(1.06);
+}
+
+nav a {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    padding: 0.5rem;
 }
 
 /* -------------------------------------------
@@ -112,6 +126,10 @@ nav li:hover {
 
 main {
     grid-area: main;
+}
+
+h3 {
+    margin-bottom: 5px;
 }
 
 /* -------------------------------------------
@@ -164,34 +182,34 @@ footer a:hover {
 ------------------------------------------- */
 
 @media (min-width: 824px) {
+    body {
+        grid-template-columns: 200px repeat(3, 1fr);
+        grid-template-areas: 
+            "header header header header"
+            "nav-aside main main main"
+            "footer footer footer footer";
+    }
+
     #menu-icon {
         display: none;
     }
 
     nav {
         display: block;
+
         position: relative;
+        left: 0;
+        top: 0;
 
-        left: auto;
-        top: auto;
-
-        margin-top: 20px;
-        padding: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
 
         width: 100%;
-
-        background: none;
+        
+        background-color: var(--darkest-transparent-color);
     }
 
-    nav ul {
-        flex-direction: row;
-        justify-content: space-around;
-
-        padding: 0;
-    }
-
-    nav li {
-        border: none;
-        padding: 0;
+    header, footer {
+        z-index: 1;
     }
 }

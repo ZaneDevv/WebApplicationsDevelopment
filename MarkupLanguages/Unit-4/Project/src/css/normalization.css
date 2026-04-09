@@ -48,3 +48,12 @@ a:visited {
 a:hover {
     color: var(--hover-links-color);
 }
+
+/* -------------------------------------------
+    ABBREVIATIONS
+------------------------------------------- */
+
+abbr {
+    text-decoration: none;
+    font-style: italic;
+}

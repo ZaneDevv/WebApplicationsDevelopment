@@ -8,7 +8,8 @@
         COLORS
     ------------------------ */
 
-    --darkest-color: #181C14;
+    --darkest-color: #0e1111;
+    --darkest-transparent-color: #0e111155;
     --medium-dark-color: #3C3D37;
     --medium-light-color: #697565;
     --lightest-color: #ECDFCC;
