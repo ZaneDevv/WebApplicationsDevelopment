@@ -8,6 +8,11 @@
 ------------------------------------------- */
 
 body {
+    background-image: url(../img/background.jpg);
+    background-size: 100%;
+
+    animation: 250s background-stars-motion linear infinite;
+
     display: grid;
     grid-template-areas: 
         "header"
@@ -31,19 +36,74 @@ header {
 
 h1 {
     font-size: 1.75rem;
-    font-weight: 500;
+    font-weight: 600;
+
+    text-transform: uppercase;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.4rem;
+    text-align: center;
 }
 
 /* -------------------------------------------
     NAV
 ------------------------------------------- */
 
+#menu-icon {
+    z-index: 2;
+}
+
+#menu-icon, nav {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+}
+
+nav {
+    display: none;
+
+    background-color: var(--darkest-color);
+
+    width: 40%;
+    height: 100%;
+
+    padding: 1rem;
+
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+#menu-icon:hover + nav, nav:hover {
+    display: block;
+}
+
 nav ul {
     list-style: none;
+
+    display: flex;
+    flex-direction: column;
 }
 
 nav ul, nav a:link, nav a:visited {
     color: var(--lightest-color);
+}
+
+nav li {
+    border-radius: 5px;
+    border-bottom: 2px solid var(--medium-light-color);
+
+    padding: 0.5rem;
+
+    margin-top: 10px;
+
+    transition: transform var(--transition-time);
+}
+
+nav li:hover {
+    transform: scale(1.1);
 }
 
 /* -------------------------------------------
@@ -79,4 +139,59 @@ footer > p:not(footer > p:first-of-type) {
 
 #credits {
     font-style: italic;
+}
+
+footer a:hover {
+    transform: scale(1.1);
+}
+
+/* -------------------------------------------
+    KEYFRAMES
+------------------------------------------- */
+
+@keyframes background-stars-motion {
+    from {
+        background-position-x: 0;
+    }
+
+    to {
+        background-position-x: 100vw;
+    }
+}
+
+/* -------------------------------------------
+    MEDIA QUERIES
+------------------------------------------- */
+
+@media (min-width: 824px) {
+    #menu-icon {
+        display: none;
+    }
+
+    nav {
+        display: block;
+        position: relative;
+
+        left: auto;
+        top: auto;
+
+        margin-top: 20px;
+        padding: 0;
+
+        width: 100%;
+
+        background: none;
+    }
+
+    nav ul {
+        flex-direction: row;
+        justify-content: space-around;
+
+        padding: 0;
+    }
+
+    nav li {
+        border: none;
+        padding: 0;
+    }
 }

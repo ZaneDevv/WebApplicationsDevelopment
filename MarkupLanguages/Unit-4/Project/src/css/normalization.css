@@ -34,7 +34,7 @@ a:link {
     text-decoration: none;
     color: var(--unvisited-links-color);
 
-    transition: color var(--transition-time);
+    transition: transform var(--transition-time);
 }
 
 a:hover {
