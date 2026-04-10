@@ -18,6 +18,11 @@
     --visited-links-color: #f5b1b1;
     --hover-links-color: #c8f5b1;
 
+    --required-color: #f5b1b1;
+
+    --submit-color: #a2fc74;
+    --hovered-submit-color: #4c7836;
+
     /* ------------------------
         TRANSITIONS
     ------------------------ */

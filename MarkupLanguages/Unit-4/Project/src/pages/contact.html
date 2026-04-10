@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="../css/variables.css">
         <link rel="stylesheet" href="../css/normalization.css">
         <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/contactpage.css">
     
         <title>Contact me</title>
     </head>
@@ -35,7 +36,7 @@
                     <li><a href="../..//index.html" title="Home page">Home</a></li>
                     <li><a href="./rarities.html" title="List of odd results in physics">Odd results</a></li>
                     <li><a href="#" title="">A</a></li>
-                    <li><a href="./contact.html" title="Contact page">Contact</a></li>
+                    <li class="current-page"><a href="./contact.html" title="Contact page">Contact</a></li>
                 </ul>
             </nav>
         </aside>
@@ -45,7 +46,19 @@
             <p>In order to know who you are, fill this formulary before contacting me.</p>
 
             <form accept="action.php" method="POST">
+                <label for="name">Name:</label>
+                <input required id="name" name="name" type="text" placeholder="Álvaro" pattern="^[a-zA-ZñÑçÇáÁéÉíÍóÓúÚ]{3,}$">
 
+                <label for="lastnames">Last-names (both):</label>
+                <input id="lastnames" name="lastnames" type="text" placeholder="Fernández Barrero" pattern="^[a-zA-ZñÑçÇáÁéÉíÍóÓúÚ]{3,}\s+[a-zA-ZñÑçÇáÁéÉíÍóÓúÚ]{3,}$">
+
+                <label for="mail">Email:</label>
+                <input required id="mail" name="mail" placeholder="name@gmail.com" type="email">
+
+                <label for="phone">Phone number:</label>
+                <input id="phone" name="phone" placeholder="+0 000 00 00 00" type="tel">
+
+                <input type="submit">
             </form>
         </main>
 
