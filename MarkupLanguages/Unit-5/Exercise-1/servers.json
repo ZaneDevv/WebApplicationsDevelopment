@@ -1,0 +1,10 @@
+{
+    "name": "Main Server",
+    "ip": "192.168.1.10",
+    "open_ports": [80, 443, 8080],
+    "actuve": true,
+    "features": {
+        "operating_system": "Linux",
+        "gb_memory": 16
+    }
+}

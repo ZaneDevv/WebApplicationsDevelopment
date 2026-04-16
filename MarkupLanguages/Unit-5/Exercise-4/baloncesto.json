@@ -1,0 +1,38 @@
+{
+    "nombre_equipo": "Titans",
+    "color_equipacion": "Rojo y blanco",
+    "nombre_estadio": "Palacio de los Deportes",
+    "nombre_entrenador": "Carlos Martínez",
+    "plantilla_historica": true,
+    "pagina_web": "https://www.titansbaloncesto.com/",
+    "jugadores": [
+        {
+            "nombre": "Luis Fernández",
+            "dorsal": 7
+        },
+        {
+            "nombre": "Pablo Gómez",
+            "dorsal": 12
+        }
+    ],
+    "alero": [
+        {
+            "nombre": "Javier Ruiz",
+            "dorsal": 9
+        },
+        {
+            "nombre": "Sergio López",
+            "dorsal": 15
+        }
+    ],
+    "pivot": [
+        {
+            "nombre": "Miguel Torres",
+            "dorsal": 13
+        },
+        {
+            "nombre": "Andrés Molina",
+            "dorsal": 21
+        }
+    ]
+}

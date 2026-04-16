@@ -1,0 +1,22 @@
+{
+    "languajea": [
+        {
+            "name": "C++",
+            "creation-year": "1985",
+            "author": "Bjarne Stroustrup",
+            "compilable": true
+        },
+        {
+            "name": "Java",
+            "creation-year": "1995",
+            "author": "James Goslip",
+            "compilable": true
+        },
+        {
+            "name": "Python",
+            "creation-year": "1991",
+            "author": "Guido van Rossum",
+            "compilable": false
+        }
+    ]
+}

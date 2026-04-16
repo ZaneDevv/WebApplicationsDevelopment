@@ -1,0 +1,18 @@
+{
+    "library": {
+        "book": [
+            {
+                "title": "1984",
+                "author": "George Orwell",
+                "year": 1949,
+                "avaliable": true
+            },
+            {
+                "title": "Fahrenheit 451",
+                "author": "Ray Badbury",
+                "year": 1953,
+                "avaliable": false
+            }
+        ]
+    }
+}
