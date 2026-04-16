@@ -7,11 +7,6 @@
     GLOBAL
 ------------------------------------------- */
 
-main {
-    flex-direction: column;
-    justify-content: center;
-}
-
 main > p {
     text-align: center;
 }
@@ -21,7 +16,7 @@ main > p {
 ------------------------------------------- */
 
 form {
-    margin-top: 20px;
+    margin-top: 50px;
 
     width: 100%;
     max-width: 750px;
@@ -32,11 +27,31 @@ form {
     align-content: center;
 }
 
+fieldset {
+    border: none
+}
+
+#name-fieldset {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 10px;
+}
+
 /* -------------------------------------------
     INPUTS
 ------------------------------------------- */
 
-input {
+textarea {
+    height: 100px;
+
+    min-height: 40px;
+    max-height: 400px;
+
+    min-width: 100%;
+    max-width: 100%;
+}
+
+input, textarea {
     margin-top: 5px;
     margin-bottom: 20px;
 
@@ -49,13 +64,30 @@ input {
 
     background-color: var(--lightest-color);
     color: var(--darkest-color);
+
+    transition: box-shadow var(--transition-time);
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border: none;
+
+    box-shadow: 0 0 15px 0 var(--lightest-color);
+}
+
+label:has(~ *:required)::before {
+    content: "* ";
+    color: var(--required-color);
 }
 
 input[type='submit'] {
-    background-color: var(--submit-color);
+    background: linear-gradient(to bottom, var(--submit-color-1), var(--submit-color-2));
+
+    margin: 0 auto 50px auto;
 
     height: 30px;
-    max-width: 300px;
+    width: 100%;
+    max-width: 200px;
 
     border: none;
     border-radius: 15px;
@@ -70,10 +102,9 @@ input[type='submit'] {
 input[type='submit']:hover {
     cursor: pointer;
 
-    box-shadow: 0 0 5px 0 var(--lightest-color);;
+    box-shadow: 0 0 15px 0 var(--lightest-color);
     
-    background-color: var(--hovered-submit-color);
-    color: var(--lightest-color);
+    background: linear-gradient(to bottom, var(--hovered-submit-color-1), var(--hovered-submit-color-2));
 
     transform: scale(1.03);
 }

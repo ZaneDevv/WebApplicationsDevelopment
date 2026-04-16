@@ -1,0 +1,14 @@
+/*
+    Álvaro Fernández Barrero
+    1º DAW BIL
+*/
+
+@font-face {
+    font-family: Fancy;
+    src: url(../fonts/Sofia-Regular.ttf);
+}
+
+@font-face {
+    font-family: Regular;
+    src: url(../fonts/FiraSans-Light.ttf);
+}

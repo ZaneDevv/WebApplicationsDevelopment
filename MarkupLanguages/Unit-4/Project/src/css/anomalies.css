@@ -1,0 +1,53 @@
+/*
+    Álvaro Fernández Barrero
+    1º DAW BIL
+*/
+
+/* -------------------------------------------
+    BLACK HOLES
+------------------------------------------- */
+
+#black-hole img {
+    animation: 20s spin-black-hole linear infinite;
+
+    width: 50%;
+
+    margin: 0 auto;
+
+    grid-area: image;
+}
+
+/* -------------------------------------------
+    KEYFRAMES
+------------------------------------------- */
+
+@keyframes spin-black-hole {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+/* -------------------------------------------
+    MEDIA QUERIES
+------------------------------------------- */
+
+@media (min-width: 1000px) {
+    #black-hole {
+        display: grid;
+        grid-template-areas:
+            "title title title image"
+            "text text text image";
+    }
+
+    #black-hole img {
+        width: 100%;
+    }
+
+    #black-hole h4 {
+        text-align: center;
+    }
+}

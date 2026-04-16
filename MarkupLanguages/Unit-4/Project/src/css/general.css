@@ -10,6 +10,7 @@
 body {
     background-image: url(../img/background.jpg);
     background-size: 100%;
+    background-repeat: repeat;
 
     animation: 250s background-stars-motion linear infinite;
 
@@ -20,7 +21,7 @@ body {
         "main"
         "footer";
 }
-    
+
 header, main, footer {
     padding: 1rem;
 }
@@ -35,12 +36,18 @@ header {
     box-shadow: 0 1px 3px 0 var(--medium-light-color);
 }
 
+h1, h2 {
+    font-family: 'Orbitron', sans-serif;
+}
+
 h1 {
     font-size: 1.75rem;
     font-weight: 600;
 
     text-transform: uppercase;
     text-align: center;
+
+    margin-top: 15px;
 }
 
 h2 {
@@ -60,6 +67,11 @@ aside {
 
 #menu-icon {
     z-index: 999;
+}
+
+#menu-icon * {
+    width: 100%;
+    max-width: 35px;
 }
 
 #menu-icon, nav {
@@ -137,8 +149,9 @@ main {
     grid-area: main;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
 }
 
 h3 {
@@ -155,11 +168,10 @@ footer {
 
     font-size: 0.75rem;
 
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-
-    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
 
     box-shadow: 0 -1px 3px 0 var(--medium-light-color);
 }
@@ -239,5 +251,9 @@ footer a:hover {
 
     header, footer {
         z-index: 1;
+    }
+
+    h1 {
+        margin: 0;
     }
 }

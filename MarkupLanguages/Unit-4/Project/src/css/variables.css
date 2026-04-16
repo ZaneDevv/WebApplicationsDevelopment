@@ -5,23 +5,43 @@
 
 :root {
     /* ------------------------
-        COLORS
+        CORE SPACE COLORS
     ------------------------ */
 
-    --darkest-color: #0e1111;
-    --darkest-transparent-color: #0e111155;
-    --medium-dark-color: #3C3D37;
-    --medium-light-color: #697565;
-    --lightest-color: #ECDFCC;
+    --darkest-color: #05070d;
+    --darkest-transparent-color: #05070d88;
 
-    --unvisited-links-color: #b1e9f5;
-    --visited-links-color: #f5b1b1;
-    --hover-links-color: #c8f5b1;
+    --medium-dark-color: #182230;
+    --medium-light-color: #3a4a5f;
 
-    --required-color: #f5b1b1;
+    --lightest-color: #f3f6fb;
 
-    --submit-color: #a2fc74;
-    --hovered-submit-color: #4c7836;
+    /* ------------------------
+        GLASS / CARD SURFACES
+    ------------------------ */
+
+    --light-transparent-color-1: #7dd3fc22;
+    --light-transparent-color-2: #c084fc22;
+
+    /* ------------------------
+        LINKS / INTERACTIVE
+    ------------------------ */
+
+    --unvisited-links-color: #7dd3fc;
+    --visited-links-color: #c084fc;
+    --hover-links-color: #f59e0b;
+
+    /* ------------------------
+        STATUS COLORS
+    ------------------------ */
+
+    --required-color: #f87171;
+
+    --submit-color-1: #22c55e;
+    --submit-color-2: #15803d;
+
+    --hovered-submit-color-1: #4ade80;
+    --hovered-submit-color-2: #22c55e;
 
     /* ------------------------
         TRANSITIONS

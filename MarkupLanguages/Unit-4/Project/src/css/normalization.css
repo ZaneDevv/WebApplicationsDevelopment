@@ -19,8 +19,12 @@
     TEXTS & BACKGROUNDS
 ------------------------------------------- */
 
+html {
+    background-color: black;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Regular;
 
     background-color: var(--darkest-color);
     color: var(--lightest-color);
@@ -56,4 +60,16 @@ a:hover {
 abbr {
     text-decoration: none;
     font-style: italic;
+}
+
+abbr, em, i {
+    font-family: Fancy;
+}
+
+/* -------------------------------------------
+    Images
+------------------------------------------- */
+
+picture *, img {
+    border-radius: 10px;
 }

@@ -3,6 +3,41 @@
     1º DAW BIL
 */
 
-main p {
-    max-width: 750px;
+/* -------------------------------------------
+    GLOBAL
+------------------------------------------- */
+
+article{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+article {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* -------------------------------------------
+    TEXTS
+------------------------------------------- */
+
+p {
+    text-align: left;
+}
+
+/* -------------------------------------------
+    IMAGES
+------------------------------------------- */
+
+main img {
+    max-width: 500px;
+    width: 80%;
+
+    border-radius: 10px;
+
+    box-shadow: 0 0 5px 0 var(--lightest-color);
+
+    margin: 10px;
 }

@@ -13,6 +13,7 @@
         <link rel="icon" href="../../favicon.png">
 
         <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/fonts.css">
         <link rel="stylesheet" href="../css/normalization.css">
         <link rel="stylesheet" href="../css/general.css">
         <link rel="stylesheet" href="../css/contactpage.css">
@@ -28,14 +29,16 @@
         
         <aside id="nav-aside">
             <picture id="menu-icon">
+                <source srcset="../img/menu.png" type="image/png">
+                <source srcset="../img/menu.jpg" type="image/jpgg">
                 <img src="../img/menu.svg">
             </picture>
 
             <nav>
                 <ul>
-                    <li><a href="../..//index.html" title="Home page">Home</a></li>
-                    <li><a href="./rarities.html" title="List of odd results in physics">Odd results</a></li>
-                    <li><a href="#" title="">A</a></li>
+                    <li><a href="../../index.html" title="Home page">Home</a></li>
+                    <li><a href="./anomalies.html" title="List of odd results in physics">Anomalies</a></li>
+                    <li><a href="./history.html" title="A view thru all the animalies that ended up being true">History</a></li>
                     <li class="current-page"><a href="./contact.html" title="Contact page">Contact</a></li>
                 </ul>
             </nav>
@@ -46,19 +49,36 @@
             <p>In order to know who you are, fill this formulary before contacting me.</p>
 
             <form accept="action.php" method="POST">
-                <label for="name">Name:</label>
-                <input required id="name" name="name" type="text" placeholder="Álvaro" pattern="^[a-zA-ZñÑçÇáÁéÉíÍóÓúÚ]{3,}$">
+                <fieldset id="name-fieldset">
+                    <div>
+                        <label for="name">Name:</label>
+                        <input required id="name" name="name" title="Fill this with your name!" type="text" placeholder="Álvaro" pattern="^[a-zA-ZñÑçÇáÁéÉíÍóÓúÚ]{3,}$">
+                    </div>
+    
+                    <div>
+                        <label for="lastnames">Last-names (both):</label>
+                        <input required id="lastnames" name="lastnames" title="Fill this with your last-names!" type="text" placeholder="Fernández Barrero" pattern="^[a-zA-ZñÑçÇáÁéÉíÍóÓúÚ]{3,}\s+[a-zA-ZñÑçÇáÁéÉíÍóÓúÚ]{3,}$">
+                    </div>
+                </fieldset>
 
-                <label for="lastnames">Last-names (both):</label>
-                <input id="lastnames" name="lastnames" type="text" placeholder="Fernández Barrero" pattern="^[a-zA-ZñÑçÇáÁéÉíÍóÓúÚ]{3,}\s+[a-zA-ZñÑçÇáÁéÉíÍóÓúÚ]{3,}$">
+                <fieldset>
+                    <div>
+                        <label for="mail">Email:</label>
+                        <input required id="mail" name="mail" title="Fill this with your e-mail!" placeholder="name@gmail.com" type="email">
+                    </div>
+    
+                    <div>
+                        <label for="phone">Phone number:</label>
+                        <input id="phone" name="phone" title="Fill this with your phone number!" placeholder="+00 000 00 00 00" type="tel">
+                    </div>
+                </fieldset>
 
-                <label for="mail">Email:</label>
-                <input required id="mail" name="mail" placeholder="name@gmail.com" type="email">
+                <div>
+                    <label for="message">Message to send:</label>
+                    <textarea required id="message" name="message" title="Fill this with the message to send!" placeholder="Write here the message you would like to send..."></textarea>
+                </div>
 
-                <label for="phone">Phone number:</label>
-                <input id="phone" name="phone" placeholder="+0 000 00 00 00" type="tel">
-
-                <input type="submit">
+                <input type="submit" value="Send">
             </form>
         </main>
 
