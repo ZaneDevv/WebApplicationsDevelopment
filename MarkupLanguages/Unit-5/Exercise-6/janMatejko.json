@@ -1,0 +1,19 @@
+{
+    "nombre": "Jan Matejko",
+    "fecha_nacimiento": "1938-06-24",
+    "lugar_nacimiento": "Cracovia, Polonia",
+    "fecha_defuncion": "1893-11-01",
+    "lugar_defuncion": "Cracovia, Polonia",
+    "obreas": [
+        {
+            "titulo": "La batalla de Grunwald",
+            "anio": 1878,
+            "url": "https://upload.wikipedia.org/wikipedia/commons/7/74/Jan_Matejko%2C_Bitwa_pod_Grunwaldem.jpg"
+        },
+        {
+            "titulo": "El sermón de Skarga",
+            "anio": 1864,
+            "url": "https://upload.wikipedia.org/wikipedia/commons/2/21/Jan_Matejko-Kazanie_Skargi.jpg"
+        }
+    ]
+}

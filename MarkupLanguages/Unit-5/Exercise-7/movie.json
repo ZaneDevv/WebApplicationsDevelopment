@@ -1,0 +1,19 @@
+{
+    "pelicula": "El Resplandor",
+    "director": "Stanley Kibrick",
+    "estreno": 1980,
+    "reparto": [
+        {
+            "nombre": "Jack Nicholson",
+            "personaje": "Jack Torrance"
+        },
+        {
+            "nombre": "Shelley Duvall",
+            "personaje": "Wendy Torrance"
+        },
+        {
+            "nombre": "Danny Lloid",
+            "personaje": "Danny Torrance"
+        }
+    ]
+}
