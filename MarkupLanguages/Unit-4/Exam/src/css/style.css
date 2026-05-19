@@ -1,0 +1,484 @@
+/* -------------------------
+    Variables
+------------------------- */
+
+:root {
+    --azul-profundo: #0f172a;
+    --cian-neon: #06b6d4;
+    --violeta-cosmos: #7c3aed;
+    --blanco-puro: #ffffff;
+    --negro-puro: #000000;
+    --gris-niebla: #e2e8f0;
+
+    --sombra-cientifica: 10px 10px 0 0 rgba(0, 0, 0, 10%);
+
+    --radio: 8px;
+}
+
+/* -------------------------
+    Importes
+------------------------- */
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(../fonts/Roboto-VariableFont_wdth\,wght.ttf)
+}
+
+/* -------------------------
+    Normalizacion
+------------------------- */
+
+* {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+/* -------------------------
+    General
+------------------------- */
+
+body {
+    font-family: 'Roboto';
+    background-color: var(--gris-niebla);
+}
+
+a {
+    color: var(--negro-puro);
+    text-decoration: none;
+}
+
+h3, h4, h5, h6 {
+    text-align: center;
+    color: var(--azul-profundo);
+
+    padding: 1rem;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main > * {
+    margin-bottom: 20px;
+}
+
+/* -------------------------
+    Titulo
+------------------------- */
+
+header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    background-color: var(--azul-profundo);
+}
+
+h3, a {
+    color: var(--blanco-puro)
+}
+
+#title-year {
+    color: var(--cian-neon)
+}
+
+/* Barra navegacion */
+
+header li {
+    padding: 1rem
+}
+
+header ol {
+    list-style: none;
+    display: flex;
+}
+
+header > ol {
+    flex-direction: row;
+}
+
+nav > ol ol {
+    flex-direction: column;
+    
+    display: none;
+}
+
+header li:hover ol,
+header li ol:hover {
+    display: flex;
+}
+
+/* -------------------------
+    Inicio
+------------------------- */
+
+#inicio {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    color: var(--blanco-puro);
+    background-color: var(--negro-puro);
+
+    padding: 2rem;
+
+    font-weight: bold;
+}
+
+#botones-inicio {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.titulos {
+    max-width: 800px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulos h2 {
+    font-weight: 500;
+} 
+
+.titulos * {
+    text-align: center;
+}
+
+#botones-inicio *:hover {
+    cursor: pointer
+}
+
+#botones-inicio * {
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: var(--radio);
+}
+
+#botones-inicio p:first-child {
+    color: var(--blanco-puro);
+
+    background-color: var(--violeta-cosmos);
+}
+
+#botones-inicio *:last-child {
+    border: 1px solid var(--violeta-cosmos);
+    color: var(--violeta-cosmos)
+}
+
+/* -------------------------
+    Laboratorios
+------------------------- */
+
+#exploracion-espacial h3 {
+    color: var(--azul-profundo)
+}
+
+#nuestros-laboratorios {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#nuestros-laboratorios section {
+    display: grid;
+    align-items: center;
+
+    margin: 1rem;
+
+    border-radius: var(--radio);
+    
+    width: 90%;
+
+    color: var(--azul-profundo);
+    background-color: var(--blanco-puro);
+}
+
+#nuestros-laboratorios section {
+    grid-template-areas: 'imagen
+    texto';
+}
+
+.laboratorios-explicacion {
+    grid-area: texto;
+}
+
+.laboratorios-explicacion h3 {
+    font-weight: bold;
+}
+
+.laboratorio-imagen {
+    grid-area: imagen;
+
+    border-radius: var(--radio);
+
+    width: 50%;
+}
+
+/* -------------------------
+    Exploración
+------------------------- */
+
+.tarjetas {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tarjeta {
+    background-color: var(--blanco-puro);
+
+    padding: 1rem;
+    margin: 1rem;
+
+    border-radius: var(--radio);
+
+    width: 90%;
+    max-width: 400px;
+
+    box-shadow: var(--sombra-cientifica);
+}
+
+.tarjeta {
+    text-align: center;
+}
+
+.tarjeta h4::before {
+    content: \1F916;
+}
+
+.tarjeta p {
+    color: var(--azul-profundo)
+}
+
+/* -------------------------
+    Galerias
+------------------------- */
+
+#galerias-telescopios h3 {
+    color: var(--azul-profundo)
+}
+
+#galerias-telescopios {
+    display: grid;
+    grid-template-columns: 1fr;
+
+    width: 90%;
+}
+
+.galeria {
+    background-color: var(--blanco-puro);
+    border-radius: var(--radio);
+}
+
+.galeria img, .galeria picture {
+    width: 100%;
+    border-radius: var(--radio);
+}
+
+.galeria {
+    font-weight: bold;
+    justify-content: center;
+
+    margin: 1em;
+    padding: 1em;
+
+    width: 100%;
+}
+
+.galeria * {
+    text-align: center;
+}
+
+/* -------------------------
+    Tabla
+------------------------- */
+
+table {
+    width: 100%;
+}
+
+table th, td {
+    padding: 1rem;
+}
+
+thead th {
+    background-color: var(--azul-profundo);
+    color: var(--blanco-puro)
+}
+
+tbody td {
+    background-color: var(--blanco-puro);
+}
+
+/* -------------------------
+    Pases
+------------------------- */
+
+#tarifa-pases {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.pase {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: var(--radio);
+
+    background-color: var(--blanco-puro);
+
+    margin: 1rem;
+    padding: 1rem;
+}
+
+.pase h3, .pase p {
+    color: var(--azul-profundo);
+    text-align: center;
+}
+
+.pase ol, .pase ul {
+    list-style: none;
+}
+
+.pase .precio {
+    margin-bottom: 1rem;
+    color: var(--violeta-cosmos);
+
+    font-size: 1.5em;
+}
+
+.pase .comprar {
+    width: 90%;
+
+    border-radius: var(--radio);
+
+    padding: 1rem;
+    margin: 1rem;
+
+    color: var(--blanco-puro);
+    background-color: var(--cian-neon);
+}
+
+.pase .comprar:hover {
+    cursor: pointer
+} 
+
+.pase .comprar, .pase .precio {
+    font-weight: bold;
+}
+
+/* -------------------------
+    Contacto
+------------------------- */
+
+form {
+    background-color: var(--blanco-puro);
+    border-radius: var(--radio);
+
+    display: grid;
+    grid-template-areas:
+    "i1 i2
+    i3 i3
+    b b"
+    ;
+
+    width: 90%;
+
+    padding: 1rem;
+
+    box-shadow: 0 10px 0 0 var(--violeta-cosmos);
+}
+
+#registro-visita div {
+    margin: 1rem;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#registro-visita div:first-child {
+    grid-area: i1;
+}
+#registro-visita div:nth-child(2) {
+    grid-area: i2;
+}
+
+#registro-visita div:last-child {
+    grid-area: i3;
+}
+
+input[type="submit"] {
+    grid-area: b;
+
+    background-color: var(--violeta-cosmos);
+    color: var(--blanco-puro);
+
+    border: none;
+    border-radius: var(--radio);
+
+    padding: 1rem;
+    margin: 1rem;
+
+    width: 100%;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer
+}
+
+/* -------------------------
+    Footer
+------------------------- */
+
+footer {
+    background-color: var(--azul-profundo);
+    color: var(--blanco-puro);
+
+    text-align: center;
+
+    padding: 1rem
+}
+
+/* -------------------------
+    Media queries
+------------------------- */
+
+@media (min-width: 750px) {
+    /* -------------------------
+        Laboratorios
+    ------------------------- */
+
+    #nuestros-laboratorios section:nth-child(odd) {
+        grid-template-areas: 'imagen texto';
+    }
+
+    #nuestros-laboratorios section:nth-child(even) {
+        grid-template-areas: 'texto imagen';
+    }
+
+    /* -------------------------
+        Galerias
+    ------------------------- */
+
+    .galerias {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .galeria {
+        width: 33.3333%;
+    }
+}
