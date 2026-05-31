@@ -30,6 +30,7 @@ This repository contains all the projects and exercises I have completed during 
 	- Markdown
 	- Makefile
 	- LaTeX
+	- JSON
 </details>
 
 <details>
