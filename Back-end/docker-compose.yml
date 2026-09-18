@@ -1,0 +1,56 @@
+services:
+  web:
+    build:
+      context: ./docker
+    container_name: php85_web
+    ports:
+      - "80:80"
+      - "443:443"
+      - "9003:9003"
+    volumes:
+      - ./projects:/var/www/projects
+      - ./docker/certs/wildcard-localhost.pem:/etc/ssl/certs/wildcard-localhost.pem:ro
+      - ./docker/certs/wildcard-localhost-key.pem:/etc/ssl/private/wildcard-localhost-key.pem:ro
+    depends_on:
+      - db
+    networks:
+      - php-net
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  db:
+    image: mysql:8.4
+    container_name: php85_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: app
+      MYSQL_USER: dev
+      MYSQL_PASSWORD: dev
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    networks:
+      - php-net
+
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: php85_phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8080:80"
+    depends_on:
+      - db
+    networks:
+      - php-net
+
+volumes:
+  db_data:
+
+networks:
+  php-net:
