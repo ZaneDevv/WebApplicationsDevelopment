@@ -9,11 +9,32 @@
     </head>
     
     <body>
+        <?= "<br>HI" ?>
+
         <?php
+            $name = "John Doe";
+            $genre = "Masculine";
+
+            // Quotes understand variable, simple quotes don't
+            echo "<h2>Welcome, $name!</h2>";
+            echo '<h2>Welcome, $name!</h2>';
+
+            echo '<h2>Welcome, ', $name, '</h2>';
+
             // Look up differences among <?=, print and echo
             echo "Random number generated: " . rand(0, 100);
-            print("<br>Random number generated: " . rand(0, 100));
-        ?>    
-        <?= "<br>HI" ?>
+
+            $result = (print("<br>Random number generated: " . rand(0, 100))) * 5;
+            echo $result;
+        ?>
+
+        <ul>
+            <li>Name: <?= $name ?></li>
+            <li>Genre: <?= $genre ?></li>
+        </ul>
+
+        <?php 
+            echo phpinfo();
+        ?>
     </body>
 </html>

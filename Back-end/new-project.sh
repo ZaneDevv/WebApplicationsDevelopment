@@ -53,7 +53,7 @@ cat > "$RUTA/composer.json" <<JSON
 JSON
 
 # --- Git dentro del contenedor ---
-docker compose -f "$BASE_DIR/docker-compose.yml" exec -w "/var/www/projects/$NOMBRE" web git init -q
+# docker compose -f "$BASE_DIR/docker-compose.yml" exec -w "/var/www/projects/$NOMBRE" web git init -q
 # docker compose -f "$BASE_DIR/docker-compose.yml" exec -w "/var/www/projects/$NOMBRE" web composer install -q
 
 echo -e "\e[32mProyecto '$NOMBRE' creado correctamente.\e[0m"
