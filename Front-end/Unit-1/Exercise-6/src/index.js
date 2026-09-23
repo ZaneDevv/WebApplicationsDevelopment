@@ -203,9 +203,9 @@ console.log("-------------------------\nEXERCISE 9\n-------------------------");
     document.write("<hr>");
 
     for (let i = 0; i < 8; i++)
+    {
+        for (let j = 0; j < 8; j++)
         {
-            for (let j = 0; j < 8; j++)
-                {
             let color = ((i + j) & 1) === 0 ? BLACK_COLOR : WHITE_COLOR;
             document.write("<span style='display: inline-block; margin: 0; background-color: " + color + "; " + styleDimensions + "'></span>");
         }
