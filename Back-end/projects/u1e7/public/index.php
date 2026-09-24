@@ -10,11 +10,23 @@
     
     <body>
         <?php
-            $dice1 = rand(1, 6);
-            $dice2 = rand(1, 6);
+            define('IMAGES_PATH', './img/dice_face');
+
+            $dice1 = random_int(1, 6);
+            $dice2 = random_int(1, 6);
+
+            $dice1Image = IMAGES_PATH . "$dice1.svg";
+            $dice2Image = IMAGES_PATH . "$dice2.svg";
         ?>
 
-        <p><?= $dice1 === $dice2 ? "Both dices have the same number" : "The dices got different numbers" ?></p>
-        <p><?= max($dice1, $dice2) ?></p>
+        <img style="width: 100px; border-radius: 10px" src=<?= $dice1Image ?> alt="Dice 1">
+        <img style="width: 100px; border-radius: 10px" src=<?= $dice2Image ?> alt="Dice 2">
+
+        <?php if ($dice1 === $dice2): ?>
+            <p>Dices got different numbers</p>
+            <p>Both dices have the same number</p>
+        <?php else: ?>
+            <p>Maximung value: <?= max($dice1, $dice2) ?></p>
+        <?php endif ?>
     </body>
 </html>

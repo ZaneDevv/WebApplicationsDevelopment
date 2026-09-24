@@ -14,8 +14,6 @@
             
             $euros = 86;
             $dollars = $euros * CONVERSOR_MULTIPLIER;
-
-            echo $dollars;
         ?>
         
         <p><?= $euros ?>€ = $<?= $dollars ?></p>
