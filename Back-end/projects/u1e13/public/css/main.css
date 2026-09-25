@@ -1,0 +1,7 @@
+th, td, table {
+    border: 1px solid black
+}
+
+th, td {
+    padding: 0.5rem;
+}

@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Document</title>
+        <title>2nd degree equation</title>
     </head>
 
     <body>
@@ -41,6 +41,7 @@
             }        
         ?>
 
+        <p>=> <?= $a ?>x<sup>2</sup> + <?= $b ?>x + <?= $c ?> = 0</p>
         <p>x<sub>1</sub> = <?= $result1 ?? 'NaN' ?></p>
         <p>x<sub>2</sub> = <?= $result2 ?? 'NaN' ?></p>
     </body>

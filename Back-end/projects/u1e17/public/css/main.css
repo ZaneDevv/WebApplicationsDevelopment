@@ -1,0 +1,67 @@
+* {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#calculator-container {
+    background-color: #f2fcfc;
+
+    width: 90%;
+    max-width: 600px;
+
+    border: 1px solid #012e6c;
+    border-radius: 15px;
+
+    padding: 1em;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 10px;
+}
+
+.input-container {
+    margin: 0 0 1em;
+}
+
+.number-input-container input {
+    width: 80%;
+    float: right;
+}
+
+input {
+    border-radius: 12px;
+    padding: 0.5rem;
+}
+
+input:not([type="submit"]) {
+    border: 1px solid, #012e6c;
+}
+
+input[type="submit"] {
+    border: 1px solid #163413;
+
+    color: #f2fcfc;
+    background: linear-gradient(to bottom, #0245a3, #012e6c);
+
+    font-weight: bolder;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer
+}
+
+#pyramid-container {
+    margin-top: 50px;
+}
+
+p {
+    margin: 0;
+}
+
+p:hover {
+    cursor: default
+}

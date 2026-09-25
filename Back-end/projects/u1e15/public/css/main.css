@@ -1,0 +1,32 @@
+input {
+    border-radius: 12px;
+    padding: 0.5rem;
+}
+
+input:not([type="submit"]) {
+    border: 1px solid, #313131;
+}
+
+input[type="submit"] {
+    border: 1px solid #163413;
+
+    background: linear-gradient(to bottom, #6eff5e, #58ce4b);
+
+    font-weight: bolder;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer
+}
+
+#pyramid-container {
+    margin-top: 50px;
+}
+
+p {
+    margin: 0;
+}
+
+p:hover {
+    cursor: default
+}

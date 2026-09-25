@@ -5,7 +5,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <title>Document</title>
+        <title>Cube of numbers</title>
     </head>
 
     <body>
@@ -16,7 +16,7 @@
 
             while ($currentNumber <= TOP_NUMBER)
             {
-                echo $currentNumber . ' ^ 3 = ' . pow($currentNumber, 3) . '<br>';
+                echo $currentNumber . ' ^ 3 = ' . ($currentNumber ** 3) . '<br>';
                 $currentNumber++;
             }
         ?>
