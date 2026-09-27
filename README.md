@@ -38,6 +38,8 @@ This repository contains all the projects and exercises I have completed during 
 	- Makefile
 	- LaTeX
 	- JSON
+  - PHP
+  - JavaScript
 </details>
 
 <details>
@@ -46,4 +48,7 @@ This repository contains all the projects and exercises I have completed during 
 	- Visual Studio Code
 	- Sublime Text
 	- NetBeans
+  - PhpStorm
+  - Linux
+  - Windows
 </details>
