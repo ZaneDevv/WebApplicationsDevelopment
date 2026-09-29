@@ -1,0 +1,75 @@
+:root {
+    --unhovered-submit-button-background: rgb(87, 247, 87);
+    --hovered-subit-button-background: rgb(29, 86, 29);
+}
+
+#valid {
+    color: #050;
+}
+
+#invalid {
+    color: #A00;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+
+    max-width: 150px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+label::after {
+    content: "*";
+    color: #E00;
+}
+
+input[type="submit"] {
+    margin-top: 10px;
+
+    border: 1px solid #005000;
+    border-radius: 8px;
+
+    font-weight: bolder;
+    
+    animation: 0.2s ease-in-out unhover-button;
+
+    background-color: var(--unhovered-submit-button-background);
+    
+    padding: 0.5em;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer;
+
+    animation: 0.2s ease-in-out hover-button;
+
+    color: #FFF;
+    background-color: var(--hovered-subit-button-background);
+}
+
+@keyframes hover-button {
+    from {
+        background-color: var(--unhovered-submit-button-background);
+        color: black;    
+    }
+
+    to {
+        background-color: var(--hovered-subit-button-background);
+        color: white;
+    }
+}
+
+@keyframes unhover-button {
+    from {
+        background-color: var(--hovered-subit-button-background);
+        color: white;
+    }
+
+    to {
+        background-color: var(--unhovered-submit-button-background);
+        color: black;    
+    }
+}
