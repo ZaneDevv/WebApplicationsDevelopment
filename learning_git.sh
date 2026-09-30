@@ -44,3 +44,11 @@ git merge other_branch_name
 
 # Removing branches
 git branch -d branch_to_remove
+
+# Changing branch's name
+git branch -M new_branch_name
+
+# GitHub/Lab
+git push -u connection_name branch_name # Send to GitHub
+git pull # Fetch from Github
+git remote add connection_name github_repository_link
