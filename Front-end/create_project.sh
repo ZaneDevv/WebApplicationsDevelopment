@@ -8,6 +8,11 @@ if [ $# -eq 0 ]; then
   exit 1;
 fi
 
+exercises_amount=1;
+if [ $# -ge 2 -a $2 -gt 1 ]; then
+    exercises_amount=$2;
+fi
+
 mkdir -p $1/src;
 
 touch $1/index.html;
@@ -35,19 +40,34 @@ cat > $1/src/index.js << "EOF"
 /**
  * @author Álvaro Fernández Barrero
  */
+EOF
+
+for i in $(seq 1 $exercises_amount); do
+    cat >> $1/src/index.js << EOF
 
 // ---------------------------------------------------
-// EXERCISE 1
+// EXERCISE $i
 // ---------------------------------------------------
 
-function doExercise1()
+function doExercise$i()
 {
-    console.log("-------------------------\nEXERCISE 1\n-------------------------");
+    console.log("-------------------------\nEXERCISE $i\n-------------------------");
+    
+
 }
+EOF
+done
+
+cat >> $1/src/index.js << "EOF"
 
 // ---------------------------------------------------
 // Run exercises
 // ---------------------------------------------------
 
-doExercise1();
 EOF
+
+for i in $(seq 1 $exercises_amount); do
+    cat >> $1/src/index.js << EOF
+doExercise$i();
+EOF
+done

@@ -2,7 +2,7 @@
 
 declare(strict_types = 1);
 
-define('PASSWORD_PATTERN', '/^(?=.*\d)(?=.*[A-ZÇÑ])(?=.*[a-zñç])(?=.*[\'?¿¡!|ºª\@#~%¬&*-_+^`".,:;<>=\/\[\]()]).{6,15}$/');
+define('PASSWORD_PATTERN', '/^(?=.*\d)(?=.*[A-ZÇÑ])(?=.*[a-zñç])(?=.*[^a-zA-Z0-9]).{6,15}$/');
 
 define('VALID_PASSWORD_TEXT', 'Valid password');
 define('INVALID_PASSWORD_TEXT', 'Invalid password');
