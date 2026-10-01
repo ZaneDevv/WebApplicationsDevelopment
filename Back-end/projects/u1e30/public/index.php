@@ -15,7 +15,7 @@
 
         <form>
             <label for="password">Password:</label>
-            <input required type="text" name="password" id="password" placeholder="Password..." value=<?= $_GET['password'] ?? '' ?> />
+            <input required type="text" name="password" id="password" placeholder="Password..." value=<?= $_GET['password'] ?? ' ' ?> />
             <input type="submit" />
         </form>
 
