@@ -16,10 +16,10 @@ This repository contains all the projects and exercises I have completed during 
 
 ## Second Course Subjects
 
-- Programming in client environment
-- Programming in server environment
-- Deployment
-- Web design
+- [`Programming in client environment`](./Front-end/)
+- [`Programming in server environment`](./Back-end/)
+- [`Deployment`](./Deployment/)
+- [`Web design`](./WebDesign/)
 
 ### 🔨 Tools & technologies used
 
