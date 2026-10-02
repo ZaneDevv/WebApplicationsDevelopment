@@ -26,18 +26,18 @@ This repository contains all the projects and exercises I have completed during 
 <details>
 	<summary>Languages 🌐</summary>
 	
-	- C
-	- Java
-	- MySQL
-	- PL/SQL
-	- Bash
-	- HTML5
-	- CSS
-	- XML
-	- Markdown
-	- Makefile
-	- LaTeX
-	- JSON
+  - C
+  - Java
+  - MySQL
+  - PL/SQL
+  - Bash
+  - HTML5
+  - CSS
+  - XML
+  - Markdown
+  - Makefile
+  - LaTeX
+  - JSON
   - PHP
   - JavaScript
 </details>
@@ -45,9 +45,9 @@ This repository contains all the projects and exercises I have completed during 
 <details>
 	<summary>Tools 💻</summary>
 	
-	- Visual Studio Code
-	- Sublime Text
-	- NetBeans
+  - Visual Studio Code
+  - Sublime Text
+  - NetBeans
   - PhpStorm
   - Linux
   - Windows
