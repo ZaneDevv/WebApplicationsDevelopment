@@ -191,6 +191,27 @@ function doExercise10()
     let totalDistance = 0;
 
     let map = undefined;
+
+    function initializeTracking(centerMapCoordinates)
+    {
+        startingTime = new Date().getMilliseconds();
+        map = L.map('map').setView(centerMapCoordinates, 13);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    }
+
+    function updateDistance()
+    {
+        if (coordinates.length >= 2)
+            totalDistance += L.GeometryUtil.distance(
+                map,
+                L.latLng(coordinates[coordinates.length - 1]),
+                L.latLng(coordinates[coordinates.length - 2])
+            );
+    }
     
     navigator.geolocation.watchPosition(
         data => {
@@ -198,26 +219,13 @@ function doExercise10()
             coordinates.push(currentCoordinates);
 
             if (map === undefined)
-            {
-                map = L.map('map').setView(currentCoordinates, 13);
-                startingTime = new Date().getMilliseconds();
-            }
-
-            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-            }).addTo(map);
+                initializeTracking(currentCoordinates);
 
             let polygon = L.polygon(coordinates).addTo(map);
 
             let deltaTime = new Date().getMilliseconds() - startingTime;
 
-            if (coordinates.length >= 2)
-                totalDistance += L.GeometryUtil.distance(
-                    map,
-                    L.latLng(coordinates[coordinates.length - 1]),
-                    L.latLng(coordinates[coordinates.length - 2])
-                );
+            updateDistance();
 
             console.log(`Time: ${Math.floor(deltaTime / 1e3)}`);
             console.log(`Total distance: ${totalDistance.toFixed(2)}m`);
@@ -230,7 +238,7 @@ function doExercise10()
 // Run exercises
 // ---------------------------------------------------
 
-doExercise1();
+/*doExercise1();
 doExercise2();
 doExercise3();
 doExercise4();
@@ -238,5 +246,5 @@ doExercise5();
 doExercise6();
 doExercise7();
 doExercise8();
-doExercise9();
+doExercise9();*/
 doExercise10();

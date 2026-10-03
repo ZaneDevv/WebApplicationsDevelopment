@@ -306,6 +306,7 @@ function doExercise10()
     do
     {
         let character = prompt("Try with a character");
+        
         if (character.length > 1)
             character = character[0];
 
