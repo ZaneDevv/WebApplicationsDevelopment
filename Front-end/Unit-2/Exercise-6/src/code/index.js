@@ -238,7 +238,7 @@ function doExercise10()
 // Run exercises
 // ---------------------------------------------------
 
-/*doExercise1();
+doExercise1();
 doExercise2();
 doExercise3();
 doExercise4();
@@ -246,5 +246,5 @@ doExercise5();
 doExercise6();
 doExercise7();
 doExercise8();
-doExercise9();*/
+doExercise9();
 doExercise10();
