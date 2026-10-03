@@ -58,7 +58,7 @@ function doExercise4()
             console.log(`Longitude: ${data.coords.longitude}`);
         },
         data => console.warn(data.message)
-    )
+    );
 }
 
 // ---------------------------------------------------
@@ -142,7 +142,7 @@ function doExercise8()
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
-            let polygon = L.polygon(coordinates).addTo(map);
+            L.polygon(coordinates).addTo(map);
         },
         data => console.warn(data.message)
     );
@@ -166,7 +166,7 @@ function doExercise9()
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             }).addTo(map);
 
-            let circle = L.circle(coordinates, {
+            L.circle(coordinates, {
                 color: 'red',
                 fillColor: '#f03',
                 fillOpacity: 0.5,
@@ -221,7 +221,7 @@ function doExercise10()
             if (map === undefined)
                 initializeTracking(currentCoordinates);
 
-            let polygon = L.polygon(coordinates).addTo(map);
+            L.polygon(coordinates).addTo(map);
 
             let deltaTime = new Date().getMilliseconds() - startingTime;
 
