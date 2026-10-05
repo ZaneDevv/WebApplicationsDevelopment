@@ -4,12 +4,12 @@
 # Date: 20-09-2026
 
 if [ $# -eq 0 ]; then
-  echo -e "\e[1;91mYou need to write a parameter to set the new project's name\e[0m";
-  exit 1;
+    echo -e "\e[1;91mYou need to write a parameter to set the new project's name\e[0m";
+    exit 1;
 fi
 
 exercises_amount=1;
-if [ $# -ge 2 -a $2 -gt 1 ]; then
+if [ $# -ge 2 ] && [ $2 -gt 1 ]; then
     exercises_amount=$2;
 fi
 
@@ -22,17 +22,17 @@ cat > $1/index.html << "EOF"
 <!DOCTYPE html>
 
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Document</title>
-    
-    <script defer src="./src/index.js"></script>
-  </head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Document</title>
+        
+        <script defer src="./src/index.js"></script>
+    </head>
 
-  <body>
-  </body>
+    <body>
+    </body>
 </html>
 EOF
 
@@ -53,7 +53,7 @@ function doExercise$i()
 {
     console.log("-------------------------\nEXERCISE $i\n-------------------------");
     
-
+    
 }
 EOF
 done
