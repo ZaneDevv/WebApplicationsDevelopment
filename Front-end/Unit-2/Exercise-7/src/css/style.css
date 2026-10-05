@@ -1,0 +1,83 @@
+/* ----------------------------------------
+    VARIABLES
+---------------------------------------- */
+
+:root {
+    --lighter-color: #4b2240;
+    --light-color: #612D53;
+    --dark-color: #853953;
+    --darker-color: #2C2C2C;
+
+    --highlight-color: #91447c;
+}
+
+/* ----------------------------------------
+    IMPORT
+---------------------------------------- */
+
+@font-face {
+    font-family: Clock;
+    src: url("../fonts/SpaceGrotesk-VariableFont_wght.ttf");
+}
+
+/* ----------------------------------------
+    NORMALIZE
+---------------------------------------- */
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+}
+
+/* ----------------------------------------
+    BACKGROUND
+---------------------------------------- */
+
+body {
+    background-color: var(--darker-color);
+}
+
+#timer-container {
+    background-color: var(--dark-color);
+
+    border: 5px solid var(--light-color);
+    border-radius: 12px;
+
+    width: 90%;
+    max-width: 500px;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 150px;
+
+    font-family: Clock;
+    font-weight: bold;
+
+    box-shadow: 0 0 5px 1px black;
+}
+
+/* ----------------------------------------
+    TEXT
+---------------------------------------- */
+
+* {
+    color: var(--lighter-color);
+}
+
+h2 {
+    text-align: center;
+
+    font-size: 3em;
+    font-weight: bold;
+}
+
+.time-text {
+    font-size: 5em;
+    text-align: center;
+}
+
+#date-text {
+    text-align: center;
+}
