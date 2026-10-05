@@ -1,0 +1,88 @@
+/* -----------------------------------------
+    VARIABLES
+----------------------------------------- */
+
+:root {
+    --light-color: #F2F2F0;
+    --medium-color: #D9D4CC;
+    --dark-color: #0D0000;
+    --extra-color: #2F403D;
+}
+
+/* -----------------------------------------
+    NORMALIZATION
+----------------------------------------- */
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* -----------------------------------------
+    BACKGROUND
+----------------------------------------- */
+
+body {
+    background-color: var(--medium-color);
+}
+
+/* -----------------------------------------
+    TEXTS
+----------------------------------------- */
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+/* -----------------------------------------
+    SEPARATORS
+----------------------------------------- */
+
+div {
+    background-color: var(--light-color);
+
+    border-radius: 15px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    padding: 1em;
+
+    margin: 20px;
+}
+
+/* -----------------------------------------
+    DATA
+----------------------------------------- */
+
+div p:not(#url-button)::before {
+    content: "✦ ";
+}
+
+/* -----------------------------------------
+    BUTTON
+----------------------------------------- */
+
+#url-button {
+    background-color: var(--extra-color);
+    color: var(--light-color);
+
+    padding: 0.5em;
+
+    border-radius: 8px;
+
+    max-width: 200px;
+
+    text-align: center;
+
+    cursor: pointer;
+}
+
+#url-button:hover {
+    transform: scale(1.01);
+}
