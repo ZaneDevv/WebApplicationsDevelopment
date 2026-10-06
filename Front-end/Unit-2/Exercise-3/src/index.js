@@ -82,7 +82,7 @@ function doExercise6()
     console.log("-------------------------\nEXERCISE 6\n-------------------------");
 
     let now = new Date();
-    let next31stDecember = new Date(`${now.getFullYear()}-11-31 00:00:00`);
+    let next31stDecember = new Date(`${now.getFullYear()}-11-30 00:00:00`);
 
     let difference = next31stDecember - now;
 
@@ -209,7 +209,7 @@ function doExercise13()
     console.log("-------------------------\nEXERCISE 13\n-------------------------");
     
     let now = new Date();
-    let newYear = new Date(now.getFullYear() + 1, 1, 1);
+    let newYear = new Date(now.getFullYear() + 1, 0, 0);
     
     console.log("Time left for the new year:");
     setInterval(
