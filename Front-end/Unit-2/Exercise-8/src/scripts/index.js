@@ -2,14 +2,14 @@
  * @author Álvaro Fernández Barrero
  */
 
-document.getElementById("browser").innerHTML = `Browser: ${window.navigator.userAgent}`;
-document.getElementById("language").innerHTML = `Language: ${window.navigator.language}`;
-document.getElementById("platform").innerHTML = `Platform: ${window.navigator.platform}`;
-document.getElementById("resolution").innerHTML = `Resolution: ${window.screen.availWidth}x${window.screen.availHeight}`;
+document.getElementById("browser").innerHTML = `Browser: ${navigator.userAgent}`;
+document.getElementById("language").innerHTML = `Language: ${navigator.language}`;
+document.getElementById("platform").innerHTML = `Platform: ${navigator.platform}`;
+document.getElementById("resolution").innerHTML = `Resolution: ${screen.width}x${screen.height}`;
 
-document.getElementById("url").innerHTML = `URL: ${window.location.href}`
+document.getElementById("url").innerHTML = `URL: ${location.href}`
 
-document.getElementById("url-button").addEventListener("click", () => window.navigation.navigate("https://www.wikipedia.com"));
+document.getElementById("url-button").addEventListener("click", () => navigation.navigate("https://www.wikipedia.com"));
 
 document.getElementById("total-resolution").innerHTML = `Total resolution: ${screen.width}x${screen.height}`;
 document.getElementById("available-area").innerHTML = `Available area: ${screen.availWidth}x${screen.availHeight}`;
