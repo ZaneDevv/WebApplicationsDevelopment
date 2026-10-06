@@ -8,8 +8,8 @@ class Product
     // ATTRIBUTES
     // --------------------------------------------
 
-    private string $name;
-    private float $price;
+    private string $name = "product";
+    private float $price = 10;
 
     // --------------------------------------------
     // GETTERS & SETTERS
