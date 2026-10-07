@@ -2,6 +2,9 @@
  * @author Álvaro Fernández Barrero
  */
 
+/**
+ * Prints all cookies in the page
+ */
 function printCookies()
 {
     const cookies = document.cookie.split(";");
@@ -80,6 +83,11 @@ function doExercise4()
 // EXERCISE 5
 // ---------------------------------------------------
 
+/**
+ * Looks for the value of the given cookie
+ * @param {*} searchingCookieName Cookie's name to look for
+ * @returns The value the given cookie has. Undefined if the cookie was not found
+ */
 function getCookieValue(searchingCookieName)
 {
     const cookies = document.cookie.split(";");
