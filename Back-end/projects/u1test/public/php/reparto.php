@@ -2,7 +2,7 @@
 
 /**
  * Álvaro Fernández Barrero
- * 1º DAW Bilingüe
+ * 2º DAW Bilingüe
  */
 
 declare (strict_types = 1);
@@ -19,7 +19,7 @@ define('MAXIMO_PESO_FURGONETA', 15);
 // -------------------------------------------
 
 $catalogo = [
-    [
+    0 => [
         'id' => 0,
         'nombre' => 'cuaderno',
         'precio' => 2.5,
@@ -27,7 +27,7 @@ $catalogo = [
         'stock' => 8,
         'descuento' => 10
     ],
-    [
+    1 => [
         'id' => 1,
         'nombre' => 'boligrafo',
         'precio' => 0.9,
@@ -35,7 +35,7 @@ $catalogo = [
         'stock' => 25,
         'descuento' => null
     ],
-    [
+    2 => [
         'id' => 2,
         'nombre' => 'archivador',
         'precio' => 4.2,
@@ -46,19 +46,19 @@ $catalogo = [
 ];
 
 $clientes = [
-    [
+    1 => [
         'id' => 1,
         'nombre' => 'John'
     ],
-    [
+    2 => [
         'id' => 2,
         'nombre' => 'Jane'
     ],
-    [
+    3 => [
         'id' => 3,
         'nombre' => 'Juan'
     ],
-    [
+    4 => [
         'id' => 4,
         'nombre' => 'Maria'
     ]
@@ -72,24 +72,6 @@ $precioFinal = 0;
 // -------------------------------------------
 // METODOS
 // -------------------------------------------
-
-function obtenerClientePorId(int $id) : ?array
-{
-    global $clientes;
-
-    $clenteObtenido = false;
-    $cliente = [];
-
-    for ($i = 0; !$clenteObtenido || $i < count($clientes); $i++)
-    {
-        if (isset($clientes[$i]))
-        {
-            $cliente = $clientes[$i];
-        }
-    }
-
-    return $cliente;
-}
 
 function generarPedidoAleatorio(int $id) : bool
 {
@@ -106,7 +88,7 @@ function generarPedidoAleatorio(int $id) : bool
         
         array_push($pedidos, [
             'id' => $id,
-            'cliente' => $clientes[random_int(0, count($clientes) - 1)]['id'],
+            'cliente' => $clientes[random_int(1, count($clientes))]['id'],
             'producto' => $productoId,
             'unidades' => $unidadesProducto
         ]);
@@ -125,26 +107,25 @@ function generarPedidosAleatorios() : void
     }
 }
 
-function extraerPedido() : array
+function extraerPedido() : mixed
 {
     global $pedidos;
 
-    return (array)array_pop($pedidos);
+    return array_pop($pedidos);
 }
 
 function agregarPedidosAFurgoneta(int &$aceptados, int &$rechazados) : void
 {
-    global $pesoFurgoneta, $precioFinal, $catalogo, $pedidos;
+    global $clientes, $pesoFurgoneta, $precioFinal, $catalogo, $pedidos;
 
     $contador = count($pedidos);
-    $rechazados = 0;
 
-    while ($pesoFurgoneta < MAXIMO_PESO_FURGONETA && count($pedidos) > 0)
+    while ($pesoFurgoneta < MAXIMO_PESO_FURGONETA && $contador > 0)
     {
         $pedidoExtraido = extraerPedido();
-        
+
         $informacionProducto = $catalogo[$pedidoExtraido['producto']];
-        $estaEnStock = $informacionProducto > $pedidoExtraido['unidades'];
+        $estaEnStock = $informacionProducto['stock'] >= $pedidoExtraido['unidades'];
 
         if ($estaEnStock)
         {
@@ -167,14 +148,16 @@ function agregarPedidosAFurgoneta(int &$aceptados, int &$rechazados) : void
         }
 
         printf(
-            "#$contador %10s | %s x %15s | %10s | %.2f EUR | carga: %.1f kg",
-            obtenerClientePorId($pedidoExtraido['cliente'])['nombre'],
+            "#%2d %-10s | %s x %-15s | %10s | %.2f EUR | carga: %.1f kg" . PHP_EOL,
+            $contador,
+            $clientes[$pedidoExtraido['cliente']]['nombre'],
             $pedidoExtraido['unidades'],
             $informacionProducto['nombre'],
             $informacionProducto['precio'],
             $estaEnStock ? 'ACEPTADO' : 'RECHAZADO',
             $informacionProducto['peso'],
         );
+        $contador--;
     }
 }
 
@@ -197,6 +180,6 @@ agregarPedidosAFurgoneta($aceptados, $rechazados);
 echo printf('La furgonate alcanza %.1f kg. Se detiene el reparto', $pesoFurgoneta);
 
 echo PHP_EOL . PHP_EOL . '=== INFORME ===' . PHP_EOL;
-echo printf('Aceptados: %d | Rechazados: %d | Sin procesar: %d', )
+echo printf('Aceptados: %d | Rechazados: %d | Sin procesar: %d', $aceptados, $rechazados, count($pedidos));
 
 echo '</pre>';
