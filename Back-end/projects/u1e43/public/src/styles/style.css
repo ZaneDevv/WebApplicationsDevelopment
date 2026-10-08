@@ -1,35 +1,12 @@
 body {
-    background-color: #0a4a0c;
-
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-
-    padding: 1em;
-}
-
-.card {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 10px
-}
-
-.card img {
-    width: 100px;
-    box-shadow: 2px 2px 5px 0 black;
-}
-
-.card p {
     color: white;
+    background-color: #062b07;
+    
+    padding: 1em;
 
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    text-align: center;
+}
 
-    margin: 0;
-
-    text-shadow: 1px 1px black;
+img {
+    margin: 5px;
 }

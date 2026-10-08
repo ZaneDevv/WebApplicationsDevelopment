@@ -76,4 +76,4 @@ echo '<br><h2>CPU TURN</h2>';
 takeCards($cpuPoints);
 
 echo '<hr>';
-echo getWinnerMessage();
+echo '<p id="winner-text">' . getWinnerMessage() . '</p>';
