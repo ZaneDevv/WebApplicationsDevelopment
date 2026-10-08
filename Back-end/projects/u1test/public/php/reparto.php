@@ -14,6 +14,8 @@ declare (strict_types = 1);
 define('CANTIDAD_PEDIDOS', 15);
 define('MAXIMO_PESO_FURGONETA', 15);
 
+define('PRINT_PEDIDO_FORMATO', "#%2d %-10s | %s x %-15s | %10s | %.2f EUR | carga: %.1f kg" . PHP_EOL);
+
 // -------------------------------------------
 // VARIABLES
 // -------------------------------------------
@@ -129,15 +131,11 @@ function agregarPedidosAFurgoneta(int &$aceptados, int &$rechazados) : void
 
         if ($estaEnStock)
         {
-            $precio = 0;
-    
             $pesoFurgoneta += $informacionProducto['peso'];
     
             $precio = $informacionProducto['precio'];
             if (isset($informacionProducto['descuento']) && is_float($informacionProducto['descuento']))
-            {
                 $precio -= $precio * $informacionProducto['descuento'] / 100;
-            }
     
             $precioFinal += round($precio, 2);
             $aceptados++;
@@ -148,13 +146,13 @@ function agregarPedidosAFurgoneta(int &$aceptados, int &$rechazados) : void
         }
 
         printf(
-            "#%2d %-10s | %s x %-15s | %10s | %.2f EUR | carga: %.1f kg" . PHP_EOL,
+            PRINT_PEDIDO_FORMATO,
             $contador,
             $clientes[$pedidoExtraido['cliente']]['nombre'],
             $pedidoExtraido['unidades'],
             $informacionProducto['nombre'],
-            $informacionProducto['precio'],
             $estaEnStock ? 'ACEPTADO' : 'RECHAZADO',
+            $informacionProducto['precio'],
             $informacionProducto['peso'],
         );
         $contador--;
@@ -177,9 +175,10 @@ echo 'Pedidos en cola: ' . count($pedidos) . PHP_EOL;
 
 agregarPedidosAFurgoneta($aceptados, $rechazados);
 
-echo printf('La furgonate alcanza %.1f kg. Se detiene el reparto', $pesoFurgoneta);
+if ($pesoFurgoneta > MAXIMO_PESO_FURGONETA)
+    printf('La furgonate alcanza %.1f kg. Se detiene el reparto', $pesoFurgoneta);
 
 echo PHP_EOL . PHP_EOL . '=== INFORME ===' . PHP_EOL;
-echo printf('Aceptados: %d | Rechazados: %d | Sin procesar: %d', $aceptados, $rechazados, count($pedidos));
+printf('Aceptados: %d | Rechazados: %d | Sin procesar: %d', $aceptados, $rechazados, count($pedidos));
 
 echo '</pre>';
