@@ -91,26 +91,24 @@ function shuffleDeck(array &$deck) : void
  * Takes the first card out of the deck
  * 
  * @param array &$deck Deck to take the very first card off
+ * 
+ * @return mixed The card taken out
  */
-function takeCardOutOfDeck(array &$deck) : void
+function takeCardOutOfDeck(array &$deck) : mixed
 {
-    array_pop($deck);
+    return array_pop($deck);
 }
 
 /**
- * Shows in the page the card in the given deck in the given position
+ * Shows in the page the card with the given data
  * 
- * @param array &$deck Deck to get the card from
- * @param int $index Card's index position in the deck
+ * @param array $card Card's data
+ * @param bool $showCardName Whether to show the card's name
  */
-function showCard(array &$deck, int $index = 0, bool $showCardName = false) : void
+function showCard(array &$card, bool $showCardName = false) : void
 {
     global $suitNames, $cardName;
 
-    if (!isset($deck[$index]))
-        return;
-
-    $card = $deck[$index];
     $cardImagePath = IMAGES_PATH . $suitNames[$card['suit']] . '_' . $card['number'] . '.jpg';
     $imgHtml = "<img src='$cardImagePath'>";
 
@@ -127,14 +125,34 @@ function showCard(array &$deck, int $index = 0, bool $showCardName = false) : vo
     }
 }
 
+/**
+ * Shows in the page the card in the given deck in the given position
+ * 
+ * @param array &$deck Deck to get the card from
+ * @param int $index Card's index position in the deck
+ * @param bool $showCardName Whether to show the card's name
+ */
+function showCardFromDeck(array &$deck, int $index = 0, bool $showCardName = false) : void
+{
+    global $suitNames, $cardName;
+
+    if (!isset($deck[$index]))
+        return;
+
+    $card = $deck[$index];
+    showCard($card, $showCardName);   
+}
+
 // ---------------------------------------------------------
 // TESTING
 // ---------------------------------------------------------
 
+/*
 $deck = [];
 createFullDeck($deck);
 shuffleDeck($deck);
 
 
 foreach ($deck as $index => $card)
-    showCard($deck, $index, true);
+    showCardFromDeck($deck, $index, true);
+*/
