@@ -18,4 +18,4 @@ class SavingAccount extends BankAccount
     {
         return 'Owner: ' . $this->owner . ' | money: $' . $this->getMoney();
     }
-}
+} 
