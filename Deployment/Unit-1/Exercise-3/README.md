@@ -71,13 +71,13 @@ flowchart TD
 
 ## Tasks
 
-[x] Design the initial architecture.
-[x] Implement the API Gateway.
-[x] Implement JWT authentification.
-[ ] Add automatic replication.
-[ ] Implement distributed queries.
-[ ] Create monitoring panel.
-[ ] Public 3.0 version.
+- [x] Design the initial architecture.
+- [x] Implement the API Gateway.
+- [x] Implement JWT authentification.
+- [ ] Add automatic replication.
+- [ ] Implement distributed queries.
+- [ ] Create monitoring panel.
+- [ ] Public 3.0 version.
 
 ---
 
