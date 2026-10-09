@@ -96,7 +96,7 @@ function shuffleDeck(array &$deck) : void
  */
 function takeCardOutOfDeck(array &$deck) : mixed
 {
-    return array_pop($deck);
+    return array_shift($deck);
 }
 
 /**
