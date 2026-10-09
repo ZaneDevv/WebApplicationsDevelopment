@@ -8,7 +8,7 @@
 
 /**
  * Gets the greatest number from the given ones
- * @param  {...any} numbers Numbers to obtain the maximum from
+ * @param  {...number} numbers Numbers to obtain the maximum from
  * @returns The greatest number from the given ones
  * @author Álvaro Fernández Barrero
  */
@@ -85,7 +85,7 @@ function doExercise3()
 
 /**
  * Computes the volume of the sphere with the given radius
- * @param {*} radius Sphere's radius
+ * @param {number} radius Sphere's radius
  * @returns The volume of the sphere with the given radius
  * @author Álvaro Fernández Barrero
  */
@@ -139,8 +139,8 @@ function doExercise5()
 
 /**
  * Powers a given number to the other
- * @param {*} base Exponential base
- * @param {*} exponential Number to power the base
+ * @param {number} base Exponential base
+ * @param {number} exponential Number to power the base
  * @returns The base to the exponential
  * @author Álvaro Fernández Barrero
  */
@@ -164,7 +164,7 @@ function doExercise6()
 
 /**
  * Computes the factorial of the given number
- * @param {*} number Number to compute the factorial from 
+ * @param {number} number Number to compute the factorial from 
  * @returns The factorial of the given number
  * @author Álvaro Fernández Barrero
  */
