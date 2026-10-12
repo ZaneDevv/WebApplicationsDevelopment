@@ -17,16 +17,40 @@ if [ -d "$RUTA" ]; then
 fi
 
 # --- Estructura de carpetas (separando lo público de lo privado) ---
-mkdir -p "$RUTA/public"
+mkdir -p "$RUTA/public/php"
 mkdir -p "$RUTA/src"
 mkdir -p "$RUTA/tests"
 
 # --- index.php de entrada en public/ ---
+#cat > "$RUTA/public/index.php" <<PHP
+#<?php
+#require_once __DIR__ . '/../vendor/autoload.php';
+#echo '<h1>Proyecto: $NOMBRE</h1>';
+#echo '<p>PHP ' . phpversion() . '</p>';
+#PHP
+
 cat > "$RUTA/public/index.php" <<PHP
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <title>PHP</title>
+    </head>
+    
+    <body>
+        <?php include_once './php/main.php' ?>
+    </body>
+</html>
+PHP
+
+# --- main.php ---
+cat > "$RUTA/public/php/main.php" << PHP
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
-echo '<h1>Proyecto: $NOMBRE</h1>';
-echo '<p>PHP ' . phpversion() . '</p>';
+
+declare(strict_types = 1);
 PHP
 
 # --- .htaccess en public/ con mod_rewrite ya activo (front controller) ---
