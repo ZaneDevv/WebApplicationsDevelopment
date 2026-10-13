@@ -228,13 +228,11 @@ function areArraysEqual(a, b)
  */
 function toHackerSpeak(text)
 {
-    text.replaceAll("a", 4);
-    text.replaceAll("w", 3);
-    text.replaceAll("i", 1);
-    text.replaceAll("o", 0);
-    text.replaceAll("s", 5);
-
-    return text;
+    return text.replaceAll("a", 4)
+                .replaceAll("w", 3)
+                .replaceAll("i", 1)
+                .replaceAll("o", 0)
+                .replaceAll("s", 5);
 }
 
 /**
