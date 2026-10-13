@@ -13,11 +13,18 @@ define('CIRCLE_RADIUS', 15);
 
 // --------------------------------------------------------------- \\
 
-$rectangle = new Rectangle(RECTANGLE_BASE, RECTANGLE_HEIGHT, "MyRectangle");
-$circle = new Circle(CIRCLE_RADIUS, "MyCircle");
-
-$rectangle->displayName();
-echo "<p>Area: {$rectangle->computeArea()}</p>";
-
-$circle->displayName();
-echo "<p>Area: {$circle->computeArea()}</p>";
+try
+{
+    $rectangle = new Rectangle(RECTANGLE_BASE, RECTANGLE_HEIGHT, "MyRectangle");
+    $circle = new Circle(CIRCLE_RADIUS, "MyCircle");
+    
+    $rectangle->displayName();
+    echo "<p>Area: {$rectangle->computeArea()}</p>";
+    
+    $circle->displayName();
+    echo "<p>Area: {$circle->computeArea()}</p>";
+}
+catch (Exception $exception)
+{
+    echo 'Unable to run the program. You might have set a negative length somewhere, check the arguments.';
+}
