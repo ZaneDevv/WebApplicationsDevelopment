@@ -1,0 +1,27 @@
+{
+	"Property hooke": {
+		"prefix": "hooke",
+		"body": [
+			"{",
+			"\tget {}",
+			"\tset(mixed \\$value) {}",
+			"}"
+		]
+	},
+
+	"Initialize": {
+		"prefix": "init",
+		"body": [
+			"<?php",
+			"",
+			"declare(strict_types = 1);"
+		]
+	},
+
+	"Enable strict types": {
+		"prefix": "strict",
+		"body": [
+			"declare(strict_types = 1);"
+		]
+	}
+}
