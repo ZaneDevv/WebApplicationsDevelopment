@@ -1,5 +1,5 @@
 const areDifferentSpots = (spot0, spot1) => spot0.i !== spot1.i || spot0.j !== spot1.j;
-const pritnSpot = spot => console.log(`X: ${spot.i + 1}, Y: ${spot.j + 1}`);
+const printSpot = spot => console.log(`X: ${spot.i + 1}, Y: ${spot.j + 1}`);
 
 let board = [];
 
@@ -73,4 +73,4 @@ while (areDifferentSpots(currentSpot, nextSpot) && iterations++ < 50)
     nextSpot = readNextSpot(currentSpot.i, currentSpot.j);
 }
 
-pritnSpot(currentSpot);
+printSpot(currentSpot);
