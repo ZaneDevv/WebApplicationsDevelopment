@@ -65,7 +65,7 @@ nebuladb --version
 
 ## Diagrams
 
-flowchart TD
+flowchart TB
     user  --> API Gateway --> Auth Service --> Query Engine --> Database
 
 
