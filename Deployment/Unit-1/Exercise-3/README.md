@@ -39,7 +39,7 @@
 ## Components
 
 | Compnent | Language | State | Version | Dependency |
-| - | - | - | - | - |
+| - | :-: | - | - | - |
 | API Gateway | Go | Stable | 1.0.5 | Redis, Prometheus |
 | Auth Service | Rust | Stable | 2.5.62 | PostgreSQL, JWT |
 | Query Engine | C++ | Beta | 0.2.5 | gRPC, LLVM |
@@ -65,9 +65,19 @@ nebuladb --version
 
 ## Diagrams
 
-flowchart TD
+<<<<<<< Updated upstream
+flowchart TB
     user  --> API Gateway --> Auth Service --> Query Engine --> Database
 
+=======
+```mermaid
+flowchart TD
+    A[user] --> B(API Gateway)
+    B --> C(Auth Service)
+    C --> D(Query Engine)
+    D --> E[Database]
+```
+>>>>>>> Stashed changes
 
 ## Tasks
 
