@@ -65,11 +65,6 @@ nebuladb --version
 
 ## Diagrams
 
-<<<<<<< Updated upstream
-flowchart TB
-    user  --> API Gateway --> Auth Service --> Query Engine --> Database
-
-=======
 ```mermaid
 flowchart TD
     A[user] --> B(API Gateway)
@@ -77,7 +72,6 @@ flowchart TD
     C --> D(Query Engine)
     D --> E[Database]
 ```
->>>>>>> Stashed changes
 
 ## Tasks
 
