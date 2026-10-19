@@ -177,7 +177,7 @@ function calcularPrecioFinal(float $precioUnitario, int $unidades, ?float $descu
  * @param array<string, array{precio: float, peso: float, stock: int, descuento: ?float}> $catalogo
  *
  * @return array{
- *     lineas: array<int, array{pedido: array<string, mixed>, resultado: string, importe: float, carga: float}>,
+ *     lineas: array<int, array{pedido: array<string, mixed>, resultado: ValidacionPedido, importe: float, carga: float}>,
  *     aceptados: int,
  *     rechazos: array<string, int>,
  *     peso: float,

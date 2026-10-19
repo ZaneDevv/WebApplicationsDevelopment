@@ -1,5 +1,6 @@
 <?php
 declare(strict_types=1);
+require_once 'ValidacionPedido.php';
 require_once 'config.php';
 require_once 'funcionesReparto.php';
 
@@ -31,7 +32,7 @@ $repartoParado = $resumen['peso'] >= PARAR_CARGA;
 <p>Pedidos en cola: <?= $totalPedidos ?></p>
 
 <?php foreach ($resumen['lineas'] as $linea): ?>
-    <?php $aceptado = $linea['resultado'] === 'ok'; ?>
+    <?php $aceptado = $linea['resultado'] === ValidacionPedido::OK; ?>
         <p>
            #<?= sprintf('%02d', $linea['pedido']['id']) ?>
             <?= $linea['pedido']['cliente'] ?> |
@@ -41,7 +42,7 @@ $repartoParado = $resumen['peso'] >= PARAR_CARGA;
                 carga: <?= formatearKilos($linea['carga']) ?>
             <?php else: ?>
                 RECHAZADO |
-                <?= $linea['resultado'] ?>
+                <?= $linea['resultado']->value ?>
             <?php endif; ?>
         </p>
     <?php endforeach; ?>

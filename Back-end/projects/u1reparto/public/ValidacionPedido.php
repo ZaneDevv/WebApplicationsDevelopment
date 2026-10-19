@@ -2,9 +2,9 @@
 
 declare(strict_types = 1);
 
-enum ValidacionPedido : int
+enum ValidacionPedido : string
 {
-    case OK = 0;
-    case SIN_STOCK = 1;
-    case NO_CABE = 2;
+    case OK = 'Válido';
+    case SIN_STOCK = 'Sin stock';
+    case NO_CABE = 'No cabe';
 }
