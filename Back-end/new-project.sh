@@ -20,6 +20,7 @@ fi
 mkdir -p "$RUTA/public/php"
 mkdir -p "$RUTA/src"
 mkdir -p "$RUTA/tests"
+mkdir -p "$RUTA/config"
 
 # --- index.php de entrada en public/ ---
 #cat > "$RUTA/public/index.php" <<PHP
