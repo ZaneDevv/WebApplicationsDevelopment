@@ -15,7 +15,7 @@ class Card
 
     public string $cardImage
     {
-        get => "./src/img/{strtolower($this->cardSuit->value)}_{$this->cardNumber->name()}jpg";
+        get => strtolower($this->cardSuit->value) . "_{$this->cardNumber->value}.jpg";
     }
 
     public int $number

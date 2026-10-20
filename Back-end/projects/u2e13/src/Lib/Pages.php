@@ -10,7 +10,7 @@ class Pages
     // CONSTANTS
     // ----------------------------------------------------------
 
-    private const string VIEWS_DIR = __DIR__ . '../../Views/';
+    private const string VIEWS_DIR = __DIR__ . '../../../Views/';
 
     // ----------------------------------------------------------
     // METHODS

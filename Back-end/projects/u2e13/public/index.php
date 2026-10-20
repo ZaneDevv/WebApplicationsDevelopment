@@ -8,13 +8,13 @@ declare(strict_types = 1);
 
 require_once '../autoloader.php';
 
-use Libs\Pages;
-
 use Models\Card;
 use Models\Deck;
 
 use Enums\CardNumber;
 use Enums\CardSuit;
+
+use Lib\Pages;
 
 // ----------------------------------------------------------
 // CONSTANTS
@@ -82,13 +82,16 @@ function setWinnerMessage(float $pointsPlayer1, float $pointsPlayer2, string $na
 // SET UP
 // ----------------------------------------------------------
 
-$pages = new Pages();
-
 $deck = new Deck(0b111001111111);
 $deck->shuffle();
 
 $player1Points = 0;
 $player2Points = 0;
+
+$pages = new Pages();
+$pages->render('deck/showDeck', [
+    'deck' => $deck->getCards(),
+])
 
 // ----------------------------------------------------------
 // START GAME

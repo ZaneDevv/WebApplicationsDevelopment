@@ -79,4 +79,13 @@ class Deck
 
         return $finalString;
     }
+
+    // ----------------------------------------------------------
+    // GETTERS & SETTERS
+    // ----------------------------------------------------------
+
+    public function getCards()
+    {
+        return $this->cards;
+    }
 }
