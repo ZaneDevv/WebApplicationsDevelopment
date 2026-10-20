@@ -6,6 +6,8 @@ class Game
 
     #players = [];
     #deck = [];
+
+    #releavedCardsUponTable = [];
     #cardsUponTable = [];
 
     // ------------------------------------------------
@@ -17,7 +19,7 @@ class Game
         this.#players.push(player);
     }
 
-    shuffleDeck()
+    #shuffleDeck()
     {
         let currentIndex = this.#deck.length;
 
@@ -30,7 +32,7 @@ class Game
         }
     }
     
-    setUpDeck()
+    #setUpDeck()
     {
         for (let i = 1; i <= 13; i++)
         {
@@ -42,7 +44,7 @@ class Game
         }
     }
 
-    giveCardsToPlayers()
+    #giveCardsToPlayers()
     {
         for (let i = 0; i < this.#players.length; i++)
         {
@@ -53,10 +55,83 @@ class Game
         }
     }
 
-    sendCardToTable()
+    #sendCardToTable()
     {
         for (let i = 0; i < 4; i++)
-            this.#cardsUponTable.push(this.#deck.unshift());
+            this.#cardsUponTable.push(this.#deck.shift());
+    }
+
+    #doesAnyoneHasRoyalFlush()
+    {
+
+    }
+
+    #doesAnyoneHasStraightFlush()
+    {
+
+    }
+
+    #doesAnyoneHasFourOfAKind()
+    {
+
+    }
+
+    #doesAnyoneHasFullHouse()
+    {
+
+    }
+
+    #doesAnyoneHasFlush()
+    {
+
+    }
+
+    #doesAnyoneHasStraight()
+    {
+
+    }
+
+    #doesAnyoneHasThreeOfAKind()
+    {
+
+    }
+
+    #doesAnyoneHasTwoPair()
+    {
+
+    }
+
+    #doesAnyoneHasOnePair()
+    {
+
+    }
+
+    #doesAnyoneHasHighCard()
+    {
+
+    }
+
+    #setWinners()
+    {
+        console.log(" =============== WINNER =============== ");
+
+        
+    }
+
+    #setIndividualMatch()
+    {
+        let card = this.#cardsUponTable.shift();
+        this.#releavedCardsUponTable.push(card);
+        
+        console.log(card);
+    }
+
+    #initializeMatch()
+    {
+        for (let i = 0; i < this.#cardsUponTable.length; i++)
+            this.#setIndividualMatch(); 
+        
+        this.#setWinners();
     }
 
     initialize()
@@ -67,10 +142,12 @@ class Game
             return;
         }
 
-        this.setUpDeck();
-        this.shuffleDeck();
+        this.#setUpDeck();
+        this.#shuffleDeck();
 
-        this.giveCardsToPlayers();
-        this.sendCardToTable();
+        this.#giveCardsToPlayers();
+        this.#sendCardToTable();
+
+        this.#initializeMatch();
     }
 }
