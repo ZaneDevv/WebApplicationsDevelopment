@@ -1,0 +1,16 @@
+:root {
+    --cell-size: 10px;
+}
+
+#paint {
+    border-collapse: collapse   ;
+}
+
+#paint td {
+    width: var(--cell-size);
+    height: var(--cell-size);
+}
+
+.draggable {
+    position: absolute;
+}
