@@ -126,7 +126,7 @@ And enable the firewall.
 sudo ufw enable
 ```
 
-![Firewall allowing SSH](firewall_ssh.png)
+![Firewall allowing SSH](./images/firewall_ssh.png)
 
 ## Snapshot
 
