@@ -17,10 +17,12 @@ if [ -d "$RUTA" ]; then
 fi
 
 # --- Estructura de carpetas (separando lo público de lo privado) ---
-mkdir -p "$RUTA/public/php"
+mkdir -p "$RUTA/public/assets"
 mkdir -p "$RUTA/src"
 mkdir -p "$RUTA/tests"
 mkdir -p "$RUTA/config"
+mkdir -p "$RUTA/Views/error"
+mkdir -p "$RUTA/Views/Layout"
 
 # --- index.php de entrada en public/ ---
 #cat > "$RUTA/public/index.php" <<PHP
