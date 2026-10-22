@@ -10,6 +10,8 @@ require_once '../autoloader.php';
 
 use Models\Card;
 use Models\Deck;
+use Models\Player;
+use Models\CardMatch;
 
 use Enums\CardNumber;
 use Enums\CardSuit;
@@ -29,83 +31,38 @@ define('PLAYER2_NAME', 'Player2');
 // METHODS
 // ----------------------------------------------------------
 
-/**
- * Makes a player to play by taking cards until the they must stop
- * 
- * @param int &$points Points starts to increment
- * @param Deck &$deck Deck of cards to take the cards from
- * 
- * @author Álvaro Fernández Barrero
- */
-function makePlayerToTakeCards(int &$points, Deck &$deck)
-{
-    while ($points < 7)
-    {
-        $card = $deck->takeCardOutOfDeck();
-        $points += $card->number >= 10 ? 0.5 : $card->number;
-        
-        echo "<p>$card</p>";
-        //echo "<img src='{$card->cardImage}'>";
-    }
-}
-
-/**
- * Sets the winner message according to the points each player has
- * 
- * @param float $pointsPlayer1 Player 1's points
- * @param float $pointsPlayer2 Player 2's points
- * @param string $namePlayer1 Player 1's name
- * @param string $namePlayer2 Player 2's name
- * 
- * @return string Winner message
- * 
- * @author Álvaro Fernández Barrero
- */
-function setWinnerMessage(float $pointsPlayer1, float $pointsPlayer2, string $namePlayer1, string $namePlayer2) : string
-{
-    $isPlayer1Off = $pointsPlayer1 > TARGET_POINTS;
-    $isPlayer2Off = $pointsPlayer2 > TARGET_POINTS;
-    $arePlayersOffBuffer = $isPlayer1Off << 1 | $isPlayer2Off;
-    
-    if ($pointsPlayer1 === $pointsPlayer2 && $arePlayersOffBuffer === 0)
-        return 'TIE';
-
-    return match ($arePlayersOffBuffer) {
-        0b00 => abs($pointsPlayer1 - TARGET_POINTS) < abs($pointsPlayer2 - TARGET_POINTS) ? "Winner: $namePlayer1" : "Winner: $namePlayer2",
-        0b01 => "Winner: $namePlayer1",
-        0b10 => "Winner: $namePlayer2",
-        0b11 => 'No one wins :('
-    };
-}
-
 // ----------------------------------------------------------
 // SET UP
 // ----------------------------------------------------------
 
-$deck = new Deck(0b111001111111);
-$deck->shuffle();
+$allowedCards = 0b111001111111;
 
-$player1Points = 0;
-$player2Points = 0;
+$player1 = new Player(PLAYER1_NAME);
+$player2 = new Player(PLAYER2_NAME);
+
+$cardMatch = new CardMatch($allowedCards, $player1, $player2);
 
 $pages = new Pages();
 $pages->render('deck/showDeck', [
-    'deck' => $deck->getCards(),
-])
+    'deck' => $cardMatch->deck->getCards(),
+]);
 
 // ----------------------------------------------------------
-// START GAME
+// GAME
 // ----------------------------------------------------------
 
-/*
-echo '<h1>' . PLAYER1_NAME . ' plays:</h1>';
-makePlayerToTakeCards($player1Points, $deck);
-echo "<p>Total score: $player1Points</p>";
+$cardMatch->play();
 
-echo '<h1>' . PLAYER2_NAME . ' plays:</h1>';
-makePlayerToTakeCards($player2Points, $deck);
-echo "<p>Total score: $player2Points</p>";
+$pages->render('players/match', [
+    'player' => $player1,
+]);
+$pages->render('players/match', [
+    'player' => $player2,
+]);
 
-echo '<p>' . setWinnerMessage($player1Points, $player2Points, PLAYER1_NAME, PLAYER2_NAME) . '</p>';
-*/
+$pages->render('players/winner', [
+    'match' => $cardMatch,
+]);
+
+
 ?>
