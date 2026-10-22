@@ -5,7 +5,9 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <script defer type="module" src="./src/main.js"></script>
+        <link rel="stylesheet" href="./src/styles/style.css">
+
+        <script defer type="module" src="./src/scripts/main.js"></script>
         
         <title>Getting data</title>
     </head>
@@ -16,12 +18,18 @@
         </header>
 
         <main>
-            <section>
-                <input type="text" placeholder="Name..." />
+            <section id="art-container">
+
             </section>
 
-            <section>
+            <hr>
 
+            <section id="art-adder">
+                <input id="new-piece-art-title" type="text" placeholder="Name..." />
+                <input id="new-piece-art-author" type="text" placeholder="Author..." />
+                <input id="new-piece-art-image" type="text" placeholder="https://..." />
+                
+                <button id="button-add-art">Add</button>
             </section>
         </main>
 
