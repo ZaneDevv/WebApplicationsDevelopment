@@ -17,15 +17,15 @@ class FrontController
         $controller_name = $_GET['controller'] ?? CONTROLLER_DEFAULT;
         $action_name = $_GET['action'] ?? ACTION_DEFAULT;
 
-        $controller_path = __DIR__ . 'Controllers/' . ucfirst($controller_name) . 'Controller';
+        $controller_class_name = 'Controllers\\' . ucfirst($controller_name) . 'Controller';
 
-        if (!class_exists($controller_path) || in_array($controller_path, [self::class, ErrorController::class], true))
+        if (!class_exists($controller_class_name) || in_array($controller_class_name, [self::class, ErrorController::class], true))
         {
             ErrorController::show_error404();
             return;
         }
 
-        $controller = new $controller_path();
+        $controller = new $controller_class_name();
 
         if (!is_callable([$controller, $action_name]))
         {
