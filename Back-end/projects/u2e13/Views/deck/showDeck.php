@@ -1,7 +1,7 @@
 <?php
     declare(strict_types = 1);
 
-    $directoryImages = __DIR__ . '/../../public/assets/img/';
+    $directoryImages = './assets/img/';
     $urlImages = 'assets/img';
 ?>
 
