@@ -1,0 +1,54 @@
+#colors-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 15px;
+
+    border: 1px solid black;
+    border-radius: 10px;
+
+    padding: 1em;
+
+    max-width: 350px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.color {
+    width: 150px;
+    height: 150px;
+
+    border-radius: 30px;
+}
+
+.color:hover {
+    animation: 0.2s ease-in hover;
+    transform: scale(1.01);
+}
+
+#red {
+    background-color: red;
+}
+
+#blue {
+    background-color: blue;
+}
+
+#yellow {
+    background-color: yellow;
+}
+
+#green {
+    background-color: green;
+}
+
+@keyframes hover {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.01);
+    }
+}
