@@ -4,6 +4,10 @@ declare(strict_types = 1);
 
 namespace Lib;
 
+// ----------------------------------------------------------
+// CLASSES
+// ----------------------------------------------------------
+
 class Pages
 {
     // ----------------------------------------------------------
@@ -15,6 +19,24 @@ class Pages
     // ----------------------------------------------------------
     // METHODS
     // ----------------------------------------------------------
+
+    /**
+     * Renders the header on screen
+     * @author Álvaro Fernández Barrero
+     */
+    public function renderHeader()
+    {
+        require self::VIEWS_DIR . 'Layout/header.php';
+    }
+
+    /**
+     * Renders the footer on screen
+     * @author Álvaro Fernández Barrero
+     */
+    public function renderFooter()
+    {
+        require self::VIEWS_DIR . 'Layout/footer.php';
+    }
     
     /**
      * Renders the page with the given page content
@@ -32,8 +54,6 @@ class Pages
                 $$name = $value;
         }
 
-        require self::VIEWS_DIR . 'Layout/header.php';
         require self::VIEWS_DIR . $pageName . '.php';
-        require self::VIEWS_DIR . 'Layout/footer.php';
     }
 }
