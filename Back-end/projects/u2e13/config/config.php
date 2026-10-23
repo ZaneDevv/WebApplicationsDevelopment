@@ -1,7 +1,7 @@
 <?php
 
-define('CONTROLLER_DEFAULT', 'Deck');
-define('ACTION_DEFAULT', 'show');
+define('CONTROLLER_DEFAULT', 'Dashboard');
+define('ACTION_DEFAULT', 'greet');
 
 define('TARGET_POINTS', 7.5);
 

@@ -14,6 +14,7 @@
 
         <nav>
             <ul>
+                <li><a href="index.php?controller=dashboard&amp;action=greet">Dashboard</a></li>
                 <li><a href="index.php?controller=deck&amp;action=show">Show cards</a></li>
                 <li><a href="index.php?controller=deck&amp;action=showShuffled">Show shuffled</a></li>
             </ul>
