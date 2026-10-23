@@ -1,0 +1,18 @@
+{
+	"Property hooke": {
+		"prefix": "hooke",
+		"body": [
+			"{",
+			"\tget {}",
+			"\tset(mixed \\$value) {}",
+			"}"
+		]
+	},
+
+	"Enable strict types": {
+		"prefix": "strict",
+		"body": [
+			"declare(strict_types = 1);"
+		]
+	}
+}
