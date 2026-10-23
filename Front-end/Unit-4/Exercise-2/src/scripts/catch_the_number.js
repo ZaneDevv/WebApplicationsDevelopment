@@ -1,6 +1,6 @@
 window.onload = () => {
     const messageText = document.getElementById("message-text");
-    const buttons = document.getElementsByClassName("number-button");
+    const numbersContainer = document.getElementById("numbers");
 
     let pickedNumber;
 
@@ -15,9 +15,8 @@ window.onload = () => {
     
     pickNumber();
 
-    for (let button of buttons)
-        button.addEventListener("click", () => {
-            if (button.innerHTML == pickedNumber)
-                pickNumber();
-        });
+    numbersContainer.addEventListener("click", element => {
+        if (element.target.innerHTML == pickedNumber)
+            pickNumber();
+    });
 }

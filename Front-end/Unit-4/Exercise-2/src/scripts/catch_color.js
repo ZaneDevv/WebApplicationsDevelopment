@@ -2,6 +2,8 @@ window.onload = () => {
     const colors = ["red", "blue", "yellow", "green"];
 
     const pickColorText = document.getElementById("selected-color-text");
+    const colorsContainer = document.getElementById("colors-container");
+
     let selectedColor = undefined;
 
     function pickColor()
@@ -10,16 +12,12 @@ window.onload = () => {
         pickColorText.innerHTML = `Pick the color <strong style="color: ${selectedColor}">${selectedColor.toUpperCase()}</strong>`
     }
 
-    function applyMethodToButton(color)
-    {
-        document.getElementById(color).addEventListener("click", () => {
-            if (selectedColor === color)
-                pickColor();
-        });
-    }
-
     pickColor();
+    
+    colorsContainer.addEventListener("click", event => {
+        const buttonColor = event.target.id;
 
-    for (let color of colors)
-        applyMethodToButton(color);
+        if (selectedColor === buttonColor)
+            pickColor();
+    });
 }

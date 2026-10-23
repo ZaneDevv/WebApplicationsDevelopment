@@ -1,9 +1,13 @@
 :root {
-    --cell-size: 10px;
+    --cell-size: 5px;
+}
+
+table {
+    border: 1px solid black;
 }
 
 #paint {
-    border-collapse: collapse   ;
+    border-collapse: collapse;
 }
 
 #paint td {
