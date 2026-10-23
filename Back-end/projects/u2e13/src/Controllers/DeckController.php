@@ -61,6 +61,18 @@ class DeckController
     }
 
     /**
+     * Shows the first card in the deck after shuffling it
+     * @author Álvaro Fernández Barrero
+     */
+    public function showFirstCard() : void
+    {
+        $this->deck->shuffle();
+        $this->pages->render('deck/showCard', [
+            'card' => $this->deck->getFirstCard()
+        ]);
+    }
+
+    /**
      * Renders the deck on screen
      * 
      * @param string $title The title for the rendering to show above the deck on screen

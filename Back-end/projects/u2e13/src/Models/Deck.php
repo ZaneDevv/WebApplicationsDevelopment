@@ -80,6 +80,16 @@ class Deck
         return $finalString;
     }
 
+    /**
+     * Gets the first card in the deck
+     * @return Card First card in the deck
+     * @author Álvaro Fernández Barrero
+     */
+    public function getFirstCard() : Card
+    {
+        return $this->cards[0];
+    }
+
     // ----------------------------------------------------------
     // GETTERS & SETTERS
     // ----------------------------------------------------------
