@@ -1,0 +1,56 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#color-to-guess {
+    padding: 0.5em;
+    
+    text-align: center;
+    font-weight: bolder;
+    font-size: 1.5em;
+
+    background-color: #A0A0A0;
+}
+
+#red {
+    color: red
+}
+
+#green {
+    color: green
+}
+
+#blue {
+    color: blue
+}
+
+#colors-container {
+    padding: 1em;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.color {
+    width: 150px;
+    height: 150px;
+    
+    border: 1px solid black;
+    border-radius: 15px;
+
+    box-shadow: 2px 2px 2px 1px black;
+}
+
+.color:hover {
+    transform: translateY(5px);
+
+    cursor: pointer
+}
