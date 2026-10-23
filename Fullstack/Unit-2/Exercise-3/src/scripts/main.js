@@ -92,6 +92,10 @@ async function addArt()
 
     createPieceOfArtHtml(data);
 
+    newArtInputTitle.value = "";
+    newArtInputAuthor.value = "";
+    newArtInputImage.value = "";
+
     await addDoc(collection(database, COLLECTION_NAME), data);
 }
 
