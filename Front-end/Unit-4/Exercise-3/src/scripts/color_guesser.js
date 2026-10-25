@@ -78,6 +78,9 @@ function loseMatch()
 // ------------------------------------------------------
 
 colorsContainer.addEventListener("click", event => {
+    if (event.target === colorsContainer)
+        return;
+
     if (event.target.id === "selected")
         winMatch();
 
