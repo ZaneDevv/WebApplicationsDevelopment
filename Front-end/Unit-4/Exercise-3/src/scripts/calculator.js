@@ -122,7 +122,7 @@ function computeWholeOperation()
 
 function doEqual()
 {
-    operation = computeWholeOperation();
+    operation = `${computeWholeOperation()}`;
     computingText.innerHTML = operation;
 }
 
