@@ -18,42 +18,69 @@ fi
 
 # --- Estructura de carpetas (separando lo público de lo privado) ---
 mkdir -p "$RUTA/public/assets"
-mkdir -p "$RUTA/src"
+mkdir -p "$RUTA/src/Controllers"
+mkdir -p "$RUTA/src/Models"
 mkdir -p "$RUTA/tests"
 mkdir -p "$RUTA/config"
 mkdir -p "$RUTA/Views/error"
 mkdir -p "$RUTA/Views/Layout"
 
-# --- index.php de entrada en public/ ---
-#cat > "$RUTA/public/index.php" <<PHP
-#<?php
-#require_once __DIR__ . '/../vendor/autoload.php';
-#echo '<h1>Proyecto: $NOMBRE</h1>';
-#echo '<p>PHP ' . phpversion() . '</p>';
-#PHP
+# --- config.php --
+cat > "$RUTA/config/config.php" << 'PHP'
+<?php
 
-cat > "$RUTA/public/index.php" <<PHP
-<!DOCTYPE html>
 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-        <title>PHP</title>
-    </head>
-    
-    <body>
-        <?php include_once './php/main.php' ?>
-    </body>
-</html>
 PHP
 
-# --- main.php ---
-cat > "$RUTA/public/php/main.php" << PHP
+# --- autoloader.php ---
+cat > "$RUTA/autoloader.php" <<'PHP'
+<?php
+
+spl_autoload_register(function (string $class): void
+{
+    $file = __DIR__ . '/src/' . str_replace('\\', '/', $class) . '.php';
+
+    if (is_file($file))
+        require_once $file;
+});
+PHP
+
+# --- FrontController.php ---
+cat > "$RUTA/src/Controllers/FrontController.php" <<'PHP'
 <?php
 
 declare(strict_types = 1);
+
+namespace Controllers;
+
+// ----------------------------------------------------------
+// CLASSES
+// ----------------------------------------------------------
+
+class FrontController
+{
+    public static function main() : void
+    {
+    } 
+}
+PHP
+
+# --- index.php de entrada en public/ ---
+cat > "$RUTA/public/index.php" <<'PHP'
+<?php
+
+declare(strict_types = 1);
+
+// ----------------------------------------------------------
+// SET CODE UP
+// ----------------------------------------------------------
+
+require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../autoloader.php';
+
+use Controllers\FrontController;
+
+FrontController::main();
 PHP
 
 # --- .htaccess en public/ con mod_rewrite ya activo (front controller) ---
