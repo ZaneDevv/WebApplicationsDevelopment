@@ -13,6 +13,12 @@ let operation = computingText.innerHTML;
 
 const isStringANumber = (string) => !Number.isNaN(parseFloat(string));
 
+function cleanUp()
+{
+    operation = "0";
+    computingText.innerHTML = operation;
+}
+
 function writePieceToFormula(piece)
 {
     operation += piece;
@@ -21,7 +27,7 @@ function writePieceToFormula(piece)
 
 function addNumber(piece)
 {
-    if (operation === "0")
+    if (operation === "0" && piece !== ".")
         operation = "";
 
     writePieceToFormula(piece);
@@ -76,24 +82,39 @@ function computeOperation(x, y, operation)
 
 function computeWholeOperation()
 {
+    let decimalsAmount = -1;
+
     let x = 0;
     let y = 0;
     let operator = "+";
 
     for (let character of operation)
     {
-        if (isStringANumber(character))
+        if (!isStringANumber(character) && character !== ".")
         {
-            y *= 10;
-            y += parseInt(character);
-
+            x = computeOperation(x, y, operator);
+            y = 0;
+            
+            operator = character;
+            decimalsAmount = -1;
+            continue;
+        }
+        
+        if (character === ".")
+        {
+            decimalsAmount = 0;
             continue;
         }
 
-        x = computeOperation(x, y, operator);
-        y = 0;
+        let number = parseInt(character);
 
-        operator = character;
+        if (decimalsAmount < 0)
+        {
+            y *= 10;
+            y += number;
+        }
+        else
+            y += (number / Math.pow(10, ++decimalsAmount));
     }
 
     return computeOperation(x, y, operator);
@@ -117,6 +138,8 @@ buttonsContainer.addEventListener("click", event => {
 
     if (piece === "=")
         doEqual();
+    else if (piece.toUpperCase() === "C")
+        cleanUp();
     else
         addNewPieceToFormula(piece);
 });
