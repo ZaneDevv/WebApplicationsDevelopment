@@ -50,7 +50,7 @@ class LibraryController
     public function author(int $id)
     {
         $this->pages->render('library/authors', [
-            'authors' => $this->author_repository->getAuthor($id)
+            'author' => $this->author_repository->getAuthor($id)
         ]); 
     }
 
@@ -64,14 +64,14 @@ class LibraryController
     public function book(int $id)
     {
         $this->pages->render('library/books', [
-            'books' => $this->book_repository->getBook($id)
+            'book' => $this->book_repository->getBook($id)
         ]); 
     }
 
     public function availableBooks()
     {
         $this->pages->render('library/books', [
-            'book' => $this->book_repository->getAvailableBooks()
+            'books' => $this->book_repository->getAvailableBooks()
         ]); 
     }
 }
