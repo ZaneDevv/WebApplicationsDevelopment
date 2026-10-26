@@ -3,7 +3,7 @@
 // ----------------------------------------------------------------------------------
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import { getFirestore, getDocs, addDoc, collection } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 // ----------------------------------------------------------------------------------
 // SETTING UP FIREBASE
@@ -22,10 +22,16 @@ const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
 
 // ----------------------------------------------------------------------------------
-// VARIABLES
+// CONSTANTS
 // ----------------------------------------------------------------------------------
 
 const COLLECTION_NAME = "piece_art";
+
+const DELETE_BUTTON_CLASS = "delete-button";
+
+// ----------------------------------------------------------------------------------
+// VARIABLES
+// ----------------------------------------------------------------------------------
 
 const artContainer = document.getElementById("art-container");
 
@@ -40,14 +46,41 @@ const addNewArtButton = document.getElementById("button-add-art");
 // ----------------------------------------------------------------------------------
 
 /**
+ * Cleans the input's data
+ * @author Álvaro Fernández Barrero
+ */
+function cleanFormData()
+{
+    newArtInputTitle.value = "";
+    newArtInputAuthor.value = "";
+    newArtInputImage.value = "";
+}
+
+/**
+ * Removes the paint with the given ID
+ * @param {String} id Paint's id
+ * @author Álvaro Fernández Barrero
+ */
+function removeArt(id)
+{
+    const artDiv = document.getElementById(id);
+    if (!artDiv)
+        return;
+
+    artDiv.remove();
+    deleteDoc(doc(database, COLLECTION_NAME, id));
+}
+
+/**
  * Creates all the HTML elements for the given piece of art's data
  * @param {Object} data Data for the new peice of art
  * @author Álvaro Fernández Barrero 
  */
-function createPieceOfArtHtml(data)
+function createPieceOfArtHtml(data, id)
 {
     const pieceArt = document.createElement("div");
     pieceArt.className = "piece-art";
+    pieceArt.id = id;
 
     const image = document.createElement("img");
     image.src = data.image_url;
@@ -60,9 +93,18 @@ function createPieceOfArtHtml(data)
     author.innerHTML = data.author;
     author.className = "author-text";
 
+    const editButton = document.createElement("button")
+    editButton.innerHTML = "Edit";
+
+    const deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Delete";
+    deleteButton.className = DELETE_BUTTON_CLASS;
+
     pieceArt.appendChild(image);
     pieceArt.appendChild(title);
     pieceArt.appendChild(author);
+    pieceArt.appendChild(editButton);
+    pieceArt.appendChild(deleteButton);
 
     artContainer.appendChild(pieceArt);
 }
@@ -75,7 +117,7 @@ async function load()
     const dataFromDatabase = await getDocs(collection(database, COLLECTION_NAME));
     const receivedData = dataFromDatabase.docs;
 
-    receivedData.forEach(element => createPieceOfArtHtml(element.data()));
+    receivedData.forEach(element => createPieceOfArtHtml(element.data(), element.id));
 }
 
 /**
@@ -84,19 +126,16 @@ async function load()
  */
 async function addArt()
 {
+    cleanFormData();
+    
     let data = {
         title: newArtInputTitle.value,
         author: newArtInputAuthor.value,
         image_url: newArtInputImage.value
     };
 
-    createPieceOfArtHtml(data);
-
-    newArtInputTitle.value = "";
-    newArtInputAuthor.value = "";
-    newArtInputImage.value = "";
-
-    await addDoc(collection(database, COLLECTION_NAME), data);
+    let newDocument = await addDoc(collection(database, COLLECTION_NAME), data);
+    createPieceOfArtHtml(data, newDocument.id);
 }
 
 // ----------------------------------------------------------------------------------
@@ -104,6 +143,13 @@ async function addArt()
 // ----------------------------------------------------------------------------------
 
 addNewArtButton.addEventListener("click", addArt);
+
+artContainer.addEventListener("click", event => {
+    if (event.target.className !== DELETE_BUTTON_CLASS)
+        return;
+
+    removeArt(event.target.parentElement.id);
+});
 
 // ----------------------------------------------------------------------------------
 // SET UP
