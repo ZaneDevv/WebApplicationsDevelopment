@@ -1,0 +1,27 @@
+#art-adder {
+    margin-top: var(--margin-pixels);
+    margin-bottom: var(--margin-pixels);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#art-adder input {
+    width: 85%;
+    max-width: 300px;
+
+    margin: 5px;
+    padding: 0.3em;
+
+    border-radius: 6px;
+    border: 1px solid black;
+}
+
+#button-add-art {
+    padding: 1em;
+
+    border-radius: 10px;
+    border: 1px solid black;
+}
