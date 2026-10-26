@@ -78,9 +78,7 @@ declare(strict_types = 1);
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../autoloader.php';
 
-use Controllers\FrontController;
-
-FrontController::main();
+Controllers\FrontController::main();
 PHP
 
 # --- .htaccess en public/ con mod_rewrite ya activo (front controller) ---
