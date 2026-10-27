@@ -23,7 +23,7 @@ box.addEventListener("touchend", event => {
     box.style.backgroundColor = "red";
 });
 
-window.addEventListener("touchmove", event => {
+box.addEventListener("touchmove", event => {
     if (offset === undefined)
         return
     
