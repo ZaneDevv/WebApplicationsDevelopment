@@ -30,4 +30,24 @@ If we now run the following command we will see if the service is enabled.
 sudo systemctl is-enabled apache2
 ```
 
+![Running service](./images/running.png)
 
+Furthermore, to check the port being used by apache, we can list all ports being used by writing:
+
+```sh
+sudo netstat -tulpn
+```
+
+![Ports](./images/netstat.png)
+
+In the field *"PID/Program name"*, there is a 12089/apache2 section, which is in "LISTEN" state (meaning that is running and waiting for something to act upon). It uses TCP and the port 80.
+
+After it all, the architecture we have achieved is the following:
+
+```mermaid
+flowchart TD
+    A(Client) -->|HTTP Request thru port 80| B[Ubuntu Server]
+    B --> C[Virtual host]
+    C --> D[Page root]
+    D --> E(index.html)
+```
