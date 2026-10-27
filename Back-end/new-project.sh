@@ -20,10 +20,11 @@ fi
 mkdir -p "$RUTA/public/assets"
 mkdir -p "$RUTA/src/Controllers"
 mkdir -p "$RUTA/src/Models"
+mkdir -p "$RUTA/src/Lib"
 mkdir -p "$RUTA/tests"
 mkdir -p "$RUTA/config"
 mkdir -p "$RUTA/Views/error"
-mkdir -p "$RUTA/Views/Layout"
+mkdir -p "$RUTA/Views/LayoutModels,Controllers,"
 
 # --- config.php --
 cat > "$RUTA/config/config.php" << 'PHP'
@@ -80,6 +81,69 @@ require_once __DIR__ . '/../autoloader.php';
 
 Controllers\FrontController::main();
 PHP
+
+# --- Pages.php ---
+cat > "$RUTA/src/Lib/Pages.php" <<'PAGES'
+<?php
+
+declare(strict_types = 1);
+
+namespace Lib;
+
+// ----------------------------------------------------------
+// CLASSES
+// ----------------------------------------------------------
+
+class Pages
+{
+    // ----------------------------------------------------------
+    // CONSTANTS
+    // ----------------------------------------------------------
+
+    private const string VIEWS_DIR = __DIR__ . '../../../Views/';
+
+    // ----------------------------------------------------------
+    // METHODS
+    // ----------------------------------------------------------
+
+    /**
+     * Renders the header on screen
+     * @author Álvaro Fernández Barrero
+     */
+    public function renderHeader()
+    {
+        require self::VIEWS_DIR . 'Layout/header.php';
+    }
+
+    /**
+     * Renders the footer on screen
+     * @author Álvaro Fernández Barrero
+     */
+    public function renderFooter()
+    {
+        require self::VIEWS_DIR . 'Layout/footer.php';
+    }
+    
+    /**
+     * Renders the page with the given page content
+     *
+     * @param string $pageName Page content's name
+     * @param ?array $params Parameters for the rendering
+     * 
+     * @author Álvaro Fernández Barrero
+     */
+    public function render(string $pageName, ?array $params = null) : void
+    {
+        if ($params !== null)
+        {
+            foreach ($params as $name => $value)
+                $$name = $value;
+        }
+
+        require self::VIEWS_DIR . $pageName . '.php';
+    }
+}
+PAGES
 
 # --- .htaccess en public/ con mod_rewrite ya activo (front controller) ---
 cat > "$RUTA/public/.htaccess" <<'HTACCESS'
