@@ -24,7 +24,7 @@ mkdir -p "$RUTA/src/Lib"
 mkdir -p "$RUTA/tests"
 mkdir -p "$RUTA/config"
 mkdir -p "$RUTA/Views/error"
-mkdir -p "$RUTA/Views/LayoutModels,Controllers,"
+mkdir -p "$RUTA/Views/Layout"
 
 # --- config.php --
 cat > "$RUTA/config/config.php" << 'PHP'
