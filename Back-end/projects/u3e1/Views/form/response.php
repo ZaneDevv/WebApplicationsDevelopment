@@ -1,11 +1,5 @@
-<?php if (isset($username)): ?>
-    <p>Name: <?= $username ?></p>
-<?php endif; ?>
-
-<?php if (isset($lastname)): ?>
-    <p>Last name: <?= $lastname ?></p>
-<?php endif; ?>
-
-<?php if (isset($check)): ?>
-    <p>Conditions accepted: <?= $check ?></p>
+<?php if (isset($contact)): ?>
+    <p>Name: <?= $contact->name ?></p>
+    <p>Lastname: <?= $contact->lastname ?></p>
+    <p>Accepted: <?= $contact->accepted ? 'Yes' : 'No' ?></p>
 <?php endif; ?>

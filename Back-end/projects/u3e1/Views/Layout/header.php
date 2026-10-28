@@ -9,4 +9,7 @@
     </head>
 
     <body>
+        <header>
+            <h1>Log in!</h1>
+        </header>
         <main>
