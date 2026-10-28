@@ -3,7 +3,11 @@
 // ----------------------------------------------------------------------------------
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-app.js";
-import { getFirestore, collection, doc, getDocs, addDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
+import { 
+    getFirestore,
+    collection, doc,
+    getDocs, addDoc, deleteDoc, updateDoc
+} from "https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore.js";
 
 // ----------------------------------------------------------------------------------
 // SETTING UP FIREBASE
@@ -28,6 +32,11 @@ const database = getFirestore(app);
 const COLLECTION_NAME = "piece_art";
 
 const DELETE_BUTTON_CLASS = "delete-button";
+const UPDATE_BUTTON_CLASS = "update-button";
+
+const IMAGE_CLASS = "art-image";
+const TITLE_CLASS = "art-title";
+const AUTHOR_CLASS = "author-text";
 
 // ----------------------------------------------------------------------------------
 // VARIABLES
@@ -44,6 +53,20 @@ const addNewArtButton = document.getElementById("button-add-art");
 // ----------------------------------------------------------------------------------
 // METHODS
 // ----------------------------------------------------------------------------------
+
+/**
+ * Gets a valid object for firbase with the input fields's data
+ * @returns An object to properly assign to firestore with the input fields
+ * @author Álvaro Fernández Barrero
+ */
+function obtainDataFromInputFields()
+{
+    return {
+        title: newArtInputTitle.value,
+        author: newArtInputAuthor.value,
+        image_url: newArtInputImage.value
+    };
+}
 
 /**
  * Cleans the input's data
@@ -72,6 +95,39 @@ function removeArt(id)
 }
 
 /**
+ * Updates an art's data
+ * @param {String} id Paint's id
+ * @author Álvaro Fernández Barrero 
+ */
+async function updateArt(id)
+{
+    let data = obtainDataFromInputFields();
+    cleanFormData();
+
+    await updateDoc(doc(database, COLLECTION_NAME, id), data);
+
+    const elementToUpdate = document.getElementById(id);
+
+    for (let child of elementToUpdate.children)
+    {
+        switch (child.className)
+        {
+        case IMAGE_CLASS:
+            child.src = data.image_url;
+            break;
+
+        case TITLE_CLASS:
+            child.innerHTML = data.title;
+            break;
+        
+        case AUTHOR_CLASS:
+            child.innerHTML = data.author;
+            break;
+        }
+    };
+}
+
+/**
  * Creates all the HTML elements for the given piece of art's data
  * @param {Object} data Data for the new peice of art
  * @author Álvaro Fernández Barrero 
@@ -84,17 +140,19 @@ function createPieceOfArtHtml(data, id)
 
     const image = document.createElement("img");
     image.src = data.image_url;
+    image.className = IMAGE_CLASS;
 
     const title = document.createElement("h3");
     title.innerHTML = data.title;
-    title.className = "art-title";
+    title.className = TITLE_CLASS;
 
     const author = document.createElement("p");
     author.innerHTML = data.author;
-    author.className = "author-text";
+    author.className = AUTHOR_CLASS;
 
     const editButton = document.createElement("button")
     editButton.innerHTML = "Edit";
+    editButton.className = UPDATE_BUTTON_CLASS;
 
     const deleteButton = document.createElement("button");
     deleteButton.innerHTML = "Delete";
@@ -111,6 +169,7 @@ function createPieceOfArtHtml(data, id)
 
 /**
  * Loads all the saved pieces of art on screen
+ * @author Álvaro Fernández Barrero
  */
 async function load()
 {
@@ -126,13 +185,8 @@ async function load()
  */
 async function addArt()
 {
+    let data = obtainDataFromInputFields();
     cleanFormData();
-    
-    let data = {
-        title: newArtInputTitle.value,
-        author: newArtInputAuthor.value,
-        image_url: newArtInputImage.value
-    };
 
     let newDocument = await addDoc(collection(database, COLLECTION_NAME), data);
     createPieceOfArtHtml(data, newDocument.id);
@@ -145,10 +199,19 @@ async function addArt()
 addNewArtButton.addEventListener("click", addArt);
 
 artContainer.addEventListener("click", event => {
-    if (event.target.className !== DELETE_BUTTON_CLASS)
+    if (!event.target.parentElement)
         return;
 
-    removeArt(event.target.parentElement.id);
+    let id = event.target.parentElement.id;
+
+    if (event.target.className === DELETE_BUTTON_CLASS)
+    {
+        removeArt(id);
+        return;
+    }
+        
+    if (event.target.className === UPDATE_BUTTON_CLASS)
+        updateArt(id);
 });
 
 // ----------------------------------------------------------------------------------
