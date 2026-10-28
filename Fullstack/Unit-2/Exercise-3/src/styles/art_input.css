@@ -1,7 +1,28 @@
+#modify-art {
+    display: none;
+    position: absolute;
+
+    width: 50%;
+
+    background-color: white;
+
+    padding: 1em;
+
+    border: 1px solid black;
+    border-radius: 16px;
+
+    box-shadow: 1px 1px 2px 1px black;
+}
+
+#modify-art button {
+    width: 60%;
+    margin: 5px
+}
+
 #art-adder {
     margin-top: var(--margin-pixels);
     margin-bottom: var(--margin-pixels);
-
+    
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,9 +30,12 @@
 }
 
 #art-adder input {
-    width: 85%;
     max-width: 300px;
+}
 
+#art-adder input,
+#modify-art input {
+    width: 85%;
     margin: 5px;
     padding: 0.3em;
 

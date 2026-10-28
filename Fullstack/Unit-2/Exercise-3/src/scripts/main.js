@@ -47,8 +47,14 @@ const artContainer = document.getElementById("art-container");
 const newArtInputTitle = document.getElementById("new-piece-art-title");
 const newArtInputAuthor = document.getElementById("new-piece-art-author");
 const newArtInputImage = document.getElementById("new-piece-art-image");
-
 const addNewArtButton = document.getElementById("button-add-art");
+
+const artModifyContainer = document.getElementById("modify-art");
+const artModifyInputTitle = document.getElementById("piece-art-title");
+const artModifyInputAuthor = document.getElementById("piece-art-author");
+const artModifyInputImage = document.getElementById("piece-art-image");
+
+let modifyingId = undefined;
 
 // ----------------------------------------------------------------------------------
 // METHODS
@@ -72,7 +78,18 @@ function obtainDataFromInputFields()
  * Cleans the input's data
  * @author Álvaro Fernández Barrero
  */
-function cleanFormData()
+function cleanNewArtFormData()
+{
+    newArtInputTitle.value = "";
+    newArtInputAuthor.value = "";
+    newArtInputImage.value = "";
+}
+
+/**
+ * Cleans the input's data
+ * @author Álvaro Fernández Barrero
+ */
+function cleanModifyArtFormData()
 {
     newArtInputTitle.value = "";
     newArtInputAuthor.value = "";
@@ -99,14 +116,21 @@ function removeArt(id)
  * @param {String} id Paint's id
  * @author Álvaro Fernández Barrero 
  */
-async function updateArt(id)
+async function updateArt()
 {
-    let data = obtainDataFromInputFields();
-    cleanFormData();
+    if (modifyingId === undefined)
+        return;
 
-    await updateDoc(doc(database, COLLECTION_NAME, id), data);
+    let data = {
+        title: artModifyInputTitle.value,
+        author: artModifyInputAuthor.value,
+        image_url: artModifyInputImage.value
+    };
+    cleanModifyArtFormData();
 
-    const elementToUpdate = document.getElementById(id);
+    await updateDoc(doc(database, COLLECTION_NAME, modifyingId), data);
+
+    const elementToUpdate = document.getElementById(modifyingId);
 
     for (let child of elementToUpdate.children)
     {
@@ -125,6 +149,8 @@ async function updateArt(id)
             break;
         }
     };
+
+    closeUpdateMenu();
 }
 
 /**
@@ -185,11 +211,36 @@ async function load()
  */
 async function addArt()
 {
-    let data = obtainDataFromInputFields();
-    cleanFormData();
+    let data = {
+        title: newArtInputTitle.value,
+        author: newArtInputAuthor.value,
+        image_url: newArtInputImage.value
+    };
+    cleanNewArtFormData();
 
     let newDocument = await addDoc(collection(database, COLLECTION_NAME), data);
     createPieceOfArtHtml(data, newDocument.id);
+}
+
+/**
+ * Opens the menu to modify an art's data
+ * @param {String} id Art to modify's id
+ * @author Álvaro Fernández Barrero
+ */
+function openUpdateMenu(id)
+{
+    modifyingId = id;
+    artModifyContainer.style.display = "block";
+}
+
+/**
+ * Closes the menu to stop modifying an art's data
+ * @author Álvaro Fernández Barrero
+ */
+function closeUpdateMenu()
+{
+    modifyingId = undefined;
+    artModifyContainer.style.display = "none";
 }
 
 // ----------------------------------------------------------------------------------
@@ -211,7 +262,20 @@ artContainer.addEventListener("click", event => {
     }
         
     if (event.target.className === UPDATE_BUTTON_CLASS)
-        updateArt(id);
+        openUpdateMenu(id);
+});
+
+artModifyContainer.addEventListener("click", event => {
+    switch (event.target.id)
+    {
+    case "button-modify-art":
+        updateArt();
+        break;
+    
+    case "button-cancel-art-modification":
+        closeUpdateMenu();
+        break;
+    }
 });
 
 // ----------------------------------------------------------------------------------
