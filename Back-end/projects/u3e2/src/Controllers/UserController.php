@@ -42,6 +42,6 @@ class UserController
 
     public function is_correct_password(string $password) : bool
     {
-        return self::encrypt($password) === $this->password;
+        return password_verify($password, $this->password);
     }
 }
