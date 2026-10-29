@@ -14,5 +14,10 @@
         <input required type="checkbox" name="data[check]" id="check" />
     </p>
 
+    <p>
+        <label for="email">Email:</label>
+        <input required type="email" name="data[email]" id="email" />
+    </p>
+
     <input type="submit" />
 </form>
