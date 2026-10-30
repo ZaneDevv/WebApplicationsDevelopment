@@ -4,6 +4,8 @@ declare(strict_types = 1);
 
 namespace Requests;
 
+use Models\User;
+
 // ----------------------------------------------------------
 // CLASSES
 // ----------------------------------------------------------
@@ -27,8 +29,12 @@ class UserRequest
     // CONSTRUCTORS
     // ----------------------------------------------------------
 
-    public function __construct()
+    public function __construct(
+        private User &$user
+    )
     {
+        $this->cleanUp();
+        $this->validate();
     }
 
     // ----------------------------------------------------------
@@ -48,34 +54,32 @@ class UserRequest
     /**
      * cleanUpUsername
      *
-     * @param string $username
      * @return void
      */
-    private function cleanUpUsername(string &$username) : void
+    private function cleanUpUsername() : void
     {
-        $username = strip_tags($username);
-        $username = trim($username);
+        $this->user->username = trim(strip_tags($this->user->username));
     }
 
     /**
      * cleanUpPassword
      *
-     * @param string $password
      * @return void
      */
-    private function cleanUpPassword(string &$password) : void
+    private function cleanUpPassword() : void
     {
-        $password = strip_tags($password);
+        $this->user->password = strip_tags($this->user->password);
     }
 
     /**
-     * isValidUsername
+     * validateUsername
      *
-     * @param string $username
      * @return bool
      */
-    private function isValidUsername(string $username) : bool
+    private function validateUsername() : bool
     {
+        $username = $this->user->username;
+
         if (mb_strlen($username) < self::$MINIMUM_USERNAME_CHARCTERS)
         {
             $this->errors['username'] = 'The username must be at least ' . self::$MINIMUM_USERNAME_CHARCTERS . '-character long';
@@ -92,13 +96,14 @@ class UserRequest
     }
 
     /**
-     * isValidPassword
+     * validatePassword
      *
-     * @param string $password
      * @return bool
      */
-    private function isValidPassword(string $password) : bool
+    private function validatePassword() : bool
     {
+        $password = $this->user->password;
+
         if (mb_strlen($password) < self::$MINIMUM_PASSWORD_CHARACTERS)
         {
             $this->errors['password'] = 'The password must be at least ' . self::$MINIMUM_PASSWORD_CHARACTERS . '-character long';
@@ -130,5 +135,27 @@ class UserRequest
         }
 
         return false;
+    }
+
+    /**
+     * cleanUp
+     *
+     * @return void
+     */
+    private function cleanUp()
+    {
+        $this->cleanUpUsername();
+        $this->cleanUpPassword();
+    }
+
+    /**
+     * validate
+     *
+     * @return void
+     */
+    private function validate()
+    {
+        $this->validateUsername();
+        $this->validatePassword();
     }
 }

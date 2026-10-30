@@ -6,6 +6,7 @@ namespace Controllers;
 
 use Lib\Pages;
 use Models\User;
+use Requests\UserRequest;
 
 // ----------------------------------------------------------
 // CLASSES
@@ -69,6 +70,19 @@ class LoggerController
         }
 
         $user = User::fromArray($_POST['data'] ?? []);
+        $user_request = new UserRequest($user);
+
+        if (!$user_request->isValid())
+        {
+            $username_error_message = $user_request->errors['username'] ?? null;
+            $password_error_message = $user_request->errors['password'] ?? null;
+
+            $this->show_form([
+                'username_error_message' => isset($username_error_message) ? $username_error_message : null,
+                'password_error_message' => isset($password_error_message) ? $password_error_message : null,
+                'username' => $user->username
+            ]);
+        }
 
         $is_correct_name = $this->user_controller->is_correct_username($user->username);
         $is_correct_password = $this->user_controller->is_correct_password($user->password);
