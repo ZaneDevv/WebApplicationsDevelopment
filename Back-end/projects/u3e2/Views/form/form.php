@@ -1,3 +1,4 @@
+<h2>Log in</h2>
 <form method='POST' action='index.php'>
     <p>
         <?php if (isset($username_error_message)): ?>
