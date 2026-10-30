@@ -15,8 +15,8 @@ class User
     // ----------------------------------------------------------
 
     public function __construct(
-        public private(set) string $username,
-        public private(set) string $password
+        public string $username,
+        public string $password
     )
     {}
 
