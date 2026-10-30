@@ -1,7 +1,7 @@
 window.onload = () => {
     const button = document.getElementById("button");
     
-    const CLICK_MESSAGE = "Heyy!! Don't click me... I actually liked it...";
+    const CLICK_MESSAGE = "Heyy!! Don't click me...";
     const NORMAL_MESSAGE = button.innerHTML;
     const CLICK_MESSAGE_DURATION = 2e+3;
 
