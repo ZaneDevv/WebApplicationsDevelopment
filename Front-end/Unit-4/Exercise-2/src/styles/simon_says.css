@@ -1,13 +1,14 @@
 #color-buttons-container {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
 
     border-radius: 15px;
     border: 1px solid black;
 
-    width: 150px;
+    width: 350px;
 
     margin-left: auto;
     margin-right: auto;
