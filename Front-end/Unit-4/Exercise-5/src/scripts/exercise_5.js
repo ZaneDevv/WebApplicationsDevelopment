@@ -1,7 +1,7 @@
-let startingTouch = -1;
-let lastClick = -1;
+let startingTouch = 0;
+let lastClick = 0;
 
-let fastClicks = 0;
+let fastClicks = 1;
 let hasMoved = false;
 
 box.addEventListener("touchstart", _ => {
@@ -15,22 +15,18 @@ box.addEventListener("touchmove", _ => {
 
 box.addEventListener("touchend", _ => {
     const now = Date.now();
-    const timeSinceLastClick = now - lastClick;
-    const timeSinceLastPress = now - startingTouch;
 
-    if (timeSinceLastClick < 300 || lastClick < 0 || fastClicks <= 0)
+    if (now - startingTouch >= 500 && !hasMoved)
+        hidden.style.display = "block";
+
+    if (now - lastClick <= 300)
     {
-        fastClicks++;
-
-        if (fastClicks >= 2)
+        if (++fastClicks === 2)
             box.style.borderRadius = "50%";
     }
     else
     {
-        fastClicks = 0;
-
-        if (!hasMoved && lastClick > 0 && timeSinceLastPress > 1e+3)
-            hidden.style.display = "block";
+        fastClicks = 1;
     }
 
     lastClick = now;
