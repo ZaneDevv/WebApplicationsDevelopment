@@ -12,7 +12,7 @@ use Requests\UserRequest;
 // CLASSES
 // ----------------------------------------------------------
 
-class LoggerController
+class AuthController
 {
     // ----------------------------------------------------------
     // ATTRIBUTES
