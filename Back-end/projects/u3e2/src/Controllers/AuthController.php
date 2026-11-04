@@ -78,10 +78,12 @@ class AuthController
             $password_error_message = $user_request->errors['password'] ?? null;
 
             $this->show_form([
-                'username_error_message' => isset($username_error_message) ? $username_error_message : null,
-                'password_error_message' => isset($password_error_message) ? $password_error_message : null,
+                'username_error_message' => $username_error_message,
+                'password_error_message' => $password_error_message,
                 'username' => $user->username
             ]);
+
+            return;
         }
 
         $is_correct_name = $this->user_controller->is_correct_username($user->username);
