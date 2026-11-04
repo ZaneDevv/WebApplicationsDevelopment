@@ -113,5 +113,6 @@ class AuthController
     private function goToAction(string $action) : void
     {
         header("Location: index.php?action=$action");
+        exit;
     }
 }
