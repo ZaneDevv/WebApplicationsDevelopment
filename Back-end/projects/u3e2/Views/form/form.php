@@ -1,25 +1,22 @@
 <h2>Log in</h2>
 
-<form method='POST' action='index.php' enctype="multipart/form-data">
+<form method='POST' action='index.php'>
     <p>
-        <?php if (isset($username_error_message)): ?>
-            <p><?= $username_error_message ?? '' ?></p>
+        <?php if (isset($errors)): ?>
+            <p><?= $errors['username'] ?? '' ?></p>
         <?php endif; ?>
+
         <label for='username'>Username:</label>
-        <input required id='username' name='data[username]' type='text' value=<?= $username ?? '' ?> />
+        <input required id='username' name='data[username]' type='text' value=<?= isset($user) ? $user->username : '' ?> />
     </p>
 
     <p>
-        <?php if (isset($password_error_message)): ?>
-            <p><?= $password_error_message ?? '' ?></p>
+        <?php if (isset($errors)): ?>
+            <p><?= $errors['password'] ?? '' ?></p>
         <?php endif; ?>
+
         <label for='password'>Password:</label>
         <input required id='password' name='data[password]' type='password' />
-    </p>
-
-    <p>
-        <label for="photo">Face:</label>
-        <input required id="photo" name="photo" accept="image/*" type="file" />
     </p>
 
     <input type='submit' />

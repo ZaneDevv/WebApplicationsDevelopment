@@ -23,17 +23,16 @@ class UserRequest
     // ATTRIBUTES
     // ----------------------------------------------------------
 
+    public private(set) array $data = [];
     public private(set) array $errors = [];
 
     // ----------------------------------------------------------
     // CONSTRUCTORS
     // ----------------------------------------------------------
 
-    public function __construct(
-        private User &$user
-    )
+    public function __construct(array $input)
     {
-        $this->cleanUp();
+        $this->clean_up($input);
         $this->validate();
     }
 
@@ -42,110 +41,36 @@ class UserRequest
     // ----------------------------------------------------------
 
     /**
-     * isValid
+     * is_valid
      *
      * @return bool
      */
-    public function isValid() : bool
+    public function is_valid() : bool
     {
         return count($this->errors) === 0;
     }
 
     /**
-     * cleanUpUsername
+     * clean_string
+     *
+     * @return string
+     */
+    private static function clean_string(string $string) : string
+    {
+        return is_string($string) ? htmlspecialchars(strip_tags(trim($string)), ENT_QUOTES, 'UTF-8') : '';
+    }
+
+    /**
+     * clean_up
      *
      * @return void
      */
-    private function cleanUpUsername() : void
+    private function clean_up(array $input) : void
     {
-        $this->user->username = trim(strip_tags($this->user->username));
-    }
-
-    /**
-     * cleanUpPassword
-     *
-     * @return void
-     */
-    private function cleanUpPassword() : void
-    {
-        $this->user->password = strip_tags($this->user->password);
-    }
-
-    /**
-     * validateUsername
-     *
-     * @return bool
-     */
-    private function validateUsername() : bool
-    {
-        $username = $this->user->username;
-
-        if (strlen($username) < self::$MINIMUM_USERNAME_CHARCTERS)
-        {
-            $this->errors['username'] = 'The username must be at least ' . self::$MINIMUM_USERNAME_CHARCTERS . '-character long';
-            return false;   
-        }
-
-        if (preg_match('/\W/', $username))
-        {
-            $this->errors['username'] = 'The username must only contain characters';
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * validatePassword
-     *
-     * @return bool
-     */
-    private function validatePassword() : bool
-    {
-        $password = $this->user->password;
-
-        if (strlen($password) < self::$MINIMUM_PASSWORD_CHARACTERS)
-        {
-            $this->errors['password'] = 'The password must be at least ' . self::$MINIMUM_PASSWORD_CHARACTERS . '-character long';
-            return false;
-        }
-
-        if (!preg_match('/[A-Z]/', $password))
-        {
-            $this->errors['password'] = 'The password must contain at least a capital-case character';
-            return false;
-        }
-
-        if (!preg_match('/[a-z]/', $password))
-        {
-            $this->errors['password'] = 'The password must contain at least a camel-case character';
-            return false;
-        }
-
-        if (!preg_match('/\d/', $password))
-        {
-            $this->errors['password'] = 'The password must contain at least a digit';
-            return false;
-        }
-
-        if (!preg_match('/[\.#$-_]/', $password))
-        {
-            $this->errors['password'] = 'The password must contain at least one of the following symbols: . # $ - _';
-            return false;
-        }
-
-        return true;
-    }
-
-    /**
-     * cleanUp
-     *
-     * @return void
-     */
-    private function cleanUp()
-    {
-        $this->cleanUpUsername();
-        $this->cleanUpPassword();
+        $this->data = [
+            'username' => self::clean_string($input['username'] ?? ''),
+            'password' => self::clean_string($input['password'] ?? '')
+        ];
     }
 
     /**
@@ -155,7 +80,45 @@ class UserRequest
      */
     private function validate()
     {
-        $this->validateUsername();
-        $this->validatePassword();
+        $this->validate_username();
+        $this->validate_password();
+    }
+    
+    /**
+     * validate_username
+     *
+     * @return void
+     */
+    private function validate_username() : void
+    {
+        if (strlen($this->data['username']) < self::$MINIMUM_USERNAME_CHARCTERS)
+            $this->errors['username'] = 'The username must be at least ' . self::$MINIMUM_USERNAME_CHARCTERS . '-character long';
+        
+
+        if (preg_match('/\W/', $this->data['username']))
+            $this->errors['username'] = 'The username must only contain characters';
+    }
+
+    /**
+     * validate_password
+     *
+     * @return void
+     */
+    private function validate_password() : void
+    {
+        if (strlen($this->data['password']) < self::$MINIMUM_PASSWORD_CHARACTERS)
+            $this->errors['password'] = 'The password must be at least ' . self::$MINIMUM_PASSWORD_CHARACTERS . '-character long';
+
+        if (!preg_match('/[A-Z]/', $this->data['password']))
+            $this->errors['password'] = 'The password must contain at least a capital-case character';
+
+        if (!preg_match('/[a-z]/', $this->data['password']))
+            $this->errors['password'] = 'The password must contain at least a camel-case character';
+
+        if (!preg_match('/\d/', $this->data['password']))
+            $this->errors['password'] = 'The password must contain at least a digit';
+
+        if (!preg_match('/[\.#$-_]/', $this->data['password']))
+            $this->errors['password'] = 'The password must contain at least one of the following symbols: . # $ - _';
     }
 }

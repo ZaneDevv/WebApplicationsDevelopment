@@ -69,20 +69,15 @@ class AuthController
             return;
         }
 
-        $user = User::fromArray($_POST['data'] ?? [], $_FILES['photo'] ?? []);
-        $user_request = new UserRequest($user);
+        $user_request = new UserRequest($_POST['data'] ?? []);
+        $user = User::fromArray($user_request->data);
 
-        if (!$user_request->isValid())
+        if (!$user_request->is_valid())
         {
-            $username_error_message = $user_request->errors['username'] ?? null;
-            $password_error_message = $user_request->errors['password'] ?? null;
-
             $this->show_form([
-                'username_error_message' => $username_error_message,
-                'password_error_message' => $password_error_message,
-                'username' => $user->username
+                'errors' => $user_request->errors,
+                'user' => $user
             ]);
-
             return;
         }
 
@@ -90,20 +85,16 @@ class AuthController
         $is_correct_password = $this->user_controller->is_correct_password($user->password);
 
         if ($is_correct_name && $is_correct_password)
-        {
             $this->go_to_action('show_welcome_page');
-        }
-        else
-        {
-            $username_error_message = !$is_correct_name ? 'The username is incorrect' : null;
-            $password_error_message = !$is_correct_password ? 'The password is incorrect' : null;
 
+        else
             $this->show_form([
-                'username_error_message' => $username_error_message,
-                'password_error_message' => $password_error_message,
-                'username' => $user->username
+                'errors' => [
+                    'username' => !$is_correct_name ? 'The username is incorrect' : null,
+                    'password' => !$is_correct_password ? 'The password is incorrect' : null
+                ],
+                'user' => $user
             ]);
-        }
     }
 
     /**
