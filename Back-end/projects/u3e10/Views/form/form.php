@@ -32,9 +32,9 @@
     <p>
         <label for="job_status">Estado laboral</label>
         <select required id="job_status" name="employee[job_status]">
-            <option value="unemployee">Sin empleo</option>
-            <option value="part_time">Media jornada</option>
-            <option value="full_time">Tiempo completo</option>
+            <option value="unemployee" <?php if (isset($employee) && $employee->job_status === 'unemployee'): ?> selected <?php endif; ?>>Sin empleo</option>
+            <option value="part_time" <?php if (isset($employee) && $employee->job_status === 'part_time'): ?> selected <?php endif; ?>>Media jornada</option>
+            <option value="full_time" <?php if (isset($employee) && $employee->job_status === 'full_time'): ?> selected <?php endif; ?>>Tiempo completo</option>
         </select>
 
         <?php if (isset($errors)): ?>
@@ -46,19 +46,19 @@
         <label for="languages">Lenguajes de programaci&oacute;n que dominas:</label>
         
         <label for="knows-python">Python</label>
-        <input type="checkbox" id="knows-python" name="languages[python]">
+        <input type="checkbox" id="knows-python" name="languages[python]" <?php if (isset($employee) && in_array('python', $employee->known_languages)): ?> checked <?php endif; ?>>
 
         <label for="knows-javascript">JavaScript</label>
-        <input type="checkbox" id="knows-javascript" name="languages[javascript]">
+        <input type="checkbox" id="knows-javascript" name="languages[javascript]" <?php if (isset($employee) && in_array('javascript', $employee->known_languages)): ?> checked <?php endif; ?>>
 
         <label for="knows-java">Java</label>
-        <input type="checkbox" id="knows-java" name="languages[java]">
+        <input type="checkbox" id="knows-java" name="languages[java]" <?php if (isset($employee) && in_array('java', $employee->known_languages)): ?> checked <?php endif; ?>>
 
         <label for="knows-php">Php</label>
-        <input type="checkbox" id="knows-php" name="languages[php]">
+        <input type="checkbox" id="knows-php" name="languages[php]" <?php if (isset($employee) && in_array('php', $employee->known_languages)): ?> checked <?php endif; ?>>
 
         <label for="knows-cpp">C++</label>
-        <input type="checkbox" id="knows-cpp" name="languages[cpp]">
+        <input type="checkbox" id="knows-cpp" name="languages[cpp]" <?php if (isset($employee) && in_array('cpp', $employee->known_languages)): ?> checked <?php endif; ?>>
 
         <?php if (isset($errors)): ?>
             <?= $errors['known_languages'] ?? '' ?>
