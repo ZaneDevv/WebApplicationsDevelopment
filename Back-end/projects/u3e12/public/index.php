@@ -7,7 +7,7 @@ declare(strict_types = 1);
 // ----------------------------------------------------------------
 
 /**
- * abrirFicheroSiLegible
+ * In case the file is readable, just opens it
  *
  * @param string $file
  * @return array
@@ -35,6 +35,12 @@ function open_file_if_it_is_readable(string $file) : array
     ];
 }
 
+/**
+ * Shows the given and opened file's data
+ *
+ * @param array $data_found
+ * @return void
+ */
 function show_file_data(array $data_found) : void
 {
     if (!$data_found['status'])
