@@ -54,6 +54,10 @@ class AuthController
                 'user' => $user_request->data,
                 'errors' => $user_request->errors
             ]);
+
+            return;
         }
+
+
     }
 }

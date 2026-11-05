@@ -47,7 +47,10 @@ class UserRequest
 
     private function validate()
     {
-        if (!preg_match('/^$/', $this->data['phone_number']))
+        if (!preg_match('/^\w+$/', $this->data['name']))
+            $this->errors['name'] = 'El nombre solo debe tener letras';
+
+        if (!preg_match('/^\d{9}$/', $this->data['phone_number']))
             $this->errors['phone_number'] = 'El tel&eacute;fono no es correcto';
         
         if (!filter_var($this->data['email'], FILTER_VALIDATE_EMAIL))

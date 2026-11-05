@@ -6,6 +6,10 @@
     <p>
         <label for="name">Nombre:</label>
         <input required type="text" id="name" name="user[name]" value="<?= isset($user) ? $user->name : '' ?>">
+
+        <?php if (isset($errors) && isset($errors['name'])): ?>
+            <?= $errors['name'] ?>
+        <?php endif; ?>
     </p>
 
     <p>
