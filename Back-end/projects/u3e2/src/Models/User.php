@@ -15,8 +15,9 @@ class User
     // ----------------------------------------------------------
 
     public function __construct(
-        public string $username,
-        public string $password
+        public private(set) string $username,
+        public private(set) string $password,
+        public private(set) string $image
     )
     {}
 
@@ -24,7 +25,7 @@ class User
     // METHODS
     // ----------------------------------------------------------
 
-    public static function fromArray(array $data) : self
+    public static function fromArray(array $data, array $image) : self
     {
         return new self(
             username: htmlspecialchars(trim($data['username'] ?? ''), ENT_QUOTES, 'UTF-8'),
