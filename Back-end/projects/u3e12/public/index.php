@@ -26,12 +26,9 @@ function open_file_if_it_is_readable(string $file) : array
             'data' => 'Cannot read this file'
         ];
 
-
-    fopen($file, 'r');
-
     return [
         'status' => true,
-        'data' => $file
+        'data' => fopen($file, 'r')
     ];
 }
 
@@ -50,7 +47,11 @@ function show_file_data(array $data_found) : void
     }
     
     $opened_file = $data_found['data'];
-    echo '<p>Opened file: ' . htmlspecialchars(file_get_contents($opened_file)) . '</p>';
+    
+    echo '<p>Opened file: ';
+    while (($buffer = fgetc($opened_file)))
+        echo $buffer;
+    echo '</p>';
 }
 
 // ----------------------------------------------------------------
