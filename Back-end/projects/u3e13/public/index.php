@@ -7,7 +7,7 @@
 function read_directory(string $directory) : void
 {
     $iterator = new DirectoryIterator($directory);
-    
+
     foreach ($iterator as $file_data)
     {
         if ($file_data->isDot())

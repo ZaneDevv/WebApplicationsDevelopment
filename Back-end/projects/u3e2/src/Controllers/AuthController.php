@@ -65,11 +65,11 @@ class AuthController
     {
         if ($_SERVER['REQUEST_METHOD'] !== 'POST')
         {
-            $this->goToAction('show_form');
+            $this->go_to_action('show_form');
             return;
         }
 
-        $user = User::fromArray($_POST['data'] ?? []);
+        $user = User::fromArray($_POST['data'] ?? [], $_FILES['photo'] ?? []);
         $user_request = new UserRequest($user);
 
         if (!$user_request->isValid())
@@ -91,7 +91,7 @@ class AuthController
 
         if ($is_correct_name && $is_correct_password)
         {
-            $this->goToAction('show_welcome_page');
+            $this->go_to_action('show_welcome_page');
         }
         else
         {
@@ -112,7 +112,7 @@ class AuthController
      * @param string $action
      * @return void
      */
-    private function goToAction(string $action) : void
+    private function go_to_action(string $action) : void
     {
         header("Location: index.php?action=$action");
         exit;
