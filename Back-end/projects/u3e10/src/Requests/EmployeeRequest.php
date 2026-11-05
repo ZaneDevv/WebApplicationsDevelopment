@@ -64,14 +64,14 @@ class EmployeeRequest
 
     private function validate() : void
     {
-        if (!in_array($this->data['job_status'], self::$possible_job_status))
-            $this->errors['job_status'] = 'El estado de trabajo dado no es v&aacute;lido';
-
         foreach ($this->data['known_languages'] as $language)
         {
             if (!in_array($language, self::$approved_languages))
                 $this->errors['known_languages'] = 'Los lenguajes dados no son requeridos';
         }
+
+        if (!in_array($this->data['job_status'], self::$possible_job_status))
+            $this->errors['job_status'] = 'El estado de trabajo dado no es v&aacute;lido';
 
         if (!filter_var($this->data['previous_job'], FILTER_VALIDATE_URL))
             $this->errors['previous_job'] = 'El link a los trabajos anteriores no es v&aacute;lido';
