@@ -13,16 +13,14 @@ class FrontController
     public static function main() : void
     {
         $article_controller = new ArticleController();
-        $article_id = $_GET['article-identifier'] ?? null;
+        $action = $_GET['action'] ?? DEFAULT_ACTION;
 
-        if (!is_null($article_id))
+        if (!is_callable([$article_controller, $action]))
         {
-            settype($article_id, 'int');
-            $article_controller->find_product($article_id);
-            
+            ErrorController::show_error_404();
             return;
         }
 
-        $article_controller->show_form();
+        $article_controller->$action();
     } 
 }
