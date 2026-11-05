@@ -50,7 +50,7 @@ function show_file_data(array $data_found) : void
     }
     
     $opened_file = $data_found['data'];
-    echo '<p>Opened file: ' . htmlspecialchars(basename($opened_file)) . '</p>';
+    echo '<p>Opened file: ' . htmlspecialchars(file_get_contents($opened_file)) . '</p>';
 }
 
 // ----------------------------------------------------------------
