@@ -69,7 +69,7 @@ class AuthController
             return;
         }
 
-        $user_request = new UserRequest($_POST['data'] ?? []);
+        $user_request = new UserRequest($_POST['data'] ?? [], $_FILES ?? []);
         $user = User::fromArray($user_request->data);
 
         if (!$user_request->is_valid())
