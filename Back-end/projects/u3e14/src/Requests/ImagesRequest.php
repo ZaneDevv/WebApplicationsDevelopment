@@ -62,7 +62,9 @@ class ImagesRequest
      */
     public function clean_up(array $data) : void
     {
-        $this->data['pictures'][] = $data;
+        $this->data = [
+            'pictures' => $data
+        ];
     }
 
     /**
@@ -72,32 +74,34 @@ class ImagesRequest
      */
     public function validate() : void
     {
-        foreach ($this->data['pictures'] as $picture_key => $picture)
+        $pictures = $this->data['pictures'];
+
+        for ($i = 0; $i < count($pictures['name']); $i++)
         {
-            if ($picture['error'] !== UPLOAD_ERR_OK)
+            if ($pictures['error'][$i] !== UPLOAD_ERR_OK)
             {
-                $this->errors[$picture_key] = 'The file could not be uploaded';
+                $this->errors[$i] = 'The file could not be uploaded';
                 continue;
             }
 
-            if ($picture['size'] >= self::$MAXIMUM_BYTES_SIZE)
+            if ($pictures['size'][$i] >= self::$MAXIMUM_BYTES_SIZE)
             {
-                $this->errors[$picture_key] = 'The file is too large. Only ' . self::$MAXIMUM_BYTES_SIZE . 'B or less is allowed';
+                $this->errors[$i] = 'The file is too large. Only ' . self::$MAXIMUM_BYTES_SIZE . 'B or less is allowed';
                 continue;
             }
 
-            if (!is_uploaded_file($picture['tmp_name']))
+            if (!is_uploaded_file($pictures['tmp_name'][$i]))
             {
-                $this->errors[$picture_key] = 'Invalid request';
+                $this->errors[$i] = 'Invalid request';
                 continue;
             }
 
             $file_info = new finfo(FILEINFO_MIME_TYPE);
-            $actual_mime = $file_info->file($picture['tmp_name']);
+            $actual_mime = $file_info->file($pictures['tmp_name'][$i]);
 
             if (!array_key_exists($actual_mime, self::$ALLOWED_FILE_EXTENSIONS))
             {
-                $this->errors[$picture_key] = 'The extension is not allowed';
+                $this->errors[$i] = 'The extension is not allowed';
                 continue;
             }
 
@@ -107,8 +111,8 @@ class ImagesRequest
             if (!is_dir($directory))
                 mkdir($directory, 0755);
 
-            if (!move_uploaded_file($picture['tmp_name'], $file_name))
-                $this->errors[$picture_key] = 'Could not upload the file';
+            if (!move_uploaded_file($pictures['tmp_name'][$i], $file_name))
+                $this->errors[$i] = 'Could not upload the file';
         }
     }
 }

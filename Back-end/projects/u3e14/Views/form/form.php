@@ -3,7 +3,7 @@
 <form method="POST" action="index.php" enctype="multipart/form-data">
     <p>
         <label for="pictures">Images:</label>
-        <input type="file" id="pictures" name="pictures" multiple />
+        <input type="file" id="pictures" name="pictures[]" multiple />
     </p>
 
     <input type="submit">
