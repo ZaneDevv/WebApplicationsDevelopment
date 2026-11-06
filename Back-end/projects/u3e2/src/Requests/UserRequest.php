@@ -4,7 +4,7 @@ declare(strict_types = 1);
 
 namespace Requests;
 
-use Models\User;
+use finfo;
 
 // ----------------------------------------------------------
 // CLASSES
@@ -18,21 +18,29 @@ class UserRequest
 
     private static int $MINIMUM_USERNAME_CHARCTERS = 3;
     private static int $MINIMUM_PASSWORD_CHARACTERS = 12;
+    private static int $MAX_SIZE_BYTES = 5 * 1024 * 1024;
+
+    public private(set) static array $ALLOWED_FILE_EXTENSIONS = [
+        'image/jpeg' => 'jpg',
+        'image/png' => 'png',
+        'image/gif' => 'gif'
+    ];
 
     // ----------------------------------------------------------
     // ATTRIBUTES
     // ----------------------------------------------------------
 
     public private(set) array $data = [];
+    public private(set) array $pictures = [];
     public private(set) array $errors = [];
 
     // ----------------------------------------------------------
     // CONSTRUCTORS
     // ----------------------------------------------------------
 
-    public function __construct(array $input)
+    public function __construct(array $input, array $pictures)
     {
-        $this->clean_up($input);
+        $this->clean_up($input, $pictures);
         $this->validate();
     }
 
@@ -65,12 +73,15 @@ class UserRequest
      *
      * @return void
      */
-    private function clean_up(array $input) : void
+    private function clean_up(array $input, array $pictures) : void
     {
         $this->data = [
             'username' => self::clean_string($input['username'] ?? ''),
             'password' => self::clean_string($input['password'] ?? '')
         ];
+
+        foreach ($pictures as $picture_key => $picture)
+            $this->pictures[0] = $picture;
     }
 
     /**
@@ -82,6 +93,7 @@ class UserRequest
     {
         $this->validate_username();
         $this->validate_password();
+        $this->validate_picture();
     }
     
     /**
@@ -120,5 +132,60 @@ class UserRequest
 
         if (!preg_match('/[\.#$-_]/', $this->data['password']))
             $this->errors['password'] = 'The password must contain at least one of the following symbols: . # $ - _';
+    }
+
+    /**
+     * validate_picture
+     *
+     * @return void
+     */
+    private function validate_picture() : void
+    {
+        if (!isset($this->pictures[0]))
+        {
+            $this->errors['picture'] = 'The picture was not found!';
+            return;
+        }
+
+        $picture = $this->pictures[0];
+
+        if ($picture['error'] !== UPLOAD_ERR_OK)
+        {
+            $this->errors['picture'] = 'The picture could not be sent to the server successfully';
+            return;   
+        }
+
+        if ($picture['size'] > self::$MAX_SIZE_BYTES)
+        {
+            $this->errors['picture'] = 'The picture is too large. Only ' . self::$MAX_SIZE_BYTES . 'B are allowed at most';
+            return;
+        }
+
+        if (!is_uploaded_file($picture['tmp_name']))
+        {
+            $this->errors['picture'] = 'Invalid request';
+            return;
+        }
+
+        $file_info = new finfo(FILEINFO_MIME_TYPE);
+        $actual_mime = $file_info->file($picture['tmp_name']);
+
+        $this->pictures[0]['actual_mime'] = $actual_mime;
+
+        if (!array_key_exists($actual_mime, self::$ALLOWED_FILE_EXTENSIONS))
+        {
+            $this->errors['picture'] = 'The  format is not allowed';
+            return;
+        }
+
+        $directory = __DIR__ . '/../../public/assets/uploads';
+
+        if (!is_dir($directory))
+            mkdir($directory, 0755, true);
+
+        $file_name = date('Ymd_His') . '_' . bin2hex(random_bytes(4)) . '.' . UserRequest::$ALLOWED_FILE_EXTENSIONS[$actual_mime];
+
+        if (!move_uploaded_file($picture['tmp_name'], $directory . '/' . $file_name))
+            $this->errors['picture'] = 'Internal error when uploaded the file';
     }
 }
