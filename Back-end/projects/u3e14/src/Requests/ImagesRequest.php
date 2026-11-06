@@ -76,6 +76,9 @@ class ImagesRequest
     {
         $pictures = $this->data['pictures'];
 
+        if (count($pictures) === 0)
+            return;
+        
         for ($i = 0; $i < count($pictures['name']); $i++)
         {
             if ($pictures['error'][$i] !== UPLOAD_ERR_OK)
