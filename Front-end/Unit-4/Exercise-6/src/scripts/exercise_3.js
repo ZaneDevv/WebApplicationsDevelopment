@@ -12,7 +12,6 @@ const minimumCharactersRegex = new RegExp(".{8}");
 
 function validateUsername()
 {
-    console.log("A");
     lowercase.style.textDecoration = lowerCaseRegex.test(username.value) ? "line-through" : "none";
     uppercase.style.textDecoration = upperCaseRegex.test(username.value) ? "line-through" : "none";
     minimum.style.textDecoration = minimumCharactersRegex.test(username.value) ? "line-through" : "none";
