@@ -70,6 +70,12 @@ PHP
 cat > "$RUTA/public/index.php" <<'PHP'
 <?php
 
+require_once dirname(__DIR__) . '/src/bootstrap.php';
+PHP
+
+cat > "$RUTA/src/bootstrap.php" <<'BOOTSTRAP'
+<?php
+
 declare(strict_types = 1);
 
 // ----------------------------------------------------------
@@ -80,7 +86,7 @@ require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../autoloader.php';
 
 Controllers\FrontController::main();
-PHP
+BOOTSTRAP
 
 # --- Pages.php ---
 cat > "$RUTA/src/Lib/Pages.php" <<'PAGES'
@@ -147,10 +153,25 @@ PAGES
 
 # --- .htaccess en public/ con mod_rewrite ya activo (front controller) ---
 cat > "$RUTA/public/.htaccess" <<'HTACCESS'
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.php [QSA,L]
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ index.php [QSA,L]
+</IfModule>
+HTACCESS
+
+# --- .htaccess en src/ ---
+cat > "$RUTA/src/.htaccess" <<'HTACCESS'
+Require all denied
+HTACCESS
+
+# --- .htaccess en / ---
+cat > "$RUTA/.htaccess" <<'HTACCESS'
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^(.*)$ public/$1 [L]
+</IfModule>
 HTACCESS
 
 # --- composer.json en la raíz del proyecto (ejemplo comentado) ---
