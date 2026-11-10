@@ -1,0 +1,50 @@
+:root {
+    background: rgb(150, 207, 64);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background);
+
+    font-family: sans-serif;
+    text-align: center;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#letters-container, #guesser-container {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    width: 90%;
+    max-width: 750px;
+}
+
+.letter {
+    background-color: white;
+    text-transform: capitalize;
+    color: black;
+
+    padding: 1rem;
+
+    border-radius: 10px;
+}
+
+.letter:hover {
+    cursor: pointer
+}

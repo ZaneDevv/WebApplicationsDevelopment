@@ -1,0 +1,33 @@
+:root {
+    --mostard: #ff9d1cf9;
+}
+
+body {
+    background-color: var(--mostard);
+    
+    text-align: center;
+    font-family: sans-serif;
+    color: white;
+}
+
+#div-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 15px
+}
+
+.button {
+    background-color: var(--mostard);
+
+    border-radius: 5px;
+    border: 1px solid white;
+
+    padding: 1rem;
+
+    width: 200px;
+}
+
+.button:hover {
+    cursor: pointer
+}
