@@ -3,7 +3,7 @@
 
 In order to deplpoy the given web page, the simplest first way to have it in several devices is by uploading it to GitHub.
 
-![Uploading page to git](./images/uplaod_to_git.png)
+![Uploading page to git](./images/upload_to_git.png)
 
 We would require to have indeed a repository previously created on GitHub.
 
