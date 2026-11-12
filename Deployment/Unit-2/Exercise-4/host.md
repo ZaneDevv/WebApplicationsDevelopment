@@ -11,4 +11,6 @@ As this repository contains the files the the page needs, we can clone this repo
 
 ![Cloning repository on the server](./images/clone_repository.png)
 
+Now, we need to ensure that the directory has que permissions enough for the task.
 
+![Checking permissions](./images/moderation.png)
