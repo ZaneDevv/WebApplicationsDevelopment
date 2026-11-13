@@ -1,0 +1,54 @@
+body {
+    background-color: wite;
+    font-family: sans-serif;
+}
+
+h1, h2, .button {
+    text-align: center;
+}
+
+#bud {
+    border-radius: 15px;
+    background-color: #ddd;
+
+    padding: 0.5rem;
+
+    max-width: 500px;
+
+    margin-right: auto;
+    margin-left: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#searcher {
+    display: grid;
+    grid-template-columns: 5fr 1fr;
+
+    height: 40px;
+}
+
+#submit {
+    background-color: aquamarine;
+    
+    height: 100%;
+
+    margin: 0;
+}
+
+#elements-list {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    margin-top: 10px;
+}
+
+#clear-items {
+    color: red;
+}
+
+.button:hover {
+    cursor: pointer
+}
