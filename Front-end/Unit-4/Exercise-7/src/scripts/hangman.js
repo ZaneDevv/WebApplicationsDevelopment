@@ -225,7 +225,6 @@ const pickRandomWord = () => WORDS[Math.floor(Math.random() * WORDS.length)];
 
 const hasDied = () => lifes <= 0;
 
-
 const updateLifes = () => lifeAmount.textContent = lifes;
 
 function generateLetters()
