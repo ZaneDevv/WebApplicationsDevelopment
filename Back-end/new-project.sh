@@ -76,10 +76,16 @@ class ErrorController
 
     public static function show_error404() : void
     {
-        (new Pages())->render('error/error404.php');
+        (new Pages())->render('error/error404');
     }
 }
 PHP
+
+cat > "$RUTA/public/index.php" <<'index'
+<?php
+
+require_once dirname(__DIR__) . '/src/bootstrap.php';
+index
 
 cat > "$RUTA/src/bootstrap.php" <<'BOOTSTRAP'
 <?php
@@ -89,6 +95,9 @@ declare(strict_types = 1);
 // ----------------------------------------------------------
 // SET CODE UP
 // ----------------------------------------------------------
+
+define('BASE_PATH', __DIR__ . '/../');
+
 
 require_once BASE_PATH . '/autoloader.php';
 require_once BASE_PATH . '/config/config.php';
