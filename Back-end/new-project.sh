@@ -62,6 +62,8 @@ cat > "$RUTA/src/Controllers/ErrorController.php" <<'PHP'
 
 namespace Controllers;
 
+use Core\Pages;
+
 // ----------------------------------------------------------
 // CLASSES
 // ----------------------------------------------------------
@@ -72,9 +74,9 @@ class ErrorController
     // METHODS
     // ----------------------------------------------------------
 
-    public static function show_error404() : string
+    public static function show_error404() : void
     {
-        return 'Error 404: Data not found!';
+        (new Pages())->render('error/error404.php');
     }
 }
 PHP
@@ -169,7 +171,7 @@ class Router
 
         // Ninguna ruta coincide: error 404
         http_response_code(404);
-        echo ErrorController::show_error404();
+        ErrorController::show_error404();
     }
 
     /**
@@ -286,6 +288,11 @@ class Pages
     }
 }
 PAGES
+
+# --- error404.php
+cat > "$RUTA/Views/error/error404.php" <<'error404'
+<h2>Error 404: Data not found!</h2>
+error404
 
 # --- .htaccess en public/ con mod_rewrite ya activo (front controller) ---
 cat > "$RUTA/public/.htaccess" <<'HTACCESS'

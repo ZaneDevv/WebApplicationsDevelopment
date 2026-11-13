@@ -68,7 +68,7 @@ class Router
 
         // Ninguna ruta coincide: error 404
         http_response_code(404);
-        echo ErrorController::show_error404();
+        ErrorController::show_error404();
     }
 
     /**
