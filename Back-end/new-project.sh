@@ -20,7 +20,7 @@ fi
 mkdir -p "$RUTA/public/assets"
 mkdir -p "$RUTA/src/Controllers"
 mkdir -p "$RUTA/src/Models"
-mkdir -p "$RUTA/src/Lib"
+mkdir -p "$RUTA/src/Core"
 mkdir -p "$RUTA/tests"
 mkdir -p "$RUTA/config"
 mkdir -p "$RUTA/Views/error"
@@ -30,7 +30,6 @@ mkdir -p "$RUTA/Views/Layout"
 cat > "$RUTA/config/config.php" << 'PHP'
 <?php
 
-define('BASE_URL', '/../');
 PHP
 
 # --- routes.php --
@@ -63,6 +62,8 @@ cat > "$RUTA/src/Controllers/ErrorController.php" <<'PHP'
 
 namespace Controllers;
 
+use Core\Pages;
+
 // ----------------------------------------------------------
 // CLASSES
 // ----------------------------------------------------------
@@ -73,9 +74,9 @@ class ErrorController
     // METHODS
     // ----------------------------------------------------------
 
-    public static function show_error404() : string
+    public static function show_error404() : void
     {
-        return 'Error 404: Data not found!';
+        (new Pages())->render('error/error404.php');
     }
 }
 PHP
@@ -99,7 +100,7 @@ Router::dispatch();
 BOOTSTRAP
 
 # -- Router.php ---
-cat > "$RUTA/src/Lib/Router.php" <<'ROUTER'
+cat > "$RUTA/src/Core/Router.php" <<'ROUTER'
 <?php
 
 namespace Core;
@@ -170,7 +171,7 @@ class Router
 
         // Ninguna ruta coincide: error 404
         http_response_code(404);
-        echo ErrorController::show_error404();
+        ErrorController::show_error404();
     }
 
     /**
@@ -226,12 +227,12 @@ class Router
 ROUTER
 
 # --- Pages.php ---
-cat > "$RUTA/src/Lib/Pages.php" <<'PAGES'
+cat > "$RUTA/src/Core/Pages.php" <<'PAGES'
 <?php
 
 declare(strict_types = 1);
 
-namespace Lib;
+namespace Core;
 
 // ----------------------------------------------------------
 // CLASSES
@@ -287,6 +288,11 @@ class Pages
     }
 }
 PAGES
+
+# --- error404.php
+cat > "$RUTA/Views/error/error404.php" <<'error404'
+<h2>Error 404: Data not found!</h2>
+error404
 
 # --- .htaccess en public/ con mod_rewrite ya activo (front controller) ---
 cat > "$RUTA/public/.htaccess" <<'HTACCESS'
