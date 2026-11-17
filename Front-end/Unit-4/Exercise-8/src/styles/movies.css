@@ -1,0 +1,29 @@
+* {
+    padding: 0;
+    margin: 0;
+
+    box-sizing: border-box;
+}
+
+#movies {
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+#load-more {
+    width: 70%;
+    max-width: 100px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    display: block;
+
+    padding: 1rem;
+    margin-bottom: 10px;
+}
