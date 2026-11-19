@@ -68,7 +68,7 @@ class Deck
      */
     public function takeCardOutOfDeck() : Card
     {
-        return array_pop($this->cards);
+        return array_shift($this->cards);
     }
 
     /**

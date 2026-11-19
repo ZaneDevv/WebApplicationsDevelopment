@@ -1,0 +1,31 @@
+{
+    "brand": "Lamborghini",
+    "foundationYear": 1948,
+    "national": false,
+    "prototypes": [
+        "350 GTV",
+        "3500 GTZ (Zagato), 350 GTS",
+        "Marzal",
+        "Bravo",
+        "BMW M1 (E26)",
+        "Cheetah",
+        "Faena",
+        "Athon",
+        "Marco Polo",
+        "LM001",
+        "LMA002",
+        "LM003",
+        "LM004",
+        "Portofino (producido por Chrysler)",
+        "Bertone Genesis",
+        "Zagato Raptor",
+        "Calà",
+        "Miura Concept",
+        "Estoque",
+        "Sesto Elemento",
+        "Egoista",
+        "Asterion",
+        "Terzo Millennio",
+        "Lanzador"
+    ]
+}

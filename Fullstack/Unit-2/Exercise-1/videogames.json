@@ -1,0 +1,29 @@
+{
+    "title": "GTA VI",
+    "releaseYear": 2026,
+    "released": false,
+    "platforms": [
+        "android",
+        "Dreamcast",
+        "Fire OS",
+        "Game Boy Advance",
+        "Game Boy Color",
+        "iOS",
+        "macOS",
+        "MS-DOS",
+        "Nintendo DS",
+        "Nintendo Switch",
+        "PlayStation",
+        "PlayStation 2",
+        "PlayStation 3",
+        "PlayStation 4",
+        "PlayStation 5",
+        "PlayStation Portable",
+        "Windows",
+        "Windows Phone",
+        "Xbox",
+        "Xbox 360",
+        "Xbox One",
+        "Xbox Series X/S"
+    ]
+}

@@ -1,0 +1,35 @@
+#bar {
+    max-width: 500px;
+    width: 90%;
+    height: 5px;
+
+    background-color: black;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+#progress {
+    background-color: greenyellow;
+
+    height: 100%;
+    width: 0;
+
+    border-radius: 10px;
+}
+
+#run-button {
+    padding: 1em;
+    margin-top: 10px;
+
+    font-size: 1.2em;
+    font-weight: bolder;
+
+    border: 0;
+    border-radius: 15px;
+
+    box-shadow: 1px 1px 3px 1px black;
+}

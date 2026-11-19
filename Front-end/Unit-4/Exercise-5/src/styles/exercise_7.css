@@ -1,0 +1,27 @@
+#slots-container {
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+    margin-top: 50px;
+}
+
+.slot {
+    width: 100px;
+    height: 100px;
+
+    background-color: coral;
+}
+
+#circle {
+    width: 100px;
+    height: 100px;
+
+    background-color: red;
+
+    position: absolute;
+
+    border-radius: 50%;
+}

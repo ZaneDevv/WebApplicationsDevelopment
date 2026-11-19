@@ -17,17 +17,133 @@ if [ -d "$RUTA" ]; then
 fi
 
 # --- Estructura de carpetas (separando lo público de lo privado) ---
-mkdir -p "$RUTA/public"
-mkdir -p "$RUTA/src"
+mkdir -p "$RUTA/public/assets"
+mkdir -p "$RUTA/src/Controllers"
+mkdir -p "$RUTA/src/Models"
+mkdir -p "$RUTA/src/Lib"
 mkdir -p "$RUTA/tests"
+mkdir -p "$RUTA/config"
+mkdir -p "$RUTA/Views/error"
+mkdir -p "$RUTA/Views/Layout"
+
+# --- config.php --
+cat > "$RUTA/config/config.php" << 'PHP'
+<?php
+
+
+PHP
+
+# --- autoloader.php ---
+cat > "$RUTA/autoloader.php" <<'PHP'
+<?php
+
+spl_autoload_register(function (string $class): void
+{
+    $file = __DIR__ . '/src/' . str_replace('\\', '/', $class) . '.php';
+
+    if (is_file($file))
+        require_once $file;
+});
+PHP
+
+# --- FrontController.php ---
+cat > "$RUTA/src/Controllers/FrontController.php" <<'PHP'
+<?php
+
+declare(strict_types = 1);
+
+namespace Controllers;
+
+// ----------------------------------------------------------
+// CLASSES
+// ----------------------------------------------------------
+
+class FrontController
+{
+    public static function main() : void
+    {
+    } 
+}
+PHP
 
 # --- index.php de entrada en public/ ---
-cat > "$RUTA/public/index.php" <<PHP
+cat > "$RUTA/public/index.php" <<'PHP'
 <?php
-require_once __DIR__ . '/../vendor/autoload.php';
-echo '<h1>Proyecto: $NOMBRE</h1>';
-echo '<p>PHP ' . phpversion() . '</p>';
+
+declare(strict_types = 1);
+
+// ----------------------------------------------------------
+// SET CODE UP
+// ----------------------------------------------------------
+
+require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../autoloader.php';
+
+Controllers\FrontController::main();
 PHP
+
+# --- Pages.php ---
+cat > "$RUTA/src/Lib/Pages.php" <<'PAGES'
+<?php
+
+declare(strict_types = 1);
+
+namespace Lib;
+
+// ----------------------------------------------------------
+// CLASSES
+// ----------------------------------------------------------
+
+class Pages
+{
+    // ----------------------------------------------------------
+    // CONSTANTS
+    // ----------------------------------------------------------
+
+    private const string VIEWS_DIR = __DIR__ . '../../../Views/';
+
+    // ----------------------------------------------------------
+    // METHODS
+    // ----------------------------------------------------------
+
+    /**
+     * Renders the header on screen
+     * @author Álvaro Fernández Barrero
+     */
+    public function renderHeader()
+    {
+        require self::VIEWS_DIR . 'Layout/header.php';
+    }
+
+    /**
+     * Renders the footer on screen
+     * @author Álvaro Fernández Barrero
+     */
+    public function renderFooter()
+    {
+        require self::VIEWS_DIR . 'Layout/footer.php';
+    }
+    
+    /**
+     * Renders the page with the given page content
+     *
+     * @param string $pageName Page content's name
+     * @param ?array $params Parameters for the rendering
+     * 
+     * @author Álvaro Fernández Barrero
+     */
+    public function render(string $pageName, ?array $params = null) : void
+    {
+        if ($params !== null)
+        {
+            foreach ($params as $name => $value)
+                $$name = $value;
+        }
+
+        require self::VIEWS_DIR . $pageName . '.php';
+    }
+}
+PAGES
 
 # --- .htaccess en public/ con mod_rewrite ya activo (front controller) ---
 cat > "$RUTA/public/.htaccess" <<'HTACCESS'

@@ -1,0 +1,29 @@
+#numbers {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.number-button {
+    border: 0;
+    border-radius: 10px;
+
+    background-color: green;
+    color: white;
+
+    box-shadow: 2px 2px 1px 1px black;
+    text-shadow: 2px 2px 1px black;
+
+    width: 50px;
+    height: 50px;
+
+    font-size: 1.5em;
+    font-weight: bolder;
+}
+
+#number-selected {
+    font-weight: bolder;
+    color: red;
+}
