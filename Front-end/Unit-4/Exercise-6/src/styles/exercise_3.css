@@ -1,0 +1,46 @@
+div {
+    max-width: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+
+}
+
+body, html {
+    background-color: rgb(229, 69, 54);
+}
+
+input {
+    background-color: transparent;
+    border: 0;
+}
+
+div, input, input::placeholder {
+    color: #ecd043;
+}
+
+input[type="text"] {
+    text-align: center;
+    font-size: 2em;
+
+    border-bottom: 3px solid #ecd04397;
+}
+
+input[type="submit"] {
+    background-color: #ecd04397;
+    color: rgb(229, 69, 54);
+
+    font-size: 1.2em;
+
+    border-radius: 10px;
+    padding: 0.5em;
+}
+
+input[type="submit"]:hover {
+    cursor: pointer
+}

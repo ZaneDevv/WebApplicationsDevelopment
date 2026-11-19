@@ -9,4 +9,6 @@ If we access to the web page again, we will see a new register with its user age
 
 ![Checking logs 2](./images/check2.png)
 
+We can also see if a user attempted to access to a non-existent page:
 
+![](./images/check3.png)
