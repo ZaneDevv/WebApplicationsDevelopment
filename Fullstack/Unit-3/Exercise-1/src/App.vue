@@ -1,11 +1,31 @@
-<script setup></script>
+<script>
+    import { ref } from 'vue';
+
+    export default
+    {
+        setup()
+        {
+            const input = ref("");
+            const names = ref([]);
+
+            const addList = () =>
+            {
+                names.value.push(input.value);
+                input.value = "";
+            }
+
+            return {input, names, addList};
+        }
+    }
+</script>
 
 <template>
-  <h1>You did it!</h1>
-  <p>
-    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
-    documentation
-  </p>
+    <input v-model="input" type="text">
+    <button @click="addList()">Add</button>
+
+    <ul>
+        <li v-for="name of names">{{ name }}</li>
+    </ul>
 </template>
 
 <style scoped></style>
