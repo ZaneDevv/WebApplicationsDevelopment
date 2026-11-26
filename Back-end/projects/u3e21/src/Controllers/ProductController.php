@@ -44,8 +44,8 @@ class ProductController
 
         $name = strtoupper(strip_tags(trim($product['name'])));
 
-        $products_amount = (int)($_SESSION[$product['name']] ?? 0);
-        $_SESSION[$product['name']] = $products_amount + (int)$product['amount'];
+        $products_amount = (int)($_SESSION[$name] ?? 0);
+        $_SESSION[$name] = $products_amount + (int)$product['amount'];
 
         $this->pages->render('store/shopping_cart', ['products' => $_SESSION]);
     }

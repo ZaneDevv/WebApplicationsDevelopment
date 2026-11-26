@@ -8,7 +8,7 @@
         <tbody>
             <?php foreach ($products as $name => $amount): ?>
                 <tr>
-                    <td><?= htmlspecialchars($name) ?></td>
+                    <td><?= htmlspecialchars(ucfirst($name)) ?></td>
                     <td><?= htmlspecialchars($amount) ?></td>
                 </tr>
             <?php endforeach ?>
