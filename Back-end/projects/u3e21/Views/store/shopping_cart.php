@@ -8,8 +8,8 @@
         <tbody>
             <?php foreach ($products as $name => $amount): ?>
                 <tr>
-                    <td><?= $name ?></td>
-                    <td><?= $amount ?></td>
+                    <td><?= htmlspecialchars($name) ?></td>
+                    <td><?= htmlspecialchars($amount) ?></td>
                 </tr>
             <?php endforeach ?>
         </tbody>

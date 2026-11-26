@@ -42,6 +42,8 @@ class ProductController
             exit;
         }
 
+        $name = strtoupper(strip_tags(trim($product['name'])));
+
         $products_amount = (int)($_SESSION[$product['name']] ?? 0);
         $_SESSION[$product['name']] = $products_amount + (int)$product['amount'];
 
