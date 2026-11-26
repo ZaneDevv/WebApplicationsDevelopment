@@ -21,4 +21,10 @@ And, to check if the installation succeed and we already have the service on our
 nginx -v
 ```
 
+Now we run the following command to see the ports 
 
+```sh
+sudo ss -tlpn | grep -E '80|:8080'
+```
+
+![Checking ports](./images/port.png)
