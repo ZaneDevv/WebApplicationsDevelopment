@@ -12,11 +12,13 @@ A reverse proxy is an intermediary server that sits between clients (like web br
 To install nginx, we simply must run the command:
 
 ```sh
-sudo apt install nginx -y```
+sudo apt install nginx -y
+```
 
 And, to check if the installation succeed and we already have the service on our device:
 
 ```sh
-nginx -v```
+nginx -v
+```
 
 
