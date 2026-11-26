@@ -5,7 +5,7 @@ In order to deploy the given web page, the simplest first way to have it in seve
 
 ![Uploading page to git](./images/upload_to_git.png)
 
-We would require to have indeed a repository previously created on GitHub.
+We would require to have indeed a repository previously created on GitHub. In my case, you can find it here: https://github.com/ZaneDevv/Tienda
 
 As this repository contains the files the the page needs, we can clone this repository in a different device.
 
